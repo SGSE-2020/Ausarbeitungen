@@ -34,7 +34,21 @@ Komplexität, was es schwieriger macht den Code nachvollziehen zu können.
 Das Open Closed Principle, OCP, verlangt, das Klassen offen für Erweiterungen sind, aber geschlossen gegenüber Modifikation.
 Durch dieses Prinzip soll gewährleistet werden, dass funktionierende Funktionalitäten nicht durch hinzufügen neuer 
 Funktionalitäten beschädigt werden.  
-`Test`
+Das folgende Beispiel zeigt, wie das Open-Closed Prinzip angewendet werden kann:
+  
+    public double Preis() {
+        const decimal StammkundenRabatt = 0.95m;`  
+        switch(kundenart) {  
+            case Kundenart.Einmalkunde:  
+                return menge * einzelpreis;  
+            case Kundenart.Stammkunde:  
+                return menge * einzelpreis * StammkundenRabatt;  
+            default:  
+                throw new ArgumentOutOfRangeException();  
+        }  
+    }
+    
+    
 
 ### Liskov Substitution Principle
 
