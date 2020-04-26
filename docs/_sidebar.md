@@ -1,3 +1,3 @@
 * [Home](/)
 * [Test](test.md)
-* [Software Qualität](./SoftwareQuality)
+* [Software Qualität](./SoftwareQuality/SoftwareQuality.md)
