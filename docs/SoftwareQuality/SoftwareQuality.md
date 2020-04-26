@@ -57,7 +57,7 @@ Technische Schulden sorgen, wenn sie nicht abbezahlt werden, dafür das Modifizi
 
 Der Graph unten zeigt wie sich Schulden mit der Zeit vermehren, wenn sie nicht abgezahlt werden (rot), Ziel sollte es sein, seine Schulden regelmäßig abzubezahlen (grün).  
 
- ![Verlauf von technischen Schulden](./img/schuldenverlauf.png)
+ ![Verlauf von technischen Schulden](./img/schuldenverlauf.PNG)
 
 ### Wie enstehen technische Schulden
 
@@ -70,7 +70,7 @@ Unter Zeitdruck entstehen viele Fehler und oft werden Probleme "quick and dirty"
 Aber auch das Arbeiten mit, für das Team, unbekannten Technologien, Architekturen etc. führen zu technischen Schulden, welche sich kaum vermeiden lassen.
 Unverständliche, unrealistische oder sich ständig ändernde Anforderungen können auch Ursache für technische Schulden sein. Folgende Abbildung zeigt einige Ursachen für technische Schulden.
 
- ![Cause of Technical Debt ](./img/ursachen.png)
+ ![Cause of Technical Debt ](./img/ursachen.PNG)
 
 ### Bewusste Schulden
 
