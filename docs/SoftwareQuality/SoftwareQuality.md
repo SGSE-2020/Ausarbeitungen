@@ -4,7 +4,7 @@ André Matutat
 
 ## Motivation
 
-Die Konzeptionierung und Entwicklung von Software ist ein komplexes Unterfangen bei denen eine Vielzahl an unterschiedlichen Faktoren und Steakholder Einfluss nehmen. Oft wird Software über Jahre hinweg eingesetzt und erweitert. Um sowohl die Kosten der Wartung und Entwicklung niedrig zu halten als auch die Performance und Stabilität der Software zu gewährleisten, ist es besonders wichtig auf eine hohe Softwarequalität zu achten. 
+Die Konzeptionierung und Entwicklung von Software ist ein komplexes Unterfangen bei denen eine Vielzahl an unterschiedlichen Faktoren und Stakeholder Einfluss nehmen. Oft wird Software über Jahre hinweg eingesetzt und erweitert. Um sowohl die Kosten der Wartung und Entwicklung niedrig zu halten als auch die Performance und Stabilität der Software zu gewährleisten, ist es besonders wichtig auf eine hohe Softwarequalität zu achten. 
 
 ## Was ist Softwarequalität
 
@@ -38,9 +38,11 @@ Die ISO 25010 definiert acht verschiedene Faktoren, die für das Erreichen quali
 ## Technische Schulden
 
 Leider ist es, trotz großer Bemühungen, nicht immer Möglich zu jeder Zeit auf qualitative Softwareentwicklung zu achten bzw. es können auch unwissentlich Entscheidungen getroffen werden, welche zu einer schlechteren Softwarequalität führen.
-Der Begriff **technische Schulden** beschreibt die Konsequenzen die aufgrund von schlechter, technischer, Umsetzung innerhalb von Softwareprojekten entstehen. Der Begriff technische Schulden ist von Begriffen wie *Anti-Pattern* oder *Code Smells* abzugrenzen, da diese, im Gegensatz zu technische Schulden, eine Konsequenz aus Faulheit und Unprofessionalität des Entwicklers sind.
+Der Begriff **technische Schulden** beschreibt die Konsequenzen die aufgrund von schlechter, technischer, Umsetzung innerhalb von Softwareprojekten entstehen. Ebenso wie wirtschaftliche Schulden müssen auch technische Schulden zurückgezahlt werden. 
 
-Man kann Schulden grob in folgende Kategorien aufteilen
+Der Begriff technische Schulden ist von Begriffen wie *Anti-Pattern* oder *Code Smells* abzugrenzen, da diese, im Gegensatz zu technische Schulden, eine Konsequenz aus Faulheit und Unprofessionalität des Entwicklers sind.
+
+Man kann technische Schulden grob in folgende Kategorien aufteilen
 
 - Implementationsschulden	
   - entstehen durch schlecht umgesetzten Code (siehe auch Vortrag "Clean Code") 
@@ -51,19 +53,15 @@ Man kann Schulden grob in folgende Kategorien aufteilen
 - Dokumentationsschulden
   - entstehen, wenn die Dokumentationen nicht gepflegt werden oder gar nicht erst angefertigt werden. 
 
-### Folgen von technischen Schulden
+### Taxonomie
 
-Technische Schulden sorgen, wenn sie nicht abbezahlt werden, dafür das Modifizierungen an Software nur langsam und kostspielig umgesetzt werden können. Auch gibt es sowas wie den "Zinses Zins" Effekt: je länger technische Schulden bestehen, desto höher steigt die Anzahl der Schulden, wenn neue Features oder Bugfixes in die Software implementiert werden. Auf Dauer führen technische Schulden zu Softwareerosion bis hin zu kompletten Ausfall von Software und vollständiger Unwirtschaftlichkeit.
-
-Der Graph unten zeigt wie sich Schulden mit der Zeit vermehren, wenn sie nicht abgezahlt werden (rot), Ziel sollte es sein, seine Schulden regelmäßig abzubezahlen (grün).  
-
- ![Verlauf von technischen Schulden](./img/schuldenverlauf.png)
+### Conceptual Model of Technical Debt
 
 ### Wie enstehen technische Schulden
 
 Für die Entstehung von technischen Schulden gibt es eine Vielzahl von Ursachen und nicht immer liegt die Schuld bei den Softwareentwicklern selbst. Oft spielen Finanzziele oder zeitliche Vorgaben von "oben" eine große Rolle in der Softwareentwicklung. Die Software soll möglichst schnell und möglichst günstig ausgeliefert werden. 
 
-Unter Zeitdruck entstehen viele Fehler und oft werden Probleme "quick and dirty" gelöst. So werden eine menge technischer Schulden aufgenommen welche eigentlich später abbezahlt werden müssten, doch meist müssen dann schon neue Features Implementiert oder Fehler beseitigt werden, durch die eh schon hohen Schulden sinkt die Produktivität und es entsteht erneut Zeitdruck. Ein Teufelskreis.
+Unter Zeitdruck entstehen viele Fehler und oft werden Probleme *quick and dirty* gelöst. So werden eine menge technischer Schulden aufgenommen welche eigentlich später abbezahlt werden müssten, doch meist müssen dann schon neue Features Implementiert oder Fehler beseitigt werden, durch die eh schon hohen Schulden sinkt die Produktivität und es entsteht erneut Zeitdruck. Ein Teufelskreis.
 
 ![Kreislauf von Schulden](./img/kreislauf.png)
 
@@ -71,6 +69,17 @@ Aber auch das Arbeiten mit, für das Team, unbekannten Technologien, Architektur
 Unverständliche, unrealistische oder sich ständig ändernde Anforderungen können auch Ursache für technische Schulden sein. Folgende Abbildung zeigt einige Ursachen für technische Schulden.
 
  ![Cause of Technical Debt ](./img/ursachen.png)
+
+
+### Folgen von technischen Schulden
+- **Schulden ökonomisch quantifizieren (mit beispiel)**
+- **genauer die Konsequenzen erläutern** 
+
+Technische Schulden sorgen, wenn sie nicht abbezahlt werden, dafür das Modifizierungen an Software nur langsam und kostspielig umgesetzt werden können. Auch gibt es sowas wie den "Zinses Zins" Effekt: je länger technische Schulden bestehen, desto höher steigt die Anzahl der Schulden, wenn neue Features oder Bugfixes in die Software implementiert werden. Auf Dauer führen technische Schulden zu Softwareerosion bis hin zu kompletten Ausfall von Software und vollständiger Unwirtschaftlichkeit.
+
+Der Graph unten zeigt wie sich Schulden mit der Zeit vermehren, wenn sie nicht abgezahlt werden (rot), Ziel sollte es sein, seine Schulden regelmäßig abzubezahlen (grün).  
+
+ ![Verlauf von technischen Schulden](./img/schuldenverlauf.png)
 
 ### Bewusste Schulden
 
@@ -93,7 +102,27 @@ Vor allem, wenn das Entwicklerteam mit neuen Technologien arbeiten muss/soll ode
 
 Manchmal kann das Beheben eines Fehlers zu technischen Schulden führen. Es könnte eventuell sinnvoll sein einen Fehler, und somit Schulden, bewusst in kauf zunehmen, um weitere Schulden zu vermeiden. Dabei ist natürlich zu beachten um was für eine Art von Fehler es sich handelt, wie oft er auftritt, wie "gefährlich" erst ist und wie komplex die Behebung der Lösung wäre.  
 
-### Schulden erkennen
+### Schulden vermeiden 
+- **Praktik Review genauer erklären und durcharbeiten**
+
+Schulden lassen sich durch unterschiedliche Methoden vermeiden. 
+
+- Der Quellcode sollte Regelmäßig refactored werden
+- Dokumente sollten immer auf den neusten Stand gebracht werden
+- Code sollte gereviewed werden bevor er deploit wird. 
+- Paar Programming hilft dabei sauberen und Fehlerfreien Code zu schreiben
+- Es sollte Richtlinien zum Coden geben (Namen etc.) und eingehalten werden
+-  Bewusst aufgenommene Schulden sollten verstanden und dokumentiert werden
+- Es sollte einige ausreichende Testabdeckung geben (Stichwort Test Driven Development)
+  - Sollten im Laufe des Softwarezyklus Fehler gefunden werden, diese beheben und Tests anfertigen.
+
+
+### Schulden abbezahlen
+- **expliziete Handlungsempfehlungen für Informatiker und nicht Informatiker geben.**
+- **Tool beispiel geben**
+
+
+#### Schulden erkennen
 
 Technische Schulden zu erkennen ist gar nicht mal so einfach. Einzelne Indizien, wie die Testabdeckung lassen sich zwar recht gut erahnen, Bad-Smells oder verwaschene Architekturmuster lassen sich hingegen nur schwer erkennen. Indizien für schlecht Designte Software sind unter anderen niedrige Kohäsion innerhalb von Modulen oder hohe Kopplungen zwischen Modulen oder Module/Klassen die den Großteil des Codes beinhalten.
 
@@ -101,12 +130,13 @@ Schulden zu finden und zu beseitigen kann sehr zeitaufwendig und Kostspielig wer
 
 Es gibt einige kostenfreie Tools, die dabei helfen können, eine grobe Analyse der Codebase durchzuführen um zu große Klassen oder verschwommene Architekturmuster zu erkennen.  
 
+
 - [Sonarqube](<https://www.sonarqube.org/>) 
 - [Jdepend](<https://github.com/clarkware/jdepend>)
 - [Ndepend](<https://www.ndepend.com/>)
 - [Cdepend](<http://billauer.co.il/cdepend.html>)
 
-### Kategorisieren und Entscheiden
+#### Kategorisieren und Entscheiden
 
 Es gibt verschiedene Herangehensweisen an technische Schulden. Man kann sie ignorieren (nicht empfohlen), versuchen alle Schulden zu beseitigen (aufwändig, teuer, Kampf gegen Windmühlen) oder Schulden identifizieren, bewerten und dann entscheiden, ob sie behalten werden oder abbezahlt werden.
 
@@ -124,24 +154,16 @@ Bewertet man seine Schulden mit diesem Schema ergeben sich einige Entscheidungsm
 
 Clark gibt auch ein Beispiel, indem er sich die Verbreitungsgefahr zum Vorteil nimmt. Das Team von Riot Games hat eine eigene Implementation der String Klasse von C++ entwickelt, welche deutlich Speicher sparender ist und zusätzlich einfacher zu verwenden ist. Durch "Copy-and-paste" soll sich die eigens Entwickelte Implementation langsam über das gesamte Projekt verteilen.  
 
-## Wie lassen sich technische Schulden managen?
+#### Schulden beseitigen
 
-Schulden lassen sich durch unterschiedliche Methoden vermeiden und abbauen. 
 
-- Der Quellcode sollte Regelmäßig refactored werden
-- Dokumente sollten immer auf den neusten Stand gebracht werden
-- Code sollte gereviewed werden bevor er deploit wird. 
-- Paar Programming hilft dabei sauberen und Fehlerfreien Code zu schreiben
-- Es sollte Richtlinien zum Coden geben (Namen etc.) und eingehalten werden
--  Bewusst aufgenommene Schulden sollten verstanden und dokumentiert werden
-- Es sollte einige ausreichende Testabdeckung geben (Stichwort Test Driven Development)
-  - Sollten im Laufe des Softwarezyklus Fehler gefunden werden, diese beheben und Tests anfertigen.
+### Schulden Konzeptionell Managen
+- **wie können Handlungsempehlungen forciert werden**
+- 
 
-So lassen sich bereits viele Schulden im Vorfeld verhindern.  
+### "Nicht-Informatiker" überzeugen
 
-## "Nicht-Informatiker" überzeugen
-
-Um technische Schulden managen zu können, wird Zeit benötigt. In der Wirtschaft bedeutet Zeit aber auch Geld, und viele Steakholder ohne technischen Hintergrund fehlt das Verständnis für die Bedeutung von hoher Softwarequalität, daher ist es wichtig die entscheidenden Personen überzeugen zu können.
+Um technische Schulden managen zu können, wird Zeit benötigt. In der Wirtschaft bedeutet Zeit aber auch Geld, und viele Stakeholder ohne technischen Hintergrund fehlt das Verständnis für die Bedeutung von hoher Softwarequalität, daher ist es wichtig die entscheidenden Personen überzeugen zu können.
 
 Der Begriff *Schulden* ist in der Wirtschaft kein unbekannte und der Begriff *technische Schulden* wurde gezielt gewählt um die Kommunikation zwischen Informatiker und Manager zu erleichtern. Die meisten werden Verstehen, dass es Teilweise nötig ist Schulden aufzunehmen um dann eine verbesserte Produktion fahren zu können, ähnlich wie die Anschaffung einer neuen Maschine.
 
@@ -150,7 +172,7 @@ Es hilft Beispielrechnungen vorzubringen das Zeigen, dass das jetzige Handeln de
 Es kann auch Hilfreich sein den Begriff "Schulden" gegen "Verschleiß" auszutauschen, da es so schwieriger ist den Entwickler vorzuwerfen etwas falsch gemacht zu haben, da verschleiß in der Industrie etwas vollkommen normales und verständliches ist an den niemand Schuld hat.  
 
 
-## TlDr
+## Tldr
 
 Ziel jedes Softwareprojektes sollte es sein, ein möglichst Qualitativ hochwertiges Produkt anzufertigen. Dazu sollten die Faktoren Funktionalität, Effizienz, Wartbarkeit, Benutzerfreundlichkeit, Übertragbarkeit, Sicherheit, Zuverlässigkeit und Kompatibilität beachtet werden. Durch die teilweise hohe Anforderungen, komplexe Projekte oder unerfahrene Entwickler werden im Laufe des Entwicklungsprozesses technische Schulden aufgenommen. Wichtig ist technische Schulden zu erkennen, zu bewerten und entsprechende Handlungen in die Wege zuleiten. Manchmal kann es Sinnvoll sein, kurzfristig Schulden aufzunehmen und diese später abzuzahlen um größere Schulden zu vermeiden. Schulden sollten immer bewusst und umsichtig gemacht werden. Technische Schulden im Nachhinein zu erkennen und zu beheben kann Zeit- und kostspielig sein.
 
