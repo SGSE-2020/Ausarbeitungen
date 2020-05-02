@@ -2,6 +2,19 @@
 
 André Matutat
 
+**WORK IN PROGRESS**
+
+ToDos
+
+- Struktur anpassen
+- Formulierung schleifen
+- CMoTD
+- Schulden Managen (stichpunkte ausformulieren)
+- Schulden ökonomisch bewerten (stichpunkte ausformulieren, beispiele optimieren)
+- SonarQube Anwenden für Beispiele (evtl nur im Vortrag)
+- Ergebnisse aufbereiten: An empirical assessment of technical debt practices in industry
+- Tldr anpassen
+
 ## Motivation
 
 Die Konzeptionierung und Entwicklung von Software ist ein komplexes Unterfangen bei denen eine Vielzahl an unterschiedlichen Faktoren und Stakeholder Einfluss nehmen. Oft wird Software über Jahre hinweg eingesetzt und erweitert. Um sowohl die Kosten der Wartung und Entwicklung niedrig zu halten als auch die Performance und Stabilität der Software zu gewährleisten, ist es besonders wichtig auf eine hohe Softwarequalität zu achten. 
@@ -9,10 +22,10 @@ Die Konzeptionierung und Entwicklung von Software ist ein komplexes Unterfangen 
 ## Was ist Softwarequalität
 
 Der Begriff Softwarequalität wird meist wie folgt definiert:
-```
->>Software-Qualität ist die Gesamtheit der Merkmale und Merkmalswerte eines Softwareprodukts, die sich auf dessen Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen.<< 
+
+>Software-Qualität ist die Gesamtheit der Merkmale und Merkmalswerte eines Softwareprodukts, die sich auf dessen Eignung beziehen, festgelegte oder vorausgesetzte Erfordernisse zu erfüllen. 
 glossar.hs-augsburg.de
-```
+
 ### ISO 25010 
 
 Die ISO 25010 definiert acht verschiedene Faktoren, die für das Erreichen qualitativer Software nötig sind.
@@ -100,7 +113,7 @@ Technische Schulden lassen sich bei bedarf auch detaillierter Klassifizieren. Fo
 | Organizational               | Categories of technical debt related to the organization |
 | Data                         | Refers to technical debt associated with poor quality data |
 | Infrastructure               | Refers to delaying an upgrade or infrastructure fix |
-| People                       | Refers to lack of skills, experience in technology, tools, and techniques to build better quality software.<br/>Also known as knowledge debt. |
+| People                       | Refers to lack of skills, experience in technology, tools, and techniques to build better quality software. Also known as knowledge debt. |
 | Skill                        | Refers to lacking knowledge of the right solution or tool and technology to build quality software |
 | Experience                   | Refers to lack of relevant experience required to achieve quality software |
 | Process                 | Refers to inefficient processes related to the code development<br/>And test environment |
@@ -170,30 +183,14 @@ Der Graph unten zeigt wie sich Schulden mit der Zeit vermehren, wenn sie nicht a
 
 ### Schulden sind Zeit und Geld
 
+**WEITER AUSFÜHREN**
+
 - in SCRUM können Entwickler gut schätzen wie viel kleiner ihr Backlog wird wenn bestimmte Schulden beseitigt sind, daraus lässt sich dann der wirtschafliche schaden ableiten
 - Der "Wert" von Schulden kann am besten in Aufwand (Stunden) angegeben werden, den die Schuld über den eigentlichen "normalen" entwicklungs Aufwand zusätzlich beansprucht
 - Den Aufwand eine Schuld zu bereinigen kann oft ähnlich zur Berechnung von kosten neuer Features/Modifikationen
 
 Den wirtschaftlichen Schaden von technischen Schulden zu bestimmen ist sehr schwierig, über Schätzungen lassen sich Tendenzen ableiten. Hierbei kann man Ähnlich wie bei der Kostenabschätungen von Anforderungen vorgehen. Man Schätz also wie viel zusätzlicher Aufwand (Zeit) durch eine Schuld, z.B mangelhafte Testabdeckung, entsteht. 
 Es gibt auch weitere Ansätze die mehrere Faktoren in die Berechnung der Schätzung mit aufnehmen. Empfehlenswert ist [An Empirical Model of Technical Debt and Interest](https://www.researchgate.net/publication/228684782_An_Empirical_Model_of_Technical_Debt_and_Interest).
-
-
-
-### Conceptual Model of Technical Debt
-
-![Conceptual Model of Technical Debt](./img/cm.png)
-
-
-
-**NOCH SELBST ERKLÄREN**
-
-> *Technical debt* (highlighted words refer to elements in the conceptual model) is one of the many *concerns* associated with a software-intensive *system*. The technical debt associated with a system is composed of *technical debt items*. Technical debt items have *causes* and *consequences*. The causes of technical debt can be an action (or lack of action) that triggers the existence of that debt item, such as a *decision*, *schedule* pressure, lack of *process*, unavailability of a key person, lack of information about a technical feature, and so on.
-
-> The consequences of a technical debt item are many: it affects the *cost* and *value* of the system, directly or by negatively impacting the *schedule* or *quality* of the system. The *business goals* of the sponsoring organization developing or maintaining the software system are affected in several ways: through schedule delay, loss of quality in some system *features*, or difficulties in the *continuance* of system operations. *Symptoms* are a subset of the consequences that are directly observable or measurable.
-
-> A technical debt item is associated with one or more concrete, tangible *artifacts* of the software development process. These include primarily *code*, but also architecture, deployment/delivery infrastructure such as build scripts and test suites, and to a certain extent the documentation and known defects associated with the system.
-
-> A conceptual model like this one is a step forward in understanding quantification, what artifacts to look at, and what techniques are needed to analyze the consequences of debt. In a previous [blog post](https://insights.sei.cmu.edu/sei_blog/2016/06/got-technical-debt-track-technical-debt-to-improve-your-development-practices.html), we provided a list of properties to describe a *technical debt item* based on these concepts.
 
 
 
@@ -220,7 +217,51 @@ Vor allem, wenn das Entwicklerteam mit neuen Technologien arbeiten muss/soll ode
 
 Manchmal kann das Beheben eines Fehlers zu technischen Schulden führen. Es könnte eventuell sinnvoll sein einen Fehler, und somit Schulden, bewusst in kauf zunehmen, um weitere Schulden zu vermeiden. Dabei ist natürlich zu beachten um was für eine Art von Fehler es sich handelt, wie oft er auftritt, wie "gefährlich" erst ist und wie komplex die Behebung der Lösung wäre.  
 
-### Schulden vermeiden 
+
+
+### Conceptual Model of Technical Debt
+
+![Conceptual Model of Technical Debt](./img/cm.png)
+
+
+
+**NOCH SELBST ERKLÄREN**
+
+> *Technical debt* (highlighted words refer to elements in the conceptual model) is one of the many *concerns* associated with a software-intensive *system*. The technical debt associated with a system is composed of *technical debt items*. Technical debt items have *causes* and *consequences*. The causes of technical debt can be an action (or lack of action) that triggers the existence of that debt item, such as a *decision*, *schedule* pressure, lack of *process*, unavailability of a key person, lack of information about a technical feature, and so on.
+
+> The consequences of a technical debt item are many: it affects the *cost* and *value* of the system, directly or by negatively impacting the *schedule* or *quality* of the system. The *business goals* of the sponsoring organization developing or maintaining the software system are affected in several ways: through schedule delay, loss of quality in some system *features*, or difficulties in the *continuance* of system operations. *Symptoms* are a subset of the consequences that are directly observable or measurable.
+
+> A technical debt item is associated with one or more concrete, tangible *artifacts* of the software development process. These include primarily *code*, but also architecture, deployment/delivery infrastructure such as build scripts and test suites, and to a certain extent the documentation and known defects associated with the system.
+
+> A conceptual model like this one is a step forward in understanding quantification, what artifacts to look at, and what techniques are needed to analyze the consequences of debt. In a previous [blog post](https://insights.sei.cmu.edu/sei_blog/2016/06/got-technical-debt-track-technical-debt-to-improve-your-development-practices.html), we provided a list of properties to describe a *technical debt item* based on these concepts.
+
+
+
+### Schulden Managen
+
+#### "Nicht-Informatiker" überzeugen
+
+Um technische Schulden managen zu können, wird Zeit benötigt. In der Wirtschaft bedeutet Zeit aber auch Geld, und viele Stakeholder ohne technischen Hintergrund fehlt das Verständnis für die Bedeutung von hoher Softwarequalität, daher ist es wichtig die entscheidenden Personen überzeugen zu können.
+
+Der Begriff *Schulden* ist in der Wirtschaft kein unbekannte und der Begriff *technische Schulden* wurde gezielt gewählt um die Kommunikation zwischen Informatiker und Manager zu erleichtern. Die meisten werden Verstehen, dass es Teilweise nötig ist Schulden aufzunehmen um dann eine verbesserte Produktion fahren zu können, ähnlich wie die Anschaffung einer neuen Maschine.
+
+Es hilft Beispielrechnungen vorzubringen das Zeigen, dass das jetzige Handeln deutlich günstiger sein wird, als das späte Handeln. Sagt man einem Manager jetzt 10.000€ investieren oder später womöglich 50.000€, kann dieser selbst eine Entscheidung treffen.
+
+Es kann auch Hilfreich sein den Begriff "Schulden" gegen "Verschleiß" auszutauschen, da es so schwieriger ist den Entwickler vorzuwerfen etwas falsch gemacht zu haben, da verschleiß in der Industrie etwas vollkommen normales und verständliches ist an den niemand Schuld hat.  
+
+```
+*Manager*: I need feature X. How much time do you think it will take you?  
+*Developer*: 1 week (*1 day of thinking, 2 days coding and testing, 1 refactoring, 1 days extra testing*)  
+*Manager*: Hmm, it needs to go online in two days though, as big event X is in two days  
+*Developer*: OK, I’ll see what I can do (*I’ll cut down on the thinking and testing*)  
+*Manager*: OK (*I’m a great manager, I just managed to get something done in 2 days which normally takes a week*)  
+*Developer*: OK (*ugh, always the same, we just can’t write decent code here*)
+```
+
+
+
+#### Schulden vermeiden 
+
 
 - **Praktik Review genauer erklären und durcharbeiten**
 - **Überarbeiten**
@@ -236,20 +277,31 @@ Schulden lassen sich durch unterschiedliche Methoden vermeiden.
 - Es sollte einige ausreichende Testabdeckung geben (Stichwort Test Driven Development)
   - Sollten im Laufe des Softwarezyklus Fehler gefunden werden, diese beheben und Tests anfertigen.
 
-### Schulden abbezahlen
+##### How to Review
 
-- **expliziete Handlungsempfehlungen für Informatiker und nicht Informatiker geben.**
-- <https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/december/code-cleanup-using-agile-techniques-to-pay-back-technical-debt>
-- **Tool beispiel geben**
+- AD-Hoc Review vermeiden (Review durch spontate Kollegen gespräche Reviewn)
 
+  - sollte gemacht werden aber NICHT THE WAY TO GO sein
 
+- Review von Erfahren entwicklern machen lassen und dafür Zeit geben
 
-```
->>Kein System ist perfekt. Es gibt immer etwas zu optimieren. Das bedeutet, dass Teams praktisch unbegrenzt optimieren können. Wenn das Team durch eine Optimierung keine Verbesserung der Produktivität erwartet, die mehr bringt, als die Optimierung an Aufwand kostet, dann sollte die Optimierung unterbleiben.<<
-heise.de
-```
+- Code Regelmässig Reviewn damit die zu überprüfenden Codezeilen gering bleiben
 
+- Review Kommentare sollen Konstruktiv sein und den Autor des Codes nicht persönlich treffen
 
+  - Beispiel einfügen
+
+- Bugs, Codestyle etc. über Automatische Tests prüfen lassen
+
+- 200 bis 400 Zeilen Code in 60 bis 90 Minuten
+
+  - nach ca 60-90min pause machen
+
+- Checkliste erstellen 
+
+- Entwickler Reviewet sich zuerstt selbst
+
+- Review Bereiche Festlegen (z.B Fokus auf Performance, Clean Code etc.)
 
 
 #### Schulden erkennen
@@ -284,22 +336,28 @@ Der letzte, laut Clark oft vernachlässigte, Punkt ist die Frage der "Contagion"
 
 Bewertet man seine Schulden mit diesem Schema ergeben sich einige Entscheidungsmöglichkeiten. Schulden mit hohem Impact, niedrigen Fixkosten und hoher Verbreitungsgefahr sollten so schnell wie möglich beseitigt werden. Fehler mit niedrigem Impact und geringer Verbreitung können auch später behoben werden, da sich die Kosten wohl nicht vergrößern werden. 
 
-#### Schulden beseitigen
+
+#### Schulden bezahlen
+
+- **expliziete Handlungsempfehlungen für Informatiker und nicht Informatiker geben.**
+- <https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/december/code-cleanup-using-agile-techniques-to-pay-back-technical-debt>
+- **Tool beispiel geben**
+
+```
+>>Kein System ist perfekt. Es gibt immer etwas zu optimieren. Das bedeutet, dass Teams praktisch unbegrenzt optimieren können. Wenn das Team durch eine Optimierung keine Verbesserung der Produktivität erwartet, die mehr bringt, als die Optimierung an Aufwand kostet, dann sollte die Optimierung unterbleiben.<<
+heise.de
+```
+
+- Prioriäten setzten, erst die schulden mit großen einfluss fixen dann die kleinen
+- Entscheiden ob Schulden komplett, teilweise oder garnicht bezahlt werden
 
 
-### Schulden Konzeptionell Managen
-- **wie können Handlungsempehlungen forciert werden**
 
-### "Nicht-Informatiker" überzeugen
+##### Schulden und Legacy Code
 
-Um technische Schulden managen zu können, wird Zeit benötigt. In der Wirtschaft bedeutet Zeit aber auch Geld, und viele Stakeholder ohne technischen Hintergrund fehlt das Verständnis für die Bedeutung von hoher Softwarequalität, daher ist es wichtig die entscheidenden Personen überzeugen zu können.
-
-Der Begriff *Schulden* ist in der Wirtschaft kein unbekannte und der Begriff *technische Schulden* wurde gezielt gewählt um die Kommunikation zwischen Informatiker und Manager zu erleichtern. Die meisten werden Verstehen, dass es Teilweise nötig ist Schulden aufzunehmen um dann eine verbesserte Produktion fahren zu können, ähnlich wie die Anschaffung einer neuen Maschine.
-
-Es hilft Beispielrechnungen vorzubringen das Zeigen, dass das jetzige Handeln deutlich günstiger sein wird, als das späte Handeln. Sagt man einem Manager jetzt 10.000€ investieren oder später womöglich 50.000€, kann dieser selbst eine Entscheidung treffen.
-
-Es kann auch Hilfreich sein den Begriff "Schulden" gegen "Verschleiß" auszutauschen, da es so schwieriger ist den Entwickler vorzuwerfen etwas falsch gemacht zu haben, da verschleiß in der Industrie etwas vollkommen normales und verständliches ist an den niemand Schuld hat.  
-
+- Ab jetzt nur noch guten Code schreiben
+- Legay Code stückweise isolieren
+- Änderungen am Legacy Code müssen den Code IMMER verbessern
 
 ## Tldr
 
@@ -352,5 +410,5 @@ Ziel jedes Softwareprojektes sollte es sein, ein möglichst Qualitativ hochwerti
 
 - [An Empirical Model of Technical Debt and Interest](<https://www.researchgate.net/publication/228684782_An_Empirical_Model_of_Technical_Debt_and_Interest>)
 
-  ## 
+  
 
