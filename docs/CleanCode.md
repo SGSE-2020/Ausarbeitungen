@@ -5,8 +5,38 @@ Bei Clean Code handelt es sich um eine Reihe Richtlinien und Prinzipien, welche 
 Diese Prinzipien und auch der Name entstammen dem Buch "Clean Code" von Robert C. Martin. 
 Dieses Buch enthält eine Menge von Best Practices, Prinzipien und Praktiken, welche zu "Clean Code" führen.
 
-Die folgeden Kapitel werden zunächst auf die Clean Code Developer Bewegung eingehen, welche 
-die Clean Code Richtlinien so weit ausbreiten wollen, wie möglich, das SOLID Prinzip, 
+Die folgeden Kapitel werden zunächst auf ein Paar negativ Beispiele, sogenannten Dirty Code eingehen, um zu zeigen, was 
+vermieden werden sollte. Danach wird auf die Clean Code Developer Bewegung eingegangen, welche die Clean Code Richtlinien so weit ausbreiten will, wie möglich.
+Dabei wurde ein Wertesystem entwickelt, verschiedene Clean Code Grade, Tugenden und verschiedene Maßnahmen. Die wichtigsten
+dieser Maßnahmen setzen das sogenannte SOLID Prinzip zusammen. Nachdem erklärt wurde, wie Clean Code Prinzipien theorhetisch umgesetzt
+werden sollen, wird im Clean Code Controlling Kapitel erklärt, wie dies tatsächlich in Firmen angewendet wird. 
+Zuletzt werden nochmal die Vorteile und Ziele und die Nachteile von Clean Code aufgelistet.
+
+## Dirty Code Beispiele
+
+Bei "Dirty Code" handelt es sich um Code, welcher eine Menge "Bad Smells" beinhält. Bei Bad Smells handelt es sich um 
+Probleme, welche nicht die Funktionalität von Code einschränken, aber machen das Verstehen, Arbeiten und Überprüfen 
+von Implementierten Code schwierig bis unmöglich. 
+Dirty Code ist des weiteren oftmals schlecht optimiert, und könnte um einiges Ressourcen schonender sein oder schneller Antwortzeiten haben.
+Zu den Klassikern unter den Bad Smells zählen zum Beispiel:
+- Konformitätsbrüche
+- Schlechte Namensgebung
+- Toter Code
+- Magie in Code
+- Code-Verdopplung
+- Fehlende Tests
+- Fehlende Kommentare
+- Fehlendes Logging
+- Schlechte Fehlerbehandlung
+- Workarounds anstatt Behebungen
+- Halbfertige Refactorings
+- Zu komplizierte Implementierung
+- Aufgeblasene Klassen und Methoden
+- Zu tiefe Verschachtelung
+- Spaghetti-Code   
+
+Clean Code versucht diese Probleme systematisch zu eliminieren, was je nach Bad Smell einen verschieden hohen Aufwand erfordert.
+
 
 ## Clean Code Developer Bewegung
 
@@ -107,140 +137,6 @@ Strukturierung des Projekts betrachtet.
 
 Der weiße Grad führt alle vorhergegangen Grade, mit all deren Prinzipien und Praktiken zusammen. Der weiße Grad kann daher
 nur von erfahrenen CCDs erreicht werden, da das komplette Wertesystem im Auge gehalten werden muss.
-
-## SOLID
-SOLID ist eine Abkürzung für fünf grundlegende Prinzipien, welche für jede Objektorientierte Software umgesetzt sein sollten.  
-Das Akronym SOLID setzt sich zusammen aus:
-- **S**ingle Responsibility Principle
-- **O**pen Closed Principle
-- **L**iskov Substitution Principle
-- **I**nterface Segregation Principle
-- **D**ependency Inversion Priciple
-
-Diese Prinzipien werden in den folgenden Unterkapiteln nun genauer beschrieben und erklärt.
-
-### Single Responsibility Principle
-Das Single Responsibility Principle, kurz SRP, beschreibt das Prinzip, das jede Klasse genau eine 
-Verantwortlichkeit hat. Das Ziel des Prinzips ist es bei Änderungen oder Erweiterungen der Funktionalität
-so wenige Klassen wie möglich ändern zu müssen, da so unvorhersehbare Fehler an anderen Stellen des Projekts 
-unwahrscheinlicher werden.  
-Eine Verletzung des Prinzips führt zu höherer Kopplung und draus resultierend höhere 
-Komplexität, was es schwieriger macht den Code nachvollziehen zu können. SRP ist Teil des orangenen Grades.
-
-### Open Closed Principle
-Das Open Closed Principle, OCP, gehört zum grünen Grad und verlangt, das Klassen offen für Erweiterungen sind, aber geschlossen gegenüber Modifikation.
-Durch dieses Prinzip soll gewährleistet werden, dass funktionierende Funktionalitäten nicht durch hinzufügen neuer 
-Funktionalitäten beschädigt werden.  
-Das folgende Beispiel zeigt, wie das Open-Closed Prinzip angewendet werden kann:
-  
-    public double Preis() {
-        const decimal StammkundenRabatt = 0.95m;`  
-        switch(kundenart) {  
-            case Kundenart.Einmalkunde:  
-                return menge * einzelpreis;  
-            case Kundenart.Stammkunde:  
-                return menge * einzelpreis * StammkundenRabatt;  
-            default:  
-                throw new ArgumentOutOfRangeException();  
-        }  
-    }
-    
-Um eine neue Art der Preisberechnung hinzuzufügen muss die bereits verwendete Funktion modifiziert werden. Um solche
-Modifikationen, welche die Funktionsweise unerwartet beeinflussen könnten, zu verhindern, können Strategien wie das 
-Strategy Pattern verwendet werden.
-
-    public interface IPreisRechner {
-        double Preis(int menge, double einzelpreis);
-    }
-    
-    private IPreisRechner preisRechner;
-    
-    public double Preis() {
-        return preisRechner.Preis(menge, einzelpreis);
-    }
-    
-    public class Einmalkunde : IPreisRechner {
-        public double Preis(int menge, double einzelpreis) {
-            return menge * einzelpreis;
-        }
-    }
-    
-    public class Stammkunde : IPreisRechner {
-        const decimal StammkundenRabatt = 0.95m;
-        
-        public double Preis(int menge, double einzelpreis) {
-            return menge * einzelpreis * StammkundenRabatt;
-        }
-    }
-    
-Durch Anwendung des Strategy Patterns können weitere Preisrechner implementiert werden, ohne bereits existierende zu 
-verändern. Dadurch bleibt die Klasse erweiterbar, aber ist gleichzeitig gegen Modifikationen abgesichert.
-
-### Liskov Substitution Principle
-
-Das Liskov Substitution Priciple (LSP), besagt, dass sich Subtypen so verhalten müssen wie die Basistypen von denen sie
-erben. Eine gute Merkregel hierbei ist, dass Subtypen die Funktionalität nur erweitern dürfen, aber nicht einschränken.  
-LSP ist Bestandteil des gelben Grades.
-
-### Interface Segregation Principle
-
-Bei dem Interface Segregation Principle (ISP), welches ebenfalls zum gelben Grad gehört, geht es um die Abtrennung von 
-Interfaces. So ist es für einen Client nicht notwendig alle Details eines Services zu wissen, sondern nur die für den 
-CLient relevanten. Wird das Prinzip befolgt, wird die Kopplung zwischen Koponenten geringer, was zu einfachere Wartung 
-und Erweiterbarkeit führt. 
-
-### Dependency Inversion Priciple
-
-Das letzte Prinzip von SOLID, das Depndency Inversion Principle (DIP) setzt vorraus, dass High-Level Klassen nicht von Low-Level Klassen abhängig sein 
-sollen, sondern beide von Interfaces. Außerdem sollen Interfaces nicht von Details abhängig sein, sondern von Details von
-anderen Interfaces. Wird dieses Prinzip befolgt ist die Kopplung zwischen Klassen geringer und es ist einfacher einzelne
-Komponenten zu testen. Diese Eigenschaften machen DIP auch Teil des gelben Grades.
-
-## Dirty Code Beispiele
-
-Bei "Dirty Code" handelt es sich um Code, welcher eine Menge "Bad Smells" beinhält. Bei Bad Smells handelt es sich um 
-Probleme, welche nicht die Funktionalität von Code einschränken, aber machen das Verstehen, Arbeiten und Überprüfen 
-von Implementierten Code schwierig bis unmöglich. 
-Dirty Code ist des weiteren oftmals schlecht optimiert, und könnte um einiges Ressourcen schonender sein oder schneller Antwortzeiten haben.
-Zu den Klassikern unter den Bad Smells zählen zum Beispiel:
-- Konformitätsbrüche
-- Schlechte Namensgebung
-- Toter Code
-- Magie in Code
-- Code-Verdopplung
-- Fehlende Tests
-- Fehlende Kommentare
-- Fehlendes Logging
-- Schlechte Fehlerbehandlung
-- Workarounds anstatt Behebungen
-- Halbfertige Refactorings
-- Zu komplizierte Implementierung
-- Aufgeblasene Klassen und Methoden
-- Zu tiefe Verschachtelung
-- Spaghetti-Code  
-Clean Code versucht diese Probleme systematisch zu eliminieren, was je nach Bad Smell einen verschieden hohen Aufwand erfordert.
-
-## Maßnahmen
-
-Außerhalb der bereits vorgestellten Prinzipien von SOLID beinhält jeder Grad, außer der schwarze, eine Menge an weiteren Prinzipien
-und Praktiken, welche das jeweilige Ziel des Grades erfüllen. Die folgenden Unterkapitel erläutern welche der
-wichtigsten und bekanntesten dieser Techniken.
-
-### Don't Repeat Yourself (DRY)
-
-### Keep It Simple, Stupid (KISS)
-
-### Die Pfadfinderregel
-
-
-### Single Level of Abstraction (SLA)
-
-
-### Tell, Don't Ask
-
-### Law Of Demeter
-
-### You Ain't Gonna Need It (YAGNI)
 
 ## Prinzipielle Tugenden
 
@@ -397,9 +293,210 @@ Praktiken, um dies zu erreichen sind:
 - Issue Tracking
 - Regelmäßige Retrospektiven
 
+## SOLID
+SOLID ist eine Abkürzung für fünf grundlegende Prinzipien, welche für jede Objektorientierte Software umgesetzt sein sollten.  
+Das Akronym SOLID setzt sich zusammen aus:
+- **S**ingle Responsibility Principle
+- **O**pen Closed Principle
+- **L**iskov Substitution Principle
+- **I**nterface Segregation Principle
+- **D**ependency Inversion Priciple
+
+Diese Prinzipien werden in den folgenden Unterkapiteln nun genauer beschrieben und erklärt.
+
+### Single Responsibility Principle
+Das Single Responsibility Principle, kurz SRP, beschreibt das Prinzip, das jede Klasse genau eine 
+Verantwortlichkeit hat. Das Ziel des Prinzips ist es bei Änderungen oder Erweiterungen der Funktionalität
+so wenige Klassen wie möglich ändern zu müssen, da so unvorhersehbare Fehler an anderen Stellen des Projekts 
+unwahrscheinlicher werden.  
+Eine Verletzung des Prinzips führt zu höherer Kopplung und draus resultierend höhere 
+Komplexität, was es schwieriger macht den Code nachvollziehen zu können. SRP ist Teil des orangenen Grades.
+
+### Open Closed Principle
+Das Open Closed Principle, OCP, gehört zum grünen Grad und verlangt, das Klassen offen für Erweiterungen sind, aber geschlossen gegenüber Modifikation.
+Durch dieses Prinzip soll gewährleistet werden, dass funktionierende Funktionalitäten nicht durch hinzufügen neuer 
+Funktionalitäten beschädigt werden.  
+Das folgende Beispiel zeigt, wie das Open-Closed Prinzip angewendet werden kann:
+  
+    public double Preis() {
+        const decimal StammkundenRabatt = 0.95m;`  
+        switch(kundenart) {  
+            case Kundenart.Einmalkunde:  
+                return menge * einzelpreis;  
+            case Kundenart.Stammkunde:  
+                return menge * einzelpreis * StammkundenRabatt;  
+            default:  
+                throw new ArgumentOutOfRangeException();  
+        }  
+    }
+    
+Um eine neue Art der Preisberechnung hinzuzufügen muss die bereits verwendete Funktion modifiziert werden. Um solche
+Modifikationen, welche die Funktionsweise unerwartet beeinflussen könnten, zu verhindern, können Strategien wie das 
+Strategy Pattern verwendet werden.
+
+    public interface IPreisRechner {
+        double Preis(int menge, double einzelpreis);
+    }
+    
+    private IPreisRechner preisRechner;
+    
+    public double Preis() {
+        return preisRechner.Preis(menge, einzelpreis);
+    }
+    
+    public class Einmalkunde : IPreisRechner {
+        public double Preis(int menge, double einzelpreis) {
+            return menge * einzelpreis;
+        }
+    }
+    
+    public class Stammkunde : IPreisRechner {
+        const decimal StammkundenRabatt = 0.95m;
+        
+        public double Preis(int menge, double einzelpreis) {
+            return menge * einzelpreis * StammkundenRabatt;
+        }
+    }
+    
+Durch Anwendung des Strategy Patterns können weitere Preisrechner implementiert werden, ohne bereits existierende zu 
+verändern. Dadurch bleibt die Klasse erweiterbar, aber ist gleichzeitig gegen Modifikationen abgesichert.
+
+### Liskov Substitution Principle
+
+Das Liskov Substitution Priciple (LSP), besagt, dass sich Subtypen so verhalten müssen wie die Basistypen von denen sie
+erben. Eine gute Merkregel hierbei ist, dass Subtypen die Funktionalität nur erweitern dürfen, aber nicht einschränken.  
+LSP ist Bestandteil des gelben Grades.
+
+### Interface Segregation Principle
+
+Bei dem Interface Segregation Principle (ISP), welches ebenfalls zum gelben Grad gehört, geht es um die Abtrennung von 
+Interfaces. So ist es für einen Client nicht notwendig alle Details eines Services zu wissen, sondern nur die für den 
+CLient relevanten. Wird das Prinzip befolgt, wird die Kopplung zwischen Koponenten geringer, was zu einfachere Wartung 
+und Erweiterbarkeit führt. 
+
+### Dependency Inversion Priciple
+
+Das letzte Prinzip von SOLID, das Depndency Inversion Principle (DIP) setzt vorraus, dass High-Level Klassen nicht von Low-Level Klassen abhängig sein 
+sollen, sondern beide von Interfaces. Außerdem sollen Interfaces nicht von Details abhängig sein, sondern von Details von
+anderen Interfaces. Wird dieses Prinzip befolgt ist die Kopplung zwischen Klassen geringer und es ist einfacher einzelne
+Komponenten zu testen. Diese Eigenschaften machen DIP auch Teil des gelben Grades.
+
+## Maßnahmen
+
+Außerhalb der bereits vorgestellten Prinzipien von SOLID beinhält jeder Grad, außer der schwarze, eine Menge an weiteren Prinzipien
+und Praktiken, welche das jeweilige Ziel des Grades erfüllen. Die folgenden Unterkapitel erläutern welche der
+wichtigsten und bekanntesten dieser Techniken.
+
+### Don't Repeat Yourself (DRY)
+Eine eigentlich selbstverständliche Regel, die dennoch oft Missachtet wird. Hier geht es darum, dass
+man doppelten Code vermeiden sollte, und stattdessen lieber Funktionen oder andere Refaktoriserungsmuster anwenden sollte.
+
+### Keep It Simple, Stupid (KISS)
+Dieses Prinzip steht dafür, dass stehts die einfachste Lösung verwendet werden soll. Wenn Code unverständlich ist, erschwert
+dies, dass mehrere Personen an ihm arbeiten können. Um stehts die einfachste Lösung zu finden empfehlen sich Code Reviews 
+und Pair Programming. Dieses Prinzip lässt sich auch auf Datenstrukturen anwenden. Wenn für eine Lösung nur eine
+Liste nötig ist, sollte keine Map oder sonstiges verwendet werden.
+
+### Die Pfadfinderregel
+Die Pfadfinderregel besagt "Hinterlasse einen Ort immer in einem besseren Zustand als du ihn vorgefunden hast" und soll 
+verursachen, dass stetige kleine Verbesserungen stattfinden. So wird ein großes Projekt zum Bespiel nur an stellen aufgeräumt,
+die gerade weiterentwickelt werden. Hierbei ist allerdings zu beachten, dass ein Clean Code Developer immer nur 
+Prinzipien und Praktiken seines aktuellen Grades anpassen sollte, andernfalls nehmen solche Aufräumarbeiten zu viel Zeit ein und
+bringen den Entwickler von seiner eigentlichen Tätigkeit ab.
+
+### Single Level of Abstraction (SLA)
+Das Single Level Of Abstraction Prinzip schreibt vor, dass Methoden auf einheitliche Abstraktionsniveus gebracht werden
+sollten. Im Falle einer Methode kann dieses Abstraktionsniveau zum Beispiel stark schwanken. Währrend in einer Zeile nur eine
+einfache Zuweisung stattfindet, kann in der nächsten eine komplizierte Formel auf Bittiefe stehen.  
+Um einheitliche Niveaus zu erreichen sollten solche komplizierten Algorithmen ausgelagert werden, sodass die Lesbarkeit 
+der Methode erhalten bleibt. Wenn der Entwickler wünscht genauer hinzusehen, kann er dazu einfach die aufgerufene Methode betrachten.  
+  
+
+### Tell, Don't Ask
+Bei diesem Prinzip wird verlangt, dass Objekte nicht Entscheidungen anhand von dem momentanen Zustand anderer Objekte treffen.
+Es wird stattdessen verlangt, dass Objekte sich gegenseitig befehlen, was zu tun ist.  
+Also wenn Objekt A eine Methode von Objekt B aufrufen will, und von Property C abhängig ist welche, dann soll A anhand von C
+entschieden, und nicht B C anfragen und dann selbst entscheiden. Wenn dieses Prinzip angewendet wird, führt dies zu geringerer
+Kopplung, und Objekte werden seltener zu reinen Datenhaltungsobjekten.
+
+### Law Of Demeter
+Der Law of Demeter handelt davon, das Zusammenspiel von Objekten zu beschränken. So soll nach dem Law of Demeter eine Methode
+nur folgende andere Methoden verwenden:
+- Methoden der eigenen Klasse
+- Methoden der Parameter
+- Methoden assoziierter Klassen
+- Methoden selbst erzeugter Objekte  
+Dadurch soll minimiert werden, dass Aufrufe über mehrere Objekte möglich sind, welche zu hoher Kopplung führen würden. Manchmal
+sollte dieses Prinzip allerdings nicht angewendet werden, zum Beispiel bei Konfigurationsklassen.
+
+### You Ain't Gonna Need It (YAGNI)
+Der Grund, weshalb das eigentlich sehr einfache YAGNI Prinzip notwendig ist, ist das Anforderungen für Software oftmals sehr ungenau
+und ständig wechselnd sind. Dies führt dazu, das Software oftmals sehr flexibel wird, um diesen Anforderungen zu entsprechen.
+Dies klingt zwar im ersten Moment gut, führt aber auf lange Sicht zu einer Menge Features die garnicht benötigt oder verwendet werden.
+Außerdem wird es schwierig den Code mit all diesen Features zu verstehen oder gar weiter zu entwickeln.  
+Um den entgegen zu wirken wurde das YAGNI Prinzip entwickelt, welches sich vorallem mit den Anforderungen befasst. 
+So werden nur Anforderungen implementiert die auf jedenfall benötigt werden, alle anderen werden so spät wie möglich oder
+eben gar nicht implementiert. Zusammengefasst führt das YAGNI-Prinzip bei der Softwareentwicklung zu folgedem:
+- Es werden ausschließlich klare Anforderungen implementiert
+- Der Kunde muss seine klaren Anforderungen priorisieren
+- Die Anforderungen werden nach Priorisierung implementiert
+- Codestruktur wird so aufgesetzt, dass sich ändernde und neue Anfoderungen leicht umgesetzt werden können  
+
+Diese Eigenschaften machen YAGNI ein Prinzip, was nicht nur einzelne Entwickler sondern ganze Projekte und Teams betrifft.
+
 ## Clean Code Controlling
+Clean Code Controlling soll sicherstellen, dass sich alle Entwickler an einem Projekt an die Clean Code Richtlinien halten.
+Dies kann dadurch entstehen, dass die gute Vorsätze schnell vergessen werden und unterschiedliche Meinungen zu verschiedenen 
+Lösungen führen. 
+Die drei Grundregeln des Clean Code Controllings sind:
+1. Alle Teilnehmer an einem Projekt verpflichten sich die vereinbarten Prozesse anzuerkennen
+2. Prozessen können jederzeit nach Bedarf angepasst werden
+3. Es muss sich auf ein Verfahren zur Entscheidungsfindung geeinigt werden 
+
+Um sich Clean Code Controlling besser vorstellen zu können wird es nun ähnlich einer Gewaltenteilung in Legislative, 
+Exekutive und Judikative unterteilt. 
+### Legislative
+In der Legislativen Phase des Clean Code Controllings wird zunächst entschieden, welche Methode zur Entscheidungsfindung
+verwendet werden soll. Entweder kann hierbei der Projektleiter die alleinige Entscheidungsgewalt bekommen oder das ganze Team.
+Dabei können entweder Mehrheitsbeschlüsse, wie beim Abstimmen, verwendet werden oder eine Methode zur Minimierung des 
+durschnittlichen Widerstands. Damit ist gemeint, dass durch Vetoabfragen oder Thumb-Voting die Entscheidung getroffen wird,
+welche die wenigsten Teammitglieder abgelehnt haben.    
+
+Sobald entschieden wurde, wie Regeln und Prozesse festgelegt werden sollen, werden grobe Fragen zur Projektentwicklung entschieden.
+Dazu gehört zum Beispiel, was für das Team DONE heißt, wie mit unfertigem Code umgegangen werden soll, wie mit "fremdem Eigentum"
+umgegangen werden soll und was für das Team CLEAN bedeutet.
+
+Nachdem diese Formalitäten geklärt wurden, muss sich nun geeinigt werden, welche Form der Kontrolle verwendet werden soll.
+Hier stehen Scrum ähnliche Daily Standups, regelmäßige Team-Reviews, Pair Programming oder vier Augen Reviews zur Auswahl.
+
+### Exekutive
+Bei der Exekutiven werden nun die vereinbarten Ziele mit der ausgewählten Methode kontrolliert. Hierbei ist wichtig zu beachten,
+dass neue Entwicklungen erst nach Kontrolle durch andere Teammitglieder auf funktionelle Korrektheit, ausreichende Testabdeckung,
+TODO Einträge und Einhaltung der abgestimmten Clean Code Maßnahmen als fertig angesehen werden dürfen. 
+
+### Judikative
+Die Judikative soll die Teammitglieder motivieren, sich an die vereinbarten Regeln zu halten und soll grobe Vergehen bestrafen.
+Dies kann zum Beispiel durch die 1€-Regel umgesetzt werden. Diese schreibt vor, dass jedes Teammitglied einen Euro in eine
+gemeinsame Kasse spenden muss, wenn zum Beispiel nicht kompilierender Code gepusht wurde, oder gebrochene Tests nicht korrigiert wurden.
+Von dem gesammelten Geld kann am Ende der Entwicklung für das Team Kuchen oder ähnliches gekauft werden. Neben dieser materiellen
+Motivation wird die Motivation natürlich auch durch erlangte Anerkennung erreicht, die ein Entwickler bekommt, wenn er sich an
+alle Regeln vorbildlich hält und guten Code produziert. 
 
 ## Vorteile und Ziele von Clean Code
+Die Vorteile und Ziele von Clean Code lassen sich gut mit dem vorgestelltem Wertesystem zusammenfassen. Zunächst soll durch das 
+Anwenden der Clean Code Prinzipien und Praktiken eine höhere Wandelbarkeit erreicht werden. Dies bedeutet, dass auch große 
+Projekte leicht mit neuen Features erweitert werden können, ohne das dabei ein schier unmöglicher Aufwand entsteht. Dies geligt
+oftmals durch das reduzieren der Kopplung der einzelnen Komponenten, aber auch durch Techniken wie ausgiebiges testen, um zum 
+einen sicher zu stellen, dass das neue Feature wie geplant funktioniert, aber auch bereits bestehende Funktionalitäten erhalten bleiben.  
+Ein weiterer Effekt des vielen Testens ist die Erhöhung der Korrektheit, welche aber auch durch das Einfachhalten des Programms
+erreicht werden kann.   
+Die Produktionseffizienz wird durch die erhöhte Einfachheit, gute Dokumentation und gut Strukturierung erhöht, da auch
+vorher unbeteiligte Entwickler sich schnell einarbeiten können und neue Features schnell hinzugefügt werden können.
+All diese Maßnahmen und vorallem die Pfadfinderregel führen letztendlich auch zu kontinuierlicher Verbesserung. Software ist
+selten abgeschlossen, weshalb es wichtig ist sie stetig zu verbessern. Ob dies nun Verbesserungen der Verständlichkeit, 
+Laufzeit oder anderem ist, spielt dabei keine Rolle.  
+Clean Code sorgt somit dafür, dass Software immer weiterentwicklet werden kann, und niemals der Punkt erreicht wird, an dem
+die Software so komplex und verworren ist, dass es einfacher ist komplett von vorne zu beginnen.
 
 ## Nachteile von Clean Code
 Um erfolgreich alle Aspekte von Clean Code durchführen zu können, ist ein hoher Aufwand nötig. Zunächst
@@ -412,4 +509,5 @@ Prinzipien umzusetzen.
 
 ## Quellen
 [Clean Code Developer](!https://clean-code-developer.de/)  
-[Vortrag zu Clean Code](!https://gi.de/fileadmin/RG/Dortmund/user_upload/Clean-Code-Vortrag.pdf)
+[Vortrag zu Clean Code](!https://gi.de/fileadmin/RG/Dortmund/user_upload/Clean-Code-Vortrag.pdf)  
+[Wikipedia](!https://de.wikipedia.org/wiki/Clean_Code)
