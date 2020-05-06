@@ -1,6 +1,7 @@
 # Clean Code
 
 ## Einleitung
+
 Bei Clean Code handelt es sich um eine Reihe Richtlinien und Prinzipien, welche von allen Softwareentwicklern beachtet werden sollten.
 Diese Prinzipien und auch der Name entstammen dem Buch "Clean Code" von Robert C. Martin. 
 Dieses Buch enthält eine Menge von Best Practices, Prinzipien und Praktiken, welche zu "Clean Code" führen.
@@ -94,7 +95,7 @@ mit dem ganzen Team und ähnliches durchgeführt werden um zum Entwicklungsallta
 
 Die CCD ist der Meinung, dass es Zeit und Übung benötigt das Wertesystem und alle Regeln und Prinzipien zu verinnerlichen,
 deshalb wurden verschiedene Entwicklungsstufen bestimmten Graden zugeordnet.
-So beginnt ein Entwickler beispielsweise bei dem schwarzen Grad, und arbeitet sich währrend der Entwicklung bis zum 
+So beginnt ein Entwickler beispielsweise bei dem schwarzen Grad, und arbeitet sich während der Entwicklung bis zum 
 weißen Grad hoch. Um Kollegen in einem Projekt zu verdeutlichen, bei welchem Grad man sich aktuell befindet, können
 Armbänder mit den verschiedenen Farben verwendet werden.
 
@@ -174,7 +175,7 @@ Diese Tugend sagt aus, dass man Aspekte eines Projekts isoliert betrachten soll.
 da es einfacher ist einzelne Komponenten weiter zu entwickeln, anstatt mehrere auf einmal.  
 Zu dieser Tugend gehören folgende Prinzipien:
 - Don't Repeat Yourself (DRY)
-- Seperation of Concerns (SoC)
+- Separation of Concerns (SoC)
 - Single Level of Abstraction (SLA)
 - Single Responsibility Principle (SRP)
 - Interface Segregation Principle (ISP)
@@ -190,10 +191,10 @@ Prinzipien, um dies umzusetzen, sind:
 - Dependency Inversion Principle
 - Information Hiding Principle
 - Law of Demeter
-- Open CLosed Principle
+- Open Closed Principle
 - Tell don't ask
 - Interface Segregation Principle (ISP)
-. Integration Operation Segregation Principle (IOSP)
+- Integration Operation Segregation Principle (IOSP)
 
 ### Honor Pledges
 
@@ -261,7 +262,7 @@ Bei dieser Tugend soll erreicht werden, dass neue Features oder ähnliches ferti
 werden. Dies erhöht die Produktionseffizienz, da häufiger neue Versionen erstellt werden können, welche dann ausgeliefert werden können.
 Um diese Tugend zu erfüllen sollten folgende Praktiken beachtet werden:
 - Iterative Entwicklung
-- Continous Delivery
+- Continuous Delivery
 - Limit WIP
 
 ### Stay Clean
@@ -310,7 +311,39 @@ Verantwortlichkeit hat. Das Ziel des Prinzips ist es bei Änderungen oder Erweit
 so wenige Klassen wie möglich ändern zu müssen, da so unvorhersehbare Fehler an anderen Stellen des Projekts 
 unwahrscheinlicher werden.  
 Eine Verletzung des Prinzips führt zu höherer Kopplung und draus resultierend höhere 
-Komplexität, was es schwieriger macht den Code nachvollziehen zu können. SRP ist Teil des orangenen Grades.
+Komplexität, was es schwieriger macht den Code nachvollziehen zu können. SRP ist Teil des orangenen Grades.  
+Im folgendem wird SRP auf eine überladene Klasse angewendet:
+
+    class Store{
+        ...
+        public List<Produkt> zeigeProdukte() 
+        ...
+        public double berechnePreis()
+        ...
+        public Benutzer registriereBenutzer()
+        ...
+    }
+    
+In diesem Fall hat die Store Klasse zu viele Aufgaben. Stattdessen sollten die benötigten Funktionlitäten auf verschiedene
+Klassen aufgeteilt werden, welche dann miteinander Kommunizieren.  
+  
+    class Store{
+        ...
+        public List<Produkt> zeigeProdukte() 
+        ...
+    }
+    
+    class Preisrechner{
+        ...
+        public double berechnePreis()
+        ...
+    }   
+    
+    class LoginService{
+        ...
+        public Benutzer registriereBenutzer()
+        ...
+    }
 
 ### Open Closed Principle
 Das Open Closed Principle, OCP, gehört zum grünen Grad und verlangt, das Klassen offen für Erweiterungen sind, aber geschlossen gegenüber Modifikation.
@@ -319,7 +352,7 @@ Funktionalitäten beschädigt werden.
 Das folgende Beispiel zeigt, wie das Open-Closed Prinzip angewendet werden kann:
   
     public double Preis() {
-        const decimal StammkundenRabatt = 0.95m;`  
+        const decimal StammkundenRabatt = 0.95;
         switch(kundenart) {  
             case Kundenart.Einmalkunde:  
                 return menge * einzelpreis;  
@@ -334,23 +367,23 @@ Um eine neue Art der Preisberechnung hinzuzufügen muss die bereits verwendete F
 Modifikationen, welche die Funktionsweise unerwartet beeinflussen könnten, zu verhindern, können Strategien wie das 
 Strategy Pattern verwendet werden.
 
-    public interface IPreisRechner {
+    interface IPreisRechner {
         double Preis(int menge, double einzelpreis);
     }
     
-    private IPreisRechner preisRechner;
+    IPreisRechner preisRechner;
     
     public double Preis() {
         return preisRechner.Preis(menge, einzelpreis);
     }
     
-    public class Einmalkunde : IPreisRechner {
+    class Einmalkunde implements IPreisRechner {
         public double Preis(int menge, double einzelpreis) {
             return menge * einzelpreis;
         }
     }
     
-    public class Stammkunde : IPreisRechner {
+    class Stammkunde implements IPreisRechner {
         const decimal StammkundenRabatt = 0.95m;
         
         public double Preis(int menge, double einzelpreis) {
@@ -367,22 +400,136 @@ Das Liskov Substitution Priciple (LSP), besagt, dass sich Subtypen so verhalten 
 erben. Eine gute Merkregel hierbei ist, dass Subtypen die Funktionalität nur erweitern dürfen, aber nicht einschränken.  
 LSP ist Bestandteil des gelben Grades.
 
+    class Kunde{
+        private String name;
+        ...
+        private List<Produkt> kaufhistorie;
+        ...
+        public List<Produkt> getKaufhistorie(){
+            return kaufhistorie;
+        }
+        ...
+    }
+
+    class UnangemeldeterKunde extends Kunde{
+        ...
+        public List<Produkt> getKaufhistorie(){
+            return null;
+        }
+        ...
+    }  
+    
+Bei diesem Beispiel fehlen der UnangemeldeterKunde Klasse Funktionalitäten, welche in der Elternklasse enthalten sind. Um diesen
+Fehler zu beheben, kann zum Beispiel die Erbstruktur geändert werden.
+
+     class UnangemeldeterKunde{
+        private List<Produkt> einkaufswagen;
+        ...
+     }
+     
+     class AngemeldeterKunde extends UnangemeldeterKunde{
+         private String name;
+        ...
+        private List<Produkt> kaufhistorie;
+        ...
+        public List<Produkt> getKaufhistorie(){
+            return kaufhistorie;
+        }
+        ...
+     }
+
 ### Interface Segregation Principle
 
 Bei dem Interface Segregation Principle (ISP), welches ebenfalls zum gelben Grad gehört, geht es um die Abtrennung von 
 Interfaces. So ist es für einen Client nicht notwendig alle Details eines Services zu wissen, sondern nur die für den 
-CLient relevanten. Wird das Prinzip befolgt, wird die Kopplung zwischen Koponenten geringer, was zu einfachere Wartung 
+Client relevanten. Wird das Prinzip befolgt, wird die Kopplung zwischen Koponenten geringer, was zu einfachere Wartung 
 und Erweiterbarkeit führt. 
+
+    interface IKunde{
+        private List<Produkt> getRabatte()
+        ...
+        private bool login(String username, String password)
+        ...
+        private void buy()
+        ...
+    }
+    
+    interface IMitarbeiter{
+        ...
+        private bool login(String username, String password)
+        ...
+    }
+    
+In diesem Beispiel ist das IKunde Interface sehr mächtig, und es wird Kunden geben, die nicht alle diese Funktionalitäten
+benötigen. Außerdem benötigt sowohl der IKunde als auch der IMitarbeiter die login Funktion, weshalb es besser wäre, dafür
+ein eigenes Interface zu erstellen. Dies könnte dann zum Beispiel so aussehen:
+
+    interface IRegistriert{
+        private bool login(String username, String password)
+    }
+    
+    interface IKunde{
+        private void buy()
+    }
+    
+    interface IStammkunde extends IKunde{
+        private List<Produkt> getRabatte()
+    }
+    
+Nun sind die Interfaces kleiner, und ermöglichen, dass auch wirklich nur das enthalten ist, was benötigt wird. Ein
+Stammkunde würde damit zum Beispiel alle drei Interfaces verwenden, wähhrend ein unagemeldeter Kunde nur IKunde verwenden
+würde.
 
 ### Dependency Inversion Priciple
 
-Das letzte Prinzip von SOLID, das Depndency Inversion Principle (DIP) setzt vorraus, dass High-Level Klassen nicht von Low-Level Klassen abhängig sein 
+Das letzte Prinzip von SOLID, das Dependency Inversion Principle (DIP) setzt vorraus, dass High-Level Klassen nicht von Low-Level Klassen abhängig sein 
 sollen, sondern beide von Interfaces. Außerdem sollen Interfaces nicht von Details abhängig sein, sondern von Details von
 anderen Interfaces. Wird dieses Prinzip befolgt ist die Kopplung zwischen Klassen geringer und es ist einfacher einzelne
 Komponenten zu testen. Diese Eigenschaften machen DIP auch Teil des gelben Grades.
 
-## Maßnahmen
+In dem folgenden Beispiel wurden mehrere verschiedene Kundenarten implementiert, die von einer abstrakten Klasse ableiten.
+Die beiden High-Level Klassen unterscheiden sich nur in dem Preisrechner, welcher verwendet wird um zu berechnen, wie viel 
+Kunden bezahlen müssen. Damit sind diese nur von Low-Level Klassen abhängig.
 
+    abstract class Kunde{
+        public abstract double preis();
+    }
+    
+    class Stammkunde extends Kunde{
+        StammkundePreisrechner preisrechner = new StammkundePreisrechner();
+        
+        public override double preis(){
+            return preisrechner.preis();
+        }
+    }
+
+    class Neukunde extends Kunde{
+        NeukundePreisrechner preisrechner = new NeukundePreisrechner();
+                
+        public override double preis(){
+            return preisrechner.preis();
+        }
+    }
+    
+Hier wurden nun die Abhängigkeiten umgekehrt, dass heißt der Preisrechner bestimmt, um welche Art von Kunde es sich handelt.
+Die verschiedenen Kundenarten konnten auch gekürzt werden, da sich diese nur durch den Preisrechner unterschieden haben, und es
+wird stattdessen der Kunde verwendet, welche das IKunde Interface implementiert. 
+
+    interface IKunde{
+        public double price();
+    }
+    
+    class Kunde implements IKunde{
+        ...
+    }
+
+    main(){
+        Kunde stammkunde = new Kunde(new StammkundePreisrechner())
+        Kunde neukunde = new Kunde(new NeukundePreisrechner())
+    }
+    
+
+## Maßnahmen
 Außerhalb der bereits vorgestellten Prinzipien von SOLID beinhält jeder Grad, außer der schwarze, eine Menge an weiteren Prinzipien
 und Praktiken, welche das jeweilige Ziel des Grades erfüllen. Die folgenden Unterkapitel erläutern welche der
 wichtigsten und bekanntesten dieser Techniken.
@@ -390,6 +537,31 @@ wichtigsten und bekanntesten dieser Techniken.
 ### Don't Repeat Yourself (DRY)
 Eine eigentlich selbstverständliche Regel, die dennoch oft Missachtet wird. Hier geht es darum, dass
 man doppelten Code vermeiden sollte, und stattdessen lieber Funktionen oder andere Refaktoriserungsmuster anwenden sollte.
+Das folgende Beispiel zeigt sogenannten WET (We enjoy typing) Code, welcher das Gegenteil zu DRY abbildet. 
+    
+    ...
+    double zwischenPreis = produktPreis * menge * 0.95;
+    
+    double gesamtpreis = produktPreis * menge * 0.95;
+    ...
+    
+In diesem Beispiel wird natürlich die berechnung des Preises wiederholt, aber auch die Magic Number, welche einen
+Stammkundenrabatt darstellt, sollte in eine Konstante ausgelagert werden, damit diese nicht an mehreren Stellen erneut 
+ausgeschrieben werden muss.  
+Somit würde folgendes entstehen:
+    
+    const double stammkundenrabatt = 0.95;
+    ...
+    public double berechnePreis(double produktPreis, int menge){
+        return  produktPreis * menge * stammkundenrabatt;
+    }
+    ...
+    double zwischenPreis = berechnePreis(produktPreis, menge)
+    
+    double gesamtpreis = berechnePreis(produktPreis, menge)
+    ...
+    
+
 
 ### Keep It Simple, Stupid (KISS)
 Dieses Prinzip steht dafür, dass stehts die einfachste Lösung verwendet werden soll. Wenn Code unverständlich ist, erschwert
@@ -411,7 +583,6 @@ einfache Zuweisung stattfindet, kann in der nächsten eine komplizierte Formel a
 Um einheitliche Niveaus zu erreichen sollten solche komplizierten Algorithmen ausgelagert werden, sodass die Lesbarkeit 
 der Methode erhalten bleibt. Wenn der Entwickler wünscht genauer hinzusehen, kann er dazu einfach die aufgerufene Methode betrachten.  
   
-
 ### Tell, Don't Ask
 Bei diesem Prinzip wird verlangt, dass Objekte nicht Entscheidungen anhand von dem momentanen Zustand anderer Objekte treffen.
 Es wird stattdessen verlangt, dass Objekte sich gegenseitig befehlen, was zu tun ist.  
@@ -444,6 +615,14 @@ eben gar nicht implementiert. Zusammengefasst führt das YAGNI-Prinzip bei der S
 
 Diese Eigenschaften machen YAGNI ein Prinzip, was nicht nur einzelne Entwickler sondern ganze Projekte und Teams betrifft.
 
+### Code Konformität
+Es sollten Regeln für den allgemeinen Style des Codes existieren, an die sich jeder hält. Damit ist gemeint, dass sich zum Beispiel 
+entweder für die underscore Schreibweise (tolle_funktion) oder camel case (tolleFunktion) entscheidet. Ist ein Code Style
+festgelegt, kann dieser in Reviews überprüft werden, oder es können Tools wie Checkstyle verwendet werden, um guten
+Codestyle zu prüfen.
+
+## Tools für Clean Code Developement
+
 ## Clean Code Controlling
 Clean Code Controlling soll sicherstellen, dass sich alle Entwickler an einem Projekt an die Clean Code Richtlinien halten.
 Dies kann dadurch entstehen, dass die gute Vorsätze schnell vergessen werden und unterschiedliche Meinungen zu verschiedenen 
@@ -455,6 +634,7 @@ Die drei Grundregeln des Clean Code Controllings sind:
 
 Um sich Clean Code Controlling besser vorstellen zu können wird es nun ähnlich einer Gewaltenteilung in Legislative, 
 Exekutive und Judikative unterteilt. 
+
 ### Legislative
 In der Legislativen Phase des Clean Code Controllings wird zunächst entschieden, welche Methode zur Entscheidungsfindung
 verwendet werden soll. Entweder kann hierbei der Projektleiter die alleinige Entscheidungsgewalt bekommen oder das ganze Team.
@@ -482,9 +662,25 @@ Von dem gesammelten Geld kann am Ende der Entwicklung für das Team Kuchen oder 
 Motivation wird die Motivation natürlich auch durch erlangte Anerkennung erreicht, die ein Entwickler bekommt, wenn er sich an
 alle Regeln vorbildlich hält und guten Code produziert. 
 
+## Test Driven Developement (TDD)
+Bei Test Driven Development wird, wie der Name vermuten lässt, die Entwicklung von Tests vorrangetrieben. Um dies umzusetzen
+wird TDD in drei Merkregeln zusammengefasst:
+1. Schreibe erst einen fehlschlagenden Test, bevor neue Funktionalität, die diesen bestehen lassen soll, entwickelt wird.
+2. Passe Programmcode nur solange an, bis alle Tests erfolgreich durchlaufen.
+3. Räume den Code auf. Keine neuen Verhaltensweisen hinzufügen. Wenn Tests nach Aufräumen fehlschlagen, Fehler finden und beheben.
+
+Durch TDD wird erreicht, dass der Code eine hohe Testabdeckung hat. Oftmals werden Tests vernachlässigt, was zu Problemen bei
+der Fehlerfindung führt und das hinzufügen neuer Komponenten erschwert, da nicht sichergestellt ist, dass immer noch alles
+funktioniert.
+
+Damit besteht zwischen TDD und CCD eine hohe Ähnlichkeit. Beide Vorgehensweisen setzen sich, unter anderem, als Ziel eine höhere
+Testabdeckung zu erzielen. Allerdings wird bei TDD die Entwicklung mit Tests vorrangetrieben, während bei CCD Tests nachträglich hinzugefügt werden.
+Hier ist allerdings zu beachten, dass TDD meist für neue Entwicklungen angewendet wird, während CCD auch auf bereits bestehende
+Software angewendet wird.
+
 ## Vorteile und Ziele von Clean Code
 Die Vorteile und Ziele von Clean Code lassen sich gut mit dem vorgestelltem Wertesystem zusammenfassen. Zunächst soll durch das 
-Anwenden der Clean Code Prinzipien und Praktiken eine höhere Wandelbarkeit erreicht werden. Dies bedeutet, dass auch große 
+Anwenden der Clean Code Prinzipien und Praktiken eine höhere Evolvierbarkeit erreicht werden. Dies bedeutet, dass auch große 
 Projekte leicht mit neuen Features erweitert werden können, ohne das dabei ein schier unmöglicher Aufwand entsteht. Dies geligt
 oftmals durch das reduzieren der Kopplung der einzelnen Komponenten, aber auch durch Techniken wie ausgiebiges testen, um zum 
 einen sicher zu stellen, dass das neue Feature wie geplant funktioniert, aber auch bereits bestehende Funktionalitäten erhalten bleiben.  
@@ -506,6 +702,39 @@ korrekt umgesetzt wurden. Dieses enorme Zeitinvestment könnte natürlich dafür
 Allerdings ist diese Betrachtungsweise sehr kurzsichtig, da unaufgeräumte Software einen Punkt erreicht, an dem die Implementation
 neuer Features, durch die schlechte Struktur des Projekts, so aufwändig ist, dass es besser gewesen wäre von vornerein die Clean Code
 Prinzipien umzusetzen.
+
+## Zusammenfassung
+Abschließend werden nochmals die Tugenden und die wichtigsten Prinzipien und Praktiken zusammengefasst.
+
+| Name                                      | Bedeutung                                                                 |
+|-------------------------------------------|---------------------------------------------------------------------------|
+| **Prinzipielle Tugenden**                 | |
+| Value Variation                           | Alternative Lösungen sind manchmal besser, nicht alles standardiesieren   |
+| Do Only What's Necessary                  | Nur wirklich benötigte Dinge Implementieren, keine Zeit mit unnötigen Dingen verschwenden   |
+| Isolate Aspects                           | Komponenten einzeln betrachten und weiterentwickeln                       |
+| Minimize Dependencies                     | Abhängigkeiten von Komponenten minimieren, Kopplung verringern            |
+| Honor Pledges                             | Funktionalität spiegelt Planung, keine Überraschungen                     |
+| **Praktische Tugenden**                   | |
+| Embrace Uncertainty                       | Unsicherheit führt zum sichergehen durch testen, oder nachdenken          |
+| Focus                                     | Immer auf eine Sache auf einmal Konzentrieren                             |
+| Value Quality                             | Nicht mit suboptimalen Lösungen zufrieden sein, keine Workarounds         |
+| Get Things Done                           | Eine Sache nach der anderen, keine Sachen unfertig liegenlassen           |
+| Stay Clean                                | Code einheitlich halten, Refaktorisieren, Code Styles einhalten           |
+| Keep Moving                               | Wissen stehts erweitern, jede Entwicklung reflektieren, erlerntes auf weitere Teile anwenden |
+| **Prinzipien**                            | |
+| Single Responsibility Principle           | Jede Klasse hat eine Verantwortlichkeit                                   |
+| Open Closed Principle                     | Klassen sind offen für Erweiterungen, geschlossen für Modifikation        |
+| Liskov Substitution Principle             | Subtypen verhalten sich so wie Basistypen, nur Erweiterung, keine Einschränkung |
+| Interface Segregation Principle           | Interfaces sind abgetrennt, geben nur so wenig preis wie nötig            |
+| Dependency Inversion Principle            | High-Level Klassen sind nicht von Low-Level Klassen abhängig, beide sind von Interfaces abhängig |
+| Don't Repeat Yourself                     | Wiederholungen im Code vermeiden, Magic Numbers in Konstanten packen      |
+| Keep It Simple, Stupid                    | Immer die enfachste Lösung oder Datenstruktur verwenden                   |
+| Single Level Of Abstraction               | Funktionen haben einheitliche Abstraktionsebenen                          |
+| Tell Don't Ask                            | Objekte fragen nicht nach Zuständen anderer Objekte, sonder geben Objekten Anweisungen |
+| Law Of Demeter                            | Objekte haben nur beschränkte Interaktion mit anderen Objekten            |
+| You Ain't Gonna Need It                   | Nur klare Anforderungen umsetzen, alles andere später, Funktionen anhand von Priorisierung umsetzen, keinen flexiblen Code |
+| **Praktiken**                             | |
+| Pfadfinderregel                           | Hinterlasse einen Ort immer in einem besseren Zustand als du ihn vorgefunden hast |
 
 ## Quellen
 [Clean Code Developer](!https://clean-code-developer.de/)  
