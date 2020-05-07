@@ -7,11 +7,15 @@ Diese Prinzipien und auch der Name entstammen dem Buch "Clean Code" von Robert C
 Dieses Buch enthält eine Menge von Best Practices, Prinzipien und Praktiken, welche zu "Clean Code" führen.
 
 Die folgeden Kapitel werden zunächst auf ein Paar negativ Beispiele, sogenannten Dirty Code eingehen, um zu zeigen, was 
-vermieden werden sollte. Danach wird auf die Clean Code Developer Bewegung eingegangen, welche die Clean Code Richtlinien so weit ausbreiten will, wie möglich.
+vermieden werden sollte. Um sicherzustellen, dass die wichtigsten Begrifflichkeiten korrekt verstanden werden, werde diese als nächstes
+aufgelistet und erklärt. 
+Danach wird auf die Clean Code Developer Bewegung eingegangen, welche die Clean Code Richtlinien so weit ausbreiten will, wie möglich.
 Dabei wurde ein Wertesystem entwickelt, verschiedene Clean Code Grade, Tugenden und verschiedene Maßnahmen. Die wichtigsten
 dieser Maßnahmen setzen das sogenannte SOLID Prinzip zusammen. Nachdem erklärt wurde, wie Clean Code Prinzipien theorhetisch umgesetzt
-werden sollen, wird im Clean Code Controlling Kapitel erklärt, wie dies tatsächlich in Firmen angewendet wird. 
-Zuletzt werden nochmal die Vorteile und Ziele und die Nachteile von Clean Code aufgelistet.
+werden sollen, wird im Clean Code Controlling Kapitel erklärt, wie dies tatsächlich in Firmen angewendet wird. Danach wir auf
+das Test Driven Developement eingegangen, welches eine weitere Methode darstellt guten Code zu entwickeln. 
+Als Abschluss werden nochmal die Vorteile, Ziele und Nachteile von Clean Code aufgelistet, bevor eine Kritik über Clean Code formuliert wird.
+Um einen schnellen Überblick zu liefern, werden noch einmal alle Tugenden und Maßnahmen in der Zusammenfassung aufgelistet.
 
 ## Dirty Code Beispiele
 
@@ -859,7 +863,7 @@ funktioniert.
 Damit besteht zwischen TDD und CCD eine hohe Ähnlichkeit. Beide Vorgehensweisen setzen sich, unter anderem, als Ziel eine höhere
 Testabdeckung zu erzielen. Allerdings wird bei TDD die Entwicklung mit Tests vorrangetrieben, während bei CCD Tests nachträglich hinzugefügt werden.
 Hier ist allerdings zu beachten, dass TDD meist für neue Entwicklungen angewendet wird, während CCD auch auf bereits bestehende
-Software angewendet wird.
+Software angewendet wird. Man könnte TDD somit als Teilmenge von CCD betrachten.
 
 ## Vorteile und Ziele von Clean Code
 Die Vorteile und Ziele von Clean Code lassen sich gut mit dem vorgestelltem Wertesystem zusammenfassen. Zunächst soll durch das 
@@ -885,6 +889,17 @@ korrekt umgesetzt wurden. Dieses enorme Zeitinvestment könnte natürlich dafür
 Allerdings ist diese Betrachtungsweise sehr kurzsichtig, da unaufgeräumte Software einen Punkt erreicht, an dem die Implementation
 neuer Features, durch die schlechte Struktur des Projekts, so aufwändig ist, dass es besser gewesen wäre von vornerein die Clean Code
 Prinzipien umzusetzen.
+
+## Kritik zu Clean Code
+Die Clean Code Prinzipien und Praktiken sind oftmals sinnvoll, und sollten so gut es geht umgesetzt werden. Allerdings
+sind viele dieser Prinzipien sehr spezifisch für die objektorientierte Programming und können nicht für Projekte, welche
+zum Besipiel eine funktionale Programmierung verwenden, angewendet werden.  
+Inhaltlich ähneln sich manche Prinzipien sehr stark, zum Beispiel das Separation of Concerns und Single Responsibility Principle
+haben beide eine geringere Kopplung als Ziel. Solche Prinzipien könnten auch zu einem zusammengefügt werden, was die hohe Anzahl
+an Maßnahmen eingrenzen würde.  
+Außerdem verschwimmen die Grade ein wenig, und viele Prinzipien könnten auch in anderen Graden verwendet werden. Zum Beispiel
+könnte das YAGNI Prinzip auch als grundlegendes Prinzip verstanden werden und somit dem roten Grad angehören.
+
 
 ## Zusammenfassung
 Abschließend werden nochmals die Tugenden und die wichtigsten Prinzipien und Praktiken zusammengefasst.
@@ -923,3 +938,8 @@ Abschließend werden nochmals die Tugenden und die wichtigsten Prinzipien und Pr
 [Clean Code Developer](!https://clean-code-developer.de/)  
 [Vortrag zu Clean Code](!https://gi.de/fileadmin/RG/Dortmund/user_upload/Clean-Code-Vortrag.pdf)  
 [Wikipedia](!https://de.wikipedia.org/wiki/Clean_Code)
+[Clean Code Cheat Sheet](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
+[SOLID Kritik](!https://www.maibornwolff.de/blog/warum-ich-solid-fuer-ueberbewertet-halte)
+[Clean Code Poster](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
+[Clean Code Cheacklist](!https://github.com/dev-aritra/clean-code-developer-checklist)
+[Wie misst man Clean Code](!https://www.it-economics.de/blog/2015-05/2015-wie-misst-man-clean-code)
