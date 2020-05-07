@@ -17,6 +17,28 @@ das Test Driven Developement eingegangen, welches eine weitere Methode darstellt
 Als Abschluss werden nochmal die Vorteile, Ziele und Nachteile von Clean Code aufgelistet, bevor eine Kritik über Clean Code formuliert wird.
 Um einen schnellen Überblick zu liefern, werden noch einmal alle Tugenden und Maßnahmen in der Zusammenfassung aufgelistet.
 
+## Begriffe
+In diesem Kapitel werden Begriffe erklärt, welche für die Verständlichkeit der folgenden Kapitel notwendig sind.
+
+### Kopplung
+Kopplung beschreibt, wie sehr verschiedene Komponenten von einander Abhängig sind. Bei hoher Kopplung kann es passieren, dass
+die Änderung einer Komponente eine Menge unerwartete Änderungen und Probleme in anderen Komponenten nach sich ziehen kann.
+Es ist daher anzustreben eine geringe Kopplung zu haben, welche es ermöglicht einzelne Komponenten zu ändern, testen oder gar auszutauschen,
+ohne das andere Komponenten stark dafür beeinflusst werden.
+ 
+### Kohäsion
+Kohäsion sagt aus, wie stark der inhaltliche Zusammenhang einer einzelnen Komponente ist. Hierbei soll eine starke Kohäsion erreicht werden,
+was bedeutet, dass die Komponente genau für die jeweilige Aufgabe aufgebaut ist, und alle Methoden, Eigenschaften zu dieser Aufgabe passen.
+ 
+### Prinzip
+Ein Prinzip ist eine grundlegende Gesetzmäßigkeit für die Strukturierung von Code. Guter Code sollte dabei so viele Prinzipien
+umsetzen, wie möglich. Wurde auf Quellcode ein Prinzip angewendet, lässt sich dieses oftmals an der Struktur des Codes erkennen.
+
+### Praktik
+Praktiken beschreiben, welche Techniken und Methoden verwendet werden sollten, um ein Ziel zu erreichen. Dafür sind teilweise
+spezielle Werkzeuge nötig, ohne welche das Umsetzen der Praktik stark vereinfacht wird. Im gegensatz zu Prinzipien lässt sich nicht am Quellcode erkennen, 
+ob und welche Praktiken angewendet wurden.  
+
 ## Dirty Code Beispiele
 
 Bei "Dirty Code" handelt es sich um Code, welcher eine Menge "Bad Smells" beinhält. Bei Bad Smells handelt es sich um 
@@ -937,9 +959,9 @@ Abschließend werden nochmals die Tugenden und die wichtigsten Prinzipien und Pr
 ## Quellen
 [Clean Code Developer](!https://clean-code-developer.de/)  
 [Vortrag zu Clean Code](!https://gi.de/fileadmin/RG/Dortmund/user_upload/Clean-Code-Vortrag.pdf)  
-[Wikipedia](!https://de.wikipedia.org/wiki/Clean_Code)
-[Clean Code Cheat Sheet](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
-[SOLID Kritik](!https://www.maibornwolff.de/blog/warum-ich-solid-fuer-ueberbewertet-halte)
-[Clean Code Poster](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)
-[Clean Code Cheacklist](!https://github.com/dev-aritra/clean-code-developer-checklist)
-[Wie misst man Clean Code](!https://www.it-economics.de/blog/2015-05/2015-wie-misst-man-clean-code)
+[Wikipedia](!https://de.wikipedia.org/wiki/Clean_Code)  
+[Clean Code Cheat Sheet](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)  
+[SOLID Kritik](!https://www.maibornwolff.de/blog/warum-ich-solid-fuer-ueberbewertet-halte)  
+[Clean Code Poster](!https://www.planetgeek.ch/wp-content/uploads/2014/11/Clean-Code-V2.4.pdf)  
+[Clean Code Checklist](!https://github.com/dev-aritra/clean-code-developer-checklist)  
+[Wie misst man Clean Code](!https://www.it-economics.de/blog/2015-05/2015-wie-misst-man-clean-code)  
