@@ -560,14 +560,36 @@ Somit würde folgendes entstehen:
     
     double gesamtpreis = berechnePreis(produktPreis, menge)
     ...
-    
-
 
 ### Keep It Simple, Stupid (KISS)
 Dieses Prinzip steht dafür, dass stehts die einfachste Lösung verwendet werden soll. Wenn Code unverständlich ist, erschwert
 dies, dass mehrere Personen an ihm arbeiten können. Um stehts die einfachste Lösung zu finden empfehlen sich Code Reviews 
 und Pair Programming. Dieses Prinzip lässt sich auch auf Datenstrukturen anwenden. Wenn für eine Lösung nur eine
 Liste nötig ist, sollte keine Map oder sonstiges verwendet werden.
+
+    FileOutputStream stream = null;
+    PrintStream out = null;
+    try {
+        File file = new File("Test.txt");  
+        stream = new FileOutputStream(file); 
+        String text = "Teststring";
+        out = new PrintStream(stream);
+        out.print(text);                  
+    } catch (Exception ex) {
+        //do something
+    } finally {
+        try {
+            if(stream!=null) stream.close();
+            if(out!=null) out.close();
+        } catch (Exception ex) {
+            //do something
+        }
+    }
+    
+Anstatt diese komplizierte Herangehensweise zu wählen, könnte man stattdessen mitgelieferte Methoden verwenden, solange man 
+wie in diesem Fall die richtige Version von Java verwendet.
+
+    Files.writeString(Path.of("\", "Test.txt"), "Teststring");
 
 ### Die Pfadfinderregel
 Die Pfadfinderregel besagt "Hinterlasse einen Ort immer in einem besseren Zustand als du ihn vorgefunden hast" und soll 
@@ -582,6 +604,25 @@ sollten. Im Falle einer Methode kann dieses Abstraktionsniveau zum Beispiel star
 einfache Zuweisung stattfindet, kann in der nächsten eine komplizierte Formel auf Bittiefe stehen.  
 Um einheitliche Niveaus zu erreichen sollten solche komplizierten Algorithmen ausgelagert werden, sodass die Lesbarkeit 
 der Methode erhalten bleibt. Wenn der Entwickler wünscht genauer hinzusehen, kann er dazu einfach die aufgerufene Methode betrachten.  
+
+    public double berechnePreis(double produktKosten, int produktAnzahl, UserData userdata){
+        double rabattMultiplikator = 1 - (userdata.anzahlBestellungen * 0.01) - (userdata.kundenart.index * 0.1);
+        
+        return produktKosten * produktAnzahl * rabattMultiplikator; 
+    }
+    
+In diesem Beispiel sind zwei verschiedene Abstraktionsebenen. Die eine behandelt nur die komplizierte Berechnung des
+Rabatts anhand der Benutzerdaten, währrend der Rest eine simple Mulitplikation darstellt.
+
+Um SLA umzusetzen, sollte die Rabatt Berechnung in eine Methode ausgelagert werden.
+
+    private double berechneRabatt(UserData userdata){
+        return 1 - (userdata.anzahlBestellungen * 0.01) - (userdata.kundenart.index * 0.1)
+    }
+
+    public double berechnePreis(double produktKosten, int produktAnzahl, UserData userdata){
+        return produktKosten * produktAnzahl * berechneRabatt(userdata); 
+    }
   
 ### Tell, Don't Ask
 Bei diesem Prinzip wird verlangt, dass Objekte nicht Entscheidungen anhand von dem momentanen Zustand anderer Objekte treffen.
@@ -589,6 +630,42 @@ Es wird stattdessen verlangt, dass Objekte sich gegenseitig befehlen, was zu tun
 Also wenn Objekt A eine Methode von Objekt B aufrufen will, und von Property C abhängig ist welche, dann soll A anhand von C
 entschieden, und nicht B C anfragen und dann selbst entscheiden. Wenn dieses Prinzip angewendet wird, führt dies zu geringerer
 Kopplung, und Objekte werden seltener zu reinen Datenhaltungsobjekten.
+
+    class Preisrechner{
+        ...
+        private double berechneRabatt(UserData userdata){
+            return 1 - (userdata.anzahlBestellungen * 0.01) - (userdata.kundenart.index * 0.1)
+        }
+    
+        public double berechnePreis(double produktKosten, int produktAnzahl, UserData userdata){
+            return produktKosten * produktAnzahl * berechneRabatt(userdata); 
+        }
+        ...
+    }
+     
+Anstatt, dass der Preisrechner den Rabatt berechnet, welcher von Eigenschaften der User Daten abhängt, sollte dem Preisrechner
+der Rabatt gesagt werden. Die Berechnung des Rabatts wäre somit Teil der USer Daten.
+
+    class UserData{
+        ...
+        UserData(...){
+            ...
+            this.rabattMultiplikator = berechneRabatt();
+        }
+        
+        private double berechneRabatt(){
+            return 1 - (anzahlBestellungen * 0.01) - (kundenart.index * 0.1)
+        }
+        ...
+    }
+    
+    class Preisrechner{
+        ...
+        public double berechnePreis(double produktKosten, int produktAnzahl, double rabattMultiplikator){
+            return produktKosten * produktAnzahl * rabattMultiplikator; 
+        }
+        ...
+    }
 
 ### Law Of Demeter
 Der Law of Demeter handelt davon, das Zusammenspiel von Objekten zu beschränken. So soll nach dem Law of Demeter eine Methode
@@ -599,6 +676,37 @@ nur folgende andere Methoden verwenden:
 - Methoden selbst erzeugter Objekte  
 Dadurch soll minimiert werden, dass Aufrufe über mehrere Objekte möglich sind, welche zu hoher Kopplung führen würden. Manchmal
 sollte dieses Prinzip allerdings nicht angewendet werden, zum Beispiel bei Konfigurationsklassen.
+
+
+    class Abrechnung{   
+        ...
+        double zwischenKosten = bisherigeKosten + neuesProdukt * auftrag.user.preisrechner.rabatt;
+        ...
+    }
+    
+In diesem Besipiel ruft die Abrechnung den Rabatt eines Auftrages über den Benutzer und dessen Preisrechner auf.
+Stattdessen sollen Hilfsmethoden verwendet werden, die solche Zugriffe ermöglichen. Dadurch wird die
+Kopplung verringert, da nicht mehr die Abrechnung angepasst werden muss, wenn zum Besipiel der Rabatt nicht mehr
+am Preisrechner hängt, sondern direkt an den User Daten.
+    
+    class UserData{
+        getUserRabatt(){
+            return preisrechner.rabatt;
+        }
+    }
+    
+    class Auftrag{
+        getAuftragRabatt(){
+            return userdata.getUserRabatt();
+        }
+    }
+    
+    class Abrechnung{
+        ...
+        double zwischenkosten = bisherigeKosten + neuesProdukt * auftrag.getAuftragRabatt();
+        ...
+    }
+    
 
 ### You Ain't Gonna Need It (YAGNI)
 Der Grund, weshalb das eigentlich sehr einfache YAGNI Prinzip notwendig ist, ist das Anforderungen für Software oftmals sehr ungenau
@@ -621,7 +729,82 @@ entweder für die underscore Schreibweise (tolle_funktion) oder camel case (toll
 festgelegt, kann dieser in Reviews überprüft werden, oder es können Tools wie Checkstyle verwendet werden, um guten
 Codestyle zu prüfen.
 
-## Tools für Clean Code Developement
+### Refactoring Muster
+Bei Refactoring handelt es sich um den Vorgang, Code neu zu strukturieren, um die Clean Code Prinzipien umzusetzen. 
+Dabei gibt es verschiedene Refactoring Muster, welche häufig angewendet werden. Zum Beispiel das Rename Muster, welches
+lediglich die Namen von Variablen, Funktionen und ähnlichem ändert. Dies scheint erst überflüssig, aber erhöht die Leserlichkeit
+des Codes Teilweise enorm.
+
+    public double berechne(double a, int b){
+        return a * b * 0.95;
+    }
+    
+Aus dieser Schreibweise der Funktion wird nicht deutlich, was ihre Aufgabe ist, und was welche Variable bedeutet.
+
+    private const double stammkundenRabatt = 0.95;
+    
+    public double berechneStammkundenpreis(double produktPreis, int produktAnzahl){
+        return produktPreis * produktAnzahl * stammkundenRabatt;
+    }
+    
+Obwohl die Rechnung noch genau so funktioniert, wie vorher, wird durch die Benennung ein Kontext gegeben, welcher erreicht, dass
+die Funktion korrekt verwendet wird, und eventuell leichter angepasst werden kann.
+
+Ein weiteres Refaktorisierungsmuster ist das Dependecy Injection Muster, bei welchen Objekten Eigenschaften mitgegeben werden, 
+von denen sie abhängen, anstelle diese pro Objekt zu definieren.
+
+    class NeukundenPreisrechner{
+         private const double neukundenRabatt = 0.9;
+         ...
+    }
+    
+    class StammkundenPreisrechner{
+         private const double stammkundenRabatt = 0.95;
+         ...
+    }
+    
+Anstelle viele verschiedene Objekttypen zu haben, werden stattdessen Einheitliche Objekte verwendet, welche alle unterscheidenen
+Merkmale im Build Prozess erhalten:
+
+    class Preisrechner{
+         private double rabatt;
+         
+         preisrechner(double rabatt){
+            this.rabatt = rabatt;
+         }
+    }
+
+    main(){
+        Preisrechner neukundenPreisrechner = new Preisrechner(0.9);
+        Preisrechner stammkundenPreisrechner = new Preisrechner(0.95);
+        ...
+    }     
+    
+Ein weiteres bekanntes Refaktorisierungsmuster ist das Extract Methode Muster. Hier werden gewissen Teile von Funktionen
+in andere Funktionen ausgelagert. Dies macht den Code nicht nur leserlicher, und hält das Single Layer Of Abstraction Prinzip ein,
+sondern kann auch verwendet werden, um doppelten Code zu minimieren.
+        
+    public void bestelleProdukte(List<Produkt> produkte, UserDaten userdaten){
+        double gesamtPreis;
+        
+        foreach (produkt : produkte){
+            gesamtPreis = gesamtPreis + produkt.preis * produkt.anzahl * userdaten.kundenart.rabatt;
+        }
+        ...
+        erstelleRechnung(userdaten, gesamtpreis, produkte);
+        ...
+    }
+    
+Wie dieses Beispiel zeigt, wird in der bestelleProdukt Funktion der Gesamtpreis im Detail berechnet. Allerdings könnte es
+sein, dass ein Kunde vorm Bestellen der Produkte seine aktuellen Kosten einsehen möchte, wofür dieser Teil der Funktion
+ebenfalls benötigt wird.  
+    
+    public void bestelleProdukte(List<Produkt> produkte, UserDaten userdaten){
+        double gesamtPreis = berechneGesamtpreis(produkte, userdaten.kundenart.rabatt)
+        ...
+        erstelleRechnung(userdaten, gesamtpreis, produkte);
+        ...
+    }
 
 ## Clean Code Controlling
 Clean Code Controlling soll sicherstellen, dass sich alle Entwickler an einem Projekt an die Clean Code Richtlinien halten.
