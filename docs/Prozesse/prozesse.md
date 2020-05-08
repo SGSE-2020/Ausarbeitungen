@@ -268,12 +268,17 @@ Der große Vorteil von SAFe, dass es einen umfassenden Rahmen für große Untern
 __Rapid Application Development:__
 
 - [RAD- Computerwoche](https://www.computerwoche.de/a/rapid-application-development,2352552)
-
 - [RAD A Brief Overview](https://www.csiac.org/wp-content/uploads/2016/02/1998_03_01_RapidApplicationDevelopment.pdf)
-
 - [RAD-IT-Talents](https://www.it-talents.de/blog/it-talents/was-ist-rapid-application-development)
 
-  
+__SAFe__
+
+- [SAFe for Lean Enterprises](https://www.scaledagileframework.com/#)
+- [Besser SAFe?](https://www.mosaiic.com/blog/2018/03/20/safe-scaled-agile-framework/)
+- [Braintime- SAFe](https://www.braintime.de/methoden/ueberblick-scaled-agile-framework-beratung/safe-voraussetzungen/)
+- [Palladio Consulting-SAFe](https://www.palladio-consulting.de/safe/)
+- [wibas - SAFe](https://www.wibas.com/de/scaled-agile-framework/)
+- [cassini - SAFe oder LeSS?](https://www.cassini.de/interview/safe-oder-less)
 
 
 
