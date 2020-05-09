@@ -259,6 +259,182 @@ Der große Vorteil von SAFe, dass es einen umfassenden Rahmen für große Untern
 
  Durch den großen Umfang ist es aber selbst für Kenner von agilen Methoden fast unerlässlich ein Training und entsprechende Zertifizierungen zu buchen. Ein Umstand der von dem Betreiber des Frameworks so gewollt ist. Schließlich ist das Framework an sich frei erhältlich, der Umsatz des Unternehmens wird über Schulungen und Zertifizierungen generiert.
 
+### Kunden
+
+In diesem Abschnitt werden einfach ein paar Unternehmen aufgezählt, die SAFe verwenden:
+
+- Lockheed Martin
+- Bosch
+- Deutsche Bahn
+- Cisco
+- Air France - KLM
+- Intel
+- fitbit
+- PlayStation Network
+- Philips
+- TomTom
+
+## LeSS
+
+LeSS (Large-Scale Scrum) ist ebenfalls ein Framework für die Zusammenarbeit von verschiedenen Scrum Teams.  Die beiden Gründer von LeSS waren lange Zeit in der traditionellen Entwicklung beheimatet mit verschiedenen Teams. Jedoch fühlte sich davon keine Methode mehr richtig an. Scrum fühlte sich zwar in einem Team richtig an, hatte jedoch das Problem keine Vorgaben zur Zusammenarbeit mit Teams zu machen.
+
+Aus diesem Grund hat auch LeSS den Anspruch nicht einfach ein Scrum zu sein für viele Teams. Vielmehr soll es eine Methodik bieten, damit viele Teams, auch crossfunctional, zusammenarbeiten können. 
+
+LeSS besteht aus verschiedenen Kernpunkten: Ein Kernpunkt ist die technische Exzellenz. Hierzu zählen eine kontinuierliche Entwicklung, Integration und Auslieferung. Zusätzlich definiert LeSS einige Regeln und Prinzipien.
+
+### Regeln
+
+Die Regeln sind aufgeteilt in zwei Größen. Die Basis-Regeln sind immer gültig, mehr ist jedoch auch nicht notwendig, bei einer Größe von 2-8 Teams. Ab 8 Teams gibt es noch zusätzliche Regeln, diese verursachen jedoch auch einen größeren Overhead und würden bei kleineren Größen zu zu lokalen Anpassungen führen. 
+
+Aufgeteilt sind die Regeln in die Bereiche Structure, Product und Sprint.
+
+__Structure:__
+
+In diesem Bereich finden sich zum Beispiel folgende Regeln:
+
+- Der Scrum-Master ist eine Vollzeitrolle
+- Ein Master kann nur bis zu 3 Teams betreuen
+
+__Product:__
+
+ Folgende Regeln sind zum Beispiel vorgegeben:
+
+- Es gibt für jedes Produkt einen Owner und Backlog
+- Der Product Owner übernimmt die Priorisierung der Aufgaben, die Teams die Spezifizierung
+
+__Sprint:__
+
+Und zwei Beispiele für Sprint-Regeln:
+
+- Jedes Team hat einen eigenen Daily-Scrum
+- Jedes Team hat einen eigenen Sprint Backlog
+
+### Prinzipien
+
+#### Queueing Theory
+
+Die Warteschlangen Theorie beschäftigt sich mit der Frage, wie sich Objekte in einer Warteschlange bewegen.  Die Warteschlangen Theorie ist einer der Grundsätze von Lean Development. LeSS beherrscht die Warteschlangentheorie. Ziel ist es, in kurzer Zeit auslieferbare Produkte zu erstellen.
+
+#### Large-Scale Scrum is Scrum
+
+Dieses Prinzip sagt aus, dass der bekannte Ablauf von Scrum immer noch gleich ist. Es soll auch keine neue Version von Scrum entwickelt werden mit den Framework. Vielmehr sollen Regeln und Anleitungen gegeben werden, wie Teams zusammenarbeiten können. Es löst organisatorische Probleme. Genau legt LeSS jedoch nicht fest, wie die Teams das lösen. Dies liegt vielmehr im Aufgabenbereich jedes einzelnen Teams.
+
+#### Transparency
+
+Da sich auch mit der Anwendung von Scrum Probleme nicht automatisch lösen, bietet LeSS Methoden um den Teams ein regelmäßiges Feedback zu geben, wo Sie aktuell stehen. Es zeigt aber nicht nur Probleme in dem Team auf, sondern auch in der Organisation.
+
+#### More with LeSS
+
+Dieses Prinzip bildet das Herzstück von LeSS. Es basiert auf der Erkenntnis, dass die Nachteile durch komplexe organisatorische Lösungen teilweise schlimmer sind als die Probleme, die sie lösen sollen. Aus diesem Grund versucht LeSS organisatorische Komplexität zu beseitigen, indem es Probleme der Produktentwicklung auf einfache Art und Weise löst.
+
+#### Whole Product Focus
+
+Dadurch, dass der Kunde nie Teile des Produktes sieht, sondern immer nur ganze Produkte. Daraus entwickelt LeSS wichtige Leitlinien:
+
+- Teile, die noch nicht in die Gesamtsoftware integriert werden, haben keinen Wert
+- Teile sind erst dann fertig, wenn sie integriert sind
+
+Es ist eine der schwierigsten Aufgaben bei der Arbeit mit Scrum über mehrere Teams, dass sich alle auf das Produkt und nicht auf einzelne Teile konzentrieren.
+
+#### Customer Centric
+
+Im Mittelpunkt steht immer der Kunde und seine Anforderungen. Jeder ist somit direkt mit dessen Bedürfnissen verbunden.
+
+#### Continuous Improvement towards perfection
+
+Die Hauptaussage besteht darin, dass Perfektion so gut wie nie erreicht wird. Aus diesem Grund ist ein Produkt auch nie wirklich fertig. Stattdessen wird es kontinuierlich weiterentwickelt um näher an die Perfektion ran zu kommen.
+
+#### Lean Thinking
+
+Hierunter wird verstanden, dass eine Denkweise etabliert wird, die den Respekt vor dem Menschen, das Streben nach kontinuierlicher Verbesserung und ein agiles Mindset beinhaltet. Dieses Mindset wird durch verschiedene Prinzipien und Ziele weiter definiert.
+
+#### Systems Thinking
+
+Auch dieser Punkt definiert wieder mehrere Prinzipien die ihn ausmachen. Zusammengefasst geht es so ungefähr darum, ein Gespür für das System zu bekommen. Und das neue Probleme nicht einfach auftauchen, sondern es Gründe im System gibt. Hierfür muss man aber die Eigenheiten, den Aufbau und die Gedanken für das System verstehen.
+
+#### Empirical Process Controll
+
+Es wird in kurzen Zyklen ein versandfertiges Teil des Produktes hergestellt und getestet. Hierbei wird vor allem die Art und weise wie es gebaut wird überprüft.
+
+#### Zusammenfassung
+
+Viele der Prinzipien sind bereits durch Scrum definiert. Hier beziehen sie sich jedoch nur auf ein einzelnes Projekt, nicht jedoch auf die Zusammenarbeit von Teams.
+
+### Vorteile
+
+LeSS setzt auf dem bereits bekannten Scrum-Prinzip auf. Dieses Prinzip wird an vielen Stellen nur verfeinert, sodass LeSS optimal ist für Teams, die bereits nach Scrum arbeiten. Die Zusammenarbeit mit anderen Teams wird jedoch gefördert und unterstützt. Letzendlich beschreibt LeSS mit seinen Prinzipien sogar eher einen Zielzustand, welcher sich stark an Scrum orientiert.
+
+### Nachteile
+
+LeSS enthält keine Angaben, bzw. Vorgaben, zu Themen wie der Unternehmensstrategie, -architektur oder dem Portfolio. In diesem Punkt brauchen allerdings vor allem mittlere und große Unternehmen mehr Klarheit bezüglich der Organisation.
+
+### Kunden
+
+In diesem Abschnitt werden einfach ein paar Unternehmen aufgezählt, die LeSS verwenden:
+
+- BMW Group
+- Huawei
+- John Deere
+- JP Morgan Chase
+
+## Nexus
+
+### Zweck
+
+Nexus ist ein Framework um die Arbeit mit mehreren Scrum-Teams zu erleichtern. Scrum selber beschreibt nur den Ablauf innerhalb eines Teams, zu der Zusammenarbeit mit anderen Teams macht es jedoch keine Vorgaben. Um diese Lücke möglichst leichtgewichtig zu füllen, hat einer der Erfinder von Scrum, Ken Schwaber, Nexus entwickelt.
+
+### Ablauf
+
+![Nexus](./img/nexus.png)
+
+Nexus besteht aus drei Elementen. Den Rollen, Artefakten und Events. Eine Rolle ist zum Beispiel das Nexus Integration Team. Ein Artefakt das Product Backlog und der Sprint Review ist ein Event.
+
+#### Verfeinerung des Product Backlogs
+
+Am Anfang des Models steht die Verfeinerung des Product Backlogs. Dieses muss so genau definiert werden, dass Abhängigkeiten erkannt und beseitigt oder minimiert werden. Die Einträge im Backlog werden zu kleinen Teile der Funktionalität verfeinert und die Teams, welche die Funktionalität erledigen sollen, erkannt und zugewiesen.
+
+#### Nexus Sprint-Planning
+
+Anschließend treffen sich Repräsentanten von jedem Team und diskutieren das verfeinerte Product Backlog. Auch wählen Sie in diesem Meeting geeignete Einträge aus dem Backlog für ihr Team zur Umsetzung aus. Nach dem Meeting plant jedes Team den Sprint, es entsteht ein Sprint Backlog. Diese Planung geschieht mit angemessener Komunikation zu den anderen Teams. Letztendlich soll so eine Reihe von Sprint-Zielen entstehen, die auf das Product-Backlog und auf alle Sprint-Backlogs abgestimmt ist.
+
+
+
+Aus dieser Reihe von Zielen entsteht ein Nexus Sprint Backlog, welches die Ziele und deren Abhängigkeiten beschreibt. Ziel ist es Transparenz unter den Teams zu schaffen.
+
+#### Entwicklungsarbeit
+
+Alle Teams integrieren ihre Lösungen regelmäßig in eine gemeinsame Umgebung. Diese wird getestet, damit sichergestellt werden kann, dass die Integration erfolgreich durchgeführt wird.
+
+##### Nexus Integration Team
+
+Das Integration Team hat dafür Sorge zu tragen, dass am Ende des Sprints mindestens ein funktionstüchtiges Inkrement entsteht. Hierfür addressiert und moderiert es die teamübergeifenden Probleme.
+
+#### Nexus Daily Scrum
+
+Die Repräsentanten von jedem Team treffen sich täglich um bestehende Integrationsprobleme zu erkennen und zu erörtern. Im Anschluss an dieses Meeting haben die Teams ihr Daily Scrum Meeting. Hier soll der Tagesplan erstellt werden. Sollten im Nexus Daily Scrum Integrationsprobleme erkannt werden, sollten diese im Tagesplan adressiert werden.
+
+#### Nexus Sprint Review
+
+Am Ende eines jeden Sprint findet der Sprint Review statt. Hier treffen sich alle Teams mit den Stakeholdern um Feedback zu der gebauten Funktionalität zu erhalten. Ergebnis aus diesem Feedback kann das Product Backlog weiter verfeinern.
+
+#### Nexus Sprint Retrospektive
+
+Abschließend treffen sich die Vertreter von jedem Team um gemeinsame Probleme zu identifizieren. Anschließend hält jedes Team eine eigene Retrospektive ab. Danach treffen sich dann noch einmal die Vertreter um die erkannten Probleme abschließend zu diskutieren und das weitere Vorgehen zu erarbeiten. So soll sichergestellt werden, dass die Probleme passend in der Lösung beachtet werden.
+
+### Vorteile
+
+Für Unternehmen oder Teams, die bereits nach Scrum arbeiten, bedeutet dieses Framework wenig extra Aufwand. Es entstehen wenige zusätzliche Rollen und Meetings, alles läuft bereits nach der bekannten Methodik ab. Dazu kommt, dass dieses Framework kostenlos erhältlich ist. Der im Netz erhältliche Guide ist ca. 15 Seiten lang und in 30 Sprachen erhältlich.
+
+### Nachteile
+
+Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. Dies bedeutet automatisch, dass dieses Framework für große Projekte nicht geeignet ist. Zusätzlich liegt der Fokus dieses Frameworks fast ausschließlich auf dem Integrationsteam. Anweisungen oder Empfehlungen zu Struktur- und Ablaufkonzepten, oder gar zu Portfoliomanagment, IT Betrieb oder Strategien enthält das Framework leider nicht
+
+### Kunden
+
+- Asian Airline
+- HVAC Manufacturer
+- Cathay Pacific Airways
+
 
 
 # Anhang
@@ -280,5 +456,19 @@ __SAFe__
 - [wibas - SAFe](https://www.wibas.com/de/scaled-agile-framework/)
 - [cassini - SAFe oder LeSS?](https://www.cassini.de/interview/safe-oder-less)
 
+__LeSS__
 
+- [LeSS](https://less.works/de)
+
+- [Ist LeSS wirklich mehr?](https://www.mosaiic.com/blog/2018/04/24/large-scale-scrum-framework/)
+
+- [cassini - SAFe oder LeSS?](https://www.cassini.de/interview/safe-oder-less)
+
+- [Less vs. SAFe](https://www.knowledgehut.com/blog/agile/less-vs-safe-which-certification-should-you-choose-and-why)
+
+- [LeSS - emendare](https://www.emendare.de/less-large-scale-scrum/)
+
+  
+
+  
 
