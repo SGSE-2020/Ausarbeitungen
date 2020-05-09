@@ -435,6 +435,75 @@ Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. D
 - HVAC Manufacturer
 - Cathay Pacific Airways
 
+## DaD
+
+Das Disciplined agile Delivery Framework (DaD) konzentriert sich ähnlich wie SAFe, LeSS oder Nexus auf die agile Arbeit in Unternehmen. Anders als diese Frameworks liegt die Hauptkonzentration dabei jedoch nicht auf die Zusammenarbeit zwischen den Teams, vielmehr bildet dieses Framework ein Leitwerk, damit die gewählten Vorgehensmodelle mit der Organisation zusammenarbeiten können. Es soll dabei als Orientierungs- und Entscheidungshelfer bei der Anwendung von agilen Praktiken fungieren.
+
+### Aufbau
+
+DaD verfolgt einen hybriden Ansatz, das bedeutet, dass es neben Scrum auch Ansätze und Methodiken aus anderen Konzepten vereint. Hierzu zählen unter anderem Agile Modeling (AM), Extreme Programming (XP), Unified Process (UP), Kanban, Lean Software Development und Outside In Development(OID). DaD bildet dabei ein Fundament, auf dem agile Techniken und Frameworks ausgeführt werden können.
+
+![DaD als Fundament](./img/fundament.png)
+
+Bei der Einbettung von dem Framework ist es nun wichtig zu verstehen, dass der Fokus weg von Software hin zu Lösungen geht. Damit verschiebt sich auch der Fokus vom User zu allen Stakeholdern. So sollen auch wirtschaftliche, kulturelle und technologische Einflüsse angemessen repräsentiert werden. Dafür unterscheidet das Framework im wesentlichen drei Phasen:
+
+#### Inception Phase
+
+Hier wird die Entwicklung der Produktvision vorangetrieben
+
+#### Construction Phase
+
+Über eine agile Methode, zum Beispiel Scrum oder Kanban, wird schrittweise eine Lösung erarbeitet.
+
+#### Transition Phase
+
+Die Lösung wird den Stakeholdern bereitgestellt.
+
+### Lebenszyklus
+
+Das Framework beherrscht mehrere Lebenszyklen. Zwei häufig verwendete, auf denen auch die meisten anderen basieren, sind die beiden vorgestellten. Andere Lebenszyklen kombinieren die Konzepte noch stärker mit anderen Praktiken wie zum Beispiel Extreme Programming.
+
+#### Basic DaD Lifecycle
+
+![DaD Basic Lifecycle](./img/dadbasic.png)
+
+Dieser Zyklus basiert auf Scrum. Am Anfang ist die Inception Phase. Diese besteht aus wenigen kurzen Interationen um die erste Planung und Organisation zu beschließen. Anschließend geht es schon in die Construction über. Aus den Anforderungen werden Work Items extrahiert und diese priorisiert. Anschließend werden die wichtigsten Funktionen zuerst entwickelt. Der normale Scrum Zyklus wird dabei angewendet. Am Ende dieser Phase werden erste Demos den Stakeholdern gezeigt. Daraus werden dann  neue Anforderungen oder abweichende Priorisierungen ermittelt. Diese fließen in die Planung für den nächsten Durchlauf ein. Abschließend wird in der Transition Phase das fertige Produkt zu den Stakeholdern gegeben. Das Feedback zu dem Produkt kann wiederum zu Anpassungen führen.
+
+Der Unterschied zu dem einfachen Scrum liegt jetzt darin, dass alle Personen im Unternehmen beteiligt werden. So sind auch alle für kontinuierliche Verbesserungen zum erreichen der Vision zuständig.
+
+#### Advanced Lean DaD Lifecycle
+
+![Advanced Lean DaD Lifecycle](./img/advanceddad.png)
+
+ Die Umsetzung des Advanced Lifecycle bietet sich vor allem für Unternehmen an, die in der erfolgreichen Umsetzung des Basics geübt sind. Grund ist, dass der Scrum Ansatz um Methodiken von Lean erweitert wird. Wo in einem festen Scrum Ansatz tägliche Meetings festgelegt sind, werden diese nach dem Lean Ansatz nur dann ausgeführt, wenn auch wirklich benötigt. Auch werden neue Aufgaben nur aus dem Aufgabenpool bezogen, wenn das Team über freie Kapazitäten verfügt. Durch diese Freiheiten ist jedoch eine erhöhte Disziplin und Eigenverantwortung notwendig, welches häufig nur bei fortgeschrittenen Teams angetroffen werden kann.
+
+### Vorteile
+
+DaD ist sehr flexibel und greift andere Aspekte auf, wie die bereits vorgestellten Methodiken SAFe, LeSS oder Nexus. Aus diesem Grund kann es sich bei DaD um eine passende Ergänzung zu diesen Frameworks handeln. Dabei überlässt das Framework den Entwicklern einen gewissen Freiraum nach welchem Praktiken diese arbeiten. Der Fokus liegt vielmehr auf der angemessenen Repräsentation aller Stakeholder an einem Produkt. So sollen auch andere Business Einheiten in dem Unternehmen Einfluss nehmen können. Ein Punkt, den Nexus und LeSS zum Beispiel nicht behandeln. Auch bietet dieses Framework sehr viel Flexibilität und soll vor allem bei der Auswahl der richtigen Methodik unterstützen. 
+
+### Nachteile
+
+Teilweise ist DaD mit seinen wenigen Spezifikationen sehr vage. Zwar bleibt es so für jedes Unternehmen anpassbar, gerade ungeübte Unternehmen werden jedoch Unterstützung benötigen.
+
+In letzter Zeit entwickelt sich auch SAFe immer mehr dazu, dass es Aufgaben von DaD übernimmt. Dieses ist zwar kein direkter Nachteil für dieses Framework, sollte jedoch erwähnt werden.
+
+### Kunden
+
+- Barclay
+- Open Link
+
+## User-Centered Design
+
+
+
+## Fazit
+
+Die drei vorgestellten Frameworks sollen alle die mangelnden Vorgaben von Scrum (oder anderen agilen Methodiken) zur Arbeit in mehreren Teams und in größeren Problemen ersetzen. Alle drei Frameworks haben dabei jedoch unterschiedliche Ansprüche an die Lösung. Nexus ist der leichtgewichtigste Vertreter dieser Frameworks. Dafür hat es allerdings auch nur den Anspruch die Zusammenarbeit mit maximal 9 Teams zu regeln. Funktionsübergreifende Teams werden auch nicht betrachtet, Nexus konzentriert sich auf die Entwicklerteams.
+
+LeSS setzt ebenfalls auf Scrum auf und eignet sich deswegen vor allem für Teams, die bereits agil nach Scrum arbeiten. LeSS legt verschiedene Regeln und Prinzipien fest, verpasst es allerdings auch genaue Vorgaben zu machen, die zum Beispiel ein Portfoliomanagement oder die Budgetplanung betreffen. 
+
+SAFe ist das umfangreichste Framework. Es beschreibt jegliche Bereiche und die benötigten Prozesse sehr genau. Aus diesem Grund eignet es sich auch für Unternehmen, die noch keine Erfahrung gemacht haben. Im Bereich der Entwicklung mit hunderten Entwicklern ist es quasi konkurrenzlos, da es als einziges Framework zum Beispiel auch die Budgetplanung berücksichtigt. Nachteil ist hier jedoch, dass
+
 
 
 # Anhang
@@ -469,6 +538,14 @@ __Nexus__
 - [Scrum.Org - Nexus](https://www.scrum.org/resources/scaling-scrum)
 - Nexus Guide
 - [Nexus im Überblick](https://www.mosaiic.com/blog/2018/05/15/nexus-framework-im-ueberblick/)
+
+__DaD__
+
+- [PMI-DaD](https://www.pmi.org/disciplined-agile/hybrid-framework)
+- [DA-Consortium](https://disciplinedagileconsortium.org/Disciplined-Agile-Case-Study)
+- [Scrum endlich diszipliniert?](https://www.mosaiic.com/blog/2018/06/05/disciplined-agile-delivery/)
+
+
 
 
 
