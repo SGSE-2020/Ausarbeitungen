@@ -487,6 +487,24 @@ Teilweise ist DaD mit seinen wenigen Spezifikationen sehr vage. Zwar bleibt es s
 
 In letzter Zeit entwickelt sich auch SAFe immer mehr dazu, dass es Aufgaben von DaD übernimmt. Dieses ist zwar kein direkter Nachteil für dieses Framework, sollte jedoch erwähnt werden.
 
+### Ausblick
+
+Am Anfang der Entstehungsgeschichte stand nur das Liefern von Software im Vordergrund. Dieser Ansatz, oben beschrieben, wurde jedoch schrittweise erweitert.
+
+![DA](./img/da.png)
+
+Mittlerweile umfasst das DA Framework noch folgende Bereiche:
+
+__DA DevOps:__ Integration agiler Entwicklung mit dem IT Betrieb samt Security und Data Management
+
+__DA Agile IT:__ Integration agiler Entwicklung in eine IT-Organisation
+
+__DA Agile Enterprise:__ Agile und leichtgewichtige Unternehmensprozesse sowie eine lernende Organisation
+
+
+
+Durch diese Erweiterungen bietet das komplette DA Framework mittlerweile sehr viele Möglichkeiten. Sämtliche Bereiche eines Unternehmens können nach einem Model integriert und alle Prozesse dargestellt werden. 
+
 ### Kunden
 
 - Barclay
@@ -494,9 +512,43 @@ In letzter Zeit entwickelt sich auch SAFe immer mehr dazu, dass es Aufgaben von 
 
 ## User-Centered Design
 
+Die Idee hinter dem Entwurf User zentriert zu entwickeln steht die Anforderung, die Wünsche und Anforderungen eines Produktusers zu berücksichtigen. Die Wünsche des Users werden dabei immer wieder angepasst und verfeinert, bis ein endgültiges Produkt steht, welches höchste Ansprüche an die Useability und die User Experience stellt.
 
+### Funktionsweise
 
-## Fazit
+![User Centered Design](./img/ucd.png)
+
+In der ersten Phase geht es darum, dass der Benutzerkontext verstanden wird. Hieraus ergeben sich dann auch verschiedene Useranforderungen. Diese werden dann ausgearbeitet und umgesetzt. Zum Schluss eines Durchlaufes wird die Arbeit bewertet und es werden die vorher getroffenen Anforderungen verfeinert. Dies wird bis zum Endprodukt immer wiederholt.
+
+Im folgenden werden die Phasen noch genauer beschrieben:
+
+1. Analyse: In dieser Phase wird der Benutzerkontext beschrieben. Die gestellten Fragen dazu lauten:
+   1. Welche Merkmale hat der Benutzer?
+   2. In welcher Umgebung findet die Nutzung statt?
+   3. Welche Aufgaben will der User lösen?
+2. Design: Hier werden die Anforderungen an die Software spezifiziert. Ziel ist es herauszufinden, was die Software leisten muss. Die Ergebnisse dieser Phase beeinflussen den Entwicklungsprozess.
+3. Implementierung: Die gestellten Anforderungen werden einem ersten Protypen umgesetzt. 
+4. Entwicklung: Die erarbeiteten Lösungen werden ständig geprüft und getestet.
+
+Diese Phasen werden wie oben gezeigt immer wieder durchlaufen, bis es zu einem endgültigen Produkt gekommen ist.
+
+Bei der Bewertung der Arbeit ist es dabei unerlässlich, dass User mit einbezogen werden. Hierzu bieten sich verschiedene Techniken, zum Beispiel Interviews, an.
+
+### Einsatzgebiet
+
+Diese Vorgehensweise bietet sich für alle Bereiche an, in denen eine starke Userfokussierung vorliegt. Klassische Bereiche dafür wären zum Beispiel Webfrontends oder die App-Entwicklung.
+
+### Vorteile
+
+Der starke Userfokus und die Einbindung des Users ermöglichen Produkte, die auf den User zugeschnitten sind. Hierdurch erfahren vor allem Bereiche, für die ein gut bedienbares Framework elementar ist, einen machbaren Einsatz.
+
+### Nachteile
+
+Durch die Fokussierung auf die Bedürfnisse des Users kann es dazu kommen, dass Produkte nicht fertig werden. Häufig wird der Ansatz in einer sich schnell verändernden Umgebung eingesetzt. Diese Umgebung wird zum Beispiel durch neue Technologien verändert. Dies ändert jedoch auch die Bedürfnisse des Users, die Entwicklung beginnt im schlimmsten Fall von vorne.
+
+## Vergleich
+
+Das User Centered Design stellt einen weiteren Prozessworkflow bereit um Projekte umzusetzen.
 
 Die drei vorgestellten Frameworks sollen alle die mangelnden Vorgaben von Scrum (oder anderen agilen Methodiken) zur Arbeit in mehreren Teams und in größeren Problemen ersetzen. Alle drei Frameworks haben dabei jedoch unterschiedliche Ansprüche an die Lösung. Nexus ist der leichtgewichtigste Vertreter dieser Frameworks. Dafür hat es allerdings auch nur den Anspruch die Zusammenarbeit mit maximal 9 Teams zu regeln. Funktionsübergreifende Teams werden auch nicht betrachtet, Nexus konzentriert sich auf die Entwicklerteams.
 
@@ -544,8 +596,17 @@ __DaD__
 - [PMI-DaD](https://www.pmi.org/disciplined-agile/hybrid-framework)
 - [DA-Consortium](https://disciplinedagileconsortium.org/Disciplined-Agile-Case-Study)
 - [Scrum endlich diszipliniert?](https://www.mosaiic.com/blog/2018/06/05/disciplined-agile-delivery/)
+- [DA-Übersicht](https://www.palladio-consulting.de/disciplined-agile-delivery/)
 
+__UCD__
 
+- [Ionos](https://www.ionos.de/digitalguide/websites/web-entwicklung/human-centered-design/)
+
+- [ryte](https://de.ryte.com/wiki/User_Centered_Design)
+
+- [interaction-design](https://www.interaction-design.org/literature/topics/user-centered-design)
+
+  
 
 
 
