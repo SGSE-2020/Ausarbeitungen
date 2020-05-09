@@ -459,16 +459,16 @@ __SAFe__
 __LeSS__
 
 - [LeSS](https://less.works/de)
-
 - [Ist LeSS wirklich mehr?](https://www.mosaiic.com/blog/2018/04/24/large-scale-scrum-framework/)
-
 - [cassini - SAFe oder LeSS?](https://www.cassini.de/interview/safe-oder-less)
-
 - [Less vs. SAFe](https://www.knowledgehut.com/blog/agile/less-vs-safe-which-certification-should-you-choose-and-why)
-
 - [LeSS - emendare](https://www.emendare.de/less-large-scale-scrum/)
 
-  
+__Nexus__
 
-  
+- [Scrum.Org - Nexus](https://www.scrum.org/resources/scaling-scrum)
+- Nexus Guide
+- [Nexus im Überblick](https://www.mosaiic.com/blog/2018/05/15/nexus-framework-im-ueberblick/)
+
+
 
