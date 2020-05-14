@@ -26,7 +26,7 @@ Im folgenden werden die Phasen noch genauer beschrieben:
 
    Aus den formulierten Wünschen in Phase 1 werden jetzt Anforderungen für das Programm  erstellt. Bei einer Präsentationssoftware könnte zum Beispiel der Wunsch vom User kommen "Ich muss wissen, wie viel Zeit ich noch habe". Hieraus könnte die Anforderung entstehen: "Die Restzeit muss sichtbar sein".
 
-3. Design: Die gestellten Anforderungen werden einem ersten Protypen umgesetzt. Der Fokus liegt hierbei ganz klar auf der Nutzbarkeit der Funktionen. Das Design trägt zwar seinen Teil dazu bei, gutes Design ersetzt fehlende Funktionalitäten jedoch nicht.
+3. Design: Die gestellten Anforderungen werden einem ersten Protoypen umgesetzt. Der Fokus liegt hierbei ganz klar auf der Nutzbarkeit der Funktionen. Das Design trägt zwar seinen Teil dazu bei, gutes Design ersetzt fehlende Funktionalitäten jedoch nicht.
 
 4. Evaluation: Die erarbeiteten Lösungen werden ständig geprüft und getestet. Hierzu ist wieder das Feedback vom User nötig. Dies kann wieder über Methoden wie Interviews oder Useability-Tests eingeholt werden.
 
@@ -42,7 +42,7 @@ Der starke Userfokus und die Einbindung des Users ermöglichen Produkte, die auf
 
 ## Nachteile
 
-Durch die Fokussierung auf die Bedürfnisse des Users kann es dazu kommen, dass Produkte nicht fertig werden. Häufig wird der Ansatz in einer sich schnell verändernden Umgebung eingesetzt. Diese Umgebung wird zum Beispiel durch neue Technologien verändert. Dies ändert jedoch auch die Bedürfnisse des Users, die Entwicklung beginnt im schlimmsten Fall von vorne. Die Entwicklung muss also schnell abgeschlossen werden. Teilweise wird auch bemängelt, dass keine passgenaue Lösung entsteht. Dies ist immer dann der Fall, wenn sich grundsätzlich zwei Usergurppen gegenüber stehen, zum Beispiel Experten und Anfänger, die jedoch unterschiedliche Bedürfnisse haben.
+Durch die Fokussierung auf die Bedürfnisse des Users kann es dazu kommen, dass Produkte nicht fertig werden. Häufig wird der Ansatz in einer sich schnell verändernden Umgebung eingesetzt. Diese Umgebung wird zum Beispiel durch neue Technologien verändert. Dies ändert jedoch auch die Bedürfnisse des Users, die Entwicklung beginnt im schlimmsten Fall von vorne. Die Entwicklung muss also schnell abgeschlossen werden. Teilweise wird auch bemängelt, dass keine passgenaue Lösung entsteht. Dies ist immer dann der Fall, wenn sich grundsätzlich zwei Usergruppen gegenüber stehen, zum Beispiel Experten und Anfänger, die jedoch unterschiedliche Bedürfnisse haben.
 
 # DaD
 
@@ -76,9 +76,11 @@ Das Framework beherrscht mehrere Lebenszyklen. Hier wird sich auf ein agiler Leb
 
 ![DaD Basic Lifecycle](./img/dadbasic.png)
 
-Dieser Zyklus basiert auf Scrum. Am Anfang ist die Inception Phase. Diese besteht aus wenigen kurzen Interationen um die erste Planung und Organisation zu beschließen. Anschließend geht es schon in die Construction über. Aus den Anforderungen werden Work Items extrahiert und diese priorisiert. Anschließend werden die wichtigsten Funktionen zuerst entwickelt. Der normale Scrum Zyklus wird dabei angewendet. Am Ende dieser Phase werden erste Demos den Stakeholdern gezeigt. Daraus werden dann  neue Anforderungen oder abweichende Priorisierungen ermittelt. Diese fließen in die Planung für den nächsten Durchlauf ein. Abschließend wird in der Transition Phase das fertige Produkt zu den Stakeholdern gegeben. Das Feedback zu dem Produkt kann wiederum zu Anpassungen führen.
+Dieser Zyklus basiert auf Scrum. Am Anfang ist die Inception Phase. Diese besteht aus wenigen kurzen Iterationen um die erste Planung und Organisation zu beschließen. Anschließend geht es schon in die Construction über. Aus den Anforderungen werden Work Items extrahiert und diese priorisiert. Anschließend werden die wichtigsten Funktionen zuerst entwickelt. Der normale Scrum Zyklus wird dabei angewendet. Am Ende dieser Phase werden erste Demos den Stakeholdern gezeigt. Daraus werden dann  neue Anforderungen oder abweichende Priorisierungen ermittelt. Diese fließen in die Planung für den nächsten Durchlauf ein. Abschließend wird in der Transition Phase das fertige Produkt zu den Stakeholdern gegeben. Das Feedback zu dem Produkt kann wiederum zu Anpassungen führen.
 
 Der Unterschied zu dem einfachen Scrum liegt jetzt darin, dass alle Personen im Unternehmen beteiligt werden. So sind auch alle für kontinuierliche Verbesserungen zum erreichen der Vision zuständig. Ebenfalls wird jetzt nicht nur die Software in Ihrer Entstehung begleitet, sondern auch im weiteren Lebensverlauf. So können Anforderungen, die nach Auslieferung der Software entstehen, wieder in den Entwicklungsprozess zurückgehführt werden. Das Produkt wird über die komplette Lebenszeit betreut.
+
+Die unteren drei Phasen stellen dabei eher den Lebenszyklus da, das Scrum ähnliche Schaubild eher den Entwicklungsprozess.
 
 ## Vorteile
 
@@ -116,7 +118,7 @@ Nexus ist ein Framework um die Arbeit mit mehreren Scrum-Teams zu erleichtern. S
 
 ## Ablauf
 
-![Nexus](./img/nexus.png)
+![Nexus](./img/nexus.PNG)
 
 Nexus besteht aus drei Elementen. Den Rollen, Artefakten und Events. Eine Rolle ist zum Beispiel das Nexus Integration Team. Ein Artefakt das Product Backlog und der Sprint Review ist ein Event.
 
@@ -126,7 +128,7 @@ Am Anfang des Models steht die Verfeinerung des Product Backlogs. Dieses muss so
 
 ### Nexus Sprint-Planning
 
-Anschließend treffen sich Repräsentanten von jedem Team und diskutieren das verfeinerte Product Backlog. Auch wählen Sie in diesem Meeting geeignete Einträge aus dem Backlog für ihr Team zur Umsetzung aus. Nach dem Meeting plant jedes Team den Sprint, es entsteht ein Sprint Backlog. Diese Planung geschieht mit angemessener Komunikation zu den anderen Teams. Letztendlich soll so eine Reihe von Sprint-Zielen entstehen, die auf das Product-Backlog und auf alle Sprint-Backlogs abgestimmt ist.
+Anschließend treffen sich Repräsentanten von jedem Team und diskutieren das verfeinerte Product Backlog. Auch wählen Sie in diesem Meeting geeignete Einträge aus dem Backlog für ihr Team zur Umsetzung aus. Nach dem Meeting plant jedes Team den Sprint, es entsteht ein Sprint Backlog. Diese Planung geschieht mit angemessener Kommunikation zu den anderen Teams. Letztendlich soll so eine Reihe von Sprint-Zielen entstehen, die auf das Product-Backlog und auf alle Sprint-Backlogs abgestimmt ist.
 
 
 
@@ -138,7 +140,7 @@ Alle Teams integrieren ihre Lösungen regelmäßig in eine gemeinsame Umgebung. 
 
 #### Nexus Integration Team
 
-Das Integration Team hat dafür Sorge zu tragen, dass am Ende des Sprints mindestens ein funktionstüchtiges Inkrement entsteht. Hierfür addressiert und moderiert es die teamübergeifenden Probleme.
+Das Integration Team hat dafür Sorge zu tragen, dass am Ende des Sprints mindestens ein funktionstüchtiges Inkrement entsteht. Hierfür adressiert und moderiert es die teamübergeifenden Probleme.
 
 ### Nexus Daily Scrum
 
@@ -158,7 +160,7 @@ Für Unternehmen oder Teams, die bereits nach Scrum arbeiten, bedeutet dieses Fr
 
 ## Nachteile
 
-Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. Dies bedeutet automatisch, dass dieses Framework für große Projekte nicht geeignet ist. Zusätzlich liegt der Fokus dieses Frameworks fast ausschließlich auf dem Integrationsteam. Anweisungen oder Empfehlungen zu Struktur- und Ablaufkonzepten, oder gar zu Portfoliomanagment, IT Betrieb oder Strategien enthält das Framework leider nicht
+Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. Dies bedeutet automatisch, dass dieses Framework für große Projekte nicht geeignet ist. Zusätzlich liegt der Fokus dieses Frameworks fast ausschließlich auf dem Integrationsteam. Anweisungen oder Empfehlungen zu Struktur- und Ablaufkonzepten, oder gar zu Portfoliomanagement, IT Betrieb oder Strategien enthält das Framework leider nicht
 
 # LeSS
 
@@ -341,7 +343,7 @@ Die Version Essential SAFe ist die Basiskonfiguration für parallel arbeitende a
 
 ![Essential SAFe](./img/essential.png)
 
-In dem Bild sieht man die enthalteten Bausteine. Links sind die verschiedenen agilen Teams. Dann folgen verschiedene agile Ansätze, die inkrementelle Produktverwaltung und eine Contionous Delivery Ansatz. Ebenfalls steht auch hier bereits das kundenzentrierte Design im Vordergrund.
+Ganz unten befindet sich sozusagen die Teamebene, die Ebene darüber die Programmebene. In der Produktebene werden die Aufgaben und das Vorgehen der einzelnen Teams schematisch dargestellt. Ganz links sehen wir die Zusammensetzung der agilen Teams. Auch hier haben wir ein Product-, bzw. Team-Backlog. In SAFe organisiert sich jedes Team selbstständig, es wird jedoch ein Scrum-Ansatz mit XP-Ansätzen empfohlen. Diese Teams integrieren dann ihre Arbeit in einem CI / CD Ansatz kontinuierlich in das endgültige Produkt. Hierbei kommt es immer wieder zu Verfeinerungen der Anforderungen. AUf Programmebene wird ein Team installiert, welches die Koordination der Feature Teams beaufsichtigt. Hierzu wird ein Agile Release Train eingeführt. Ziel ist es, dass nur Teams an dem Produkt (Train) mitarbeiten, wenn sie benötigt werden. Bei all diesen Maßnahmen steht das User zentrierte Denken im Vordergrund. 
 
 #### Portfolio SAFe
 
@@ -349,7 +351,7 @@ Das Essential SAFe wird mit Strategie-, Investitions-, Leitungs- und Portfolio M
 
 ![Portfolio SAFe](./img/portfolio.png)
 
-Dazu gehört zum Beispiel die Festlegung einer Strategie oder die Erstellung einer Vision für das Portfolio.
+Dazu gehört zum Beispiel die Festlegung einer Strategie oder die Erstellung einer Vision für das Portfolio. Ingsesamt wird hier auch Budgetplanung berücksichtigt, die Ausrichtung des Unternehmens und viele weitere Aspekte.
 
 #### Large Solution SAFe
 
@@ -357,7 +359,7 @@ Diese Lösung bietet sich für Teams an, die große zusammenhängende Projekte r
 
 ![Large Solution SAFe](./img/large.png)
 
-Neu in dieser Ebene ist deshalb ein Team, welches die gesamtheitliche Lösung und die Integration der einzelnen Teams beaufsichtigt und begleitet.
+Neu in dieser Ebene ist deshalb ein Team, welches die gesamtheitliche Lösung und die Integration der einzelnen Teams beaufsichtigt und begleitet. Dazu zählen dann auch externe Zulieferer und Dienstleister. Auch diese haben eigene Bedürfnisse die koordiniert werden müssen. Hierzu wird dann ein Solution Train eingeführt. Dieser funktioniert analog zu dem Release Train, benötigte EInheiten werden nur wenn benötigt verwendet.
 
 #### Full SAFe
 
@@ -383,15 +385,24 @@ Der große Vorteil von SAFe, dass es einen umfassenden Rahmen für große Untern
 
 ## Vergleich
 
-Das User Centered Design stellt einen weiteren Prozessworkflow bereit um Projekte umzusetzen.
+Das User Centered Design stellt einen grundlegen Aspekt beim agilen Arbeiten da. Der User steht im Fokus. Nach diesem Prinzip sind Scrum und so ausgerichtet.
 
 Die drei vorgestellten Frameworks sollen alle die mangelnden Vorgaben von Scrum (oder anderen agilen Methodiken) zur Arbeit in mehreren Teams und in größeren Problemen ersetzen. Alle drei Frameworks haben dabei jedoch unterschiedliche Ansprüche an die Lösung. Nexus ist der leichtgewichtigste Vertreter dieser Frameworks. Dafür hat es allerdings auch nur den Anspruch die Zusammenarbeit mit maximal 9 Teams zu regeln. Funktionsübergreifende Teams werden auch nicht betrachtet, Nexus konzentriert sich auf die Entwicklerteams.
 
 LeSS setzt ebenfalls auf Scrum auf und eignet sich deswegen vor allem für Teams, die bereits agil nach Scrum arbeiten. LeSS legt verschiedene Regeln und Prinzipien fest, verpasst es allerdings auch genaue Vorgaben zu machen, die zum Beispiel ein Portfoliomanagement oder die Budgetplanung betreffen. 
 
-SAFe ist das umfangreichste Framework. Es beschreibt jegliche Bereiche und die benötigten Prozesse sehr genau. Aus diesem Grund eignet es sich auch für Unternehmen, die noch keine Erfahrung gemacht haben. Im Bereich der Entwicklung mit hunderten Entwicklern ist es quasi konkurrenzlos, da es als einziges Framework zum Beispiel auch die Budgetplanung berücksichtigt. Nachteil ist hier jedoch, dass
+SAFe ist das umfangreichste Framework. Es beschreibt jegliche Bereiche und die benötigten Prozesse sehr genau. Aus diesem Grund eignet es sich auch für Unternehmen, die noch keine Erfahrung gemacht haben. Im Bereich der Entwicklung mit hunderten Entwicklern ist es quasi konkurrenzlos, da es als einziges Framework zum Beispiel auch die Budgetplanung berücksichtigt. Nachteil ist hier jedoch, dass der Umfang einfach riesig ist, es werden viele neue Rollen und Abläufe eingeführt. Die zu verstehen benötigt Zeit.
 
+ 
 
+| Name            | Nexus                    | LeSS                                                       | SAFe                                        |
+| --------------- | ------------------------ | ---------------------------------------------------------- | ------------------------------------------- |
+| __Basis__       | Scrum                    | Scrum                                                      | Scrum, Kanban, XP                           |
+| __Komplexität__ | Abhängigkeiten           | Balance zwischen definierter Struktur und Prozesskontrolle | Agile Ausrichtung der gesamten Organisation |
+| __Größe__       | 3-9 Teams                | LeSS: 3-8 Teams<br/>LeSS Huge: >8 Teams                    | über 100 Teams                              |
+| __Augenmerk__   | Tranzparenz, Einfachkeit | Wertstrom                                                  | Kundenzentriert                             |
+
+​          
 
 # Anhang
 
