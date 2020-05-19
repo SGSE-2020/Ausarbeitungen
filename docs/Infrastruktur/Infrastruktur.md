@@ -2,8 +2,6 @@
 
 André Kirsch
 
-**NOTIZ -  WORK IN PROGRESS**
-
 ---
 
 ## Inhalt
@@ -301,13 +299,15 @@ https://labs.play-with-docker.com/
 
 ### Wie funktioniert Docker?
 
+Docker teilt sich auf in den Docker Client und den Docker Daemon. Der Docker Client ist ein Command Line Tool, mit dem der Benutzer Anweisungen an den Docker Daemon senden kann, der diese Anweisungen anschließend ausführt. Der Docker Daemon auf der anderen Seite managet alle Container, Images, Networks und Volumes. Ein Container Docker besitzt als Basis immer ein Image, von dem aus der Container erstellt wird. Zusätzlich befindet sich ein Docker Container in einem Netzwerk. Das Standardnetzwerk ermöglicht die Kommunikation unter Docker Container, aber keinen Zugriff von außen. Zusätzlich können einem Container Volumes zugewiesen werden, durch die Container auf Verzeichnisse des Host Systems zugreifen können.
+
+Erstellte Images werden auf dem Host System zwischengespeichert. Ist ein Image nicht vorhanden, wird in einer Docker Registry nach diesem Image gesucht und es wird automatisch heruntergeladen.
+
 ![Docker Abbildung](img/dockerdaemon.png)
 
 ### Docker Hub
 
-- Dockers eigene Container Image Repository
-- Man findet bereits viele direkt verwendbare Container
-- Die bereits vorhandenen Images lassen sich leicht erweitern
+Eine Docker Registry ist Docker Hub, welches Dockers eigenes Container Image Repository ist. Dort kann man bereits viele direkt verwendbare Images finden, die man als Container starten kann. Auch lassen sich diese Images gut als Basis Image für weitere Images verwenden.
 
 ![Docker Hub](img/dockerhub.png)
 
@@ -318,16 +318,15 @@ Mit *docker run* können Container erstellt und gestartet werden.
 ```
 docker run hello-world
 ```
--> Simpler Container, der auf der Konsole einen Text ausgibt.
+*docker run hello-world* ist das typische Hello World Beispiel in Docker Form, welches einen Text auf der Konsole ausgibt.
 
 ![hello-world Output](img/hello-world_output.png)
 
-1. Der Docker Client sendet einen Befehl an den Docker Daemon.
-2. Der Docker Daemon lädt das hello-world Image von Docker Hub herunter.
-3. Es wird von dem hello-world Image aus ein Docker Container erstellt und ausgeführt.
-4. Der Docker Daemon sendet die Ausgabe des Container an den Docker Client, welcher diese Ausgabe im Terminal ausgibt.
+Außerdem beschreibt dieser ausgegebene Text, wie der *docker run* Befehl funktioniert, in er zuerst einen Befehl an den Docker Daemon sendet. Der Daemon sucht als erstes lokal nach dem hello-world Image und lädt es von Docker Hub herunter, wenn es noch nicht vorhanden ist. Ist das Image heruntergeladen, wird aus dem Image ein Container erstellt und ausgeführt. Die Ausgabe des Containers wird anschließend an den Docker Client zurückgesendet, welcher die Ausgabe auf der Konsole anzeigt.
 
 ### docker run Eingabeparameter
+
+Bei *docker run* können verschiedene Parameter verwendet werden. Die folgenden Tabelle zeigt eine Auflistung der wichtigsten Parameter
 
 | Parameterbeispiel | Beschreibung                                                 |
 | ----------------- | ------------------------------------------------------------ |
@@ -340,13 +339,15 @@ docker run hello-world
 | -v /www:/var/www  | Verzeichnisse des Host System einem Container zur Verfügung stellen |
 
 
-Verwendung von Parametern am Beispiel nginx:
+Am Beispiel nginx kann man erkennen, wie die Parameter verwendet werden. Um eine Website mit nginx zu veröffentlichen, muss man ein Volume angeben, in dem die Dateien liegen. Zusätzliche muss ein Port weitergeleitet werden, um von außen auf den Server zugreifen zu können.
 
 ```
 docker run -v ~/www:/usr/share/nginx/html:ro -p 8080:80 nginx
 ```
 
 ### Docker Images erstellen - Das Dockerfile
+
+Neben dem Verwenden von Docker Images kann man auch eigene Image mithilfe eines Dockerfiles erstellen.
 
 Beispiel:
 
@@ -363,27 +364,23 @@ ENTRYPOINT ["nano"]
 CMD ["secret_pw.txt"]
 ```
 
-#### Was passiert hier?
+In diesem Beispiel Dockerfile wird zuerst ein Basis Image gewählt, welches ubuntu:18.04 ist. Anschließend können mit der RUN Instruktion Befehle ausgeführt werden. Verwendet man *apt update* ist es sinnvoll, den heruntergeladenen Cache im Anschluss mit rm zu entfernen. Da jede Instruktion in Dockerfiles eine neue Ebene im Docker Image einfügt, sollte man RUN Befehle verketten.
 
-1. Wähle das Basis Image ubuntu:18.04
-2. Ausführen von Befehlen mit RUN
-3. Datei in das Image kopieren
-4. Setzen eines Einstiegspunktes und Übergabe von Parametern
+Nach dem Ausführen der Befehle wird mit COPY eine Datei ins das Docker Image geladen. Zum Schluss wird mit ENTRYPOINT ein Einstiegspunkt gesetzt und diesem wird über CMD ein Parameter übergeben.
 
 ### Image erstellen
+
+Das erstellte Dockerfile kann im Anschluss verwendet werden, um daraus ein Docker Image zu erstellen. In dem unteren Beispiel wird ein Docker Image mit dem Namen beispiel erstellt. Der Punkt in dem Befehl gibt an, dass sich das Dockerfile im aktuellen Verzeichnis befindet.
 
 ```
 docker build -t beispiel .
 ```
 
-#### Was passiert hier?
-
-- Es wird ein Build Context erstellt
-- Alle Dateien und Ordner im aktuellen Verzeichnis werden an den Docker Daemon gesendet
-- Der Docker Daemon erstellt aus dem Dockerfile und den gesendeten Dateien ein Docker Image
-- Mit -t wird dem Docker Image ein Name gegeben
+Bei dem Befehl wird zuerst ein Build Context erstellt. Anschließend werden alle Dateien und Ordner im aktuellen Verzeichnis an den Docker Daemon gesendet. Aus diesem Grund ist es sinnvoll, für eine Dockerfile und die dazugehörigen Dateien ein eigenes Verzeichnis zu erstellen. Der Docker Daemon erstellt anschließend aus dem Dockerfile und den gesendeten Dateien ein Docker Image.
 
 ### Dockerfile Instruktionen
+
+Zusätzlich existieren weitere Dockerfile Instruktionen, die in der folgenden Tabelle beschrieben werden.
 
 | Instruktion   | Beschreibung                                                 |
 | ------------- | ------------------------------------------------------------ |
@@ -398,10 +395,7 @@ docker build -t beispiel .
 
 ### Docker Compose
 
-Docker Compose ist ein Tool zum Erstellen und Starten von Multi-Container Docker Anwendungen.
-
-- Definition in einer YAML Datei (docker-compose.yml)
-- Starten von Docker Compose mit *docker-compose up*
+Docker Compose ist ein Tool zum Erstellen und Starten von Multi-Container Docker Anwendungen. Für Docker Compose werden mehrere Container (In Docker Compose Services genannt) in einer *docker-compose.yml* Datei beschrieben. Mit *docker-compose up* können die beschriebenen Container anschließend gestartet werden.
 
 ### docker-compose.yml
 
@@ -418,14 +412,11 @@ services:
     image: "redis:alpine"
 ```
 
-- Zwei Services wurden definiert mit den Namen web und redis
-- redis besitzt ein Image aus Docker Hub, web wird vom aktuellen Ordner aus erstellt
-- Beide Services befinden automatisch in einem Netzwerk
-- Der Name eines Services ist auch sein Hostname im Netzwerk, mit dem man auf ihn zugreifen kann
+Das obere Beispiel zeigt eine docker-compose.yml Datei, in der die zwei Services web und redis definiert wurden. Redis wurde ein Image aus Docker Hub zugewiesen. Der web Service nutzt eine im aktuellen Verzeichnis liegendes Dockerfile zum Erstellen eines Docker Containers. Beide Services sind automatisch in einem Netzwerk verbunden und können über ihre Namen, die auch ihre Hostnamen sind, angesprochen werden
 
 ### Service Optionen
 
-- Viele Überschneidungen mit den *docker run* Paramtern
+In der folgenden Tabelle werden mehrere Service Optionen vorgestellt. Generell existiert für die meisten *docker run* Parameter auch immer eine Service Option in einem Dockerfile.
 
 | Parameter   | Beschreibung                                                |
 | ----------- | ----------------------------------------------------------- |
@@ -437,6 +428,8 @@ services:
 | volumes     | Angeben eines Volumes                                       |
 
 ### Beispiel docker-compose.yml
+
+Im folgenden wird eine Beispiel docker-compose.yml Datei dargestellt, die die vorgestellten Service Optionen verwendet.
 
 ```
 version: '3'
@@ -460,13 +453,15 @@ services:
 
 ## Kubernetes
 
+Kubernetes ist ein Tool zur Automatisierung, Skalierung und Verwaltung von containerisierten Anwendungen. Im Hintergrund kann Kubernetes unter anderem mit Docker Images und Docker Containern arbeiten.
+
 ### Kubernetes Cluster
 
 ![Kubernetes Cluster](img/kubernetes_cluster.png)
 
-- Ein Master managet das Kubernetes Cluster
-- Ein Node ist eine VM oder physischer Server, auf dem eine Kubelet Instanz aktiv ist
-- Wenn Anwendungen im Kubernetes Cluster gestartet werden sollen, werden diese vom Master an die Nodes verteilt
+Zu einem Kubernetes Cluster gehört eine Sammlung an Kubernetes Nodes, die von einem Master gemanagt werden. Ein Node kann eine virtuelle Maschine oder ein physischer Server sein, auf dem eine Kubelet Instanz aktiv ist. Wenn Anwendungen im Kubernetes Cluster gestartet werden sollen, werden diese vom Master an die Nodes verteilt.
+
+Mit dem Command Line Tool kubectl kann mit dem Kubernetes Cluster interagiert werden.
 
 ---
 
@@ -474,14 +469,7 @@ services:
 
 ![Kubernetes Cluster](img/kubernetes_cluster2.png)
 
-- Mit dem Command Line Tool *kubectl* kann man mit dem Kubernetes Cluster interagieren
-- Mit einem Deployment kann ein Zustand eines Clusters beschrieben werden
-- Ein Deployment Controller kann den Zustand eines Clusters verändern
-
-
-- Fällt ein Pod oder ein ganzer Node aus, wird dieser automatisch ersetzt
-- Ein ausgefallener Pod wird neu erstellt
-- Bei einer ausgefallenen Node werden alle Pods, die darauf liefen, auf anderen Nodes neu gestartet
+Mit einem Deployment kann ein Zustand eines Clusters beschrieben werden. Ein Deployment Controller sorgt dafür, dass der beschriebene Zustand erreicht wird. Mit ihm kann der Zustand eines Cluster verändert werden. Auch sorgt er dafür, sollte ein Node oder Pod ausfallen, dass die Pods innerhalb des Nodes auf anderen Nodes wiederhergestellt werden bzw. einzelne Pods neu gestartet werden.
 
 ---
 
@@ -489,11 +477,7 @@ services:
 
 ![Kubernetes Pods](img/pods.png)
 
-- Container gehören immer zu einem Pod, der auf einem Node läuft
-- In einem Pod sind immer nur Container, die zueinander gehören
-- Container in einem Pod können sich Ressourcen teilen und über *localhost* kommunizieren
-- Container in einem Pod laufen immer auf der selben Maschine
-- Ein Node kann mehrere Pods besitzen
+Pods sind Einheiten, die immer zu einer Node gehören. Sie können eine oder mehrere Container und Volumes enthalten, die immer zueinander gehören. Container in einem Pod können sich Ressourcen teilen und über localhost kommunizieren. Da Pods immer zu einer Node gehören, laufen auch dessen Container immer auf der selben Maschine. Ein Node kann mehrere Pods besitzen.
 
 Pods werden immer von einem Benutzer erstellt und existieren solange, bis sie explizit gestoppt werden. Sie können zum Beispiel über ein Deployment gestartet werden. Pods können auch eine *Restart Policy* mit den möglichen Werten Always, OnFailure und Never besitzen.
 
@@ -503,42 +487,38 @@ Pods werden immer von einem Benutzer erstellt und existieren solange, bis sie ex
 
 Jeder Pod besitzt eine eigene IP-Adresse und gehört zu einem geschlossenen Netzwerk, das nicht von außen erreichbar ist.
 
-Ein Service kann verwendet werden, um von außerhalb auf Pods zuzugreifen.
+Ein Service kann verwendet werden, um von außerhalb auf Pods zuzugreifen. Dabei definiert ein Service anhand eines *selectors* ein Set an Pods, die zu diesem Service gehören. Zusätzlich besitzt ein Service eine Policy, die beschreibt, wie auf die Pods zugegriffen werden kann. Außerdem hat jeder Service immer einen Servicetyp.
 
-- Ein Service definiert ein Set an Pods anhand eines *selector*s
-- Er besitzt eine Policy, die beschreibt, wie auf die Pods zugegriffen werden kann
-- Service Typen:
-      - ClusterIP: Der Service ist nur innerhalb des Clusters erreichbar
-      - NodePort: Der Service wird auf jeder einzelnen Node veröffentlicht
-      - LoadBalancer: Auf jedem Node wird ein *ClusterIP* und *NodePort* Service erstellt, die von einem externen LoadBalancer angesprochen werden
+Service Typen:
+  - ClusterIP: Der Service ist nur innerhalb des Clusters erreichbar
+  - NodePort: Der Service wird auf jeder einzelnen Node veröffentlicht
+  - LoadBalancer: Auf jedem Node wird ein *ClusterIP* und *NodePort* Service erstellt, die von einem externen LoadBalancer angesprochen werden
 
-Kubernetes Ingress: LoadBalancer, Kombinieren von mehreren Services<br>
-Beispiel: Eine API bietet mehrere Versionen an, die unter verschiedenen Pfaden erreichbar sind (/v1, /v2)
+Zusätzlich zu den Services bietet Kubernetes Ingress an, welcher als externer LoadBalancer eingesetzt werden und mehrere Services kombinieren kann. Zum Beispiel kann eine API unter mehreren Pfaden verschiedene Versionen anbieten, die über verschiedene Services angesprochen werden.
 
 ---
 
 ### Volumes
 
-- Ein Volume in Kubernetes kann im Vergleich zu Docker mehr als nur ein Verzeichnis sein
-- Ein Pod kann spezifieren, welche Volumes er benötigt
-- Wenn ein Pod entfernt wird, wird auch dessen Volume entfernt - Die Daten werden aber zwischen Pod Restarts gespeichert
+Ein Volume in Kubernetes kann im Vergleich zu Docker mehr als nur ein Hostverzeichnis sein. Dabei spezifiziert ein Pod immer, welche Volumes er benötigt. Wird ein Pod entfernt, dann wird auch dessen Volume entfernt. Die Daten, die in einem Volume gespeichert wurden, bleiben aber zwischen Pod Restarts gespeichert.
+
+Volumes können in Kubernetes unterschiedliche Typen sein. Diese Volume Typen beschreiben, wo sich das Volume befindet und wie es erreicht werden kann.
 
 Volume Typen:
+
 - awsElasticBlockStore (für AWS): Speicherplatz, der über AWS verwaltet wird. Kann nur in Kombination mit EC2 Instanzen verwendet werden
 - gcePersistentDisk (für GCP): Wie awsElasticBlockStore, nur für Google Cloud Platform. Die Nodes, auf denen die Pods mit den Volumes gestartet werden, müssen GCE VMs sein
 - configMap: *configMap* Daten können über diese Methode zu Pods hinzugefügt werden
 - emptyDir: Leeres Verzeichnis, über das Container in einem Pod Informationen austauschen können. Das Verzeichnis wird vollständig gelöscht, wenn der Pod entfernt wird
 - hostPath: Verzeichnis auf dem Host System
-- ...
+- und viele mehr...
 
 ---
 
 ### Config Maps
 
-- Eine ConfigMap ermöglicht das Hinzufügen von Konfigurationen zu einer Anwendung
-- Einträge in eine Schlüssel-Wert-Paare oder eine Liste an Schlüssel-Wert-Paaren wie in einer Datei
+Eine ConfigMap ermöglicht das Hinzufügen von Konfigurationen zu einer Anwendung. Dabei werden die Einträge in eine ConfigMap als Schlüssel-Wert-Paare oder als eine Liste an Schlüssel-Wert-Paaren wie in einer Datei angegeben. Es existieren vier Möglichkeiten, um Informationen von einer ConfigMap zu erhalten bzw weiterzugeben:
 
-Es existieren vier Möglichkeiten, um Informationen von einer ConfigMap zu erhalten bzw weiterzugeben:
 1. Als Kommandozeilenargumente dem Entrypoint des Containers übergeben
 2. Als Umgebungsvariablen eines Containers
 3. Als Read-Only Volume wie bei einer Config-Datei
