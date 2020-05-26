@@ -5,4 +5,4 @@
 * [Software Architektur](./SoftwareArchitecture/SoftwareArchitecture.md)
 * [Prozesse](./Prozesse/prozesse.md)
 * [Infrastruktur](./Infrastruktur/Infrastruktur.md)
-
+* [Practices](./Practices/Practices.md)
