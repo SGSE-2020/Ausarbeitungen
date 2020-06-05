@@ -6,3 +6,4 @@
 * [Prozesse](./Prozesse/prozesse.md)
 * [Infrastruktur](./Infrastruktur/Infrastruktur.md)
 * [Practices](./Practices/Practices.md)
+* [CloudComputingPattern](./CloudComputingPattern/cloud_computing_pattern.md)
