@@ -7,3 +7,5 @@
 * [Infrastruktur](./Infrastruktur/Infrastruktur.md)
 * [Practices](./Practices/Practices.md)
 * [CloudComputingPattern](./CloudComputingPattern/cloud_computing_pattern.md)
+* [Security Pattern](./security-pattern/security-pattern.md)
+
