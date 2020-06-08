@@ -1,4 +1,0 @@
-# Security Pattern
-
-Alexander Bergmann
-
