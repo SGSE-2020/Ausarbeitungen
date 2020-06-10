@@ -2,10 +2,10 @@
 * [Clean Code](./CleanCode/CleanCode.md)
 * [Software Qualität](./SoftwareQuality/SoftwareQuality.md)
 * [Messaging](./Messaging/Messaging.md)
-* [Software Architektur](./SoftwareArchitecture/SoftwareArchitecture.md)
 * [Prozesse](./Prozesse/prozesse.md)
 * [Infrastruktur](./Infrastruktur/Infrastruktur.md)
 * [Practices](./Practices/Practices.md)
 * [CloudComputingPattern](./CloudComputingPattern/cloud_computing_pattern.md)
 * [Security Pattern](./security-pattern/security_pattern.md)
+* [Software Architekturen](./SoftwareArchitecture/SoftwareArchitecture.md)
 
