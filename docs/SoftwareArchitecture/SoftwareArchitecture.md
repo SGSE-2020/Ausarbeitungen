@@ -8,27 +8,42 @@
 
 ## Definition und Beschreibung
 
-- Definiert die Komponenten eines Software-Systems und beschreibt Verbindungen zwischen den Komponenten
-- Im Rahmen der Erstellung einer Software Architektur werden grundlegende Entscheidungen für den weiteren Systementwurf getroffen (z.B die Wahl der Plattform, die Auswahl von Entwicklungssystemen oder die einzusetzende Datenbank)
+Eine Software Architektur ist eine Beschreibung aller Komponenten eines Systems sowie aller Verbindungen, welche zwischen den Komponenten bestehen. Dabei geht es nicht um einen detaillierte Entwurf, sondern mehr um Zusammenhänge zwischen den Anforderungen und dem System.
+
+Im Zuge der Definition einer Software Architektur werden grundlegende Entscheidungen für den weiteren Systementwurf getroffen, wie beispielsweise die Wahl der Plattform, die Auswahl von Entwicklungssystemen oder auch der einzusetzenden Datenbank.
+
+In einer guten Softwarearchitektur sollten folgende Aspekte berücksichtigt werden:
+
+- Beschreibung aller Elemente aus denen das System besteht
+- Interaktion zwischen den Elementen
+- Entwurfsmuster, welche durch die Softwarekomposition leiten
+- Geltende Bedingungen für die Entwurfsmuster
+
 - Software Architektur ist zugleich Prozess und Gegenstand
-- Eine gute Softwarearchitektur berücksichtigt:
-  - Die Beschreiung der Elemente aus denen ein Softwaresystem besteht
-  - Die Interaktion zwischen diesen Elementen
-  - Entwurfsmuster (Patterm) die durch die Softwarekomposition leiten
-  - Geltende Bedingungen für die Entwurfsmuster
 
 
 
-## Motivation
+## Motivation und Ziele
 
-- Vorteile durch sorgfältig geplante Software-Architektur:
-  - Effiziente Softwareentwicklung
-  - Perfomance gezielt steigern
-  - Zeiteinsparung realisieren
-  - Software-Budget optimieren
-  - Gezielt Risiken minimieren
+Alle Softwaresysteme besitzen eine Architektur, auch wenn niemand diese explizit modelliert hat. Da die Modellierung eines Softwaresystems einen hohen Aufwand erfordert, stellt sich die Frage, zu welchem Zweck eine Architektur modelliert werden sollte und ob dies einen Mehrwert darstellt. 
+
+- Durch die steigende Zahl vernetzter Produkte steigt Komplexität und Umfang von Projekten
+
+- Auch immer mehr organisatorische Einflussfaktoren müssen berücksichtigt werden
+
+- Dadurch wird die Architektur immer relevanter
+- Bereits mittelgroße Softwaresysteme haben oftmals matrixartige Systemstrukturen mit vielen Modulen und Subsystemen und strecken sich über viele Schichten mit fachlichen und technischen Querschnitte
+- Softwarearchitektur kann diese Komplexität beherrschbar machen und eine Entwicklungs- und Prozessverbesserung erreichen
+- Vorteile durch sorgfältig geplante Software Architektur sind:
+  - Effiziente Softwareentwicklung ist möglich
+  - Performance kann gezielt gesteigert werden
+  - Zeit Einsparung kann realisiert werden
+  - Software-Budget kann optimieren werden
+  - Gezielte Minimierung von Risiken
   - Kompakte Software in Umfang und Funktion designen
   - Wertvolles Wissen zu Software im Unternehmen erhalten und bewahren
+
+
 
 ## Notation von Softwarearchitekturen
 
@@ -49,8 +64,8 @@
 ## Bewertung von Software-Architekturen
 
 - Motivation zur Bewertung
-- Bewertung liefert keine Zahlen sondern quantitative Aussagen (zB im Gegensatz zu Messung von Quellcode)
-- Bewertung auf die Erreichung von Qualitätsmerkmalen (ISO 25010) --> Kurzauflistung siehe Softwarequalität
+- Bewertung liefert keine Zahlen sondern quantitative Aussagen (z.B. im Gegensatz zu Messung von Quellcode)
+- Bewertung auf die Erreichung von Qualitätsmerkmalen (ISO 25010) --> Kurzauflistung ISO 25010 [siehe Softwarequalität]
 - Es gibt verschiedene Methoden bei der Bewertung
 
 ### Qualitative Bewertung
@@ -78,7 +93,28 @@
 
 ### Entwurfsmuster
 
+- [Erzeugungsmuster](https://de.wikipedia.org/wiki/Erzeugungsmuster) (englisch *creational patterns*)
 
+  Dienen der Erzeugung von Objekten. Sie entkoppeln die Konstruktion eines Objekts von seiner Repräsentation. Die Objekterzeugung wird gekapselt und ausgelagert, um den Kontext der Objekterzeugung unabhängig von der konkreten Implementierung zu halten, gemäß der Regel: „Programmiere auf die Schnittstelle, nicht auf die Implementierung!“
+
+  - Factory
+  - Singleton
+
+  [Strukturmuster](https://de.wikipedia.org/wiki/Strukturmuster) (englisch *structural patterns*)
+
+  Erleichtern den Entwurf von Software durch vorgefertigte Schablonen für Beziehungen zwischen Klassen.
+
+  - Decorator
+  - Composite
+
+  [Verhaltensmuster](https://de.wikipedia.org/wiki/Verhaltensmuster_(Software)) (englisch *behavioral patterns*)
+
+  Modellieren komplexes Verhalten der Software und erhöhen damit die Flexibilität der Software hinsichtlich ihres Verhaltens.
+
+  - State
+  - Observer
+
+  
 
 ### Architekturmuster
 
@@ -96,7 +132,7 @@ Architekturmuster können mittels Kategorien eingeordnet werden:
     - Onion Architektur
     - Clean Architektur
   - Pipes und Filter
-  - Blackboard
+  - Schwarzes Brett
 
 #### Muster für verteilte Systeme
 
