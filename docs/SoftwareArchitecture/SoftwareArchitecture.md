@@ -65,8 +65,6 @@ Beschreibung der Sichten:
 
 
 
-
-
 ## Motivation und Ziele
 
 Alle Softwaresysteme besitzen eine Architektur, auch wenn niemand diese explizit modelliert hat. Da die Modellierung eines Softwaresystems einen hohen Aufwand erfordert, stellt sich die Frage, zu welchem Zweck eine Architektur modelliert werden sollte und ob dies einen Mehrwert darstellt. 
@@ -86,22 +84,6 @@ Alle Softwaresysteme besitzen eine Architektur, auch wenn niemand diese explizit
   - Gezielte Minimierung von Risiken
   - Kompakte Software in Umfang und Funktion designen
   - Wertvolles Wissen zu Software im Unternehmen erhalten und bewahren
-
-
-
-## Notation
-
-
-
-## Entwurf einer Software
-
-
-
-### Grobentwurf
-
-
-
-### Feinentwurf
 
 
 
@@ -152,8 +134,9 @@ Bild Quelle: https://www.informatik-aktuell.de/entwicklung/methoden/was-ist-eige
 ### Quantitative Bewertung
 
 - Die quantitative Bewertung setzt auf vermeintlich belastbarere Fakten
-  - misst den Quelltext der Software und die Struktur der Elemente und deren Beziehungen untereinander
-
+  
+- misst den Quelltext der Software und die Struktur der Elemente und deren Beziehungen untereinander
+  
 - Wird toolgestützt durchgeführt
 
   - Beispiele für Tools von Code Analyse
@@ -182,6 +165,58 @@ Bild Quelle: https://www.informatik-aktuell.de/entwicklung/methoden/was-ist-eige
 
 
 
+## Entwurf einer Software
+
+Der Entwurf einer Software findet nach Abschluss der Analyse statt. Die Analyse beinhaltet die Phase der Anforderungsermittlung sowie die Formulierung der Anforderungs- und Systemspezifikation (Pflichten- und Lastenheft).
+
+Bei der Entwicklung eines Softwareentwurfs geht man meist iterativ vor und der Entwurf nimmt mit jeder Iterationsphase an Granularität zu. Man unterscheidet daher den Grobentwurf vom Feinentwurf.
+
+- Ziel des Softwareentwurfs ist es die Vorgaben der Anforderungsdefinition möglichst umfassend zu berücksichtigen
+
+
+
+Aufgaben des Architekturentwurfs
+
+- Aufgabe analysieren
+  - Architektur modellieren und dokumentieren
+    - Modularisieren
+    - In Prozesse gliedern
+    - Zusammenarbeit festlegen
+    - Verteilen und Ressourcen zuordnen
+  - Lösungskonzept prüfen
+
+
+
+### Grobentwurf / Architekturentwurf
+
+- Beschreibt die Gesamtstruktur und Organisation des Systems
+
+  - hohes Abstraktionsniveau
+
+- Identifikation wesentlicher Komponenten und deren Interaktion
+
+- Beschreibt Schnittstellen
+
+- Beinhaltet
+
+  - Architekturentwurf
+  - Subsystem Spezifikation
+  - Schnittstellenspezifikation
+
+  
+
+### Feinentwurf / Detailentwurf
+
+- Beschreibt die Detailstruktur des Systems
+- Beschreibt die einzelnen Komponenten, so dass die implementiert werden können
+- Beschreibt Datenstrukturen und Algorithmen
+- Beinhaltet
+  - Komponentenentwurf
+  - Datenstrukturentwurf
+  - Algorithmenentwurf
+
+
+
 ## Herangehensweise an Architektur und Design
 
 - In der Software Entwicklung gibt es für alle Schritte Muster
@@ -193,7 +228,6 @@ Bild Quelle: https://www.informatik-aktuell.de/entwicklung/methoden/was-ist-eige
   
   - Muster für das Testen
   
-    
 - Für den Softwareentwurf unterscheidet man je nach Granularität zwischen:
   - Entwurfsmuster
     - feingranular - eher die Lösung eines lokalen Problems
