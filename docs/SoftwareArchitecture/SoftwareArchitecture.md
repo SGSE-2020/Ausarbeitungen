@@ -192,16 +192,16 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 - Wie komme ich zu einer Softwarearchitektur?
 
 - Phasen der Softwareentwicklung
-  - Anforderungsanalyse -> Anforderungen an SW, Rahmenbedingungen
-  - Grobdesign -> Klärung der Funktionalität und Systemarchitektur, erste Modelle
-  - Feindesign -> Detaillierte Ausarbeitung der Komponenten, Schnittstellen, Datenstrukturen
+  - Anforderungsanalyse --> Anforderungen an SW, Rahmenbedingungen
+  - Grobdesign --> Klärung der Funktionalität und Systemarchitektur, erste Modelle
+  - Feindesign --> Detaillierte Ausarbeitung der Komponenten, Schnittstellen, Datenstrukturen
   - Implementierung
   - Test und Integration
 - Je nach Vorgehensweise wird zwischen Phasen hin und her gesprungen oder nacheinander abgehandelt (klassisch vs. agil)
 
 ![Phasen Softwareentwicklung](img/PhasenSoftwareentwicklung.png)
 
-Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
+​                                      *Quelle: [14]*
 
 
 
@@ -217,29 +217,15 @@ Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
 
 ### Grobentwurf / Architekturentwurf
 
-- Festlegen von Randbedingungen
-
+- Beschreibt die Gesamtstruktur und Organisation des Systems
+  - Identifikation wesentlicher Komponenten und deren Interaktion
+  - Hohes Abstraktionsniveau
+- Legt Randbedingungen fest
   - Vorgabe der Hardware
   - Vorgabe Betriebssystem
   - Vorgabe Middleware
   - Vorgaben zu Schnittstellen und Programmiersprachen
-
-- Beschreibt die Gesamtstruktur und Organisation des Systems
-
-  - hohes Abstraktionsniveau
-
-- Identifikation wesentlicher Komponenten und deren Interaktion
-
-- Beschreibt Schnittstellen
-
-- Beinhaltet
-
-  - Architekturentwurf
-  - Subsystem Spezifikation
-  - Schnittstellenspezifikation
-
 - Hauptaufgaben des Architekturentwurfs
-
   - Aufgabe analysieren
     - Anforderungen verstehen
     - Vorhandene bzw. beschaffbare Technologien und Mittel analysieren
@@ -260,8 +246,10 @@ Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
         - Wer kommuniziert was mit wem?
         - Wie wird kommuniziert?
   - Lösungskonzept prüfen
-
-  
+- Beinhaltet folgende Artefakte
+  - Architekturentwurf
+  - Subsystem Spezifikation
+  - Schnittstellenspezifikation
 
 ### Feinentwurf / Detailentwurf
 
@@ -272,8 +260,7 @@ Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
   - Abbildung der Module und Prozesse auf die verfügbaren Konstrukte der verwendeten Programmiersprachen
   - Erstellung von Coderahmen und Implementierungsskizzen für alle Module und Prozesse
   - Detaillierte Ausarbeitung aller Aspektkonzepte
-  - 
-- Beinhaltet
+- Beinhaltet folgende Artefakte
   - Komponentenentwurf
   - Datenstrukturentwurf
   - Algorithmenentwurf
@@ -290,7 +277,6 @@ Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
   - Muster für die Implementierung
   
   - Muster für das Testen
-  
 - Für den Softwareentwurf unterscheidet man je nach Granularität zwischen:
   - Entwurfsmuster
     - feingranular - eher die Lösung eines lokalen Problems
@@ -355,40 +341,39 @@ Quelle: https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur
 - Beschreiben Systemstrukturen, welche die Gesamtarchitektur eines Systems festlegen
 - Spezifizieren, wie Subsysteme zusammenarbeiten
 
-Architekturmuster können mittels Kategorien eingeordnet werden:
+- Architekturmuster können mittels Kategorien eingeordnet werden
 
 #### Chaos zu Struktur
 
 - Organisation der Vielzahl der Komponenten und Objekte eines Softwaresystems
 - Aufteilung der Funktionalität des Gesamtsystems in kooperierende Subsysteme
-
-- Beispiele:
+- **Beispiele:**
   - Schichtenarchitektur
-  - Domain Model (Software Architekturen kompakt ab S.43)
+  - Domain Model *(Software Architekturen kompakt ab S.43)*
     - Ports and Adapters (hexagonale Architektur)
-    - Onion Architektur
-    - Clean Architektur
-  - Pipes und Filter
-  - Schwarzes Brett
+    - Onion Architecture
+    - Clean Architecture
+  - Pipes und Filter *(evtl. nur ganz kurz oder auflisten)*
+  - Schwarzes Brett *(evtl. nur ganz kurz oder auflisten)*
 
 #### Muster für verteilte Systeme
 
 - Unterstützt die Verwendung verteilter Ressourcen und Dienste in Netzwerken
 
-- Beispiele:
+- **Beispiele:**
   -  Client-Server
   - Serviceorientierte Architektur (SOA)
-  - Peer-to-Peer
+  - Peer-to-Peer *(evtl. nur ganz kurz oder auflisten)*
 
 #### Adaptive / Anpassbare Systeme
 
-- Beispiele:
-  - Reflexion
+- **Beispiele:**
   - Dependency Injection
+  - Reflexion 
 
 #### Interaktive Systeme (Mensch-Computer-Interaktion)
 
-- Beispiele:
+- **Beispiele:**
   - Model-View-Controller (MVC)
   - Presentation Abstraction Model (PAC)
 
@@ -415,3 +400,21 @@ Architekturmuster können mittels Kategorien eingeordnet werden:
 [9] [Vergleich von Qualitätsbewertungsmethoden für IT-Architekturen]([http://bauhaus.cs.uni-magdeburg.de:8080/miscms.nsf/FEA8C8150500AA14C1257449004F79A9/739B0C874E72E513C1257651002C9086/$FILE/Studienarbeit%20Frank%20Eichler.pdf](http://bauhaus.cs.uni-magdeburg.de:8080/miscms.nsf/FEA8C8150500AA14C1257449004F79A9/739B0C874E72E513C1257651002C9086/$FILE/Studienarbeit Frank Eichler.pdf))
 
 [10] [Qualitätsanforderungen konkret formulieren](https://jaxenter.de/stakeholder-qualitaetsanforderungen-konkret-formulieren-86582)
+
+[11] [Spezifikation und Entwurf von Software (Martin Glinz)](https://files.ifi.uzh.ch/rerg/amadeus/teaching/courses/spezifikation_und_entwurf_ws0506/kapitel_17.pdf)
+
+[12] [Softwarearchitektur & Entwurf (Wolfgang Schramm)](http://services.informatik.hs-mannheim.de/~schramm/see/files/Kapitel04.pdf)
+
+[13] [Lehrbuch der Softwaretechnik: Entwurf, Implementierung, Installation und Betrieb (Helmut Balzert)](https://www.springer.com/de/book/9783827417060)
+
+[14] [Vorgehensweise zur Erstellung einer  IT-Architektur](https://www.axxessio.com/de/blog-de/axx42-erstellung-it-architektur)
+
+[15] [Design Pattern](https://www.philipphauer.de/study/se/design-pattern.php)
+
+[16] [Architektur und Entwurfsmuster](https://www.w3l.de/de/fileadmin/user_upload/Architektur_und_Entwurfsmuster_2012.pdf)
+
+[17] [DDD Architekturen im Vergleich](https://www.maibornwolff.de/blog/ddd-architekturen-im-vergleich)
+
+[18] [Von Schichten zu Ringen - Hexagonale Architekturen erklärt](https://www.maibornwolff.de/blog/von-schichten-zu-ringen-hexagonale-architekturen-erklaert)
+
+[19] [Clean Architekture](https://www.4soft.de/blog/2019/clean-architecture/)
