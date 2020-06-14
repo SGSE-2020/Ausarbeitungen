@@ -189,15 +189,7 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 
 ## Entwurf einer Software
 
-- Wie komme ich zu einer Softwarearchitektur?
-
-- Phasen der Softwareentwicklung
-  - Anforderungsanalyse --> Anforderungen an SW, Rahmenbedingungen
-  - Grobdesign --> Klärung der Funktionalität und Systemarchitektur, erste Modelle
-  - Feindesign --> Detaillierte Ausarbeitung der Komponenten, Schnittstellen, Datenstrukturen
-  - Implementierung
-  - Test und Integration
-- Je nach Vorgehensweise wird zwischen Phasen hin und her gesprungen oder nacheinander abgehandelt (klassisch vs. agil)
+Der Softwareentwicklungsprozess gliedert sich in vier Phasen auf. Zu Beginn wird eine Anforderungsanalyse durchgeführt, welche alle Anforderungen an die Software zusammen mit allen Rahmenbedingungen sammelt und in ein Lasten und Pflichtenheft formuliert. Anschließend folgt die Entwurfphase. Diese gliedert sich auf in Grob- und Feinentwurf. Im ersten Schritt, dem Grobentwurf oder auch Architekturentwurf wird die eine erste Klärung der Funktionalität und Systemarchitektur durchgeführt und erste Modelle werden entworfen. Anschließend werden die Ergebnisse beim Feinentwurf oder auch Detailentwurf detaillierter Ausgearbeitet und Schnittstellen sowie Datenstrukturen werden definiert. Wenn er Entwurf abgeschlossen ist beginnt die Implementierung der Software. Abschließend wird die Software getestet und integriert. Je nach Vorgehensweise werden die Phasen nacheinander abgearbeitet (klassisch) oder es besteht die Möglichkeit zu einer früheren Phase zurückzuspringen (agil / iterativ).
 
 ![Phasen Softwareentwicklung](img/PhasenSoftwareentwicklung.png)
 
@@ -205,105 +197,58 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 
 
 
-- Software Architektur entsteht in  der Entwurfphase, welche Grob und Feindesign beinhaltet.
-
-- Der Entwurf einer Software findet nach Abschluss der Analyse statt. Die Analyse beinhaltet die Phase der Anforderungsermittlung sowie die Formulierung der Anforderungs- und Systemspezifikation (Pflichten- und Lastenheft).
-
-- Bei der Entwicklung eines Softwareentwurfs geht man meist iterativ vor und der Entwurf nimmt mit jeder Iterationsphase an Granularität zu. Man unterscheidet daher den Grobentwurf vom Feinentwurf.
-
-- Ziel des Softwareentwurfs ist es die Vorgaben der Anforderungsdefinition möglichst umfassend zu berücksichtigen
-
-  
+Die Software Architektur entsteht in der Entwurfphase. Wie zuvor erläutert, muss dafür die Analysephase abgeschlossen sein und die Anforderungs- und Systemspezifikation (Pflichten und Lastenheft) müssen vorliegen. Bei der Entwicklung eines Softwareentwurfs geht man meist iterativ vor und der Entwurf nimmt mit jeder Iterationsphase an Granularität zu. Ziel des Softwareentwurfs ist es, die Vorgaben der Anforderungsdefinition möglichst umfassend zu berücksichtigen.
 
 ### Grobentwurf / Architekturentwurf
 
-- Beschreibt die Gesamtstruktur und Organisation des Systems
-  - Identifikation wesentlicher Komponenten und deren Interaktion
-  - Hohes Abstraktionsniveau
-- Legt Randbedingungen fest
-  - Vorgabe der Hardware
-  - Vorgabe Betriebssystem
-  - Vorgabe Middleware
-  - Vorgaben zu Schnittstellen und Programmiersprachen
-- Hauptaufgaben des Architekturentwurfs
-  - Aufgabe analysieren
-    - Anforderungen verstehen
-    - Vorhandene bzw. beschaffbare Technologien und Mittel analysieren
-  - Architektur modellieren und dokumentieren
-    - Grundlegende Systemarchitektur festlegen
-    - Modularisierung
-      - Gliederung der zu erstellenden Software in Komponenten
-      - Abgrenzung der Module
-      - Festlegung von Verantwortlichkeiten
-    - Nebenläufige Lösungen in Prozesse gliedern
-      - Analyse der zeitlich verzahnten Ausführung von Aktivitäten
-      - Festlegung der Prozesse und Zuordnung zu Modulen
-      - Art der Ausführung der Prozesse regeln (Priorität, Reihenfolge, Unterbrechbarkeit)
-    - Zusammenarbeit festlegen
-      - Kommunikationsbedürfnisse analysieren
-      - Kommunikationsverfahren festlegen
-      - Für jedes Bedürfnisse konkrete Verfahren wählen und Schnittstellen definieren
-        - Wer kommuniziert was mit wem?
-        - Wie wird kommuniziert?
-  - Lösungskonzept prüfen
-- Beinhaltet folgende Artefakte
-  - Architekturentwurf
-  - Subsystem Spezifikation
-  - Schnittstellenspezifikation
+Der Grobentwurf, oder auch Architekturentwurf genannt, beschreibt die Gesamtstruktur und Organisation des Systems auf einer hohen Abstraktionsebene. Dabei müssen wesentliche Komponenten und deren Interaktion untereinander identifiziert werden. Außerdem werden Randbedingungen festgelegt, wie die Vorgabe von Hardware, Betriebssystem, Middleware sowie Vorgaben zu Programmiersprachen. Die Hauptaufgaben für die Erstellung des Grobentwurfs sind:
+
+- Aufgabe analysieren
+- Architektur modellieren und dokumentieren
+- Lösungskonzept prüfen
+
+Bei der Analyse der Aufgabe ist es das Ziel die Anforderungen zu verstehen und vorhandene bzw. beschaffbare Technologien zu analysieren. In der Modellierungs- und Dokumentationsphase wird die grundlegende Systemarchitektur festgelegt. Im Rahmen dessen ist es hilfreich die Modularisierung zu definieren. Dabei wird dir zu erstellende Software in Komponenten gegliedert und Module werden voneinander abgegrenzt. Außerdem werden Verantwortlichkeiten definiert. Eine weitere Aufgabe der Phase ist es nebenläufige Lösungen in Prozesse zu gliedern. Dafür muss eine Analyse der zeitlich verzahnten Ausführung von Aktivitäten durchgeführt werden. Anschließend können die Prozesse festgelegt und zu Modulen zugeordnet werden. Weiterhin muss in dieser Phase die Zusammenarbeit festgelegt werden. Dabei werden Kommunikationsbedürfnisse analysiert und Kommunikationsverfahren festgelegt. Für jedes Bedürfnis werden konkrete Verfahren gewählt und Schnittstellen definiert. Abschließend wird das gesamte Lösungskonzept geprüft und validiert.
+
+Der Grobentwurf beinhaltet die folgenden Artefakte:
+
+- Architekturentwurf
+- Subsystem Spezifikation
+- Schnittstellenspezifikation
 
 ### Feinentwurf / Detailentwurf
 
-- Beschreibt die Detailstruktur des Systems
-- Beschreibt die einzelnen Komponenten, so dass die implementiert werden können
-- Beschreibt Datenstrukturen und Algorithmen
-- Aufgaben des Detailentwurfs:
-  - Abbildung der Module und Prozesse auf die verfügbaren Konstrukte der verwendeten Programmiersprachen
-  - Erstellung von Coderahmen und Implementierungsskizzen für alle Module und Prozesse
-  - Detaillierte Ausarbeitung aller Aspektkonzepte
-- Beinhaltet folgende Artefakte
-  - Komponentenentwurf
-  - Datenstrukturentwurf
-  - Algorithmenentwurf
+Der Feinentwurf beschreibt die Detailstruktur des Systems. Dabei werden die einzelnen Komponenten so detailliert beschrieben, so dass diese implementiert werden können. Außerdem werden Datenstrukturen und Algorithmen beschrieben. Zu Hauptaufgaben für die Erstellung des Feinentwurfs gehört die Abbildung der Module und Prozesse auf die verfügbaren Konstrukte der verwendeten Programmiersprachen. Außerdem wird ein Coderahmen erstellt sowie Implementierungsskizzen für alle Module und Prozesse. 
+
+Der Feinentwurf beinhaltet die folgenden Artefakte:
+
+- Komponentenentwurf
+- Datenstrukturentwurf
+- Algorithmenentwurf
 
 
 
 ## Herangehensweise an Architektur und Design
 
-- In der Software Entwicklung gibt es für alle Schritte Muster
-  - Muster für die Analyse
-  
-  - Muster für den Entwurf
-  
-  - Muster für die Implementierung
-  
-  - Muster für das Testen
-- Für den Softwareentwurf unterscheidet man je nach Granularität zwischen:
-  - Entwurfsmuster
-    - feingranular - eher die Lösung eines lokalen Problems
-  - Architekturmuster
-    - große Sicht auf die ganze Anwendung
+Im Rahmen der Software Entwicklung werden für alle Schritte verschiedene Arten von Mustern eingesetzt. Es gibt Muster für die Analyse, für den Entwurf, für die Implementierung sowie für das Testen von Software. Für den Softwareentwurf unterscheidet man je nach Granularität zwischen Entwurfsmuster und Architekturmuster. Architekturmuster sind grobgranular und bieten eine Sicht auf die gesamte Anwendung. Entwurfsmuster dagegen sind eher feingranular und fokussieren sich auf die Lösung eines lokalen Problems.
+
+
 
 ### Entwurfsmuster
 
-- Sind innerhalb der Softwarearchitektur- und Entwicklung allgemeine, wieder verwendbare Lösungsmuster für wiederkehrende Entwurfsprobleme
-  - Sie bieten eine Vorlage zur Problemlösung für bestimmte Kontexte
-  - Haben sich bereits bewährt
-- Legen eine Struktur von Subsystemen fest
+Entwurfsmuster sind innerhalb der Softwarearchitektur und Entwicklung allgemeine, wieder verwendbare Lösungsmuster für wiederkehrende Entwurfsprobleme. Sie bieten eine sich bereits bewährte Vorlage zur Problemlösung für bestimmte Kontexte. Weiterhin legen Entwurfsmuster eine Struktur von Subsystemen fest. Entwurfsmuster können die Kommunikation im Team verbessern, da sie eine Diskussionsgrundlage bieten um über Softwarearchitektur zu sprechen. Es gibt drei verschiedene Gruppen von Entwurfsmuster basierend auf dem Kontext in dem sie eingesetzt werden können. Folgende Arten von Erzeugungsmustern gibt es:
 
-- Entwurfsmuster gliedern sich in Grundtypen
-  - Erzeugungsmuster
-  - Strukturmuster
-  - Verhaltensmuster
+- Erzeugungsmuster
+- Strukturmuster
+- Verhaltensmuster
 
-- Entwurfsmuster verbessern Kommunikation im Team
-  - bieten Diskussionsgrundlage um über die Softwarearchitektur zu sprechen
+Das folgende Bild zeigt eine Übersicht verschiedener Entwurfsmuster und in welche Gruppe diese gehören. Die fett markierten Entwurfsmuster werden in dieser Ausarbeitung beispielhaft dargestellt.
 
-
-
+![Entwurfsmuster Übersicht](img/Entwurfsmuster.svg)
 #### Erzeugungsmuster
 
-- befasst sich mit der Erzeugung von Objekten
-- entkoppeln Objektkonstruktion von der Objektrepräsentation
+Erzeugungsmuster befassen sich mit der Erzeugung von Objekten. Sie entkoppeln die Objektkonstruktion von der Objektrepräsentation.
+
+
 
 **Beispiele:**
 
@@ -315,7 +260,7 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 
 #### Strukturmuster
 
-- Beschreibt die Komposition von Klassen Objekten
+Strukturmuster beschreiben die Komposition von Klassen Objekten.
 
 **Beispiele:**
 
@@ -326,7 +271,7 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 
 #### Verhaltensmuster
 
-- Beschreibt wie Klassen oder Objekte miteinander kommunizieren und wie die Verantwortlichkeiten verteilt sind
+Verhaltensmuster beschreibt wie Klassen oder Objekte miteinander kommunizieren und wie die Verantwortlichkeiten verteilt sind.
 
 **Beispiele:**
 
@@ -338,44 +283,58 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewert
 
 ### Architekturmuster
 
-- Beschreiben Systemstrukturen, welche die Gesamtarchitektur eines Systems festlegen
-- Spezifizieren, wie Subsysteme zusammenarbeiten
+Architekturmuster beschreiben Systemstrukturen, welche die Gesamtarchitektur eines Systems festlegen. Dabei spezifizieren sie wie die Subsysteme der Software miteinander zusammenarbeiten. Architekturmuster können mittels vier Überkategorien geordnet und zusammengefasst werden. Folgende Übergruppen gibt es:
 
-- Architekturmuster können mittels Kategorien eingeordnet werden
+- Chaos zu Struktur
+- Muster für verteilte Systeme
+- Adaptive / Anpassbare Systeme
+- Interaktive Systeme
+
+
 
 #### Chaos zu Struktur
 
-- Organisation der Vielzahl der Komponenten und Objekte eines Softwaresystems
-- Aufteilung der Funktionalität des Gesamtsystems in kooperierende Subsysteme
-- **Beispiele:**
-  - Schichtenarchitektur
-  - Domain Model *(Software Architekturen kompakt ab S.43)*
-    - Ports and Adapters (hexagonale Architektur)
-    - Onion Architecture
-    - Clean Architecture
-  - Pipes und Filter *(evtl. nur ganz kurz oder auflisten)*
-  - Schwarzes Brett *(evtl. nur ganz kurz oder auflisten)*
+Architekturmuster dieser Kategorie bieten eine Organisation der Vielzahl der Komponenten und Objekte eines Softwaresystems. Die Aufteilung der Funktionalität des Gesamtsystems wird dabei in kooperierende Subsysteme aufgeteilt. Die bekannteste Architektur in dieser Kategorie ist die Schichtenarchitektur. 
+
+**Beispiele:**
+
+- Schichtenarchitektur
+- Domain Model *(Software Architekturen kompakt ab S.43)*
+  - Ports and Adapters (hexagonale Architektur)
+  - Onion Architecture
+  - Clean Architecture
+- Pipes und Filter *(evtl. nur ganz kurz oder auflisten)*
+- Schwarzes Brett *(evtl. nur ganz kurz oder auflisten)*
+
+
 
 #### Muster für verteilte Systeme
 
-- Unterstützt die Verwendung verteilter Ressourcen und Dienste in Netzwerken
+Architekturmuster in dieser Kategorie unterstützen die Verwendung verteilter Ressourcen und Dienste in Netzwerken. Um ein Softwaresystem verteilen zu können, muss es in Subsysteme strukturiert sein. Dabei ist es wichtig, dass die Subsysteme in sich stark verbunden sind. Die traditionelle Architektur in dieser Kategorie ist die Client-Server Architektur.
 
-- **Beispiele:**
-  -  Client-Server
-  - Serviceorientierte Architektur (SOA)
-  - Peer-to-Peer *(evtl. nur ganz kurz oder auflisten)*
+**Beispiele:**
+
+-  Client-Server
+- Serviceorientierte Architektur (SOA)
+- Peer-to-Peer *(evtl. nur ganz kurz oder auflisten)*
 
 #### Adaptive / Anpassbare Systeme
 
-- **Beispiele:**
-  - Dependency Injection
-  - Reflexion 
+Architekturmuster in dieser Kategorie sind besonders anpassungsfähig und erweiterungsfähig zur Laufzeit.
 
-#### Interaktive Systeme (Mensch-Computer-Interaktion)
+**Beispiele:**
 
-- **Beispiele:**
-  - Model-View-Controller (MVC)
-  - Presentation Abstraction Model (PAC)
+- Dependency Injection
+- Reflexion 
+
+#### Interaktive Systeme
+
+Muster in dieser Kategorie bieten eine Strukturierungsmöglichkeit für Interaktionen von Mensch und Computer.
+
+**Beispiele:**
+
+- Model-View-Controller (MVC)
+- Presentation Abstraction Model (PAC)
 
 
 
