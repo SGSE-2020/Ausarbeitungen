@@ -128,7 +128,7 @@ Vorteile durch eine sorgfältige geplante Software-Architektur sind:
 
 ## Bewertung von Software-Architekturen
 
-Um zu die entwickelte Software Architektur zu validieren und zu überprüfen ob diese als Lösungskonzept für das vorhandene Problem dienen kann, ist es sinnvoll eine Bewertung durchzuführen. Diese kann helfen, potenzielle Risiken zu erkennen und die Realisierung von Qualitätsanforderungen durch die Architektur zu beurteilen. Weiterhin kann eine Bewertung dazu beitragen die Schwachstellen sowie deren Überarbeitungsaufwand zu analysieren. Im Zuge der Bewertung werden oftmals auch Möglichkeiten zur Wiederverwendung von Softwarekomponenten und anderen Artefakten erarbeitet.
+Um zu die entwickelte Software Architektur zu validieren und zu überprüfen ob diese als Lösungskonzept für das vorhandene Problem dienen kann, ist es sinnvoll eine Bewertung durchzuführen. Diese kann helfen, potenzielle Risiken zu erkennen und die Realisierung von Qualitätsanforderungen durch die Architektur zu beurteilen. Weiterhin kann eine Bewertung dazu beitragen die Schwachstellen sowie deren Überarbeitungsaufwand zu analysieren. Im Zuge der Bewertung werden oftmals auch Möglichkeiten zur Wiederverwendung von Softwarekomponenten und anderen Artefakten erarbeitet. Dies dient dazu, sicherzustellen, dass die korrekte Software Architektur verwendet wird, da diese spätere Funktionalität sowie Kosten maßgeblich beeinflussen kann. Je später Fehler erkannt werden, desto teurer können diese werden.
 
 Die Bewertung einer Software Architektur erfolgt grundsätzlich anhand der Erreichung bestimmter Qualitätsmerkmale. Die `ISO 25010` definiert für diesen Zweck eine Reihe von Qualitätskriterien für Software und IT-Systeme. Die in dem untenstehenden Bild sichtbaren 8 Kernkriterien werden von der Norm definiert. Alle Kernkriterien besitzen Unterkriterien, welche zu erreichen sind um das Kernziel umfassend zu erfüllen.
 
@@ -150,23 +150,18 @@ Der Qualitätsbaum ist der Ausgangspunkt für die Bewertung einer Software Archi
 
 ### Qualitative Bewertung
 
-- Die Qualitative Bewertung setzt auf Fokussierung, die Durchsprache von Lösungsansätzen und die Erfahrung und Argumente der Workshop Beteiligten. Restrisiko bleibt.
+Die qualitative Bewertung einer Softwarearchitektur setzt auf Fokussierung, die Durchsprache von Lösungsansätzen sowie auf Erfahrung und Argumente von Workshop Beteiligten. Dabei bleibt ein Restrisiko, da eine Durchsprache niemals ein Messen von Zahlen darstellen kann. Daher liefert diese Art der Bewertung keine Zahlen, sondern quantitative Aussagen. Qualitative Bewertungsmethoden überprüfen, ob die Lösungsansätze und Entscheidungen die für eine Architektur getroffen wurden, zu den Zielen des Vorhabens sowie der Anforderungen passen.
 
-- Bewertung liefert keine Zahlen sondern quantitative Aussagen (z.B. im Gegensatz zu Messung von Quellcode)
+Für die qualitative Bewertung gibt es verschiedene Methoden und Ansätze wie z.B das Ausfüllen von vorgefertigten Fragebögen und Checklisten oder auch das Durchführen Szenario basierter Verfahren. Szenario basierte Verfahren agieren häufig wie eine Art Vorgehensmodell, welches zu einer Architekturbewertung führt. Dabei werden mehr oder weniger detailliert Schritte beschrieben, wie man zu einer solchen Bewertung gelangt. Die wichtigsten Schritte, welche sich in vielen dieser Vorgehensmodelle wiederfinden, sind folgende:
 
-- Qualitative Bewertungsmethoden überprüfen, ob die Lösungsansätze und Entscheidungen in der Architektur zu den Zielen des Vorhabens passen. 
+- Erheben und Priorisieren von Qualitätsszenarios
+- Erstellen und Beschreiben der Architektur
+- Bewertung der Softwarearchitektur aus dem Blickwinkel der wichtigsten erhobenen Qualitätsszenarios
+- Präsentieren der Ergebnisse und Erstellen eines Berichts
 
-- Für die qualitative Bewertung gibt es verschiedene Methoden und Ansätze
+Ein Qualitätsszenario stellt dabei eine beispielhafte Verwendung des zu betrachtenden Systems dar. Dies kann ein gewünschter Anwendungsfall oder auch der Auftritt eines Fehlers sein. Dabei muss ein bestimmtes Qualitätsmerkmal aus dem Qualitätsbaum im Fokus liegen. Es gibt sehr viele verschiedene Szenario basierte Verfahren. Das bekannteste Verfahren nennt sich ATAM [**A**rchitecture **t**readeoff **a**nalysis **m**ethod]. Dieses bietet eine gute Identifikation von Risiken und Nichtrisiken hinsichtlich der geforderten Qualitätsmerkmale. 
 
-  - Szenario basierte Verfahren
-    - Szenario basierte Architekturbewertungsverfahren verstehen sich häufig als ein Vorgehensmodell, welches zu einer Architekturbewertung führt. Die Szenario basierten Verfahren liefern mehr als nur eine Rechenmethodik oder Messanweisungen, sie beschreiben mehr oder weniger detailliert Schritte, über die man zu einer Architekturbewertung gelangt. Die wichtigsten Schritte in einer Szenario basierten Architekturbewertung finden sich in vielen der unterschiedlichen Verfahren wieder.
-    - Ein sogenanntes Qualitätsszenario ist dabei eine beispielhafte Verwendung des zu betrachtenden Systems. Und zwar so, dass ein Qualitätsmerkmal die Hauptrolle spielt
-    - Es gibt verschiedene Szenario basierte Methoden, die bekannteste ist ATAM
-      - ATAM (Identifikation von Risiken und Nichtrisiken hinsichtlich der geforderten Qualitätssmerkmale)
-      - CBAM (konzentriert sich auf Kosten Nutzen Bewertungen)
-  - Ausfüllen von vorgefertigten Fragebögen und Checklisten
-
-  
+In der nachfolgenden Tabelle sind die Vor und Nachteile der qualitativen Bewertung aufgelistet:
 
 | Vorteile                                                 | Nachteile                                                    |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
@@ -174,33 +169,15 @@ Der Qualitätsbaum ist der Ausgangspunkt für die Bewertung einer Software Archi
 | Passt auf alle Qualitätsmerkmale                         | Workshops nicht trivial in der Durchführung (Planung, Moderation ... ) |
 | Bindet Stakeholder optimal ein und fördert den Austausch |                                                              |
 
-
+ *Quelle: [6]*
 
 ### Quantitative Bewertung
 
-- Die quantitative Bewertung setzt auf vermeintlich belastbarere Fakten
-  
-- misst den Quelltext der Software und die Struktur der Elemente und deren Beziehungen untereinander
-  
-- Wird toolgestützt durchgeführt
+Im Gegensatz zur qualitativen Bewertung setzt die quantitative Bewertung eher auf Zahlen und Fakten. Um eine Bewertung durchzuführen, wird der Quelltext der Software sowie die Struktur der Elemente und deren Beziehungen untereinander gemessen- Dies wird toolgestützt durchgeführt mit Tools für die Code Analyse.
 
-  - Beispiele für Tools von Code Analyse
+Ansätze für die quantitative Bewertung sind z.B. die statische oder dynamische Codeanalyse. Bei der statischen Codeanalyse werden Metrik Auswertungen durchgeführt, welche Problemgebiete innerhalb der Software identifizieren und bestehende Softwareteile zu bewerten oder Aufwände zu fokussieren. Die dynamische Codeanalyse kann dafür genutzt werden, um in den Bereichen der Performanz, Skalierung sowie Zuverlässigkeit Aufschlüsse über die Tauglichkeit der Softwarelösung zu geben. Außerdem kann eine quantitative Bewertung auch mit Hilfe einer Strukturanalyse durchgeführt werden. Dabei wird der Code in seiner Gliederung und Abhängigkeiten visualisiert und kann anschließend auf Problemherde untersucht werden. Dabei wird auch eine mögliche Abweichung der bisherigen Architekturidee sichtbar. Dies kann zur Überarbeitung von Architektur- oder Codeseite führen.
 
-- Ansätze für die quantitative Bewertung:
-
-  - Statische Code-Analyse
-
-    - Metrikauswertungen können Problemgebiete in der Software identifizieren und vor allem im Bereich der Wartbarkeit unterstützen bestehende Softwareteile zu bewerten oder Aufwände zu fokussieren.
-
-  - Dynamische Code-Analyse 
-
-    - Dynamische Analyse kann in den Bereichen der Performanz, Skalierung oder Zuverlässigkeit gute Aufschlüsse über die Tauglichkeit einer Softwarelösung geben und kann bei bestehenden Systemteilen mit realistischen Einsatzszenarien prüfen ob Architekturideen tatsächlich greifen.
-
-  - Strukturanalyse
-
-    - Der Code wird in seiner Gliederung und Abhängigkeiten visualisiert und kann anschließend auf Best-Practices und Problemherde untersucht werden. Auch die Abweichung von Architekturideen wird sichtbar und kann zur Überarbeitung von Architektur- oder Codeseite führen.
-
-    
+In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewertung aufgelistet:
 
 | Vorteile                                          | Nachteile                                                  |
 | ------------------------------------------------- | ---------------------------------------------------------- |
@@ -208,7 +185,7 @@ Der Qualitätsbaum ist der Ausgangspunkt für die Bewertung einer Software Archi
 | Messungen leicht automatisierbar und wiederholbar | Messungen können nicht alle Qualitätsmerkmale gut erfassen |
 |                                                   | Gefahr der Missdeutung und Fehlleitung                     |
 
-
+ *Quelle: [6]*
 
 ## Entwurf einer Software
 
