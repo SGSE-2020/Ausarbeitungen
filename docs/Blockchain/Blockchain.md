@@ -12,7 +12,7 @@ Während der Einsatz der Blockchain für digitale Währungen immer noch die zent
 
 ### 1.2 Umfang
 
-Im folgenden Teil der Einleitung werden zunächst die der Blockchain zugrundeliegenden Technologien erläutert. Daraufhin wird die funktionsweise der Blockchain selbst beschrieben und abschließend werden Smart Contracts vorgestellt, die es ermöglichen Operationen in Form von Algorithmen in der Blockchain zu hinterlegen. In Kapitel 2 werden verscheidene Anwendungsfälle der Blockchain dargestellt. In Kapitel 3 folgt eine darstellung der Punkte in denen sich Verschiedene Blockchain Anwendungen voneinander abgrenzen lassen. In Kapitel 4 die Architektur von Blockchain basierten Anwendung vorgestellt. Anschließend folgt in Kapitel 5 eine kurze Darstellung der Auswirkungen der Verwendung einer Blockchain. In Kapitel 6 folgt die Darstellung bereits existierender Blockchain Anwendeungen, wie Bitcoin und Ethereum. Abschließend folgt in Kapitel 7 Darstellung von Beispielen für Smart Contracts.
+Im folgenden Teil der Einleitung werden zunächst die der Blockchain zugrundeliegenden Technologien erläutert. Daraufhin wird die funktionsweise der Blockchain selbst beschrieben und abschließend werden Smart Contracts vorgestellt, die es ermöglichen Operationen in Form von Algorithmen in der Blockchain zu hinterlegen. In Kapitel 2 werden verscheidene Anwendungsfälle der Blockchain dargestellt. In Kapitel 3 folgt eine Darstellung der Punkte in denen sich Verschiedene Blockchain Anwendungen voneinander abgrenzen lassen. In Kapitel 4 die Architektur von Blockchain basierten Anwendung vorgestellt. Anschließend folgt in Kapitel 5 eine kurze Darstellung der Auswirkungen der Verwendung einer Blockchain. In Kapitel 6 folgt die Darstellung bereits existierender Blockchain Anwendeungen, wie Bitcoin und Ethereum. Abschließend folgt in Kapitel 7 Darstellung von Beispielen für Smart Contracts.
 
 ### 1.3 Grundlegende Technologien
 
@@ -67,18 +67,39 @@ Die Blockchain bildet sich dabei durch die Angabe des Hash-Wertes des vorherigen
 
 ![Blockchain_Aufbau](img/Blockchain_Aufbau.png)
 
-### 1.5 Smart Contracts
+### 1.5 Smart-Contracts
 
 Neben Tarnsaktionen lassen sich in der Blockchain auch andere Informationen speichern. Bei Smart-Contracts war zunächst die erfassung von digitalen Vertragsbedingungen vorgesehen, die ohne einflussnahme Dritter algorithmisch ausgeführt werden. Heute können über Smart-Contrats Anweisungen hinterlegt werden, die bei ausführung weiterer Transaktionen überprüft beziehungsweise Ausgeführt werden. So lassen sich komplexe Abläufe beschreiben, die auf den aktuellen Zustand der Blockchain reagieren. Die mögliche kompläxität der Anweisung hängt dabei allerdings startk von der zugrunde liegenden Blockchain-Platform ab.
 
 ## 2 Anwendungsfälle
 
 ### 2.1 Landwirtschaftliche Wertschöpfungskette
+
+In einer Wertschöphungskette kann der Austausch von Informationen genauso wichtig sein, wie der Austausch der Waren selbst. In der landwirtscahftlichen Wertschöphungskette für Nahrung ist es wichtig festzuhalten wo die Bestandteile Angebaut, verarbeitet und wie sie Verteilt wurden, um eine Lebesmittelsicherheit zu erreichen. Die Informationssysteme zur Unterstützung einer Wertschöpfungskette, werden normalerweise von den einzelnen Teilnehmern seperat gepflegt. So kann jeder Teilnehmer der Kette nur die Informationen zu dem Schritt sehen, an dem er direkt beteiligt ist. Im zuge der Digitalisierung wurde die Vereilung von Information geleufiger. Ein Möglichkeit zum Verteilen der Informationen ist das Einrichten eines Zentralen Servers in dem wichtige Ereignisse in der Wertschöpfungskette für alle Teilnehmer zentral gespeichert werden.
+
+Eine alternative Lösung mit der Verwendung einer Blockchain, ist die Kontrolle des Wertschöpfungskette mithlife von Smart-Contracts. Die Teilnehmer der gemeinsamen Wertschöpfungskette legen zunächst ein Design für den gemeinsamen Prozess fest und legen fest wie die Interaktionen untereinander ablaufen sollen. Die Kontrolle des Prozesses wird in Smart-Contracts implementiert und wird koordiniert, idem die Teilnehmer die Smart-Contracts abwechselnd aufrufen. Smart-Contracts den Prozess wie folgt stützen:
+
+- Nachrichten werden abgewiesen, wenn sie an der falschen stelle des Prozesses stehen
+- Nachrichten werden nur von dem Teilnehmer angenommen, der autorisiert ist sie zu senden
+- Bedingungen können im Prozess Model aufgeführt werden und direkt durch Smart-Contract-Code ausgeführt werden
+
+Auf diese weise können Prozesszweige automatisch angestoßen werden, wenn die dafür nötigen bedingungen erfüllt sind. In dem daraus resultierenden System kommunizieren dei einzelnen Teilnehmer der Wertschöpfungskette durch senden von Nachrichten über die Blockchain. Um die Kommunikation über die Blockchain zu erleichtern werden "Trigger" Komponenenten verwendet, die konventionelle service Aufrufe in Blockchain Transaktionen umwandeln können und umgekehrt.
+
 ### 2.2 Open Data Registry
-### 2.3 Internationaler Geldtransfer
-### 2.4 Blockchain und maschinelles Lernen
-### 2.5 Maschinelles Lernen zur Unterstützung der Blockchain
-### 2.6 Blockchain zur Unterstützung des maschinellen Lernens
+
+Register sind Sammlungen von Informationen, die Zentral, meist von Regierungseinheiten, verwaltet werden. In einem Register werden dabei Informationen zu einer bestimmte Klasse von Entitäten gespeichert. Hierbei kann es sich Besipielsweise um Personen oder Unternehmen handeln. Manche Regierungregister sidn öffentlcih und können von jedem eingesehen werden, wie zum Beispiel das Handelsregister.
+
+Bei Daten Portalen wie zum Beipiel data.gov.au wird einen Daten Register mit konventionelen Methoden implementiert. Das Register wird dabei zentral von der Regierung verwaltet und kann den Zugang auf die daten individuell einstellen. Die Konsumenten der Daten können über das Register die verschiedenen Datensätze finden. Das Anfordern der eigentlichen Daten erfolgt anschließend direkt vom Data Provider. Die folgende Abbildung zeigt die grundelgende Architektur dieses Aufbaus
+
+![Data_registry](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/Data_registry.png)
+
+Eine mögliche Verwendungsmöglichkeit der Blockchein ist es nun, dass zentral Verwaltetete Register durch eine Blockchain zu ersetzen. Die daraus entstehende Architektur wird in der folgenden Abbildung grob dargestellt. Statt einer zentrallen Verwaltungsstelle verwalten hier die Data Provider individuell den Datenzugang.
+
+![Data_registry_blockchain](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/Data_registry_blockchain.png)
+
+### 2.3 Blockchain und maschinelles Lernen
+#### 2.3.1 Maschinelles Lernen zur Unterstützung der Blockchain
+#### 2.3.2 Blockchain zur Unterstützung des maschinellen Lernens
 
 ## 3 Variationen der Blockchain
 
