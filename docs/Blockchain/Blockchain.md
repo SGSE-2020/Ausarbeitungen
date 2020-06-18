@@ -91,11 +91,11 @@ Register sind Sammlungen von Informationen, die Zentral, meist von Regierungsein
 
 Bei Daten Portalen wie zum Beipiel data.gov.au wird einen Daten Register mit konventionelen Methoden implementiert. Das Register wird dabei zentral von der Regierung verwaltet und kann den Zugang auf die daten individuell einstellen. Die Konsumenten der Daten können über das Register die verschiedenen Datensätze finden. Das Anfordern der eigentlichen Daten erfolgt anschließend direkt vom Data Provider. Die folgende Abbildung zeigt die grundelgende Architektur dieses Aufbaus
 
-![Data_registry](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/Data_registry.png)
+![Data_registry](img/Data_registry.png)
 
 Eine mögliche Verwendungsmöglichkeit der Blockchein ist es nun, dass zentral Verwaltetete Register durch eine Blockchain zu ersetzen. Die daraus entstehende Architektur wird in der folgenden Abbildung grob dargestellt. Statt einer zentrallen Verwaltungsstelle verwalten hier die Data Provider individuell den Datenzugang.
 
-![Data_registry_blockchain](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/Data_registry_blockchain.png)
+![Data_registry_blockchain](img/Data_registry_blockchain.png)
 
 ### 2.3 Blockchain und maschinelles Lernen
 #### 2.3.1 Maschinelles Lernen zur Unterstützung der Blockchain
