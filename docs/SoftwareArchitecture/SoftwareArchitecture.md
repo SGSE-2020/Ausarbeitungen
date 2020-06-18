@@ -16,7 +16,7 @@ Vorteile durch eine sorgfältige geplante Software-Architektur sind:
 
 - Effiziente Softwareentwicklung ist möglich
 - Performance kann gezielt gesteigert werden
-- Zeit Einsparung kann realisiert werden
+- Zeiteinsparung kann realisiert werden
 - Software-Budget kann optimieren werden
 - Gezielte Minimierung von Risiken
 - Kompakte Software in Umfang und Funktion designen
@@ -30,7 +30,7 @@ Eine Software Architektur ist eine Beschreibung aller Komponenten eines Systems 
 
 Im Zuge der Definition einer Software Architektur werden grundlegende Entscheidungen für den weiteren Systementwurf getroffen, wie beispielsweise die Wahl der Plattform, die Auswahl von Entwicklungssystemen oder auch der einzusetzenden Datenbank. Software Architektur stellt also den Plan eines Systems dar und keinesfalls das System selbst. 
 
-Um gute Software zu entwickeln ist es für Software Architekten wichtig sich mit der Beschreibung des Softwaresystems zu beschäftigen. In einer guten Softwarearchitektur sollten folgende Aspekte berücksichtigt werden:
+Um gute Software zu entwickeln ist es für Software Architekten wichtig, sich mit der Beschreibung des Softwaresystems zu beschäftigen. In einer guten Softwarearchitektur sollten folgende Aspekte berücksichtigt werden:
 
 - Beschreibung aller Elemente aus denen das System besteht
 - Interaktion zwischen den Elementen
@@ -41,7 +41,7 @@ Um gute Software zu entwickeln ist es für Software Architekten wichtig sich mit
 
 ### Architektursichten
 
-Um eine Software Architektur in Gänze begreifen zu können, kann man aus verschiedenen Sichten auf eine Softwarearchitektur schauen. Dies ist sinnvoll, da verschiedene Beteiligte an einem Softwareprojekt unterschiedliche Rollen wahrnehmen und auch in verschiedenen Gebieten Expertise besitzen. Die verschiedenen Sichten sorgen dafür, dass man die Softwarearchitektur aus verschiedenen Blickwinkeln betrachtet. Dies sorgt für mehr Transparenz und kann der Komplexitätsbewältigung im Rahmen von Anforderungen, Struktur und Umsetzung sorgen. Außerdem findet so eine Entkopplung verschiedener System-Aspekte statt und diese können dadurch einzeln genauer betrachtet werden.
+Um eine Software Architektur in Gänze begreifen zu können, kann man aus verschiedenen Sichten auf eine Softwarearchitektur schauen. Dies ist sinnvoll, da verschiedene Beteiligte an einem Softwareprojekt unterschiedliche Rollen wahrnehmen und auch in verschiedenen Gebieten über Expertise verfügen. Die verschiedenen Sichten sorgen dafür, dass man die Softwarearchitektur aus verschiedenen Blickwinkeln betrachtet. Dadurch erreicht man mehr Transparenz sowie eine bessere Komplexitätsbewältigung im Rahmen von Anforderungen, Struktur und Umsetzung. Außerdem findet dadurch eine Entkopplung verschiedener System-Aspekte statt. Diese können dadurch einzeln genauer betrachtet werden.
 
 Für die Betrachtung einer Software Architektur aus verschiedenen Sichten, gibt es bereits einige Modelle. Die bekanntesten sind dabei das `4+1 Sichtenmodell` von Philippe Kruchten sowie die `vier Arten von Sichten` von Starke.
 
@@ -49,7 +49,7 @@ Für die Betrachtung einer Software Architektur aus verschiedenen Sichten, gibt 
 
 ### 4+1 Sichten Modell nach Kruchten
 
-Das 4+1 Sichten Modell von Philippe Kruchten stellt die Blickwinkel auf das System aus verschiedenen Rollen innerhalb der vier Hauptsichten dar. Zusätzlich können Use Cases und Szenarios betrachtet werden, um die Architektur besser darzustellen. Diese Zusatzbetrachtung stellt das +1 dar. Bei den insgesamt vier Schichten handelt es sich um eine logische Sicht, eine Enwicklungssicht, eine Prozesssicht sowie eine Physische Sicht.
+Das 4+1 Sichten Modell von Philippe Kruchten stellt die Blickwinkel auf das System aus verschiedenen Rollen innerhalb der vier Hauptsichten dar. Zusätzlich können Use Cases und Szenarios betrachtet werden, um die Architektur besser darzustellen. Diese Zusatzbetrachtung stellt das +1 in Namen dar. Bei den insgesamt vier Schichten handelt es sich um eine logische Sicht, eine Enwicklungssicht, eine Prozesssicht sowie eine Physische Sicht.
 
 #### Logische Sicht
 
@@ -75,7 +75,7 @@ Die Prozesssicht beschreibt das System vom Standpunkt des Systemintegrators. Dab
 
 #### Physische Sicht
 
-Beschreibt das System vom Standpunkt eines Systemarchitekten. Dabei geht es um die Abbildung der Software auf die Hardware sowie die Verteilungsaspekte. Dabei werden Artefakte wie eine Netzwerktopologie eingesetzt.
+In der physischen Sicht wird das System vom Standpunkt eines Systemarchitekten beschrieben. Dabei geht es um die Abbildung der Software auf die Hardware sowie die Verteilungsaspekte. Dabei werden Artefakte wie eine Netzwerktopologie eingesetzt.
 
 #### Szenario Sicht
 
@@ -92,7 +92,7 @@ Die Szenario Sicht stellt eine Beschreibung wichtiger Anwendungsfälle und Anwen
 
 ### Vier Arten von Sichten von Starke
 
-Das Sichten Modell von Starke beschreibt die Blickwinkel auf die Architektur mehr auf das System bezogen und im Gegensatz zu Kruchten weniger auf den Standpunkt verschiedener Rollen bezogen. 
+Das Sichten Modell von Starke beschreibt die Blickwinkel auf die Architektur bezogen auf das System im Gegensatz zu Kruchten nicht auf den Standpunkt verschiedener Rollen. 
 
 #### Kontextabgrenzung
 
@@ -100,21 +100,21 @@ Bei der Sicht auf die Kontextabgrenzungen wird die Einbettung des Systems in sei
 
 #### Bausteinsicht
 
-In der Bausteinsicht wird der interne Aufbau des Systems in Form einer statischen Struktur dargestellt. Dabei werden die Strukturen des Systems, der Subsysteme, Komponenten beleuchtet. Außerdem wird das Zusammenwirken der einzelnen Bausteine (Schnittstellen) dargestellt. Die Bausteinsicht wird ausgehend von der Kontextabgrenzung top-down entwickelt. Die Bausteinsicht enthält Blackbox sowie White box Bausteine. Blackbox Bausteine stellen dabei nur Schnittstellen und Funktionen dar, während White box Bausteine als Verfeinerung die innere Struktur zeigen. Dabei werden die folgenden Artefakte verwendet:
+In der Bausteinsicht wird der interne Aufbau des Systems in Form einer statischen Struktur dargestellt. Dabei werden die Strukturen des Systems, der Subsysteme und Komponenten beleuchtet. Außerdem wird das Zusammenwirken der einzelnen Bausteine (Schnittstellen) dargestellt. Die Bausteinsicht wird ausgehend von der Kontextabgrenzung top-down entwickelt. Sie enthält Blackbox sowie Whitebox Bausteine. Blackbox Bausteine stellen dabei nur Schnittstellen und Funktionen dar, während Whitebox Bausteine als Verfeinerung die innere Struktur zeigen. Dabei werden die folgenden Artefakte verwendet:
 
 - Komponentendiagramm
 - Paketdiagramm
 
 #### Laufzeitsicht
 
-Eine Laufzeitsicht beschreibt im Gegensatz zur Bausteinsicht die dynamische Struktur und die Bausteine des Systems, welche zur Laufzeit existieren. Darüber hinaus stellt sie dar, wie die Bausteine zusammenwirken. Die Aktivitäten werden mit folgenden Artefakten dargestellt:
+Die Laufzeitsicht beschreibt im Gegensatz zur Bausteinsicht die dynamische Struktur und die Bausteine des Systems, welche zur Laufzeit existieren. Darüber hinaus stellt sie dar, wie die Bausteine zusammenwirken. Die Aktivitäten werden mit folgenden Artefakten dargestellt:
 
 - Sequenzdiagramm
 - Kommunikationsdiagramm
 
 #### Verteilungssicht (Infrastruktur)
 
-Die Verteilungs- oder Infrastruktursicht beschreibt die technische Ablaufumgebung. Dabei werden die Hardwarekomponenten beschrieben, auf denen das System läuft. Im Detail werden hier Rechner, Prozessoren und Speicher beleuchtet auf denen die Softwarebestandteile des Systems ausgeführt oder Daten gespeichert werden. Außerdem werden Kanäle beschrieben, über die zwischen den Knoten Daten übertragen werden. Die Darstellung der Sicht findet mit Hilfe der folgende Artefakte statt:
+Die Verteilungs- oder Infrastruktursicht beschreibt die technische Ablaufumgebung. Dabei werden die Hardwarekomponenten beschrieben, auf denen das System läuft. Im Detail werden hier Rechner, Prozessoren und Speicher beleuchtet auf denen die Softwarebestandteile des Systems ausgeführt werden oder eine Speicherung von Daten stattfindet. Außerdem werden Kanäle beschrieben, welche für die Datenübertragung zwischen den Knoten sorgen. Die Darstellung der Sicht findet mit Hilfe der folgende Artefakte statt:
 
 - Deploymentdiagramm
 - Netzwerktopologie
@@ -127,7 +127,7 @@ Die Verteilungs- oder Infrastruktursicht beschreibt die technische Ablaufumgebun
 
 ## Bewertung von Software-Architekturen
 
-Um zu die entwickelte Software Architektur zu validieren und zu überprüfen ob diese als Lösungskonzept für das vorhandene Problem dienen kann, ist es sinnvoll eine Bewertung durchzuführen. Diese kann helfen, potenzielle Risiken zu erkennen und die Realisierung von Qualitätsanforderungen durch die Architektur zu beurteilen. Weiterhin kann eine Bewertung dazu beitragen die Schwachstellen sowie deren Überarbeitungsaufwand zu analysieren. Im Zuge der Bewertung werden oftmals auch Möglichkeiten zur Wiederverwendung von Softwarekomponenten und anderen Artefakten erarbeitet. Dies dient dazu, sicherzustellen, dass die korrekte Software Architektur verwendet wird, da diese spätere Funktionalität sowie Kosten maßgeblich beeinflussen kann. Je später Fehler erkannt werden, desto teurer können diese werden.
+Um zu die entwickelte Software Architektur zu validieren und zu überprüfen, ob diese als Lösungskonzept für das vorhandene Problem dienen kann, ist es sinnvoll eine Bewertung durchzuführen. Diese kann helfen, potenzielle Risiken zu erkennen sowie die Realisierung von Qualitätsanforderungen durch die Architektur zu beurteilen. Weiterhin kann eine Bewertung dazu beitragen, die Schwachstellen sowie deren Überarbeitungsaufwand zu analysieren. Im Zuge der Bewertung werden oftmals auch Möglichkeiten zur Wiederverwendung von Softwarekomponenten und anderen Artefakten erarbeitet. Dies dient der Sicherstellung, dass die korrekte Software Architektur verwendet wird, da diese spätere Funktionalität sowie Kosten maßgeblich beeinflussen kann. Je später Fehler erkannt werden, desto teurer können diese werden.
 
 Die Bewertung einer Software Architektur erfolgt grundsätzlich anhand der Erreichung bestimmter Qualitätsmerkmale. Die `ISO 25010` definiert für diesen Zweck eine Reihe von Qualitätskriterien für Software und IT-Systeme. Die in dem untenstehenden Bild sichtbaren 8 Kernkriterien werden von der Norm definiert. Alle Kernkriterien besitzen Unterkriterien, welche zu erreichen sind um das Kernziel umfassend zu erfüllen.
 
@@ -143,7 +143,7 @@ Der Qualitätsbaum ist der Ausgangspunkt für die Bewertung einer Software Archi
 
 ![Qualitätsbaum Beispiel](img/BeispielQualitätsbaum.jpg)
 
-​     *Quelle: [10]*
+​     *Quelle: [3]*
 
 
 
@@ -172,9 +172,9 @@ In der nachfolgenden Tabelle sind die Vor und Nachteile der qualitativen Bewertu
 
 ## Quantitative Bewertung
 
-Im Gegensatz zur qualitativen Bewertung setzt die quantitative Bewertung eher auf Zahlen und Fakten. Um eine Bewertung durchzuführen, wird der Quelltext der Software sowie die Struktur der Elemente und deren Beziehungen untereinander gemessen- Dies wird toolgestützt durchgeführt mit Tools für die Code Analyse.
+Im Gegensatz zur qualitativen Bewertung setzt die quantitative Bewertung eher auf Zahlen und Fakten. Um eine Bewertung durchzuführen, wird der Quelltext der Software sowie die Struktur der Elemente und deren Beziehungen untereinander gemessen. Dies wird toolgestützt durchgeführt mit Hilfe von Tools für die Code Analyse.
 
-Ansätze für die quantitative Bewertung sind z.B. die statische oder dynamische Codeanalyse. Bei der statischen Codeanalyse werden Metrik Auswertungen durchgeführt, welche Problemgebiete innerhalb der Software identifizieren und bestehende Softwareteile zu bewerten oder Aufwände zu fokussieren. Die dynamische Codeanalyse kann dafür genutzt werden, um in den Bereichen der Performanz, Skalierung sowie Zuverlässigkeit Aufschlüsse über die Tauglichkeit der Softwarelösung zu geben. Außerdem kann eine quantitative Bewertung auch mit Hilfe einer Strukturanalyse durchgeführt werden. Dabei wird der Code in seiner Gliederung und Abhängigkeiten visualisiert und kann anschließend auf Problemherde untersucht werden. Dabei wird auch eine mögliche Abweichung der bisherigen Architekturidee sichtbar. Dies kann zur Überarbeitung von Architektur- oder Codeseite führen.
+Ansätze für die quantitative Bewertung sind z.B. die statische oder dynamische Codeanalyse. Bei der statischen Codeanalyse werden Metrik Auswertungen durchgeführt, welche Problemgebiete innerhalb der Software identifizieren und bestehende Softwareteile zu bewerten oder Aufwände zu fokussieren. Die dynamische Codeanalyse kann dafür genutzt werden, um in den Bereichen der Performanz, Skalierung sowie Zuverlässigkeit Aufschlüsse über die Tauglichkeit der Softwarelösung zu geben. Außerdem kann eine quantitative Bewertung auch mit Hilfe einer Strukturanalyse durchgeführt werden. Dabei wird der Code in seiner Gliederung und Abhängigkeiten visualisiert und kann anschließend auf Problemherde untersucht werden. Dabei wird auch eine mögliche Abweichung der bisherigen Architekturidee sichtbar. Dies kann zur Überarbeitung von Architektur oder Code führen.
 
 In der nachfolgenden Tabelle sind die Vor und Nachteile der quantitativen Bewertung aufgelistet:
 
@@ -196,7 +196,7 @@ Der Softwareentwicklungsprozess gliedert sich in vier Phasen auf. Zu Beginn wird
 
 
 
-Die Software Architektur entsteht in der Entwurfphase. Wie zuvor erläutert, muss dafür die Analysephase abgeschlossen sein und die Anforderungs- und Systemspezifikation (Pflichten und Lastenheft) müssen vorliegen. Bei der Entwicklung eines Softwareentwurfs geht man meist iterativ vor und der Entwurf nimmt mit jeder Iterationsphase an Granularität zu. Ziel des Softwareentwurfs ist es, die Vorgaben der Anforderungsdefinition möglichst umfassend zu berücksichtigen.
+Die Software Architektur entsteht in der Entwurfphase. Wie zuvor erläutert, muss dafür die Analysephase abgeschlossen sein und die Anforderungs- und Systemspezifikation (Pflichten und Lastenheft) müssen vorliegen. Bei der Entwicklung eines Softwareentwurfs wird iterativ vorgegangen und der Entwurf nimmt mit jeder Iterationsphase an Granularität zu. Ziel des Softwareentwurfs ist es, die Vorgaben der Anforderungsdefinition möglichst umfassend zu berücksichtigen.
 
 ### Grobentwurf / Architekturentwurf
 
@@ -216,7 +216,7 @@ Der Grobentwurf beinhaltet die folgenden Artefakte:
 
 ### Feinentwurf / Detailentwurf
 
-Der Feinentwurf beschreibt die Detailstruktur des Systems. Dabei werden die einzelnen Komponenten so detailliert beschrieben, so dass diese implementiert werden können. Außerdem werden Datenstrukturen und Algorithmen beschrieben. Zu Hauptaufgaben für die Erstellung des Feinentwurfs gehört die Abbildung der Module und Prozesse auf die verfügbaren Konstrukte der verwendeten Programmiersprachen. Außerdem wird ein Coderahmen erstellt sowie Implementierungsskizzen für alle Module und Prozesse. 
+Der Feinentwurf beschreibt die Detailstruktur des Systems. Dabei werden die einzelnen Komponenten detailliert beschrieben, so dass diese implementiert werden können. Außerdem werden Datenstrukturen und Algorithmen beschrieben. Zu den Hauptaufgaben für die Erstellung des Feinentwurfs gehört die Abbildung der Module und Prozesse auf die verfügbaren Konstrukte der verwendeten Programmiersprachen. Außerdem wird ein Coderahmen sowie Implementierungsskizzen für alle Module und Prozesse erstellt. 
 
 Der Feinentwurf beinhaltet die folgenden Artefakte:
 
@@ -228,13 +228,13 @@ Der Feinentwurf beinhaltet die folgenden Artefakte:
 
 ## Herangehensweise an Architektur und Design
 
-Im Rahmen der Software Entwicklung werden für alle Schritte verschiedene Arten von Mustern eingesetzt. Es gibt Muster für die Analyse, für den Entwurf, für die Implementierung sowie für das Testen von Software. Für den Softwareentwurf unterscheidet man je nach Granularität zwischen Entwurfsmuster und Architekturmuster. Architekturmuster sind grobgranular und bieten eine Sicht auf die gesamte Anwendung. Entwurfsmuster dagegen sind eher feingranular und fokussieren sich auf die Lösung eines lokalen Problems.
+Im Rahmen der Software Entwicklung werden für alle Schritte verschiedene Arten von Mustern eingesetzt. Es gibt Muster für die Analyse, für den Entwurf, für die Implementierung sowie für das Testen von Software. Für den Softwareentwurf unterscheidet man je nach Granularität zwischen Entwurfsmustern und Architekturmustern. Architekturmuster sind grobgranular und bieten eine Sicht auf die gesamte Anwendung. Entwurfsmuster dagegen sind eher feingranular und fokussieren sich auf die Lösung eines lokalen Problems.
 
 
 
 ### Entwurfsmuster
 
-Entwurfsmuster sind innerhalb der Softwarearchitektur und Entwicklung allgemeine, wieder verwendbare Lösungsmuster für wiederkehrende Entwurfsprobleme. Sie bieten eine sich bereits bewährte Vorlage zur Problemlösung für bestimmte Kontexte. Weiterhin legen Entwurfsmuster eine Struktur von Subsystemen fest. Entwurfsmuster können die Kommunikation im Team verbessern, da sie eine Diskussionsgrundlage bieten um über Softwarearchitektur zu sprechen. Es gibt drei verschiedene Gruppen von Entwurfsmuster basierend auf dem Kontext in dem sie eingesetzt werden können. Folgende Arten von Erzeugungsmustern gibt es:
+Entwurfsmuster sind innerhalb der Softwarearchitektur und Entwicklung allgemeine, wieder verwendbare Lösungsmuster für wiederkehrende Entwurfsprobleme. Sie bieten eine bereits bewährte Vorlage zur Problemlösung für bestimmte Kontexte. Weiterhin legen Entwurfsmuster eine Struktur von Subsystemen fest. Entwurfsmuster können die Kommunikation im Team verbessern, da sie eine Diskussionsgrundlage bieten um über Softwarearchitektur zu sprechen. Es gibt drei verschiedene Gruppen von Entwurfsmuster basierend auf dem Kontext in dem sie eingesetzt werden können. Folgende Arten von Erzeugungsmustern gibt es:
 
 - Erzeugungsmuster
 - Strukturmuster
@@ -256,7 +256,7 @@ Architekturmuster dieser Kategorie bieten eine Organisation der Vielzahl der Kom
 - Schichtenarchitektur
 - Pipes and Filters
 - Schwarzes Brett
-- Ports and adapters
+- Ports and Adapters
 - Onion Architektur
 - Clean Architektur
 
@@ -284,7 +284,7 @@ Architekturmuster in dieser Kategorie sind besonders anpassungsfähig und erweit
 
 #### Interaktive Systeme
 
-Muster in dieser Kategorie bieten eine Strukturierungsmöglichkeit für Interaktionen von Mensch und Computer. Folgende Architekturmuster finden sich in dieser Kategorie:
+Muster in dieser Kategorie bieten eine Strukturierungsmöglichkeit für die Interaktionen von Mensch und Computer. Folgende Architekturmuster finden sich in dieser Kategorie:
 
 - Model View Controller
 - Model View Presenter
@@ -299,7 +299,7 @@ Im Folgenden möchte ich einige Architekturmuster im Detail vorstellen:
 
 #### Schichtenarchitektur
 
-Die Schichtenarchitektur ist ein häufig eingesetztes Architekturmuster. Die Grundidee dabei ist, dass die Subsysteme verschiedenen horizontalen Schichten zugeordnet werden. Komponenten innerhalb eines Subsystems können dabei beliebig auf einander zugreifen. Zwischen den horizontalen Schichten gelten Zugriffsregeln und die interne Struktur einer Schicht ist nach außen nicht sichtbar. Die Schichtenarchitektur kommt häufig bei der Strukturierung großer Systeme zum Einsatz und besteht meistens aus drei Schichten. Die oberste oder auch Darstellungsschicht genannt, ist dafür zuständig Anwendungsdaten darzustellen und mit dem Benutzer zu interagieren. Die mittlere Schicht, die Logikschicht, stellt das Herzstück der Anwendung dar. Die unterste Schicht ist die Datenhaltungsschicht. Diese ist zuständig für die Speicherung aller Anwendungsdaten zuständig.
+Die Schichtenarchitektur ist ein häufig eingesetztes Architekturmuster. Die Grundidee dabei ist, dass die Subsysteme verschiedenen horizontalen Schichten zugeordnet werden. Komponenten innerhalb eines Subsystems können dabei beliebig auf einander zugreifen. Zwischen den horizontalen Schichten gelten Zugriffsregeln und die interne Struktur einer Schicht ist nach außen nicht sichtbar. Die Schichtenarchitektur kommt häufig bei der Strukturierung großer Systeme zum Einsatz und besteht meistens aus drei Schichten. Die oberste oder auch Darstellungsschicht genannt, ist dafür zuständig Anwendungsdaten darzustellen und mit dem Benutzer zu interagieren. Die mittlere Schicht, die Logikschicht, stellt das Herzstück der Anwendung dar. Die unterste Schicht ist die Datenhaltungsschicht. Diese ist zuständig für die Speicherung aller Anwendungsdaten.
 
 
 
@@ -313,13 +313,13 @@ Durch die Abhängigkeit von der Datenhaltungsschicht, ist diese Architektur in Z
 
 #### Von Schichten zu Ringen
 
-In der modernen Softwareentwicklung gibt es bereits eine Reihe von Weiterentwicklungsansätzen für der Schichtenarchitektur. Folgende Ansätze werde ich in dieser Ausarbeitung vorstellen:
+In der modernen Softwareentwicklung gibt es bereits eine Reihe von Weiterentwicklungsansätzen für die Schichtenarchitektur. Folgende Ansätze werde ich in dieser Ausarbeitung vorstellen:
 
 - Ports and Adapters (hexagonale Architektur)
 - Onion Architektur
 - Clean Architektur
 
-Der neue Ansatz bei der Weiterentwicklung der Schichtenarchitektur ist die Entkopplung durch das Prinzip der Dependency Inversion. Dabei geht die Abhängigkeit immer von dem Kern der Anwendungslogik weg, welches einige Vorteile mit sich bringt.. Alle oben genannten Ansätze haben dabei die gleichen Ziele. Zunächst soll die Anwendung unabhängig von Frameworks, Datenbanken und sonstiger Infrastruktur entwickelt werden können. Die Architektur soll nicht von der Existenz einer bestimmten Bibliothek abhängen. Außerdem soll die Anwendung gut testbar sein. Dabei ist das Ziel dass die Geschäftslogik nicht an außenstehende Infrastruktur gebunden ist und sich dadurch ohne diese testen lässt. Weiterhin soll die Anwendung auch unabhängig von Benutzeroberfläche und Datenbank sein. Diese Komponenten sollen also austauschbar sein, ohne dass der Rest vom System angepasst werden muss.
+Der neue Ansatz bei der Weiterentwicklung der Schichtenarchitektur ist die Entkopplung durch das Prinzip der Dependency Inversion. Dabei geht die Abhängigkeit immer von dem Kern der Anwendungslogik weg, welches einige Vorteile mit sich bringt. Alle oben genannten Ansätze haben dabei die gleichen Ziele. Zunächst soll die Anwendung unabhängig von Frameworks, Datenbanken und sonstiger Infrastruktur entwickelt werden können. Die Architektur soll nicht von der Existenz einer bestimmten Bibliothek abhängen. Außerdem soll die Anwendung gut testbar sein. Dabei ist das Ziel dass die Geschäftslogik nicht an außenstehende Infrastruktur gebunden ist und sich dadurch ohne diese testen lässt. Weiterhin soll die Anwendung auch unabhängig von Benutzeroberfläche und Datenbank sein. Diese Komponenten sollen also austauschbar sein, ohne dass der Rest vom System angepasst werden muss.
 
 
 
@@ -343,7 +343,7 @@ Auf der Ports Schicht existieren Adapter. Diese stellen klassische Adapter nach 
 
 Die hexagonale Architektur kann eingesetzt werden, sofern eine Fachlogik in Form einer Domain vorhanden ist. Sinnvoll ist sie, wenn viele Umsysteme oder APIs existieren oder es verschiedene fachliche Sichten gibt. 
 
-Vorteil der hexagonalen Architektur ist die klare Einteilung der Komponenten. Dadurch existieren Objekte, welche beispielsweise für die Darstellung gebraucht werden, lediglich im entsprechenden GUI Adapter. Weiterhin sorgt die Architektur dafür, dass sich einzelne Schichten sehr gut testen lassen. Durch den Aufbau nach dem Bausteinprinzip ist außerdem ist die Anpassung / Austauschbarkeit der Software gegeben. So wäre es denkbar den Postgres-Datenbank-Adapter durch einen Android-SQLite-Adapter und den HTML-UI-Adapter durch einen nativen Android-UI-Adapter zu ersetzen. Mit dem Austausch von lediglich zwei Komponenten wandelt man die Anwendung zu einer nativen Android-Anwendung, ohne dass die eigentliche Geschäftslogik geändert werden muss. Auf Grund der Anpassbarkeit durch das konsequente Entwickeln gegen Ports  lässt sich die Software außerdem gut erweitern. Ohne großen Aufwand ist es so auch möglich eine Anwendung von einem lokalem zu einem verteilten System zu migrieren. Ein weiter Vorteil ist, dass innerhalb der einzelnen Komponenten keine Festlegung auf eine Architekturform notwendig ist. Innerhalb der Hexagonalen Architektur werden keinerlei Annahmen über den Entwurf der einzelnen Adapter getroffen. Um beispielsweise eine webbasierte Oberfläche als Adapter für die Benutzerinteraktion zu entwickeln, kann man sich problemlos eines Musters für die Oberflächenentwicklung, wie etwa MVC (Model-View-Controller), bedienen.
+Vorteil der hexagonalen Architektur ist die klare Einteilung der Komponenten. Dadurch existieren Objekte, welche beispielsweise für die Darstellung gebraucht werden, lediglich im entsprechenden GUI Adapter. Weiterhin sorgt die Architektur dafür, dass sich einzelne Schichten sehr gut testen lassen. Durch den Aufbau nach dem Bausteinprinzip ist außerdem die Anpassung / Austauschbarkeit der Software gegeben. So wäre es denkbar, den Postgres-Datenbankadapter durch einen Android-SQLite-Adapter und den HTML-UI-Adapter durch einen nativen Android-UI-Adapter zu ersetzen. Mit dem Austausch von lediglich zwei Komponenten wandelt man die Anwendung zu einer nativen Android-Anwendung, ohne dass die eigentliche Geschäftslogik geändert werden muss. Auf Grund der Anpassbarkeit durch das konsequente Entwickeln gegen Ports  lässt sich die Software außerdem gut erweitern. Ohne großen Aufwand ist es so auch möglich eine Anwendung von einem lokalem zu einem verteilten System zu migrieren. Ein weiterer Vorteil ist, dass innerhalb der einzelnen Komponenten keine Festlegung auf eine Architekturform notwendig ist. Innerhalb der Hexagonalen Architektur werden keinerlei Annahmen über den Entwurf der einzelnen Adapter getroffen. Um beispielsweise eine webbasierte Oberfläche als Adapter für die Benutzerinteraktion zu entwickeln, kann man sich problemlos eines Musters für die Oberflächenentwicklung, wie etwa MVC (Model View Controller), bedienen.
 
 Nachteil der hexagonalen Architektur ist schlichtweg die hohe Komplexität. Dadurch existiert für neue Mitarbeiter auch eine schwierigere Orientierung sowie eine höhere Einarbeitungszeit, da einzelne Komponenten möglicherweise über mehrere Projekte und Subprojekte verteilt sind. Weiterhin ist eine Orchestrierung notwendig um die einzelnen Teile der Anwendungen wieder zusammenzufügen. Daher lohnt sich dieser Architekturstil nur für größere Projekte aufgrund des hohen Aufwandes.
 
@@ -385,7 +385,7 @@ Die nachfolgende Tabelle stellt die Vor und Nachteile der Onion Architektur noch
 
 #### Clean Architektur
 
-Die Clean Architektur hat wie die Onion Architektur ebenfalls eine Darstellung mit konzentrischen Ringen. Die ersten zwei Ringe stellen dabei die Geschäftslogik dar. Den Kern stellen die Entities. Diese Ebene enthält die Geschäftslogik, welche alle Anwendungen gemeinsam haben. Bei einer separaten Anwendung bezieht sich diese Ebene auf die grundlegendsten Geschäftsobjekte. Diese Ebene ist anwendungsneutral und wird durch das geschäftliche Umfeld des Unternehmens bestimmt. Der zweite Ring stellt die Use Case Ebene dar. Dort findet die konkrete Umsetzung zugehöriger Use Cases in der aktuellen Anwendung statt. Außerdem befindet sich hier die Anwendungslogik, welche den Datenfluss von der vorherigen Ebene steuert. Der dritte Ring stellt die Schnittstellenebene dar. Dort befinden sich Adapter zwischen Anwendungsfällen und der Außenwelt. Dabei werden Daten in ein Format, das für externe Ebenen wie das Web oder Datenbanken geeignet ist formatiert. Außerdem werden externe Daten in ein Format umgewandelt, das für interne Ebenen geeignet ist. Der vierte Ring stellt Frameworks und Treiber dar. Dort befindet sich die Benutzeroberfläche sowie Frameworks, Tools und Datenbanken. Die Abhängigkeiten zwischen den Ringen darf nur von innen nach außen existieren.
+Die Clean Architektur verfügt wie die Onion Architektur ebenfalls über eine Darstellung mit konzentrischen Ringen. Die ersten zwei Ringe stellen dabei die Geschäftslogik dar. Den Kern stellen die Entitäten. Entitäten kapseln unternehmensweite Geschäftsregeln. Eine Entität kann ein Objekt mit Methoden oder auch eine Reihe von Datenstrukturen und Funktionen sein. Entitäten können von vielen Anwendungen im Unternehmen verwendet werden. Der zweite Ring stellt die Anwendungsfall Ebene dar. Dort befinden sich anwendungsspezifische Geschäftsregeln. Die ebene stellt die Kapselung und Implementierung aller Anwendungsfälle des Systems dar. Anwendungsfälle koordinieren dabei den Datenfluss zu und von den Entitäten. Der dritte Ring stellt die Schnittstellenebene dar. Dort befinden sich Adapter zwischen Anwendungsfällen und der Außenwelt. Dabei werden Daten in ein Format, das für externe Ebenen wie das Web oder Datenbanken geeignet ist formatiert. Außerdem werden externe Daten in ein Format umgewandelt, das für interne Ebenen geeignet ist. Der vierte Ring stellt Frameworks und Treiber dar. Dort befindet sich die Benutzeroberfläche sowie Frameworks, Tools und Datenbanken. Die Abhängigkeiten zwischen den Ringen darf nur von innen nach außen existieren. Diese vier Ringe stellen das grundlegende Schema dar. Es gibt allerdings keine Regel dass immer nur diese vier Ringe existieren müssen. Es ist möglich, dass es Fälle gibt, wo mehr als die vorgegebenen vier Ringe benötigt werden.
 
 ![Clean Architecture](img/TheCleanArchitecture.svg)
 
@@ -393,7 +393,7 @@ Die Clean Architektur hat wie die Onion Architektur ebenfalls eine Darstellung m
 
 Der Einsatz dieses Architekturstils lohnt sich, wenn die umzusetzende Fachlichkeit eher komplex ist und über einen längeren Zeitraum gewartet werden muss, weil sie wichtige Geschäftsprozesse unterstützt. Für einfache Anwendungen lohnt sich der Aufwand nicht.
 
-Ein Vorteil der Clean Architektur ist, dass Anwendungsfälle an einem Ort zusammengefasst sind. Das sorgt dafür, dass sie sehr gut sichtbar und leicht zu verstehen sind. Weiterhin sind die Geschäftsregeln nicht überall verteilt. Dadurch ist das Debuggen leichter und der Code kann einfach geändert werden. Durch die Abhängigkeitsregel ist das Testen außerdem sehr viel einfacher und die Anwendung ist flexibel und portabel. Da die Anwendungsfälle vollständig von jeder Benutzeroberfläche oder Infrastruktur entkoppelt sind, ist das Austauschen von beispielsweise Datenbank sehr einfach. Auch eine Portierung auf eine neue Plattform kann ohne viel Aufwand umgesetzt werden.
+Ein Vorteil der Clean Architektur ist, dass Anwendungsfälle an einem Ort zusammengefasst sind. Das sorgt dafür, dass sie sehr gut sichtbar und leicht zu verstehen sind. Weiterhin sind die Geschäftsregeln nicht überall verteilt. Dadurch ist das Debuggen leicht und der Code kann einfach geändert werden. Durch die Abhängigkeitsregel ist das Testen außerdem sehr viel einfacher und die Anwendung ist flexibel und portabel. Da die Anwendungsfälle vollständig von jeder Benutzeroberfläche oder Infrastruktur entkoppelt sind, ist das Austauschen von beispielsweise Datenbank sehr einfach. Auch eine Portierung auf eine neue Plattform kann ohne viel Aufwand umgesetzt werden.
 
 Wie bereits bei zuvor erläuterten Ansätzen, ist auch die Clean Architektur mit einem hohen Aufwand sowie einer langen Lernkurve verbunden. Außerdem wird das Projekt zum Teil sehr aufgebläht, da oft viele separate Klassen für allen Präsentatoren, Entitäten etc. genutzt werden.
 
@@ -414,7 +414,7 @@ Die nachfolgende Tabelle stellt die Vor und Nachteile der Onion Architektur noch
 
 [2] [Software Architektur kompakt (Gernot Starke)](https://www.springer.com/de/book/9783827428349#otherversion=9783827428356)
 
-[3] [Effiziente Softwarearchitekturen (Gernot Starke)](https://www.hanser-fachbuch.de/buch/Effektive+Softwarearchitekturen/9783446452077)
+[3] [Effektive Softwarearchitekturen (Gernot Starke)](https://www.hanser-fachbuch.de/buch/Effektive+Softwarearchitekturen/9783446452077)
 
 [4] [Documenting Software Architecture](https://herbertograca.com/2019/08/12/documenting-software-architecture/)
 
