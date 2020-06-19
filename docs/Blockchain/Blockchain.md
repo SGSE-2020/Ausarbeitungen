@@ -61,9 +61,9 @@ Mithilfe der Vorherigen Abschitt vorgetstellten Technologient lässt sich nun ei
 
 In der unteren Abbildung ist dabei der Aubau der einzelnen Blöcke zu sehen. Auf der untersten Ebene des Blockes befinden sich dabei die Daten zu einzelnen Transaktionen in der Blockchain. Im Falle des Bitcoin handelt es sich hierbei um die Übertragung der digitalen Währung, die als Übertragung von öffentlichen Schlüsseln der Teilnehmer dargestellt werden.
 
-Aus diesen Transaktionen wird mithilfe der Hash-Bäume ein Root-Hash berechnet und in dem Block-Header gespeichert. ZUdem befindet sich im Block-Header ein Zeitstemple, die Version der Blockchain implementierung, den Hasch des vorherigen Blockes ,ein Traget Wert und ein Nonce-Wert. Über den Target Wert wird die Schwierigkeit eines kryptogradischen Puzzles angegeben. Die Schwierigkeit wird dabei an die im Netzwerk zur verfühgung stehenden Rechenleistung angepasst. Bei dem Nonce-Wert handelt es sich um einen Zahlenwert, durch dessen Variation die einzelnen Knoten des Netzwerkes versuchen das kryptographische Puzzle zu lösen. Wenn ein Knoten eine Lösung des Problems findet sendet er diese an alle anderen Knoten im Netzwerk. Diese können durch angabe des Nonce Wertes die korrektheit der Lösung prüfen und den Block zu ihrer Blockchain hinzufügen. 
+Aus diesen Transaktionen wird mithilfe der Hash-Bäume ein Root-Hash berechnet und in dem Block-Header gespeichert. ZUdem befindet sich im Block-Header ein Zeitstemple, die Version der Blockchain implementierung, den Hasch des vorherigen Blockes ,ein Traget Wert und ein Nonce-Wert. Über den Target Wert wird die Schwierigkeit eines kryptogradischen Puzzles angegeben. Die Schwierigkeit wird dabei an die im Netzwerk zur verfühgung stehenden Rechenleistung angepasst. Bei dem Nonce-Wert handelt es sich um einen Zahlenwert, durch dessen Variation die einzelnen Knoten des Netzwerkes versuchen das kryptographische Puzzle zu lösen. Wenn ein Knoten eine Lösung des Problems findet sendet er diese an alle anderen Knoten im Netzwerk. Diese können durch angabe des Nonce Wertes die korrektheit der Lösung prüfen und den Block zu ihrer Blockchain hinzufügen. Dieses Verfahren zum generieren neuer Blöcke wird *proof-of-work* genannt.
 
-Die Blockchain bildet sich dabei durch die Angabe des Hash-Wertes des vorherigen Blockes. Dadurch muss man, um die Transaktionen in einem Block zu verändern auch die Werte des Nachfolgenden Blöcke neu berechnen. Da dies surch die kryptographischen Puzzle mit einem hihen Recenaufwand verbunden ist, können die Daten nicht manipuliert werden, solange ein Großteil der Rechenleistung des Netzes bei korrekt arbeitenden Knoten liegt.
+Die Blockchain bildet sich dabei durch die Angabe des Hash-Wertes des vorherigen Blockes. Dadurch muss man, um die Transaktionen in einem Block zu verändern auch die Werte des Nachfolgenden Blöcke neu berechnen. Da dies surch die kryptographischen Puzzle mit einem hohen Rechenaufwand verbunden ist, können die Daten nicht manipuliert werden, solange ein Großteil der Rechenleistung des Netzes bei korrekt arbeitenden Knoten liegt.
 
 ![Blockchain_Aufbau](img/Blockchain_Aufbau.png)
 
@@ -98,26 +98,77 @@ Eine mögliche Verwendungsmöglichkeit der Blockchein ist es nun, dass zentral V
 ![Data_registry_blockchain](img/Data_registry_blockchain.png)
 
 ### 2.3 Blockchain und maschinelles Lernen
+
+Die Blockchain und maschinelles lernen sind zwei der aktuell Erfolgversprechendsten Technologien. Wobei jede neue Technologien auch neue Herausvorderungen mit sich bringt. Beim maschinellen Lernen liegt die Herausvorderung im hohen Bedarf an Daten, Hardware-Ressourcen und menschlicher Expertise. Das zentrale verschprechen der Blockchain ist es nun gerade diese Ressourcen zu demokratisieren. Im folgenden wird gezeigt, wie maschinelles Lernen genutzt werden kann um die Blockchain zu unterstützen und wie die Blockchain wiederum maschinelles Lernen unterstützen kann.
+
 #### 2.3.1 Maschinelles Lernen zur Unterstützung der Blockchain
+
+Da alle Transaktionen innerhalb der Blockchain öffentlich sind, kann maschinelles Lernen verwnedet werden, um unnatürliches Verhalten frühzeitig zu erkennen. So lassen sich Angriffe auf die Blockchain vereiteln, die mögliche Fehler in Smart-Contarcts oder anderen Bereichen ausnutzen.
+
+Auch lässt sich mit maschinellem Lernen eine Admistartion einrichten, die Komponeneten der Blockchain verändern kann. Auf diese wiese können Probleme in der Skalierung behoben werden, indem die Blockgröße auf die aktuelle Menge an Transaktionen angepasst werden kann. Nach aktuellem Stand, sond die Werte, in welcher Rate ein neuer Block erstellt wird und wie viele Transaktionen ein Block beinhaltet von der jeweiligen Blockchainplattform konstant festgelegt sind. Wenn man mschinelles Lernen in die Software an jedem Knoten eingebettet wird, könnte eine dynamische transparente Anpassung erfolgen.
+
+Eine andere möglcihkeit zum Einsatz des maschinellen Lernend auf die Blockchain, ist es bei Kryptowährungen verhaltensmuster zu erkennen und so zusammenhängende Gruppierungen bilden zu können. Auf diese weise kann Untersucht werden, wie Anonym die Transaktionen tatsächlich sind.
+
 #### 2.3.2 Blockchain zur Unterstützung des maschinellen Lernens
+
+Während der Einsatz des maschinellen Lernens zur Unterstützung der Blockchain am naheliegensten ist, gibt es deutlich mehr Literatur für den umgegehrten Fall.
+
+Zum einen lässt sich die Blockchain zur sicherstellung der Integrität, Verfügbarkeit und Vertraulichkeit sicherstellen.Die eigentlichen Daten werden dabei ausserhalb der Blockchain gespeichert und können über eine Blockchain verwaltet werden. Auf die Wiese können Nutzer Daten anbieten, ohne die Kontrolle über diese zu verlieren. Die Blockchain dient in diesem Fall als eine Identifizierungs- und
+Authentifizierungsplattform.
+
+Mithilfe von Smart-Contracts lässt sich eine Automatisierung im Lernprozess erreichen.  Da es sich bei Smart-Contarcts um transparente automatisierte Sktipte handelt, kann das Auftreten mesnchlicher Fehler reduziert werden.
+
+Die Blockchain kann asl Speicherung von Metadaten der eigentlichen Dateien dienen, die lokal gespeichert werden. In Branchen, wie dem medizinischen Bereich, wo es für Dritte schwierig ist auf diese Dateien zuzugreifen, könne dezentarle Blockchain Lösungen verwendet werden. Die Auwertung dezentarl Verügbarer Daten war bisher aus den folgenden Gründen erschwert:
+
+- Fehlende Austauschmechanismen 
+- Mangelnde Sicherheit und Schutz der Privatsphäre 
+- Mangelnde Datenintegrität 
+- Dateneigentum 
+- Hohe Kosten für die zentrale Datenspeicherung 
+
+Für ersten vier Punkte kann hierbei mit der Blockchain-Technologie und einer dezentralen Datenspeicherung eine gut Grundlage geschaffen werden.
 
 ## 3 Variationen der Blockchain
 
-### 3.1 Grundlegende Eigenschaften einer Blockchain
-### 3.2 Dezentralisierung
-### 3.3 Ledger Struktur
-### 3.4 Consensus Protokoll
-### 3.5 Block Konfiguration
-### 3.6 Anonymität
-### 3.7 Anreize
+Seit der Entstehung von Bitcoin 2008 entstanden viele verscheidene Blockchains.  Da Blockchaisn sich noch in einer frühen Phase der Entwicklung befinden, gibt es wenig verlässliche Technologien, um verschiedene Blockchains zu vergleichen. Beim erstellen einer neuen Blockchain Anwendung, muss man zunächst die Eigenschaften herausarbeiten, die die Blockchain haben soll. In diesem Kapitel werden verscheidene Punkte vorgestellt, in denen Blockchains sich voneinander unterscheiden können.
+
+### 3.1 Dezentralisierung
+
+Dezentralisierung ist eine der grundlegenden Fähigkeiten der Blockchain. Allerding kann hier zwischen vercsheidenen Stufen der dezentralisierung unterschieden werden. In einem zentralen System liegt die zentrale autorität auf einem Punkt und es gibt einen single Point of Failure. Im gegensatz Dazu steht ein komplett dezentrales System, wie zum Beispiel Bitcoin, welches Personen ermöglicht festzustellen, welche Ressourcen wem gehöhren, ohne jemanden Vertrauen zu müssen. Diese Sytseme haben eine hohe verfügbarkeit, da jeder Knoten unabhängig arbeiteitet und somit eine hohe redundanz herrscht. Die folgende Tabelle zeigt ein sprektrum zwischen komplett zentralen und komplett dezentralen Systemen. In der Tabelle wird gezeigt, dass eine kombination aus einem centralen und einem dezentralen System möglich ist. So können Beispielsweise alle Knoten die Blockchain einsehen, aber nur eine bestimmte menge Knoten auf dieser schreiben.
+
+![dezentralisierung](img/dezentralisierung.png)
+
+### 3.2 Ledger Struktur
+
+Bei einer distributed Ledger handelt es sich um eine Sammlung von Transaktionen, bei der es nur möglich ist neue Daten hinzuzufügen. Diese Ledger wird an viele verschiedene Rechner verteilt. Bei einer Blockchain handelt es sich nun um eine speziele Variante einer solchen distributed ledger. Es handelt sich um eine Ledger, die aus miteinader verknüften Blöcken besteht. Es gibt nun verschiedene Arten diese Ledger aufzubauen. Die folgende Tabelle gibt einen Überblick über diese Varianten. Bei Bitcoin wird hierfür eine globale Liste von Blöcken verwendet.
+
+Andere Blockchain und distributed Ledger Sytseme verwenden andere Datenstrukturen. Beispielsweise wird bei [Hashgraph](https://www.hedera.com/) ein directed acyclic graph (DAG) statt einer Liste verwendet.
+
+![ledger_structure](img/ledger_structure.png)
+
+### 3.3 Consensus Protokoll
+
+Wenn zwei Knoten gleichzeitig einen neuen Block erstellen und an die anderen Knotn im Netzwerk weiterleiten, können die Lösungen bei den einzelnen Knoten in einer unterschiedlichen Reihenfolge auftauchen. Die Entscheidung welche Lösung verwendet wird, beruht auf einem einheitlichen consensus Protokoll innerhalb des Netzwerkes. Im Gegensatz dazu gibt es bei Hyperledger Fabric einen modularen Aufbau, der einen austauschbare Implementation des Protokolls bietet.Die folgende Tabelle stellt verschiedene consnsus Protokolle und ihre Auswirkungen dar. 
+
+Der typische Ansatz wird Nakamoto consensus genannt und beruht darauf, dass jeder Knoten immer die längste Blockkette auswählt, die er beobachtet hat. Eine alternative Nakamoto Consensus den Bitcoin verwendet, ist Beispielsweise der *proof-of-stake* Mechanismus. Hierbei wird die Lösung von dem Miner ausgewählt, der über die meisten Einheiten der digitalen Währung der Blockchain verfügt.
+
+![consensus](img/consensus.png)
+
+### 3.4 Block Konfiguration
+
+Die Konfiguration eines Blockes betrifft die Anzahl und komplexität der Transaktionen, die in einem Block gespiechert werden und die Frequenz mit der neue Blöcke erstellt werden. Die Verschiedenen Konfigurationsmöglichkeiten wirken sich dabei auf die Rate aus, in der Transaktionen verarbeitet werden können. Die folgende Tabelle gibt einen Überblick darüber. Eine Konfigurationsmöglichkeit wäre es Beispielsweise die Schwierigkeit des kryptographischen Puzzle zu senken, wodurch Blöcke schneller generiert werden können. Durch vergrößern eines Blockes können mehrere Transaktionen auf einmal bearbeitet werden, allerding sind große Blöcke schwerer zu replizieren.
+
+![block_configuration](img/block_configuration.png)
+
+### 3.5 Anreize
+
+Verschiedene Blockchain Plattformen bieten vercshiedene Anreitze dem Netzwek beizutreten. Bei Bitcoin zum Beispiel erhalten Knoten die einen neuen Block erstellt haben, eine Belohnung für das Erstellen in form eines neuen Coins und einen Teil der Transaktionskosten. Knoten im Ethereum Netzwerk erhalten ebenfalls einen Belohnung für das ausführen einen Smart-Contracts in for von Ether, der Währung der Ethereum Plattform.
 
 ## 4 Architektur Blockchain basierter Anwendugen
 
 ### 4.1 Blockchain in der Software Architektur
 ### 4.2 Design Prozess für Blockchain Anwendungen
 ### 4.3 Blockchain Patterns
-### 4.4 Model-Driven Engineering für Blockchain Anwendungen
-
 ## 5 Auswirkungen der Verwendung von Blockchain
 
 ###  5.5 Kosten
