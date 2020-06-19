@@ -167,8 +167,29 @@ Verschiedene Blockchain Plattformen bieten vercshiedene Anreitze dem Netzwek bei
 ## 4 Architektur Blockchain basierter Anwendugen
 
 ### 4.1 Blockchain in der Software Architektur
+
+Die Architektur einer Anwendung lässt sich aus mehreren Software-Komponenten zusammensetzen. In Blockchai basierten anwendung ist die Blockchain eine solche Komponente. Wie für jede Komponente muss auch für die Blockchain entscheiden werden, welche Funktionalitäten von ihr abgedekt werden sollen. Die wichtigste Entscheidung ist dabei, welche Daten in der Kette ind er Kette gespiechert werden sollen und welche nicht. Eine Blockchain kann dabei in der Anwendung verschiedene Funktionen erfüllen.
+
+Eine Funkrion ist es, die Blockchain als Speicherelement für Daten zu verwenden.  Auch lassen sie sich als Rechenelement verwenden. In Etherium wird Beispielweise erlaubt Smart-Contrcts in einer Turing vollständigen Sprache einzubinden, die automatisch ausgeführt werden können. Des Weiteren lässt sich die Blockchain auch als Kommunikations-Komponente verwenden.
+
 ### 4.2 Design Prozess für Blockchain Anwendungen
+
+Zu beginn des Design Prozesses der Software Archtitektur muss entschieden werden, ob die Verwendung einer Blockchain für die Anwnedung sinnvoll ist. Dieser Entscheidungsprozesss wird in der folgenden Abbildung vereinfacht dargestellt. DLT steht dabei für Distributed Ledger Technologie. Multi-party meint dabei, ob das System von mehreren vercshieden Parteien genutzt werden soll oder von einzelnen isolierten Nutzern. Bei einzelnen Nutzern wäre der einsatz einer zentralen Datenbank deutlich einfacher umzusetzen. Auch ist es für den Einsatz einer Blockchain wichtig, dass es keine vertrauenswürdige Authorität notwednig ist und die Operation nicht zentralisiert ist. Weitere Entscheidungskriterien sind Beipielsweise notwendige Transparenz oder ob unveränderlichkeit der Daten gewünscht ist. 
+
+![design](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/design.png)
+
+Nach der Evaluierung ob eine Blockchain verwendet werden sollt, folgt dar design Prozess der eigentlichen Blockchain Komponente. Dieser Vorgang wird in der folgenden Abbildung dargestellt. Zunächst muss dabei entscheiden werden, wie eine Authorität dezentralisiert werden soll falls eine vorhanden ist. Anschließend muss entscheiden werde, welche Daten in der Blockchain gespeichert werden, welche Blockchain verwendet werden soll und wie die Blöcke konfiguriert werden sollen.
+
+![design_blockchain](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/design_blockchain.png)
+
 ### 4.3 Blockchain Patterns
+
+In diesem Kapitel erfolgt die darstellung einer Auswahl an Patterns für das Design einer neuen Blockchain Anwendung.
+
+#### 4.3.1 Oracle Pattern
+
+Dieses Entwurfsmuster behandelt die kommunikation der Blockchain mit der Außenwelt.
+
 ## 5 Auswirkungen der Verwendung von Blockchain
 
 ###  5.5 Kosten
