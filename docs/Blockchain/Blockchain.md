@@ -176,11 +176,11 @@ Eine Funkrion ist es, die Blockchain als Speicherelement für Daten zu verwenden
 
 Zu beginn des Design Prozesses der Software Archtitektur muss entschieden werden, ob die Verwendung einer Blockchain für die Anwnedung sinnvoll ist. Dieser Entscheidungsprozesss wird in der folgenden Abbildung vereinfacht dargestellt. DLT steht dabei für Distributed Ledger Technologie. Multi-party meint dabei, ob das System von mehreren vercshieden Parteien genutzt werden soll oder von einzelnen isolierten Nutzern. Bei einzelnen Nutzern wäre der einsatz einer zentralen Datenbank deutlich einfacher umzusetzen. Auch ist es für den Einsatz einer Blockchain wichtig, dass es keine vertrauenswürdige Authorität notwednig ist und die Operation nicht zentralisiert ist. Weitere Entscheidungskriterien sind Beipielsweise notwendige Transparenz oder ob unveränderlichkeit der Daten gewünscht ist. 
 
-![design](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/design.png)
+![design](img/design.png)
 
 Nach der Evaluierung ob eine Blockchain verwendet werden sollt, folgt dar design Prozess der eigentlichen Blockchain Komponente. Dieser Vorgang wird in der folgenden Abbildung dargestellt. Zunächst muss dabei entscheiden werden, wie eine Authorität dezentralisiert werden soll falls eine vorhanden ist. Anschließend muss entscheiden werde, welche Daten in der Blockchain gespeichert werden, welche Blockchain verwendet werden soll und wie die Blöcke konfiguriert werden sollen.
 
-![design_blockchain](/Users/jendrikmuller/Documents/Master/SGSE/Ausarbeitungen/docs/Blockchain/img/design_blockchain.png)
+![design_blockchain](img/design_blockchain.png)
 
 ### 4.3 Blockchain Patterns
 
