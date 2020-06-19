@@ -106,7 +106,7 @@ Die Event-Driven-Architecture besteht in ihrem Kern aus Message-Produzenten, wel
 
 Die einzigen definierten Schnittstellen sind in der Event-Driven-Architecture die Nachrichten selbst, welche wohldefiniert und bekannt sein müssen, sodass Produzenten und Konsumenten mit diesen arbeiten können. Nachrichten bilden in diesem Sinne Fakten über Ereignisse ab, welche in einem System aufgetreten sind. Diese Ereignisse können durch äußere Faktoren ausgelöst werden, wie zum Beispiel einem Bestellvorgang in einem eCommerce-System, aber auch durch interne Routinen wie zum Beispiel einem Prozess, welcher sich um Kundendaten kümmert und diese DSGVO-Konform nach einer Speicherungsfrist löscht.
 
-![Event-Driven-Architecture](./images/event_Driven_architecture.png)
+![Event-Driven-Architecture](./images/event_driven_architecture.png)
 
 #### Komponenten
 
