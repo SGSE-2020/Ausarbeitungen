@@ -236,7 +236,7 @@ Hyperledger Fabric nutzt Container Technologie um Smart-Contracs zu hosten. Dies
 
 ## 8 Quellen
 
-[Die Vorteile der Blockchain-Technologie](https://t3n.de/news/blockchain-statt-datenbank-diese-1063641/#:~:text=Klassische Datenbanken orientieren sich typischerweise,voneinander die gemeinsame Datenbasis pflegen.)
+[Die Vorteile der Blockchain-Technologie](https://t3n.de/news/blockchain-statt-datenbank-diese-1063641)
 
 [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
 
