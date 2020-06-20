@@ -12,7 +12,7 @@ Während der Einsatz der Blockchain für digitale Währungen immer noch die zent
 
 ### 1.2 Umfang
 
-Im folgenden Teil der Einleitung werden zunächst die der Blockchain zugrundeliegenden Technologien erläutert. Daraufhin wird die funktionsweise der Blockchain selbst beschrieben und abschließend werden Smart Contracts vorgestellt, die es ermöglichen Operationen in Form von Algorithmen in der Blockchain zu hinterlegen. In Kapitel 2 werden verscheidene Anwendungsfälle der Blockchain dargestellt. In Kapitel 3 folgt eine Darstellung der Punkte in denen sich Verschiedene Blockchain Anwendungen voneinander abgrenzen lassen. In Kapitel 4 die Architektur von Blockchain basierten Anwendung vorgestellt. Anschließend folgt in Kapitel 5 eine kurze Darstellung der Auswirkungen der Verwendung einer Blockchain. In Kapitel 6 folgt die Darstellung bereits existierender Blockchain Anwendeungen, wie Bitcoin und Ethereum. Abschließend folgt in Kapitel 7 Darstellung von Beispielen für Smart Contracts.
+Im folgenden Teil der Einleitung werden zunächst die der Blockchain zugrundeliegenden Technologien erläutert. Daraufhin wird die funktionsweise der Blockchain selbst beschrieben und abschließend werden Smart Contracts vorgestellt, die es ermöglichen Operationen in Form von Algorithmen in der Blockchain zu hinterlegen. In Kapitel 2 werden verscheidene Anwendungsfälle der Blockchain  außerhalb des Finazbereiches dargestellt. In Kapitel 3 folgt eine Darstellung der Punkte in denen sich Verschiedene Blockchain Anwendungen voneinander abgrenzen lassen. In Kapitel 4 die Architektur von Blockchain basierten Anwendung vorgestellt.  Anschließend folgt in Kapitel 6 die Darstellung bereits existierender Blockchain Anwendeungen, wie Bitcoin und Ethereum. Abschließend folgt in Kapitel 7 Darstellung von Beispielen für Smart Contracts.
 
 ### 1.3 Grundlegende Technologien
 
@@ -182,35 +182,70 @@ Nach der Evaluierung ob eine Blockchain verwendet werden sollt, folgt dar design
 
 ![design_blockchain](img/design_blockchain.png)
 
-### 4.3 Blockchain Patterns
+## 5 Existierende Blockchain Plattformen
 
-In diesem Kapitel erfolgt die darstellung einer Auswahl an Patterns für das Design einer neuen Blockchain Anwendung.
+### 5.1 Bitcoin
 
-#### 4.3.1 Oracle Pattern
+Bei Bitcoin handelt ist sich um eine sogennante Kryptowährung, für die die Blockchaintechnologie erstellt wurde. Der Name Kroptowährung kommt daher, dass für sie Methoden aus der Kryptographie verwendet werden, die in der Einleitung vorgestellt wurden. Bei dieser digitalen Währungen handelt es sich nicht um eine Konkrete Datei, sondern vielmehr um eine Kette von digitalen Signaturen. Die folgende Abbildung zeigt den Aufbau dieser Kette.
 
-Dieses Entwurfsmuster behandelt die kommunikation der Blockchain mit der Außenwelt.
+Wie in der Abbildung zu sehen ist, spiegelt die Kette ie einzelnen Übertragungen beziehungsweise Transaktionen des Coins dar. Möchte der Besitzer eines Coind diesen an eine andere Person übertragen, Signiert er zunächst einen Hash. Dieser Hash setzt sich aus dem Hashwert der vorherigen Transaktion und dem öffentlichen Schlüssel des Zahlungsempfängers zusammen. Die Signatur wird Anschlißend an die Kette angefügt. Der Zahlungsempfänger kann anschließend mithilfe des öffentlichen Schlüßells die Besitzkette verifizieren.
 
-## 5 Auswirkungen der Verwendung von Blockchain
+![transaktionen](img/transaktionen.png)
 
-###  5.5 Kosten
-### 5.6 Performance
-### 5.7 Zuverlässigkeit und Sicherheit
+Das Problem besteht nun darin zu verhindern, dass der Besitzer eines Coins diesen mehrfach verwendet. Um diese Problem ohne die Einführung einer dritten Partei, wie einer Bank, zu lösen, wird die Blockchain verwendet. Der Aufbau und die Funktionsweise der resultierenden Blockchain ist in der Einleitung dargestellt. Der Zeitstempel in dem Block zeigt, das die Daten zu dem Zeitpunkt existiert haben müssen, um in den Hash des Blockes erstellen zu können. So kann eindeutig Nachfolzogen werden, wann welche Transaktion durchgeführt wurde. Das Blockchain Netzwerk arbeitet dabei vollkommen dezentral und der Grundelgende Ablauf im Netzwerk ist wie folgt:
 
-## 6 Existierende Blockchain Plattformen
+1. Neue Transaktionen werden an alle Transaktioenen übertragen
+2. Jeder Knoten kombiniert die Transaktionen zu einen neuen Block
+3. Jeder Knoten sucht nach einer Lösung für das kryptographische Puzzle
+4. Wenn ein Block eine Lösung gefunden hat überträgt er diese an alle anderen Knoten
+5. Knoten akzeptiren einen Block, wenn alle Transaktionen valide und keine doppelte Ausgabe vorliegt
+6. Knoten dürcken die Akzeptanz eines Blockes aus, indem sie an dem nächsten Block weiterarbeiten und den Hash des akzeptirten Blockes als Hash für den vorgänger Knoten verwenden.
 
-### 6.1 Bitcoin
-### 6.2 Ethereum
-### 6.3 Hyperledger Fabric
-### 6.4 Weitere representativie Blockchain Formate
+Die Bestätigung einer getätigten Transaktion dauert bei Bitcoin 10-20 Minuten.
 
-## 7 Smart Contract Beispiele
+Die Implementirung der Blockchain für Bitcoin ist öffentlich und jeder kann änderungen Vorschlagen. Auf die Weise kan jeder die Sicherheit von Bitcoin überprüfen.
 
-### 7.1 Ethereum Smart Contract
-### 7.2 Hyperledger Chaincode
-### 7.3 Facebook Libra
+Das verwendete *proof-of-work* Verfahren erzeugt eine Mehheizentscheidung, bei der eine CPU eine Stimme hat. Die Wahl erfolgt auf Basis der CPU, da diese nicht künstlich erstellt werden kann. Wenn die Wahl Beispielsweise nach einer Stimme pro IP-Adresse ablaufen würde, könnte diese manipuliert werden, indem ein Angreifer mehrere IP-Adressen reserviert.
+
+Die erste Tarnsaktion eines neuen Blockes ist dabei die Erstellung eines neuen Coins, der dem Ersteller des Blockes zugeschriben wird. Dies dient dazu einen Anreiz zu bieten, dem Netzwerk beizutreten und um Coins in Umlauf zu bringen. Das erstellen eines neuen Blockes wird daher auch *mining* genannt. Auch soll dies dazu beitragen, dass die Knoten erlich arbeiten.
+
+Das spiechern der Coins erfolgt in sogennanten Wallets, die es erlauben eine Sammlung an privaten Schlüsseln zu speichern. Die Wallet befindet sich dabei auf einen lokalen DAtenträger des Besitzers des Coins. Einem Bitcoin Wallet kann eine Adresse ähnlich einer E-Mail Adresse zugewiesen werde, wobei jede Adresse für Transaktionen nur einmal verwendet werden sollte.
+
+### 5.2 Ethereum
+
+Bei Ethereum handelt es sich um eine Open-Sorce Platform zu erstellung dezentraler Anwendungen. Es handelt sich dabei um ein Nezwerk, in das Geld und Zahlungen intergriert sind. Bei diesem Geld haldelt es sich um eine native Kryptowährung, die Ether genannt wird.
+
+Im gegensatz zu anderen Blockchain Anwendung erlaubt Etherium die erstellung eigener Anwendungen auf Basis von Smart Contracs. Ein Beispiel hierfür ist in Kapitel 6.1 zu finden.
+
+Das Ethereum Protokoll wurde so konfiguriert, dass es eine möglichst kurze Zeit zwischen der Erstellung neuer Blöcke liegt. Diese beträgt hier 13-15 Sekunden, während sie ei Bitcoin bei 10 Minuten liegt. Durch diese kurze Zeit zischen den Erstellungen von Blöcken, kann es häufiger zur Kollisionen von verschiedenen Lösungen kommen. In der folgenden Abbildungen werden solche Kollisionen gezeigt. Zum Lösen dieses Problems wird eine modifizierten Version des Greedy Heaviest Observed
+Subtree (GHOST) Ptotokolls verwendet. Nach diesem Protokoll werden konkurierende Lösungen von den Minern referenziert, um Gewicht das Geweicht der eigenen Kette zu erhöhen. Anschließend wird nach dem Ethereum Protokoll nicht die längste, sindern die am stärksten Gewichtetete Kette ausgewählt. Das referenzieren von anderen Minern erhöht dabei das Gewicht.
+
+![ethreum_uncle](img/ethreum_uncle.png)
+
+### 5.3 Hyperledger Fabric
+
+Hyperledger Fabric ist eine Distributed ledger Software und dient dem Entwickeln von Anwendungen mit einem Modularen Aufbau. Die Blockchain ist bei Hyperledger Fabric privat und neue Knoten müssen zunächst von einem membership service provider autorisiert werden. Die Teilnehmer des Netzwerkes haben bei Hyperledger Fabric bekannte Identitäten öffentliche Schlüssel werden als kryptographische Zertifikate verwednet und werden mit einer Person, Organisation oder ähnlichem in Verbindung gebracht.
+
+Hyperledger Fabric nutzt Container Technologie um Smart-Contracs zu hosten. Diese Smart-Contacts werden Chaincode genannt und können in Programmiersprachen wie Go und Java erstellt werden.
+
+## 6 Smart Contract Beispiele
+
+### 6.1 Ethereum Smart Contract
+### 6.2 Hyperledger Chaincode
+### 6.3 Facebook Libra
 
 ## 8 Quellen
 
 [Die Vorteile der Blockchain-Technologie](https://t3n.de/news/blockchain-statt-datenbank-diese-1063641/#:~:text=Klassische Datenbanken orientieren sich typischerweise,voneinander die gemeinsame Datenbasis pflegen.)
 
 [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+
+https://github.com/bitcoin/bitcoin
+
+[https://innovationsblog.dzbank.de/2017/07/03/bitcoin-in-zahlen-daten-und-fakten](https://innovationsblog.dzbank.de/2017/07/03/bitcoin-in-zahlen-daten-und-fakten)
+
+https://ethereum.org/de/
+
+https://www.hyperledger.org/use/fabric
+
+https://www.informatik-aktuell.de/betrieb/virtualisierung/eine-blockchain-anwendung-mit-hyperledger-fabric-und-composer.html
