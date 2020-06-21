@@ -267,6 +267,15 @@ Ein weiteres Beispiel für ein Projekt ist Decentarland. Hierbei handelt es sich
 
 ## 8 Quellen
 
+**Literatur**
+
+[Blockchain -  Grundlagen, Anwendungsszenarien und Nutzungspotenziale](https://link.springer.com/book/10.1007/978-3-658-28006-2)
+
+[Blockchain und maschinelles Lernen - Wie das maschinelle Lernen und die Distributed-Ledger-Technologie voneinander profitieren](https://link.springer.com/book/10.1007/978-3-662-60408-3)
+
+[Architecture for Blockchain Applications](https://link.springer.com/book/10.1007/978-3-030-03035-3)
+**Internetquellen**
+
 [Die Vorteile der Blockchain-Technologie](https://t3n.de/news/blockchain-statt-datenbank-diese-1063641)
 
 [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
