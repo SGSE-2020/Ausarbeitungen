@@ -75,7 +75,7 @@ Neben Tarnsaktionen lassen sich in der Blockchain auch andere Informationen spei
 
 ### 2.1 Landwirtschaftliche Wertschöpfungskette
 
-In einer Wertschöphungskette kann der Austausch von Informationen genauso wichtig sein, wie der Austausch der Waren selbst. In der landwirtscahftlichen Wertschöphungskette für Nahrung ist es wichtig festzuhalten wo die Bestandteile Angebaut, verarbeitet und wie sie Verteilt wurden, um eine Lebesmittelsicherheit zu erreichen. Die Informationssysteme zur Unterstützung einer Wertschöpfungskette, werden normalerweise von den einzelnen Teilnehmern seperat gepflegt. So kann jeder Teilnehmer der Kette nur die Informationen zu dem Schritt sehen, an dem er direkt beteiligt ist. Im zuge der Digitalisierung wurde die Vereilung von Information geleufiger. Ein Möglichkeit zum Verteilen der Informationen ist das Einrichten eines Zentralen Servers in dem wichtige Ereignisse in der Wertschöpfungskette für alle Teilnehmer zentral gespeichert werden.
+In einer Wertschöphungskette kann der Austausch von Informationen genauso wichtig sein, wie der Austausch der Waren selbst. In der landwirtschaftlichen Wertschöphungskette für Nahrung ist es wichtig festzuhalten wo die Bestandteile Angebaut, verarbeitet und wie sie Verteilt wurden, um eine Lebesmittelsicherheit zu erreichen. Die Informationssysteme zur Unterstützung einer Wertschöpfungskette, werden normalerweise von den einzelnen Teilnehmern seperat gepflegt. So kann jeder Teilnehmer der Kette nur die Informationen zu dem Schritt sehen, an dem er direkt beteiligt ist. Im zuge der Digitalisierung wurde die Vereilung von Information geleufiger. Ein Möglichkeit zum Verteilen der Informationen ist das Einrichten eines Zentralen Servers in dem wichtige Ereignisse in der Wertschöpfungskette für alle Teilnehmer zentral gespeichert werden.
 
 Eine alternative Lösung mit der Verwendung einer Blockchain, ist die Kontrolle des Wertschöpfungskette mithlife von Smart-Contracts. Die Teilnehmer der gemeinsamen Wertschöpfungskette legen zunächst ein Design für den gemeinsamen Prozess fest und legen fest wie die Interaktionen untereinander ablaufen sollen. Die Kontrolle des Prozesses wird in Smart-Contracts implementiert und wird koordiniert, idem die Teilnehmer die Smart-Contracts abwechselnd aufrufen. Smart-Contracts den Prozess wie folgt stützen:
 
@@ -84,6 +84,10 @@ Eine alternative Lösung mit der Verwendung einer Blockchain, ist die Kontrolle 
 - Bedingungen können im Prozess Model aufgeführt werden und direkt durch Smart-Contract-Code ausgeführt werden
 
 Auf diese weise können Prozesszweige automatisch angestoßen werden, wenn die dafür nötigen bedingungen erfüllt sind. In dem daraus resultierenden System kommunizieren dei einzelnen Teilnehmer der Wertschöpfungskette durch senden von Nachrichten über die Blockchain. Um die Kommunikation über die Blockchain zu erleichtern werden "Trigger" Komponenenten verwendet, die konventionelle service Aufrufe in Blockchain Transaktionen umwandeln können und umgekehrt.
+
+Derzeit arbeitet IBM an einer Blockchain basierten Lösung für Wertschöpfungsketten. Diese Baiert auf Hyperledger Fabric.
+
+Vor allem die Corona-Pandemie hat gezeigt, wie wichtig intakte Lieferketten sind. Um diese Lieferketten zu automatisieren und Informationen Transparen zu gestallten, kann die Blockchain eingesetzt werden.
 
 ### 2.2 Open Data Registry
 
@@ -228,11 +232,38 @@ Hyperledger Fabric ist eine Distributed ledger Software und dient dem Entwickeln
 
 Hyperledger Fabric nutzt Container Technologie um Smart-Contracs zu hosten. Diese Smart-Contacts werden Chaincode genannt und können in Programmiersprachen wie Go und Java erstellt werden.
 
-## 6 Smart Contract Beispiele
+### 5.4 Facebook Libra
 
-### 6.1 Ethereum Smart Contract
-### 6.2 Hyperledger Chaincode
-### 6.3 Facebook Libra
+Bei Libra handelt es sich um eine von Facebook entwickelte Kryptowährung mit dem Ziel, eine globales Zahlungssystem zu erstellen. Das Zahlungssytem soll dabei für jeden zugänglich sein und Transaktionen sollen schnell abgewickelt werden können. Zudem soll das System flxibel Skalierbar und stabil gegenüber Kursschwankungen sein. Aktuell ist der Prototyp öffentlich verfügbar.
+
+Smart-Contracts werden hier mit der dafür entwickelten Programmiersprache Move erstellt.
+
+## 6 Beipiele für Smart-Contracts in Ethereum
+
+Programme, die sich auf der Ethereum Virtual Machine befinden, werden hier als Smart-Contracts bezeichnet. Dise können in eigens dafür Verfassten Programmiersprachen verfasst werden. Ein Beispiel für eine solche Sprache ist Solidity, die von C++, Python und Javascript inspiriert wurde. Der folgende Codeblock zeigt ein einfaches Beispiel für einen Smart-Contract:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.4.16 <0.7.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) public {
+        storedData = x;
+    }
+
+    function get() public view returns (uint) {
+        return storedData;
+    }
+}
+```
+
+Ein contract verhällt sich dabei ähnlich zu einer Klasse in anderen Programmiersprachen. Die Variable storedData deklariert eine state Variable, die als einzelner Eintrag in der Datenbank betrachtet werden kann. Über die getter und setter Methoden kann dieser Wert von allen Nutzern eingesehen und geändert werden. Die verschiedenen Werte der Variable werden dabei in der Historie der Blockchain gespeichert.
+
+Eine Beipiel für eine Anwendung, die auf Ethereum Entwickelt wurde ist das Spiel Gods Unchained. Das Spiel Nutzt die Blockchain, um zu ermitteln wo sich Karten befinden und wem sie gehöhren. Spieler haben dadurch die möglichkeit ihre Karten für Echtgeld zu kaufen und wieder zu verkaufen.
+
+Ein weiteres Beispiel für ein Projekt ist Decentarland. Hierbei handelt es sich um einen dezentrale virtuelle Welt, in der die Nutzer über Smart-Contracts Entscheidungen wählen können, wie die Welt funktionieren soll.
 
 ## 8 Quellen
 
@@ -249,3 +280,11 @@ https://ethereum.org/de/
 https://www.hyperledger.org/use/fabric
 
 https://www.informatik-aktuell.de/betrieb/virtualisierung/eine-blockchain-anwendung-mit-hyperledger-fabric-und-composer.html
+
+https://solidity.readthedocs.io/en/v0.6.10/introduction-to-smart-contracts.html
+
+https://www.heise.de/newsticker/meldung/Gods-Unchained-Eigene-Waehrung-und-Hype-um-digitale-Spielkarten-4469685.html
+
+https://decentraland.org/
+
+https://jaxenter.de/blockchain/blockchain-covid-19-corona-lieferketten-93881
