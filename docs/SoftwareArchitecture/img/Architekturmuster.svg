@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export Architekturmuster.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="9.24231in" height="4.15713in"
+		viewBox="0 0 665.446 299.313" xml:space="preserve" color-interpolation-filters="sRGB" class="st16">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:prompt="" v:val="VT0(0):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#dce2e7;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st2 {fill:#42829e;font-family:Wingdings;font-size:0.833336em}
+		.st3 {font-size:1em}
+		.st4 {font-family:Calibri;font-size:1em}
+		.st5 {visibility:visible}
+		.st6 {fill:#625986;fill-opacity:0.098;stroke:#625986;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.098}
+		.st7 {fill:#554d75;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st8 {fill:#feffff;font-family:Calibri;font-size:1.00001em;font-weight:bold}
+		.st9 {fill:#a5a5a5;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st10 {marker-end:url(#mrkr4-28);stroke:#5592c9;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st11 {fill:#5592c9;fill-opacity:1;stroke:#5592c9;stroke-opacity:1;stroke-width:0.16556291390728}
+		.st12 {fill:#42829e;fill-opacity:0.098;stroke:#42829e;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.098}
+		.st13 {fill:#38718a;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st14 {fill:#41809c;font-size:1em}
+		.st15 {fill:#41809c;font-family:Calibri;font-size:1em}
+		.st16 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-28" class="st11" v:arrowType="4" v:arrowSize="2" v:setback="12.08" refX="-12.08" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-6.04,-6.04) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Verbinder" v:index="0"/>
+		<v:layer v:name="Flussdiagramm" v:index="1"/>
+		<g id="shape410-1" v:mID="410" v:groupContext="shape" transform="translate(19.1264,-18.25)">
+			<title>Rechteck</title>
+			<desc>Schichtenarchitektur Pipes and Filters Schwarzes Brett Ports ...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.1366" cy="251.198" width="142.28" height="96.2296"/>
+			<rect x="0" y="203.083" width="142.273" height="96.2296" class="st1"/>
+			<text x="18.17" y="223.12" class="st2" v:langID="1031"><v:paragraph v:indentFirst="-18" v:indentLeft="32.17"
+						v:bullet="5"/><v:tabList/><tspan class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Schichtenarchitektur<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Pipes and Filters<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Schwarzes Brett<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Ports and Adapters<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Onion Architektur<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Clean Architecture</tspan></text>		</g>
+		<g id="shape292-16" v:mID="292" v:groupContext="shape" transform="translate(280.637,-247.047)">
+			<title>Aktion.292</title>
+			<desc>Architekturmuster</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="282.305" width="113.39" height="34.0157"/>
+			<g id="shadow292-17" v:groupContext="shadow" v:shadowOffsetX="2.12399" v:shadowOffsetY="-2.12399" v:shadowType="1"
+					transform="matrix(1,0,0,1,2.12399,2.12399)" class="st5">
+				<rect x="0" y="265.297" width="113.386" height="34.0157" rx="8.50394" ry="8.50394" class="st6"/>
+			</g>
+			<rect x="0" y="265.297" width="113.386" height="34.0157" rx="8.50394" ry="8.50394" class="st7"/>
+			<text x="10.58" y="285.91" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Architekturmuster</text>		</g>
+		<g id="shape400-21" v:mID="400" v:groupContext="shape" transform="translate(320.322,-192.355)">
+			<title>Entscheidung.400</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M17.01 299.31 L34.02 282.31 L17.01 265.3 L0 282.31 L17.01 299.31 Z" class="st9"/>
+		</g>
+		<g id="shape401-23" v:mID="401" v:groupContext="shape" v:layerMember="0" transform="translate(330.244,-247.047)">
+			<title>Dynamischer Verbinder</title>
+			<path d="M7.09 299.31 L7.09 313.95" class="st10"/>
+		</g>
+		<g id="shape403-29" v:mID="403" v:groupContext="shape" transform="translate(18.25,-137.663)">
+			<title>Aktion.403</title>
+			<desc>Chaos zu Struktur</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.5748" cy="282.305" width="143.15" height="34.0157"/>
+			<g id="shadow403-30" v:groupContext="shadow" v:shadowOffsetX="2.12399" v:shadowOffsetY="-2.12399" v:shadowType="1"
+					transform="matrix(1,0,0,1,2.12399,2.12399)" class="st5">
+				<rect x="0" y="265.297" width="143.15" height="34.0157" rx="8.50394" ry="8.50394" class="st12"/>
+			</g>
+			<rect x="0" y="265.297" width="143.15" height="34.0157" rx="8.50394" ry="8.50394" class="st13"/>
+			<text x="27.7" y="285.91" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Chaos zu Struktur</text>		</g>
+		<g id="shape404-34" v:mID="404" v:groupContext="shape" transform="translate(175.938,-137.663)">
+			<title>Aktion.404</title>
+			<desc>Verteilte Systeme</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.0033" cy="282.305" width="142.01" height="34.0157"/>
+			<g id="shadow404-35" v:groupContext="shadow" v:shadowOffsetX="2.12399" v:shadowOffsetY="-2.12399" v:shadowType="1"
+					transform="matrix(1,0,0,1,2.12399,2.12399)" class="st5">
+				<rect x="0" y="265.297" width="142.007" height="34.0157" rx="8.50394" ry="8.50394" class="st12"/>
+			</g>
+			<rect x="0" y="265.297" width="142.007" height="34.0157" rx="8.50394" ry="8.50394" class="st13"/>
+			<text x="26.72" y="285.91" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Verteilte Systeme</text>		</g>
+		<g id="shape405-39" v:mID="405" v:groupContext="shape" transform="translate(348.494,-137.663)">
+			<title>Aktion.405</title>
+			<desc>Adaptive Systeme</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3721" cy="282.305" width="130.75" height="34.0157"/>
+			<g id="shadow405-40" v:groupContext="shadow" v:shadowOffsetX="2.12399" v:shadowOffsetY="-2.12399" v:shadowType="1"
+					transform="matrix(1,0,0,1,2.12399,2.12399)" class="st5">
+				<rect x="0" y="265.297" width="130.744" height="34.0157" rx="8.50394" ry="8.50394" class="st12"/>
+			</g>
+			<rect x="0" y="265.297" width="130.744" height="34.0157" rx="8.50394" ry="8.50394" class="st13"/>
+			<text x="20.49" y="285.91" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Adaptive Systeme</text>		</g>
+		<g id="shape406-44" v:mID="406" v:groupContext="shape" v:layerMember="0" transform="translate(327.342,-202.344)">
+			<title>Dynamischer Verbinder.406</title>
+			<path d="M0 299.31 L-80.4 299.31 L-80.4 323.94" class="st10"/>
+		</g>
+		<g id="shape407-49" v:mID="407" v:groupContext="shape" v:layerMember="0" transform="translate(347.204,-202.229)">
+			<title>Dynamischer Verbinder.407</title>
+			<path d="M0 299.31 L66.66 299.31 L66.66 323.82" class="st10"/>
+		</g>
+		<g id="shape408-54" v:mID="408" v:groupContext="shape" v:layerMember="0" transform="translate(320.322,-209.363)">
+			<title>Dynamischer Verbinder.408</title>
+			<path d="M0 299.31 L-230.5 299.31 L-230.5 330.96" class="st10"/>
+		</g>
+		<g id="shape412-59" v:mID="412" v:groupContext="shape" transform="translate(178.278,-18.25)">
+			<title>Rechteck.412</title>
+			<desc>Client-Server Serviceorientierte Architektur Peer-To-Peer</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.6638" cy="251.198" width="137.33" height="96.2296"/>
+			<rect x="0" y="203.083" width="137.328" height="96.2296" class="st1"/>
+			<text x="4" y="235.84" class="st2" v:langID="1031"><v:paragraph v:indentFirst="-18" v:indentLeft="18" v:bullet="5"/><v:tabList/><tspan
+						class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Client</tspan><tspan class="st4">-</tspan><tspan
+						class="st4">Server<v:newlineChar/></tspan><tspan x="4" dy="1.248em" class="st14" v:isBullet="true">v</tspan><tspan
+						class="st14"> </tspan><tspan class="st15">Serviceorientierte </tspan><tspan x="22" dy="1.212em"
+						class="st15">Architektur<v:newlineChar/></tspan><tspan x="4" dy="1.236em" class="st14" v:isBullet="true">v</tspan><tspan
+						class="st14"> </tspan><tspan class="st15">Peer</tspan><tspan class="st15">-</tspan><tspan class="st15">To</tspan><tspan
+						class="st15">-</tspan><tspan class="st15">Peer</tspan></text>		</g>
+		<g id="shape413-77" v:mID="413" v:groupContext="shape" transform="translate(348.494,-18.25)">
+			<title>Rechteck.413</title>
+			<desc>Dependency Injection Reflexion Mikrokernel</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="65.3721" cy="251.198" width="130.75" height="96.2296"/>
+			<rect x="0" y="203.083" width="130.744" height="96.2296" class="st1"/>
+			<text x="18.17" y="241.84" class="st2" v:langID="1031"><v:paragraph v:indentFirst="-18" v:indentLeft="32.17"
+						v:bullet="5"/><v:tabList/><tspan class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Dependency Injection<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Reflexion<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Mikrokernel</tspan></text>		</g>
+		<g id="shape414-86" v:mID="414" v:groupContext="shape" v:layerMember="0" transform="translate(82.9573,-137.663)">
+			<title>Dynamischer Verbinder.414</title>
+			<path d="M6.87 299.31 L6.87 310.19 L7.31 310.19 L7.31 316.46" class="st10"/>
+		</g>
+		<g id="shape415-91" v:mID="415" v:groupContext="shape" v:layerMember="0" transform="translate(239.855,-137.663)">
+			<title>Dynamischer Verbinder.415</title>
+			<path d="M7.09 299.31 L7.09 316.46" class="st10"/>
+		</g>
+		<g id="shape416-96" v:mID="416" v:groupContext="shape" v:layerMember="0" transform="translate(406.779,-137.663)">
+			<title>Dynamischer Verbinder.416</title>
+			<path d="M7.09 299.31 L7.09 316.46" class="st10"/>
+		</g>
+		<g id="shape417-101" v:mID="417" v:groupContext="shape" transform="translate(501.923,-137.663)">
+			<title>Aktion.417</title>
+			<desc>Interaktive Systeme</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.5748" cy="282.305" width="143.15" height="34.0157"/>
+			<g id="shadow417-102" v:groupContext="shadow" v:shadowOffsetX="2.12399" v:shadowOffsetY="-2.12399" v:shadowType="1"
+					transform="matrix(1,0,0,1,2.12399,2.12399)" class="st5">
+				<rect x="0" y="265.297" width="143.15" height="34.0157" rx="8.50394" ry="8.50394" class="st12"/>
+			</g>
+			<rect x="0" y="265.297" width="143.15" height="34.0157" rx="8.50394" ry="8.50394" class="st13"/>
+			<text x="21.84" y="285.91" class="st8" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>Interaktive Systeme</text>		</g>
+		<g id="shape418-106" v:mID="418" v:groupContext="shape" transform="translate(501.923,-18.7566)">
+			<title>Rechteck.418</title>
+			<desc>Model View Controller Model View Presenter Remote Presentatio...</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.5748" cy="251.198" width="143.15" height="96.2296"/>
+			<rect x="0" y="203.083" width="143.15" height="96.2296" class="st1"/>
+			<text x="18.17" y="223.6" class="st2" v:langID="1031"><v:paragraph v:indentFirst="-18" v:indentLeft="32.17"
+						v:bullet="5"/><v:tabList/><tspan class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Model View Controller<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Model View Presenter<v:newlineChar/></tspan><tspan
+						x="18.17" dy="1.248em" class="st3" v:isBullet="true">v</tspan> <tspan class="st4">Remote Presentation </tspan><tspan
+						x="36.17" dy="1.212em" class="st4">Model<v:newlineChar/></tspan><tspan x="18.17" dy="1.236em" class="st3"
+						v:isBullet="true">v</tspan> <tspan class="st4">Presentation Abstraction </tspan><tspan x="36.17"
+						dy="1.212em" class="st4">Model</tspan></text>		</g>
+		<g id="shape419-119" v:mID="419" v:groupContext="shape" v:layerMember="0" transform="translate(354.338,-209.363)">
+			<title>Dynamischer Verbinder.419</title>
+			<path d="M0 299.31 L219.16 299.31 L219.16 330.96" class="st10"/>
+		</g>
+		<g id="shape420-124" v:mID="420" v:groupContext="shape" v:layerMember="0" transform="translate(566.411,-137.663)">
+			<title>Dynamischer Verbinder.420</title>
+			<path d="M7.09 299.31 L7.09 315.95" class="st10"/>
+		</g>
+	</g>
+</svg>
