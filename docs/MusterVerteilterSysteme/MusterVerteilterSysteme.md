@@ -1,4 +1,5 @@
 # Muster verteilter Systeme
+
 ---
 Sven Simikin
 
@@ -275,7 +276,7 @@ Grundsätzlich bietet die horizontale Skalierung in der Cloud im Gegenzug zu der
 - Keine Limitierung der Hardware
 - Kosten sind an Auslastung gebunden
 - Eingebaute Redundanz und Replikation
-- Bedarfsabhängige Dimensionierung4       
+- Bedarfsabhängige Dimensionierung
 
 #### Event Sourcing
 
@@ -395,7 +396,7 @@ Eine Saga ist eine Sequenz lokaler Transaktionen innerhalb individueller Service
 
 #### Einsatzbereiche
 
-Beispiele für Anwendungszwecke für sich die Microservice-Architektur gut eignen lauten: 
+Beispiele für Anwendungszwecke für sich die Microservicearchitektur gut eignen lauten: 
 
 - Video- und Game-Streaming
 - Komplexe Web-Shops und Web-Anwendungen
