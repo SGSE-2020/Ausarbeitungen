@@ -60,6 +60,10 @@ Beispiele für Anwendungszwecke für sich die Schichtenarchitektur gut eignen la
 - Einfache Klient/Serveranwendungen
 - Einfache Webanwendungen
 
+#### Ziele
+
+- Zusammenfassung gleichartiger Gesichtspunkte einer Anwendung zu Schichten
+
 #### Vor- und Nachteile
 
 Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile für die Schichtenarchitektur:
@@ -89,6 +93,11 @@ Beispiele für Anwendungszwecke für sich die Web-Queue-Worker-Architektur gut e
 - Ressourcenintensive Arbeiten und Probleme
 - Langandauernde Arbeiten und Probleme
 - Anwendungsfälle die kein direktes Feedback erfordern
+
+#### Ziele
+
+- Asynchrone Bearbeitung von Aufgaben
+- Sicherstellung der Ansprechbarkeit des Systems durch Zustandslosigkeit im Frontend
 
 #### Vor- und Nachteile
 
@@ -144,6 +153,11 @@ Die Nachrichtenverarbeitung innerhalb der Event-Driven-Architecture kann durch K
 
   Event-Stream-Processing erlaubt die Integration und Analyse von Nachrichten durch Event-Streaming-Plattformen wie Apache Kafka und ActiveMQ, sodass sich für zeitlich und kontextuell zusammenhängende Daten ein bedingter Verknüpfungsmechanismus ergibt. Nachrichtenbroker ermöglich das Abonnieren von Nachrichtenströmen und die Benachrichtigung von Konsumenten über Ereignisse für den Zeitpunkt an dem diese passieren. Ähnlich wie das Simple-Event-Processing eignet sich das Event-Stream-Processing für Real-Time Umgebungen, bei denen zeitkritisch schnelle Reaktionen erforderlich sind.
 
+#### Ziele
+
+- Identifizierung von relevanten Nachrichten und deren Bearbeitung
+- Hohe Asynchronität und Unabhängigkeit von Produzenten und Konsumenten
+
 #### Vor- und Nachteile
 
 Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile der Event-Driven-Architecture:
@@ -173,6 +187,11 @@ Beispiele für hochkomplexe Aufgaben für die Big-Data und Big-Compute sehr gut 
 * Simulationen für die Entwicklung und Anwendung von Atomwaffen
 * Bearbeitung von Daten die für herkömmliche Rechensysteme zu groß sind
 
+#### Ziele
+
+- Berechnung komplexer Datenmengen, welche herkömmliche Computersysteme nicht berechnen können
+- Lösen von komplexen Problemen, mit vielen Abhängigkeiten und Bedingungen
+
 #### Vor- und Nachteile
 
 Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile bezüglich Big Data und Big Compute:
@@ -182,8 +201,6 @@ Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile bezüglich
 | Hohe Performance                               | Hoher Aufwand für die Hardwarebereitstellung |
 | Skalierung mit der Aufgabenanforderung         |                                              |
 | Komplexe Probleme können Zeitnah gelöst werden |                                              |
-|                                                |                                              |
-|                                                |                                              |
 
 ### 5. Microservice-Architektur
 
@@ -383,6 +400,12 @@ Beispiele für Anwendungszwecke für sich die Microservice-Architektur gut eigne
 - Video- und Game-Streaming
 - Komplexe Web-Shops und Web-Anwendungen
 - Verteilte Anwendungen innerhalb des SmartCity-Softwareprojekts :-)
+
+#### Ziele
+
+- Autonomie und Unabhängigkeit
+- Hohe Erreichbarkeit von Anwendungen
+- Skalierung mit Anforderungen
 
 #### Vor- und Nachteile
 
