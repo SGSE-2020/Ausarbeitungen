@@ -370,7 +370,7 @@ Die Clientside-Discovery erlaubt Klienten zugriff auf die Einträge des Discover
 
 #### Orchestrierung
 
-Das Management und die Verwaltung von Services und Containern in der Microservicearchitektur ist entscheidend um Auslastungen zu steuern und einen reibungslosen Betrieb mit möglichst geringen Verzögerungen zu gewährleisten. Zu diesem Zeck sind durch die Enge Zusammenarbeit von Entwicklungs- und IT-Operions-Teams Werkzeuge entstanden, die die Arbeit in der Microservicearchitektur erleichtern.
+Das Management und die Verwaltung von Services und Containern in der Microservicearchitektur ist entscheidend, um Auslastungen zu steuern und einen reibungslosen Betrieb mit möglichst geringen Verzögerungen zu gewährleisten. Zu diesem Zeck sind durch die Enge Zusammenarbeit von Entwicklungs- und IT-Operions-Teams Werkzeuge entstanden, die die Arbeit in der Microservicearchitektur erleichtern.
 
 ##### Fehlerbehandlung
 
