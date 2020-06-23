@@ -249,6 +249,10 @@ Architekturmuster beschreiben Systemstrukturen, welche die Gesamtarchitektur ein
 
 ![Architekturmuster](img/Architekturmuster.svg)
 
+*Nachgebaut nach [22]*
+
+
+
 #### Chaos zu Struktur
 
 Architekturmuster dieser Kategorie bieten eine Organisation der Vielzahl der Komponenten und Objekte eines Softwaresystems. Die Aufteilung der Funktionalität des Gesamtsystems wird dabei in kooperierende Subsysteme aufgeteilt. Die bekannteste Architektur in dieser Kategorie ist die Schichtenarchitektur. Folgende Architekturmuster finden sich in dieser Kategorie:
@@ -408,6 +412,12 @@ Die nachfolgende Tabelle stellt die Vor und Nachteile der Onion Architektur noch
 
 
 
+## Fazit / Ausblick
+
+Zusammenfassend lässt sich sagen, dass alle drei Erweiterungen der Schichtenarchitektur sehr ähnlich sind und daher auch Vor und Nachteile sich teilweise überschneiden. Alle haben gemeinsam, dass sich die Anwendung nur ab einer gewissen Größe lohnt. Außerdem weisen alle eine hohe Komplexität auf, welche einen hohen Aufwand sowie eine lange Lernkurve mit sich bringt. Da es aber in der modernen agilen Softwareentwicklung sehr häufig vorkommt, dass sich Frameworks und andere Infrastruktur nur kurzlebig sind und oftmals angepasst oder ausgetauscht werden, ist es sinnvoll Anwendungen zu entwickeln, welche sich auf diese Gegebenheiten flexibel anpassen können. Da alle drei Anwendungen diese Unabhängigkeit zur Infrastruktur bieten und dadurch eine nachhaltig wartbare Software bieten, werden diese Ansätze immer beliebter.
+
+
+
 ## Quellen
 
 [1] [Software Architekturen: Grundlagen - Theorie - Praxis](https://www.springer.com/de/book/9783827419330)
@@ -450,4 +460,6 @@ Die nachfolgende Tabelle stellt die Vor und Nachteile der Onion Architektur noch
 
 [20] [Von Schichten zu Ringen - Hexagonale Architekturen erklärt](https://www.maibornwolff.de/blog/von-schichten-zu-ringen-hexagonale-architekturen-erklaert)
 
-[21] [Clean Architekture](https://www.4soft.de/blog/2019/clean-architecture/)
+[21] [Clean Architecture](https://www.4soft.de/blog/2019/clean-architecture/)
+
+[22] [Architekturentwicklung](https://www.enzyklopaedie-der-wirtschaftsinformatik.de/wi-enzyklopaedie/lexikon/is-management/Systementwicklung/Softwarearchitektur/Architekturentwicklung/architekturmuster)
