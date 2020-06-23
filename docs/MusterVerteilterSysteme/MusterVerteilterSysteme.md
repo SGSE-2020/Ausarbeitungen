@@ -419,6 +419,56 @@ Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile der Micros
 | Fehler führen nicht zum Ausfall des Gesamtsystems       |                                              |
 | Codebasis einzelner Services ist besser überschaubar    |                                              |
 
+### 6. Service-Mesh-Architektur
+
+Die Service-Mesh-Architektur kann streng genommen als eine Erweiterung der Microservicearchitektur verstanden werden. Durch die Verlagerung von Nebenläufigkeiten, welche durch die Verwendung des Java-Sidecar-Patterns in eigenständige Sidecar-Proxys verschoben werden, können Nebenläufigkeiten wie beispielsweise Verschlüsslung und Authentifizierung in einem Netzwerk standardisiert werden. Durch eine Kontrollinstanz lassen sich diese  Sidecar-Proxys zentral steuern, sodass ein Re-Deployment bei Änderungen von Nebenläufigkeiten nicht notwendig ist. Das zentrale Steuerungselement erlaubt zusätzlich das Aggregieren von Metriken und Auslastungsdaten der Individuellen Proxys, sodass ein Gesamtbild der Netzwerkauslastung entsteht.
+
+Ein Service-Mesh gliedert seine Architektur in verschiedene Schichten, welche ihrerseits unterschiedliche Aufgaben übernehmen:
+
+- Anwendungsschicht
+
+  Die Anwendungsschicht, auch Application-Layer genannt, enthält Services und Anwendungen und implementiert ausschließlich Kerngeschäftslogiken. Nebenläufigkeiten, welche für die Kommunikation in einem Netzwerk benötigt werden, wie beispielsweise Verschlüsselung und Authentifizierung müssen an dieser Stelle nicht implementiert werden. Innerhalb eines Service-Mesh mit einer strengen Authentifizierung kann davon ausgegangen werden, dass eine Anwendungsschicht durch ein Sidecar ausschließlich anfragen erhält, welche Valide und authentifiziert sind.
+
+- Datenschicht
+
+  Die Datenschicht ist für die Kommunikation zwischen Services zuständig und enthält für diesen Zweck alle Sidecars. Alle Nebenläufigkeiten, welche für ein Netzwerk und die Kommunikation innerhalb eines Netzwerkes relevant sind, werden an dieser Stelle gebündelt.
+
+- Kontrollschicht
+
+  Die Kontrollschicht setzt sich aus ein oder mehreren Kontrollinstanzen zusammen, welche die Sidecars individuell steuern. Für Änderungen von Nebenläufigkeiten ist kein Re-Deployment einzelner Services notwendig. Änderungen können zentral durch die Kontrollinstanz vorgenommen werden und werden automatisch auf einzelne Sidecars angewandt. Kontrollinstanzen aggregieren zusätzlich Metriken und Auslastungsdaten der Sidecars und bieten einen allgemeinen Überblick über die Auslastung innerhalb eines Netzwerks.
+
+![Transaktionen](./images/sidecar_management.png)
+
+Die Kommunikation zwischen Anwendungen und Services findet im Folgenden ausschließlich über die entsprechenden Sidecar-Proxys statt, welche jedem Service für diesen Zweck zur Seite gestellt werden. Wie in der unten stehende Abbildung zeigt, befindet sich das Service-Mesh in der Microservicearchitektur zwischen den einzelnen Services und regelt in diesem Sinne den gesamten Netzwerkverkehr. Es lassen sich Regeln definieren, um beispielsweise Zugriffszeiten und Latenzen zu steuern, aber auch Zugriffsregeln im Detail aufstellen, sodass es individuellen Services und Benutzern untersagt werden kann auf spezielle Anwendungen innerhalb der Microserviceinfrastruktur zuzugreifen.
+
+![Transaktionen](./images/service_mesh_topologie.png)
+
+Grundsätzlich eignet sich die Service-Mesh-Architektur für die gleichen Zwecke wie die Microservicearchitektur, erlaubt jedoch eine feingranulare Netzwerk- und Zugriffskontrolle individueller Services zu und erhöht in diesem Rahmen die allgemeine Sicherheit eines Systems.
+
+#### Einsatzbereiche
+
+Beispiele für Anwendungszwecke für sich die Microservice-Architektur gut eignen lauten: 
+
+- Einsatzzwecke analog zu der Microservicearchitektur
+- Microservicearchitekturen mit strengen Sicherheitsakzeptanzkriterien
+
+#### Ziele
+
+- Steuerung des Netzwerkverkehrs
+- Standardisierung von Nebenläufigkeiten
+
+#### Vor- und Nachteile
+
+Die folgende Tabelle bietet einen Überblick über Vor- und Nachteile der Service-Mesh-Architektur:
+
+| Vorteile                                                     | Nachteile                                               |
+| ------------------------------------------------------------ | ------------------------------------------------------- |
+| Inter-Service-Kommunikation ist durch SideCars(Proxys) standardisiert | Erhöhte Komplexität für die Erfassung des Gesamtbildes  |
+| Metrik und Zustandserfassung ist durch SideCars(Proxys) standardisiert | Fehlkonfigurationen können das Netzwerk destabilisieren |
+| Nebenläufigkeiten wie Verschlüsselung werden automatisch umgesetzt | Auslastung einer Anwendung wird nicht erfasst           |
+| Service Implementierung fokussieren sich auf Kernfunktionalitäten |                                                         |
+| Nebenläufigkeiten können zentral gesteuert und verwaltet werden |                                                         |
+
 ---
 
 ## Quellen
