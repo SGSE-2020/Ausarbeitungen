@@ -2,6 +2,16 @@
 
 *Malte Riechmann*
 
+## Was ist Data Streaming
+
+Um Data Streaming zu beschreiben wird oft die Analogie eine
+
+## Warum Data Streaming?
+
+*was ist der Vorteil*
+
+*Wo kommt es zum einsatz*
+
 ## Eigenschaften
 
 * kontinuierlicher Datenfluss an Datensätzen (sehr klein)
