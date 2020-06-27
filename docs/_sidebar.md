@@ -5,4 +5,5 @@
 * [Software Architektur](./SoftwareArchitecture/SoftwareArchitecture.md)
 * [Prozesse](./Prozesse/prozesse.md)
 * [Infrastruktur](./Infrastruktur/Infrastruktur.md)
+* [Datastreaming](./Datastreaming/Datastreaming.md)
 
