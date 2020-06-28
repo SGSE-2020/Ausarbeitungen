@@ -148,7 +148,78 @@ Der Zookeeper verwaltet und Koordiniert die verschiedenen Broker. Seine Hauptauf
 
 Sobald Kafka mehr als einen Broker besitzt spricht man von einem Cluster. Da Broker dynamisch dazu kommen oder verschwinden können, kann eine Cluster dynamisch wachsen oder schrumpfen. In dem Cluster wird die Persistenz und Kopien der Datensätze verwaltet.
 
-### Streaming Archtiektur
+### Kern APIs
+
+Kafka bietet 5 API an, die Nutzer für ihre Software nutzen können.
+
+**Producer API**
+
+Die Producer API erlaubt es einer Applikation einen Datenstrom an ein oder mehr Topics zu veröffentlichen.  Im folgenden ist eine Beispiel eines Producers, der Nummern als String als Schlüssel-Wert-Paar schickt an ``"my-topic"`` schickt. Der Producer hält eine Buffer für jede Partition.
+
+````java
+Properties props = new Properties();
+props.put("bootstrap.servers", "localhost:9092");
+props.put("acks", "all");
+props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+Producer<String, String> producer = new KafkaProducer<>(props);
+for (int i = 0; i < 100; i++)
+     producer.send(new ProducerRecord<String, String>("my-topic", Integer.toString(i), Integer.toString(i)));
+
+producer.close();
+````
+
+**Consumer API**
+
+Die Consumer API erlaubt es Applikationen ein oder mehr Topics zu subscriben. Die so eingehenden Datensätze bestehend aus Schlüssel-Wert-Paaren und dem Offset können dann verarbeitet werden. Im folgenden ist ein Beispiel für ein Consumer.  Dieser Consumer gehört zur Consumer-Gruppe ``"test"`` und erwartet String Schlüssel-Werte-Paare. Der Consumer liest die Nachrichten aus dem Topic ``"my-topic"``.  An dieser Stelle können auch mehrere Topics angegeben werden.
+
+````java
+Properties props = new Properties();
+props.setProperty("bootstrap.servers", "localhost:9092");
+props.setProperty("group.id", "test");
+// ... some more settings ...
+props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+
+KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
+consumer.subscribe(Arrays.asList("my-topic"));
+while (true) {
+    ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+    for (ConsumerRecord<String, String> record : records)
+        System.out.printf("offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
+}
+````
+
+**Streams API**
+
+Über die Streams API kann eine Applikation als Stream Processor fungieren. Es holt sich den Input-Stream aus einem oder mehreren Topics, verarbeitet sie und schreibt den Output in ein oder mehrere Topics. Auf die genau Architektur für Stream Processing wird nochmal unter **Streaming Architektur** eingegangen. Im folgenden ist ein sehr einfaches Beispiel gegeben.  Hier wird der Wert des eingehenden Schlüssel-Werte-Paars so umgewandelt, dass er nun die länge des Strings ursprünglichen Wertes als String enthält. Input für diesen Stream ist ``"my-topic"`` und der umgewandelte Datensatz wird an das Topic ``"my-output-topic"`` verschickt.
+
+````java
+Properties props = new Properties();
+props.put(StreamsConfig.APPLICATION_ID_CONFIG, "my-stream-processing-application");
+props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+
+StreamsBuilder builder = new StreamsBuilder();
+builder.<String, String>stream("my-topic").mapValues(value -> String.valueOf(value.length())).to("my-output-topic");
+
+KafkaStreams streams = new KafkaStreams(builder.build(), props);
+streams.start();
+````
+
+**Connector API**
+
+Die Connector API ermöglicht es wieder verwendbare Consumer und Publisher zu schreiben, die Topics mit existierenden Applikationen oder Datensystemen verbindet. Es gibt beispielsweise Connectors zu Datenbanken wie Mongo DB, die jede Änderung in der Datenbank erfassen.
+
+**Admin API**
+
+Die Admin API erlaubt das verwalten und betrachten der verschiedenen Topics, Partitionen und Broker und anderer Kafka Objekte.
+
+### Streaming Architektur
+
+Die Streaming Architektur im Kontext von Kafka dreht sich um die **Stream API**. 
 
 ### Kafka und Microservices
 
