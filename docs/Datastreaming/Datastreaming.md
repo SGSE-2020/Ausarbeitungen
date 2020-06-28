@@ -150,6 +150,8 @@ Sobald Kafka mehr als einen Broker besitzt spricht man von einem Cluster. Da Bro
 
 ### Kern APIs
 
+https://kafka.apache.org/documentation.html#producerapi
+
 Kafka bietet 5 API an, die Nutzer für ihre Software nutzen können.
 
 **Producer API**
@@ -219,7 +221,37 @@ Die Admin API erlaubt das verwalten und betrachten der verschiedenen Topics, Par
 
 ### Streaming Architektur
 
-Die Streaming Architektur im Kontext von Kafka dreht sich um die **Stream API**. 
+https://docs.confluent.io/current/streams/architecture.html
+
+Die Streaming Architektur im Kontext von Kafka dreht sich um die **Stream API**. Die Architektur ist ausgelegt für Parallelisierung, Koordinierung der verteilten Anwendungen und Daten, Fehlertoleranz und operationale Einfachheit. Die folgende Abbildung zeigt einmal die Architektur im Überblick. Die Input und Output Streams sind die partitionierten Topics. Der Stream Processor verwendet die Consumer API um die Input Daten zu holen und die Producer API um die umgewandelten Daten weiterzuleiten.  Die folgende Beschreibung wird nun die Aufteilung der Tasks und Stream Threads näher beschreiben. Dabei wird auch auf die Topologie innerhalb einer Task eingegangen.
+
+![streaming_processing](img/streaming_processing.png)
+
+**Prozessor Topologie**
+
+![topologie](img/topologie.png)
+
+Die Prozessor Topologie beschreibt die Logik der Stream Processing Anwendung. Sie gibt somit an, wie die Inputdaten umgewandelt werden um die Outputdaten zu erzeugen.  Dabei stellen die einzelnen Prozessoren die Knoten in dem Graphen dar und die Kanten, die die Knoten verbinden, sind Streams. In dem oben aufgeführten Beispiel eines Streamprocessors besteht die Topologie aus einem Knoten mit einer eingehenden und einer ausgehenden Kante.
+
+**Stream Partitionierung und Tasks**
+
+Ähnlich zu der Partitionierung der Topics in der Messaging Layer, teilt auch ein Stream die Daten für die Verarbeitung in Partitionen ein. Dabei wird unterschieden zwischen *Stream Tasks* und *Stream Partitionierung*. Im Bezug auf die oben aufgeführte Abbildung sind die Partitionen die einzelnen Stream Threads und die Stream Tasks werden innerhalb der Threads verarbeitet.
+
+Was im ersten Augenblick ziemlich komplex wirkt verbirgt die Möglichkeiten der automatischen Skalierung und Aufteilung der Daten auf mehrere Instanzen. Dafür ist es wichtig zu verstehen, dass die Anzahl der möglichen Aufteilungen direkt Abhängig ist von der Partitionierung der Input Topics ist.  Der Grund dafür wird in der folgenden Grafik gezeigt.
+
+![tasks](img/tasks.png)
+
+Die Daten werden nicht manuell Aufgeteilt, sondern es wird Aufteilung der Topics verwendet. Jedes Topic wird zu einer Liste an Partitionen (der verschieden Input Topics) zugewiesen. Da jedes Topic zu einer Partition eines Topics zugewiesen wird, ist die maximale Anzahl an Tasks gleich der maximale Partitionierung aller Input Topics. In diesem Beispiel haben beide Topics vier Partitionen und somit ist maximale Anzahl an Task 4. Die Zuweisung von Partition zu Task ändert sich nie und somit ist die Anzahl and Task fest gelegt. Für jeden Task wird für die Verarbeitung jeweils die Prozessor Topologie initialisiert mit eigenen Buffern für die Inputdaten. 
+
+Diese Tasks werden nun für die Verarbeitung weiter aufgeteilt auf Verschiedenen Instanzen und Threads. Der Einfachheit halber betrachten wir zunächst nur den Fall, dass es nur eine Instanz gibt. Für jede Instanz kann eine Anzahl an Threads konfiguriert werden.  Innerhalb eines Threads können mehrere Tasks abgearbeitet werden. Aufteilung der Tasks an die Instanzen und Threads wird von Kafka übernommen. Ein Beispiel für den Fall, dass es eine Instanz mit drei Threads gibt ist im Folgenden gegeben.
+
+![multiple_threads](img/multi_threads.png)
+
+Für den Fall, dass es mehrere Instanzen gibt, zum Beispiel weil eine neue gestartet wurde, sähe die Zuweisung der Tasks beispielsweise wie folgt aus. Hierbei wurde die erste Instanz mit nur einem Thread gestartet und die zweite mit zwei Threads. Kafka übernimmt dynamisch die Neu-Zuweisung, wenn eine Instanz dazu kommt oder verschwindet. 
+
+![multiple_instances](img/multi_instances.png)
+
+Zusammenfassend lässt sich also sagen, das Kafka die Partitionierung und Aufteilung vollkommen übernimmt. Der nutze muss lediglich die Task definieren und anschließende die Anzahl an Instanzen und deren jeweiligen Thread Anzahl festlegen. Dadurch ist Streamprocessing innerhalb eines großen Clusters mit vielen Instanzen trotzdem sehr einfach für den Nutzer zu realisieren. Zudem der gesamte Prozess sehr Fehlertolerant. Das liegt daran, dass die einzelnen Bestandteile schon sehr Fehlertolerant ist. Um Fehler im Consumer zu Fangen werden die Funktionen der Consumer API genutzt. Außerdem liegen mehrere Kopien von den verschiedenen Partitionen vor, sodass der Ausfall einer Partition schnell gefangen werden kann. Und durch das dynamisch aufteilen der Tasks auf die Instanzen ist auch das Ausfallen von Instanzen kein großes Problem. 
 
 ### Kafka und Microservices
 
