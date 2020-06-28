@@ -2,49 +2,73 @@
 
 *Malte Riechmann*
 
-## Was ist Data Streaming
+## Was ist Data Streaming?
 
-Um Data Streaming zu beschreiben wird oft die Analogie eine
+https://www.ververica.com/blog/continuous-queries-on-dynamic-tables-analyzing-data-streams-with-sql
+
+![img](img/datastreaming.png)
+
+Um Data Streaming zu beschreiben wird oft die Analogie eines Flusses verwendet. Wichtig ist dabei der Fokus auf die Strömung, die wie der Name *Streaming* schon verrät, im Vordergrund steht. Beim Data Streaming spielt der Anfang oder das Ende des Stroms erstmal keine Rolle. Die Daten die durch diesen Strom fließen sind kontinuierlich und haben keinen eindeutig definierten Start- und Endpunkt. Ein Beispiel für solch einen Datenstrom wäre zum Beispiel ein Smartes Thermometer, welches kontinuierlich die Temperatur an einen Server sendet, der darauf hin die Heizung steuert. Hier spielt der Start oder das Ende des Temperatur Datenstromes keine Rolle, wichtig ist nur der permanente Eingang neuer Daten.
+
+Data Streaming ist auch nicht auf eine Datenquelle begrenzt. Wie das Bild zeigt, können die Daten aus tausenden verschiedenen Datenquellen kommen. Dabei ist der Typ der Datenquelle nicht wichtig und kann für jede Datenquelle unterschiedlich sein. Die Daten werden von der Quelle kontinuierlich als kleine Pakete verschickt, die von der Größe her im Kilobytebereich liegen. Die einkommenden Daten aus dem Strom werden dann sequentiell und inkrementell verarbeitet.
 
 ## Warum Data Streaming?
 
-*was ist der Vorteil*
+Nun stellt sich allerdings die Frage, was der Vorteil von Data Streaming und warum es verwendet werden sollte. Der Vorteil von Streaming wird schnell klar, wenn man den Bereich von Big Data betrachtet. Durch die kleinen Pakete, die aus viele verschiedene Quellen kommen, können Ereignisse aus diese Quellen quasi **simultan** verarbeitet werden. Dies ist wichtig um schnell auf verschiedene zusammenhängende Ereignisse zu reagieren.
 
-*Wo kommt es zum einsatz*
+Ein weiterer wichtiger Vorteil ist die **Echtzeitfähigkeit** des Streamings. Die kleinen Pakete können mit wenig Verzögerung verschickt werde. Außerdem gibt es kein Overhead für das Sammeln von Daten, wie es bei der Batch Verarbeitung üblich ist. Die kleinen Pakete können auch erheblich schneller verarbeitet werden als große Datenbündel, wodurch auf solche Ereignisse schneller reagiert werden kann.
+
+Darüber besitzt Streaming eine gewisse **Fehlertoleranz**. Der Verlust einen wenige Kilobyte großen Paketes lässt sich in vielen Fällen bessere verkraften als zum Beispiel der Verlust eines ganzen Datenpaketes bei der Batch Verarbeitung. Und obwohl ein Datenpaket fehlt, kann der Datenstrom normal weiterverarbeitet werden.
+
+Ein weiterer großer Vorteil von Data Streaming ist, dass das **Ende der Daten nicht bekannt sein muss**. Durch die Sequentielle Verarbeitung der kleinen Datenpakete wird immer nur in Ausschnitt des Datenstroms betrachtet. Dieses Fenster wird über die Daten geschoben, ohne das eine Ende bekannt sein muss. So können die kontinuierlichen Daten eines Sensors verarbeitet werden ohne sie vorher in Start- und Endpunkte aufzuteilen.
+
+## Wo kommt Data Streaming zum Einsatz?
+
+**Internet of Things**
+
+Aufgrund der geringen Kosten von Sensoren und neuen Entwicklungen um Bereich Internet of Things (IoT) werden neue Produkte oft mit ihnen vollgepackt. Diese Sensoren zeichnen kontinuierlich Daten auf, die verarbeitet werden müssen. Die Daten an sich sind meisten kleine, wie zum Beispiel eine Temperaturwert oder eine Geschwindigkeit. Nichts desto trotz kommt es allein durch die Menge an Sensoren zu einem riesigen Strom an Daten. Das ist zum Beispiel der Fall in Transportfahrzeugen. Die Sensoren sollen dazu dienen die Leistung zu überwachen und gegebenenfalls Defekte möglichst schnell zu erkennen.
+
+Ein weiteres Beispiel ist das Smart Home. Auch hier zeichnen zahlreiche Sensoren kontinuierlich Daten auf. Abhängig von den eingehenden Daten können dann Aktionen ausgeführt werden. Wenn zum Beispiel der CO2 Gehalt zu hoch ist können Fenster geöffnet und Heizungen ausgeschaltet werden. So kann der Komfort in dem Haus erhöht werden und außerdem Energie und Geld gespart werden.
+
+**Finanzen**
+
+Der Finanzbereich ist ein sehr typischer Bereich für Data Streaming, da hier tausende von verschieden Informationen kommen, die sich ständig ändern. So kann an dem Börsenmarkt Data Streaming zum Einsatz kommen um in Echtzeit Value-at-Risk-Berechnungen durchzuführen. So können Portfolios direkt angepasst und an den Börsenmarkt ausgerichtet werden.
+
+**Aktivitätsverfolgung**
+
+Aktivitätsverfolgung kommt in vielen Bereichen zum Einsatz, wie zum Beispiel Social Media Plattformen. Hier werden die einzelnen Aktivitäten der Nutzer verwendet um den Nutzungskomfort zu erhöhen. Basierend auf der Aktivität eines Nutzer und anderer vergleichbarer Nutzer werden dann bestimmte Vorschläge gemacht, die sich der Nutzer ansehen kann. Durch Data Streaming können diese Dienste besser auf den einzelnen Nutzer zugeschnitten werden und es kann schneller auf bestimmte Trends reagiert werden.
 
 ## Eigenschaften
 
-* kontinuierlicher Datenfluss an Datensätzen (sehr klein)
-* Können mehrere Datenquellen besitzen
-* mit der Verarbeitung muss nicht auf die vollständige Übertragung der daten gewartet werden 
-* Ende des Flusses muss während der Übertragung noch nicht bekannt sein
-  * Daten können auch kontinuierlich generiert werden
-* Datenrate kann variieren
-  * Muss bei der Verarbeitung/Speicherung beachtet werden
-* Sequenzieller Zugriff
-  * Daten werden fortlaufend verarbeitet
+In den vorherigen Kapiteln wurden einige Eigenschaften von Data Streaming erwähnt. An dieser Stelle werden alle noch einmal zusammengeführt und übersichtlich dargestellt.
+
+* Ein Datenstrom kann mehrere unterschiedliche Quellen besitzen
+* Es herrscht ein kontinuierlicher Datenfluss
+* Der Datenfluss besteht aus kleinen Paketen im Kilobyte Bereich
+* Ende des Flusses muss während der Übertragung nicht bekannt sein, wie im Beispiel der kontinuierlich generierten Daten eines Sensors
+* Auf die Daten wird sequenziell zugegriffen (ggf. über ein Sliding Window)
+* Datenrate kann variieren was bei der Verarbeitung/Speicherung beachtet werden
 
 ## Abgrenzung
 
 * Batch-Verarbeitung vs. Stream-Verarbeitung
+  
+  * https://aws.amazon.com/de/streaming-data/
+  
+  Streaming besitzt nun drei wichtige Vorteil im Kontext von Big Data. Der erste ist die **Simultanität**. Dies spielt vor allem bei mehreren Datenquellen eine Rolle. Durch das Sammeln der Daten und das verschicken in größeren Datenbündeln geht Zeit verloren. Auch dauert das verarbeiten eine Batches länger und die Daten stehen erst später zur Verfügung. So ist die Differenz mit der Daten die aus verschieden Quellen stammen, aber zeitgleich passiert sind größer. Beim Streaming hingegen sind Pakete viel kleiner, sie können schneller verschickt und verarbeitet werden, sodass die Differenz mit der zeitgleiche Ereignisse verarbeitet werden geringer ist. Durch Verzögerungen in der Übertragung kann es auch beim Streaming zu größeren Differenzen kommen, allerdings sind diese Aufgrund der geringeren Paketgröße immer noch kleiner als bei der Batch Verarbeitung.  Im folgenden Bild ist diese Fall vereinfach dargestellt. Es wird davon ausgegangen, dass nur einen gemeinsamen Buffer für die Verschiedenen Sensoren gibt. Der Fall trifft aber ähnlich zu, wenn es verschiedene Buffer gibt
+  
+  ![img](img/simultan.png)
+  
+  * vorteil batchverarbeitung
+  * vorteil streaming
   * Batch: Verarbeitung eines Datenbündels, generiert Ergebnisse zu Kompletten Datensatz
   * Stream: Mini Datenbündel, Ergebnisse müssen für jeden Datensatz angepasst werden 
+  
 * Messaging vs. Streaming
   * Abgrenzung zu Messaging Systemen
     *  https://www.theseattledataguy.com/kafka-vs-rabbitmq-why-use-kafka/
   * Strategien zur Verarbeitung von Message Queues
     * http://www.doxsey.net/blog/strategies-for-working-with-message-queues
-
-## Use Cases
-
-* Allgemein
-* Konkrete Anwendungsfälle
-  * Darstellung des Themengebiets "Big Data" / Stream Processing
-    * https://www.confluent.io/wp-content/uploads/2016/08/Making_Sense_of_Stream_Processing_Confluent_1.pdf
-  * Internet of Things (Übertragung von Sensor Daten zur Analyse)
-  * Audio-/Video-Streaming
-  * Marketing (Werbung basierend auf den Nutzer-Aktionen)
-  * Verteiltes Maschinelles Lernen
 
 ## Genereller Aufbau
 
@@ -70,17 +94,65 @@ Kafka ist einer verteilte Streaming Plattform. Verteilt bedeutet in diesem Konte
 
 1. Einen *Publish und Subscribe* Mechanismus an einen Strom an Datensätzen (Stream of records), vergleichbar zu Messaging Systemen
 2. Ein fehlertolerantes Speichern von Datenströmen (Streams)
-3. Und das Prozessieren von Streams sobald sie auftauchen
+3. Und das Verarbeiten von Streams sobald sie auftauchen
 
-### Aufbau
+Kafka kommt für häufig für zwei Hauptaufgaben zum Einsatz. Die erste ist als Datapipline die zuverlässig Daten zwischen Systemen in Echtzeit austauscht und die zweite ist zum Transformieren und und reagieren auf Datenströmen. Das heißt Kafka arbeitet nur auf dem Stream und hat keinen direkten Bezug zu dem Empfänger.
 
-*TODO:* Bild einfügen
+### Hauptkonzepte
 
-Wie im vorherigen erwähnt läuft Kafka als Cluster auf einem oder mehreren Servern. Das Cluster speichert Ströme von Datensätzen unter sogenannten Topics. Diese Topics sind des Weiteren 
+Bevor es an die verschiedenen Streaming Architekturen geht müssen einige Grundbausteine und Konzepte von Kafka im Folgenden erklärt werden.
 
-* ist eine verteilte Streaming Plattform
-  * Es läuft als ein Cluster auf einem oder mehreren Servern
-  * 
+![concepts](img/concepts.png)
+
+**Record**
+
+Eine Record oder Datensatz stellt ein kleines Datenpaket dar, welches der Producer als eine Einheit schreibt. Jeder Datnsatz besteht aus einem Schlüssel, einem Wert und einem Timestamp.
+
+**Topics and Logs**
+
+Topics sind die Kernbestandteile von Kafka. Sie stellen die Kategorien dar unter denen Ströme von Datensätzen veröffentlicht werden. Wie in einer Log-Datei, werden alle eingehenden Datensätze gespeichert und neue Daten werden kontinuierlich an das Ende der Sequenz angehängt. Die Sequenz ist  dabei immutable und die Reihenfolge der Daten kann nicht geändert werden. Jeder Datensatz bekommt eine aufsteigende Nummer zugewiesen, dem sogenannten Offset. Dieser Offset identifiziert einen eine Datensatz eindeutig innerhalb einer Sequenz. Eine Topic unterstütz immer multi-subscriber, was bedeutet, dass ein Topic keinen, einen oder mehrere Subscriber haben kann
+
+Unter einem Topic werden alle Daten erstmal dauerhaft gespeichert, unabhängig davon ob sie gelesen wurde oder nicht. Es kann eine Speicher-Periode eingestellte werden. Eingehende Datensätze werden dann für genau diese Zeitspanne gespeichert und nach Ablauf gelöscht unabhängig davon ob sie verarbeitet wurden.
+
+**Partitions**
+
+Ein weiterer wichtiger Punkt ist, dass ein Topic  aus mehren besteht Partitionen. Jede Partition ist eine solche geordnete Sequenz von Datensätzen. Die einzelnen Partition sind über das Cluster verteilt und jeder Server behandelt die Anfragen für einen Teil der Partitionen. Diese Aufteilung erlaubt eine nahe zu unbegrenzten Menge an Datensätzen zu speichern. Die Größe einer Partition ist begrenzt durch den Speicher des Servers, aber verschiedenen Partitionen liegen auf mehreren Servern und die Datensätze können aufgeteilt werden. Ein weiterer Vorteil ist, dass diese Aufteilung parallelisierte Verarbeitung unterstützt. *Wichtig anzumerken im Kontext der Offset ist, das dieser nur die Reihenfolge innerhalb einer Partition speichert und nicht für das gesamte Topic über alle Partitionen hinweg. Wenn eine solche übergeordnete Reihenfolge benötigt wird, darf nur eine Partition für das Topic verwendet werden.*
+
+**Replicas**
+
+Für jede Partition mehrere Kopien für eine höherer Fehler Toleranz. Dabei gibt es einen Server der als *Leader* agiert, der verantwortlich für alle Lese- und Schreibzugriffe auf die Partition ist. Die anderen Server der Kopien agieren als *Follower* und kopieren den Leader. Wenn einer der Leader ausfällt wird automatische einer der Follower zum neuen Leader. Um die Auslastung gleichmäßig über das Cluster aufzuteilen, agiert jeder Server als Leader für ein paar Partitionen und Follower für die Anderen.
+
+**Producer**
+
+Producer publishen Records an Topics ihrer Wahl. Dabei ist der Producer verantwortlich dafür welchen Datensatz er in welche Partition eines Topics schreibt. Dies Strategie hierfür kann jeder Producer frei wählen. Vorstellbar ist zum Beispiel ein Round-Robin vorgehen um die Auslastung der einzelnen Partitionen zu reduzieren, oder auch eine semantische Aufteilung der Datensätze, zum Beispiel nach dessen Schlüssel.
+
+**Consumer**
+
+Ein Consumer liest die verschiedenen Datensätze einer Partition, üblicherweise -aber nicht zwingend- in einer sequentiellen Reihenfolge. Für jeden Consumer wird ein Offset gespeichert, der angibt an welcher Stelle innerhalb des  Datenstromes er sich gerade befindet. Die Kontrolle über dem Offset liegt dabei bei dem jeweiligen Consumer. Deswegen muss dieser die Daten auch nicht sequentiell abarbeiten, sondern kann den Offset anpassen, um Daten wiederholt einzulesen oder Daten zu überspringen.
+
+**Consumer Groups**
+
+Jeder Consumer ist einer Gruppe von Consumern zugeordnet. Ein Datensatz eines Topics wird dann an genau einen Consumer innerhalb einer Consumer Gruppe geschickt. Wenn alle Consumer eines Topics als die gleiche Gruppe besitzen werden die Datensätze gleichmäßig aufgeteilt und wenn alle eine unterschiedliche Gruppe besitzen, wird der Datensatz an jeden Consumer geschickt. Diese beiden Fälle sind allerdings Spezialfälle, im Normalfall gibt wenige Consumer Groups (eine Gruppe = ein logischer Subscriber) mit jeweils mehreren Subscribern.
+
+Bei Topics mit mehreren Partitionen und mehreren Consumer einer Gruppe werden die Partitionen auf die Consumer aufgeteilt. Das bedeutet, das ein Consumer immer die Datensätze von der gleichen Subgruppe an Partitionen bekommt. Diese Aufteilung wird von Kafka dynamisch verwaltet, sodass wenn neue Consumer dazu kommen, die Partitionen in kleinere Gruppen aufgeteilt werden, oder anders herum, wenn eine Instanz wegfällt, dass zu größeren Gruppen zusammengefasst werden.
+
+**Broker**
+
+Der Broker ist ein Kafka Server, der innerhalb des Clusters läuft. Er ist verantwortlich für das verwalten und weiterleiten der eingehenden Datensätze. Die Partitionen eines Topics werden gleichmäßig auf alle verfügbaren Broker aufgeteilt
+
+**Zookeeper**
+
+Der Zookeeper verwaltet und Koordiniert die verschiedenen Broker. Seine Hauptaufgabe ist es die Producer uns Consumer darüber zu informieren, dass ein neuer Broker verfügbar ist bzw. dass ein Broker ausgefallen ist. Die Producer und Consumer nutzen diese Information, um ihrer Aufgaben über andere Broker zu koordinieren 
+
+**Cluster**
+
+Sobald Kafka mehr als einen Broker besitzt spricht man von einem Cluster. Da Broker dynamisch dazu kommen oder verschwinden können, kann eine Cluster dynamisch wachsen oder schrumpfen. In dem Cluster wird die Persistenz und Kopien der Datensätze verwaltet.
+
+### Streaming Archtiektur
+
+### Kafka und Microservices
+
+
 
 ### Use Cases
 
