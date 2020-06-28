@@ -49,42 +49,56 @@ In den vorherigen Kapiteln wurden einige Eigenschaften von Data Streaming erwäh
 * Auf die Daten wird sequenziell zugegriffen (ggf. über ein Sliding Window)
 * Datenrate kann variieren was bei der Verarbeitung/Speicherung beachtet werden
 
-## Abgrenzung
+## Stream- vs. Batch-Verarbeitung
 
-* Batch-Verarbeitung vs. Stream-Verarbeitung
-  
-  * https://aws.amazon.com/de/streaming-data/
-  
-  Streaming besitzt nun drei wichtige Vorteil im Kontext von Big Data. Der erste ist die **Simultanität**. Dies spielt vor allem bei mehreren Datenquellen eine Rolle. Durch das Sammeln der Daten und das verschicken in größeren Datenbündeln geht Zeit verloren. Auch dauert das verarbeiten eine Batches länger und die Daten stehen erst später zur Verfügung. So ist die Differenz mit der Daten die aus verschieden Quellen stammen, aber zeitgleich passiert sind größer. Beim Streaming hingegen sind Pakete viel kleiner, sie können schneller verschickt und verarbeitet werden, sodass die Differenz mit der zeitgleiche Ereignisse verarbeitet werden geringer ist. Durch Verzögerungen in der Übertragung kann es auch beim Streaming zu größeren Differenzen kommen, allerdings sind diese Aufgrund der geringeren Paketgröße immer noch kleiner als bei der Batch Verarbeitung.  Im folgenden Bild ist diese Fall vereinfach dargestellt. Es wird davon ausgegangen, dass nur einen gemeinsamen Buffer für die Verschiedenen Sensoren gibt. Der Fall trifft aber ähnlich zu, wenn es verschiedene Buffer gibt
-  
-  ![img](img/simultan.png)
-  
-  * vorteil batchverarbeitung
-  * vorteil streaming
-  * Batch: Verarbeitung eines Datenbündels, generiert Ergebnisse zu Kompletten Datensatz
-  * Stream: Mini Datenbündel, Ergebnisse müssen für jeden Datensatz angepasst werden 
-  
-* Messaging vs. Streaming
-  * Abgrenzung zu Messaging Systemen
-    *  https://www.theseattledataguy.com/kafka-vs-rabbitmq-why-use-kafka/
-  * Strategien zur Verarbeitung von Message Queues
-    * http://www.doxsey.net/blog/strategies-for-working-with-message-queues
+https://developer.sh/posts/streaming-data-overview
 
-## Genereller Aufbau
+![img](img/simultan.png)
 
-* Data Lakes / Streaming Data Tools & Techniques
-  * https://developer.sh/posts/delta-lake-and-iceberg
-  * https://developer.sh/posts/streaming-data-overview
-* Speicherebene (Ordnen und Aufzeichnen von Daten)
-* Verarbeitungsebene (Daten aus der Speicherebene verarbeiten)
-* Beide Ebenen beeinflussen sich gegenseitig
-* Die Infrastruktur wird durch die im Folgenden genannten Tools festgelegt
+Bevor die Stream Verarbeitung in Mode gekommen ist wurde in erster Linie Batch-Verarbeitung verwendet. Hierbei werden die Daten zunächst gesammelt zu einem Datenblock. Durch die Sammlung von Daten können diese einfacher Verarbeitet werden. Im Gegensatz zur Stream Verarbeitung, bei der inkrementell Zahlen geupdatet werden müssen, wird hier einfach die Zahl über alle Daten berechnet, was vor allem für komplexe statistische Berechnungen einfacher ist. Eine Gegenüberstellung der beiden Methoden ist im oberen Bild dargestellt. Die blauen Pfeile markieren Ereignisse, die zur gleichen Zeit von dem Sensor aufgenommen wurden. Durch die Datenblöcke geht allerdings direkt die Echtzeit Eigenschaft verloren. Hier eignet sich die Stream Verarbeitung der kleinen Datensätze besser. Was am besten Angewandt werden soll hängt immer von dem konkreten Use Case ab, da beide Ansätze ihre Vorteile haben. Oft gibt es auch eine Kombination von beiden, sodass zuerst eine Stream Verarbeitung stattfindet für Echtzeit Berechnungen sattfindet und anschließend werden die Daten zu Batches zusammengefasst und weitere Berechnungen ausgeführt .
 
-## Tools
+|             | Batch-Verarbeitung                                           | Stream-Verarbeitung                                          |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Datenumfang | Abfragen oder Verarbeitung über alle oder die meisten Daten im Datensatz. | Abfragen oder Verarbeitung über Daten in einem gleitenden Zeitfenster oder über die neuesten Datenaufzeichnungen. |
+| Datengröße  | Große Datenbündel.                                           | Individuelle Mikrobündel aus wenigen Aufzeichnungen.         |
+| Performance | Latenzen in Minuten zu Stunden.                              | Erfordert Latenzen im Bereich von Sekunden oder Millisekunden. |
+| Analysen    | Komplexe Analysen.                                           | Einfache Reaktionsfunktionen, Aggregate und gleitende Metriken. |
 
-* **Kafka**
-* Kinesis Firehose
-* Strom
+https://aws.amazon.com/de/streaming-data/
+
+## Dataspeicherung
+
+Mit den neuen Eigenschaften der Daten aus Streams, werden auch neue Anforderungen an die Datenspeicherung gestellt. Die Datenmenge ist erheblich größer und variabler. Außerdem werden sie kontinuierlich generiert. Im folgenden werden dafür unterschiedliche Konzepte zu der Speicherung der Daten aus Streams dargestellt.
+
+### Time Series Datenbanken
+
+https://www.influxdata.com/time-series-database/
+
+https://developer.sh/posts/streaming-data-overview
+
+Da die meisten Datensätze eines Streams kontinuierlich generiert werden besitzen sie meistens auch ein Zeitachse. Das einfachste Beispiel hierfür ist wieder der Sensor als Input. Dieser misst die Daten immer zu einem bestimmten Zeitpunkt und die Daten verändern sich über die Zeit hinweg. Basierend auf  der Änderung über die Zeit müssen dann Entscheidungen getroffen werden. 
+
+Time Series Datenbanken sind nun auf diese Art von Daten ausgelegt. Sie ermöglich das Aufnehmen von Daten mit einer hohen aus vielen verschieden Quellen, was optimal für Streams ist. Außerdem erlauben sie dem Nutzer einfach die Daten abzufragen und zu verstehen. Da die Datenbanken dafür ausgelegt sind Daten mit einem Timestamp zu speichern, sind sie optimiert für die Messung von Änderungen über die Zeit. Sie Unterscheiden sich von anderen Datenbanken, durch ein bestimmte Datenlebenszyklus Verwaltung, das Zusammenfassen von viel Daten des gleichen Typs und das schnelle Scannen der einzelnen Einträge. Oft ist die Struktur der eingetragen Daten deutlich weniger Komplex als bei Relationalen Datenbanken, was allerdings einen Geschwindigkeitsvorteil bringt.
+
+### Data Warehouse
+
+https://developer.sh/posts/delta-lake-and-iceberg
+
+Ein Data Warehouse ist eine System zur verteilten Speicherung von Daten. Es können Transformation auf die Daten vor dem Speichern angewandt werden, sodass sie in der richtigen Form abgelegt werden. So können die verschiedenen Daten zentral abgefragt und analysiert werden. Data Warehouse sind generell für SQL ausgelegt, sodass sie die Daten in einer bestimmten Struktur erwarten.
+
+Der Vorteil von einem Data Warehouse ist die Speichergröße. Es können riesige Datenmengen innerhalb eines Data Warehouse abgelegt werden. Das Problem ist, das durch die komplexe Datenstrukturierung, die Geschwindigkeit mit der die Daten in das Data Warehouse eingefügt werden können begrenzt ist.  Das ist ein großes Problem in Verbindung mit Streaming Daten, meistens eine hohe Datenrate besitzen. Durch durch fest definierten Strukturen kann ein Data Warehouse auch nur langsam auf Änderungen in den Daten reagieren. 
+
+Kurz gesagt, ist eine Data Warehouse zwar gut für die große Menge an Daten geeignet, aber noch zu langsam und unflexibel für ein effizienten Umgang mit Streams.
+
+### Data Lakes
+
+https://developer.sh/posts/delta-lake-and-iceberg
+
+Ein Data Lake ist eine zentraler Speicher, für alle Daten die irgendwie gesammelt werden. Dabei ist es egal, ob es sich um strukturiert oder und unstrukturierte Daten handelt. Sie werden so in ihrem Rohformat gespeichert, ohne sie umzuwandeln. Die Daten können aus unterschiedlichen Quellen kommen und unterschiedliche Typen besitzen. In dem Data Lake können Text, Zeitreihen und Bilddaten ohne weiteres zusammen kommen. Erst beim Abrufen erfolgt gegeben falls eine Umstrukturierung.
+
+Diese Eigenschaften sind gut geeignet für Daten aus einem Datenstrom. Durch die weggefallen Strukturierung der Daten können sie mit einer sehr hohen Datenrate gespeichert werden. Außerdem ist ein Data Lake ohne eine vorgegeben Struktur erheblich flexibler und Änderungen in den Input Daten. Durch die riesigen Datenmenge in ihrer originalen Struktur eigen sich Data Lakes auch gut für Datenanalysen. 
+
+Was aber im Endeffekt verwendet wird, ist immer Abhängig von dem jeweiligen Anwendungsfall. Im Kontext von Datastreams besitzt ein Data Lake viel Vorteile, bei Strukturierten Daten, die in Unternehmen häufig vorkommen eignen sich Data Warehouses besser.
 
 ## Kafka
 
@@ -223,9 +237,9 @@ Die Admin API erlaubt das verwalten und betrachten der verschiedenen Topics, Par
 
 https://docs.confluent.io/current/streams/architecture.html
 
-Die Streaming Architektur im Kontext von Kafka dreht sich um die **Stream API**. Die Architektur ist ausgelegt für Parallelisierung, Koordinierung der verteilten Anwendungen und Daten, Fehlertoleranz und operationale Einfachheit. Die folgende Abbildung zeigt einmal die Architektur im Überblick. Die Input und Output Streams sind die partitionierten Topics. Der Stream Processor verwendet die Consumer API um die Input Daten zu holen und die Producer API um die umgewandelten Daten weiterzuleiten.  Die folgende Beschreibung wird nun die Aufteilung der Tasks und Stream Threads näher beschreiben. Dabei wird auch auf die Topologie innerhalb einer Task eingegangen.
-
 ![streaming_processing](img/streaming_processing.png)
+
+Die Streaming Architektur im Kontext von Kafka dreht sich um die **Stream API**. Die Architektur ist ausgelegt für Parallelisierung, Koordinierung der verteilten Anwendungen und Daten, Fehlertoleranz und operationale Einfachheit. Die überliegende Abbildung zeigt einmal die Architektur im Überblick. Die Input und Output Streams sind die partitionierten Topics. Der Stream Processor verwendet die Consumer API um die Input Daten zu holen und die Producer API um die umgewandelten Daten weiterzuleiten.  Die folgende Beschreibung wird nun die Aufteilung der Tasks und Stream Threads näher beschreiben. Dabei wird auch auf die Topologie innerhalb einer Task eingegangen.
 
 **Prozessor Topologie**
 
@@ -239,7 +253,7 @@ Die Prozessor Topologie beschreibt die Logik der Stream Processing Anwendung. Si
 
 Was im ersten Augenblick ziemlich komplex wirkt verbirgt die Möglichkeiten der automatischen Skalierung und Aufteilung der Daten auf mehrere Instanzen. Dafür ist es wichtig zu verstehen, dass die Anzahl der möglichen Aufteilungen direkt Abhängig ist von der Partitionierung der Input Topics ist.  Der Grund dafür wird in der folgenden Grafik gezeigt.
 
-![tasks](img/tasks.png)
+![all_tasks](img/all_tasks.png)
 
 Die Daten werden nicht manuell Aufgeteilt, sondern es wird Aufteilung der Topics verwendet. Jedes Topic wird zu einer Liste an Partitionen (der verschieden Input Topics) zugewiesen. Da jedes Topic zu einer Partition eines Topics zugewiesen wird, ist die maximale Anzahl an Tasks gleich der maximale Partitionierung aller Input Topics. In diesem Beispiel haben beide Topics vier Partitionen und somit ist maximale Anzahl an Task 4. Die Zuweisung von Partition zu Task ändert sich nie und somit ist die Anzahl and Task fest gelegt. Für jeden Task wird für die Verarbeitung jeweils die Prozessor Topologie initialisiert mit eigenen Buffern für die Inputdaten. 
 
@@ -249,30 +263,116 @@ Diese Tasks werden nun für die Verarbeitung weiter aufgeteilt auf Verschiedenen
 
 Für den Fall, dass es mehrere Instanzen gibt, zum Beispiel weil eine neue gestartet wurde, sähe die Zuweisung der Tasks beispielsweise wie folgt aus. Hierbei wurde die erste Instanz mit nur einem Thread gestartet und die zweite mit zwei Threads. Kafka übernimmt dynamisch die Neu-Zuweisung, wenn eine Instanz dazu kommt oder verschwindet. 
 
-![multiple_instances](img/multi_instances.png)
+![muti_instances](img/muti_instances.png)
 
 Zusammenfassend lässt sich also sagen, das Kafka die Partitionierung und Aufteilung vollkommen übernimmt. Der nutze muss lediglich die Task definieren und anschließende die Anzahl an Instanzen und deren jeweiligen Thread Anzahl festlegen. Dadurch ist Streamprocessing innerhalb eines großen Clusters mit vielen Instanzen trotzdem sehr einfach für den Nutzer zu realisieren. Zudem der gesamte Prozess sehr Fehlertolerant. Das liegt daran, dass die einzelnen Bestandteile schon sehr Fehlertolerant ist. Um Fehler im Consumer zu Fangen werden die Funktionen der Consumer API genutzt. Außerdem liegen mehrere Kopien von den verschiedenen Partitionen vor, sodass der Ausfall einer Partition schnell gefangen werden kann. Und durch das dynamisch aufteilen der Tasks auf die Instanzen ist auch das Ausfallen von Instanzen kein großes Problem. 
 
+### Kafka Use Cases
+
+https://kafka.apache.org/intro
+
+Der Spezielle Aufbau von Kafka ermöglicht breitgefächerte Anwendungsgebiete, auch solche die nicht unbedingt Streaming erfordern. Der Folgenden Abschnitt wird hierfür drei Beispiele und darauf eingehen, warum Kafka sich hierfür besonders eignet. Obwohl sich hierbei auf drei Beispiele beschränkt wird ist der Anwendungsbereich riesig.
+
+**Messaging System**
+
+Um zu erklären warum und wie Kafka als Message Dienst genutzt werden kann, werden im folgenden einmal kurz die wichtigsten Grundprinzipien vom Messaging aufgeführt. Für einen detaillierteren Einblick bitte in die dazugehörige [Ausarbeitung](./Messaging/Messaging) gucken.
+
+Es gibt grundsätzlich zwei Module beim Messaging, Queues und Publish-Subscribe. Bei der Queue lesen mehrere Consumer die Einträge vom Server, wobei jeder Datensatz nur zu genau einem Consumer geht. Beim Publish und Subscribe Prinzip, werden die Nachrichten an all Subscriber geschickt.
+
+Diese beiden Konzepte werden in bei Kafka über das Design der Consumer Gruppe abgefangen. Die Nachrichten werden wie bei der Queue innerhalb einer Consumer Gruppe aufgeteilt. Darüber hin können mehrere Consumer Gruppe ein Topic lesen, wie es bei dem Publish und Subscribe Prinzip der Fall ist. Dadurch, das beide Funktionalitäten auf einmal abgedeckt werden ist Kafka wesentlich Flexibler. Ein weitere Vorteil ist, das Datensätze in Form eine Logs gespeichert werden, sodass auch ältere Daten oder bereits verarbeitete gelesen werden können. 
+
+Ein weitere Vorteil ist, das Kafka eine striktere Reihenfolge hat, was für parallele Verarbeitung wichtig ist. So ist es zum Beispiel bei dem parallelen Verarbeiten mit Messaging Systemen und Queues so, das die Daten innerhalb der Queue eine Reihenfolge je nach ihrem eintreffen haben, allerdings können sie nicht sicher Stellen, das aufeinander folgenden Daten bei unterschiedlichen Consumer in der richtigen Reihenfolge ankommen. So kann die richtige Reihenfolge nach dem Versenden nicht mehr sichergestellt werden. 
+
+Bei Kafka hingegen geschieht das über die strikte Reihenfolge innerhalb der Partitionen. So bekommt ein Consumer immer nur die Daten aus einer Partition. Somit somit wird die Reihenfolge innerhalb des Consumers und der Partition beibehalten. Allerdings ist die Anzahl der innerhalb einer Gruppe begrenzt mit der Anzahl an Partitionen des Topics.
+
+**Storage System**
+
+Jede Form einer Message Queue, die das Senden der Nachricht unabhängig von deren Lesen erlaubt kann theoretisch als Storage System betrachtet werden. Kafka besitzt einige Eigenschaften warum dies auf Kafka im Besonderen zutrifft. 
+
+Zum einen werden die Daten auf die Disk geschrieben und werden nicht in einem flüchtigen Speicher gehalten. Darüber hinaus wird eine Partition zur Erhöhung der Fehlertoleranz mehrfach kopiert und auf anderen Servern gespeichert. Darüber hinaus nutzt Kafka eine Speicherstruktur, die eine große Skalierbarkeit besitzt, so das die Performance gleich bleibt, unabhängig von der Menge an gespeicherten Daten.
+
+Eine letzter Punkt, warum sich Kafka für die Speicherung  von Daten eignet ist der vom Consumer verwaltete Offset. Über diesen Offset kann eine Consumer die Daten frei an jeder beliebigen Stelle lesen. Dies kann wie ein spezielles Datei-System gesehen werden.
+
+**Stream Processing**
+
+Dieser Use Case fällt im Vergleich zu den anderen insofern aus der Reihe, dass es eine typische Aufgabe von Streaming ist. Nichtsdestotrotz ist die Architektur von Kafka, wie in dem vorherigen Kapitel aufgeführt, sehr gut geeignet für eine solche Stream Processing in Echtzeit. Hierbei bezeichnet das Stream Processing alles was einen kontinuierlichen Stream als Input bekommt, Operation bzw. Transformationen auf den Daten ausführt und anschließend einen kontinuierlichen Strom and Daten als Output hat.
+
+Typische Einsatzgebiete sind zum Beispiel das Behandeln von Ausreißern in den Daten oder das Durchführen von Zustandsberechnungen eines sich ändernden Systems.
+
 ### Kafka und Microservices
 
+Kafka lässt sich auch gerade im Bereich von Microservices Einsetzen wegen seine Unterstützung von Asynchronen Nachrichten. Im einfachsten Fall wird Kafka dabei eins zu eins wie ein Messaging System, wie zum Beispiel RabbitMQ, eingesetzt werden. Wie vorher schon erwähnt bietet Kafka dabei einige Vorteile im vergleich zu herkömmlichen Message Systemen, vor allem durch seine hohe Flexibilität. Dabei sorgt Kafka automatisch für das richtige Balancing der verschiedenen Prozesse.
+
+Aber Kafka bietet noch viel mehr Möglichkeiten, wie im Verlauf diese Ausarbeitung schon herausgearbeitet, die sich in Umgebung von Microservices effektive einsetzen lassen. Ein erster Vorteil, ist das die Topics als gemeinsamer Speicher zwischen den Microservices verwendet werden können. Ein einfacher dieses Speichers wäre es, ihn als eine Historie von zum Beispiel Einkäufen zu verwenden. Darüber hinaus können die Topics aber so eingestellt werden, immer nur den letzten Wert für einen Schlüssel zu speichern. Darüber können zum Beispiel Status anfragen geregelt werden. 
+
+Der Zugriff auf ein Topic kann auch über eine Access Control List begrenzt werden, so dass nur eingetragene Services auf den Speicher zugreifen können.  Der beschränkte Zugriff ist natürlich auch für die Kommunikation vom Vorteil, auch nur bestimmte Services die Nachrichten lesen können.
+
+Ein weiterer Großer Vorteil von Kafka mit Microservices ist offensichtlicher. Das die Topics für Datenströme ausgelegt sind, kann Kafka gleichzeitig als Messaging System und als Streaming System zwischen den einzelnen Services eingesetzt werden. Die Einsatzmöglichkeiten von Streaming in diesem Kontext sind riesig und gehen von Video und Audio Streams über Status anzeigen von Sensoren bis zu Aktivitäten Tracking der Nutzer.
+
+Mit dem Aktivitäten Tracking geht eine weitere Fähigkeit einher, die sich mittels Kafka umsetzten lässt. Und zwar das Stream Processing. So kann zum Beispiel basierend auf den Aktivitäten eines Nutzer die Funktionalität eines Services angepasste werden. Parallel zu dem Tracking kann ein Echtzeit Verhaltensanalyse durchgeführt werden, um daraufhin zum Beispiel die Reihenfolge der Angebotenen Produkte geändert werden oder Empfehlungen für den Kunden gegeben werden.
+
+Innerhalb eine Clusters von Microservices lassen sich so viele Daten generieren, auf die über Kafka unterschiedliche Analysen ausgeführt werden können. Die Möglichkeiten die sich daraus ergeben sind nahezu  unbegrenzt.
+
+Obwohl Kafka diese vielen Möglichkeiten bietet, muss dabei auch beachtet werden, das ein erhöhter Wartungsaufwand einhergeht und Kafka mehr Ressourcen benötigt als andere Dienst. Deswegen sollte sich vorher gefragt werden, ob der Mehrwert, der Kafka in diesem Kontext mit sich bring auch wirklich genutzt wird.
+
+### Abgrenzung zu anderer Big Data Science Software
+
+Verschiedene Software bietet zum Teil Lösungen die so ähnlich auch in Kafka zu finden sind. Das diese Lösungen auch in Kafka so ähnlich zu finden sind bedeutet aber nicht, das Kafka anstelle dieser Software verwendet werden soll. Die verschiedenen Bibliotheken bieten gute Lösungen für ihren jeweiligen Anwendungsfall und wenn das Ziel das lösen diese Anwendungsfalls ist, ist es durchaus sinnvoll diese Software zu verwenden. Kafka ist stark auf Streams ausgerichtet, was sich zum einen in der Umsetzung widerspiegelt, was gut und schlecht sein kann. Dadurch besitzt Kafka eine hohe Komplexität die nicht unbedingt für jeden Anwendungsfall notwendig ist.
+
+**Apache Spark Streaming**
+
+https://spark.apache.org/docs/latest/streaming-programming-guide.html
+
+Apache Spark Streaming basiert auf Apache Spark, welches eine Engine für large-scale Datenverarbeitung ist. Allerdings ist Apache Spark auf Batch Verarbeitung ausgelegt. Apache Spark Streaming ist nun die Erweiterung für die Verarbeitung von Streams. Der Input sind nun keine Batches mehr sondern zum Beispiel eine Stream an Datensätzen von Kafka. Im Gegensatz zur Stream Verarbeitung von Kafka, welches direkt auf den Minidatensätzen arbeiten kann, sammelt Spark Streaming die Daten zunächst in Minibatches, welche dann erst Verarbeitet werden. Das bedeutet auch, das der Output keine Datenstrom mehr ist, wie es bei Kafka der Fall ist.
+
+![streaming-flow](img/streaming-flow.png)
+
+**Apache Hadoop**
+
+https://hadoop.apache.org/
+
+Der Fokus von Apache Hadoop liegt auf der Koordinierung der Verteilten Verarbeitung von Datensätzen über ein Cluster hinweg.  Die Bibliothek soll Ausfälle erkennen und behandeln. Um so unabhängig von er Verfügbarkeit der einzelnen Hardware des Clusters trotzdem eine hohe Verfügbarkeit über das Cluster hinweg zu erlangen. Die Bibliothek ist Vergleichbar zu der automatischen Verteilung der einzelnen Partitionen eines Topics über das Cluster vergleichbar oder zu der dynamischen Zuweisung von Task an die einzelnen Verarbeitungsinstanzen. Die Übertragung der Daten über Streams ist dabei nicht Teil von Hadoop.
+
+**Apache Hive**
+
+https://developer.sh/posts/delta-lake-and-iceberg
+
+https://hive.apache.org/
+
+Apache Hive ist eine Data Warehouse Software. Sie führt das Lesen, Schreiben und Verwalten von großen Datensätzen, die verteilt gespeichert werden, über SQL durch. In Kafka wäre die Verwaltung und Verteilung der einzelnen Topics und deren Partitionen auf den verschiedenen Servern vergleichbar. Die letzten neuen Versionen von Hive Ziele darauf ab die Verarbeitung von Streams zu unterstützen. Problem die dabei vorliegen ist unter anderem, das die Datenrate von Streams erheblich höher ist, als sie von Hive verarbeitet werden können. Außerdem sind die Daten von Stream Variabler und können sich schneller ändern, wohingegen Hive langsam auf solche Änderung reagiert.
+
+**Apache Cassandra**
+
+https://cassandra.apache.org/
+
+Apache Cassandra ist wie ähnlich zu Hive eine verteilte Datenbank, designt für große Datenmengen. Dadurch, dass es sich bei Cassandra um eine NoSQL Datenbank handelt sie allerdings wesentlich flexibler als Hive und kann besser mit unterschiedlichen Datenumgehen. Darüber hinaus ist die Datenbank einfach skalierbar, was auch eine Vorteil im Hinblick auf das Arbeiten mit Streams ist.
+
+**Apache Flink**
+
+https://flink.apache.org/flink-architecture.html
+
+Das Apache Flink Framework wird für die verteilte Verarbeitung Streams zur Statusberechnungen verwendet. Dabei wird die Verarbeitung automatisch über das Cluster verteilt um eine gleichmäßige Auslastung zu erreichen. Für die Streams ist es dabei nicht zwingend Notwendig, dass sie ein Ende besitzen. Apache Flink ist Vergleichbar zu der Stream Verarbeitung innerhalb von Kafka, mit dem Unterschied, das hier der Fokus auf Statusberechnungen liegen. Kafka hingegen ist auch darauf ausgelegt einfache Transformationen auszuführen.
+
+**Apache Beam**
+
+https://www.google.com/search?q=apache+beam+kafka&rlz=1C1CHBF_deDE897DE897&oq=apache+beam+ka&aqs=chrome.1.69i57j0l7.3971j0j4&sourceid=chrome&ie=UTF-8
+
+Apache Beam bietet die Möglichkeit parallel Datenverarbeitung Pipelines zu definieren, für Batch und Stream Verarbeitung. Wichtig ist, dass hier nur die Modellierung statt findet, die konkrete Ausführung wird dann von einem Backend wir zum Beispiel Google Cloud Dataflow, oder auch Kafka durchgeführt. Die Pipeline definiert die Schritte die zur Verarbeitung ausgeführt werden sollen unabhängig von der darunterliegenden Umsetzung. Vorteil ist, das die Pipeline mit wenigen Anpassungen für verschiedenen Backends angewandt werden können. In Kafka hingegen ist die Definition von Pipelines wesentlich komplexer, bietet dafür aber mehr Möglichkeiten für eigene Transformationen.
+
+### Anwendungen On Top von Kafka
+
+**KSQL**
+
+KSQL hat, anders als der Name es vermuten lässt, nichts mit SQL Datenbanken zutun. Bei SQL Datenbanken werden anfragen ausgef 
+
+**Avro**
+
+https://www.confluent.io/blog/avro-kafka-data/
 
 
-### Use Cases
 
-* Use Cases
-  * https://kafka.apache.org/uses
-  * 
-* Darstellung der wesentlichen Konzepte von Kafka
-  * Producer, Consumer, Cluster, Topics, Partition, Broker
-* Was ist im Zusammenhang mit Kafka die "Streaming Architecture"?
 * Was ist KSQL?
   * https://www.confluent.io/product/ksql/
 * Was ist Avro?
-  *  https://www.confluent.io/blog/avro-kafka-data/
-* Abgrenzung zu Big Data Science Software 
-  * Apache Spark Streaming
-  * Apache Hadoop
-  * Apache HiveApache Cassandra
-  * Apache Flink
-  * Apache Beam
-* Kafka in Microservice-Architekturen zur asynchronen Kommunikation
+  *  
+*  Data Lakes / Streaming Data Tools & Techniques
