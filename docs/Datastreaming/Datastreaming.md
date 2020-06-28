@@ -361,18 +361,25 @@ Apache Beam bietet die Möglichkeit parallel Datenverarbeitung Pipelines zu defi
 
 ### Anwendungen On Top von Kafka
 
+Um die Streams besser verarbeiten und Analysieren zu können gibt es Anwendung on top von Kafka, die den Umgang mit Stream vereinfachen sollen. Dies geschieht bei KSQL durch eine einfachere Syntax für den Zugriff auf die Daten eines Streams und bei Avro durch ein definiertes Schema für die Nachrichten.
+
 **KSQL**
 
-KSQL hat, anders als der Name es vermuten lässt, nichts mit SQL Datenbanken zutun. Bei SQL Datenbanken werden anfragen ausgef 
+https://www.confluent.io/blog/ksql-streaming-sql-for-apache-kafka/
+
+KSQL hat, anders als der Name es vermuten lässt, nichts mit SQL Datenbanken zutun. Bei SQL Datenbanken werden anfragen ausgeführt um lokale Daten abzufragen oder zu modifizieren. Was KSQL macht, sind kontinuierliche Anfrage auf die Daten eines Stream. KSQL besitzt zwei Kern Konzepte, die auf Kafka Topics aufbauen.
+
+1. **Stream**: Eine unendliche Reihe von Daten, wobei eingetragene Daten imutable sind
+2. **Table**: Eine Sicht auf ein Stream oder eine anderen Tabelle in Form einer Sammlung der sich ändernden Daten. Die Daten in einer Tabelle sind mutable, sodass sie für Transformationen genutzt werden können
 
 **Avro**
 
 https://www.confluent.io/blog/avro-kafka-data/
 
+Avro ist ein System für die Datenserialisierung um den Austausch zwischen verschiedenen Systemen, Programmiersprachen und Frameworks zu vereinfachen. Dafür definiert es eine Schema, welches vergleichbar zu dem JSON Format ist.
 
+Eine der Eigenschaften von Kafka ist, dass die Daten ein beliebiges. Das Daten oft eine unterschiedliche Struktur haben, werden sie so nicht durch ein Schema eingeschränkt. Mittels Avro wird argumentiert, warum es doch sinnvoll sein kann ein Schema zu verwenden, trotz des Overhead der durch die Strukturierung und Validierung dazu kommt. Ein Auszug der Vorteile der Verwendung eines Schemas sind im folgenden Aufgeführt.
 
-* Was ist KSQL?
-  * https://www.confluent.io/product/ksql/
-* Was ist Avro?
-  *  
-*  Data Lakes / Streaming Data Tools & Techniques
+1. **Robustheit**: Ohne Schema kann die Konsistenz und Strukturelle Korrektheit der Daten nicht sicher gestellt sein. Neue Producer eines Streams werden versuchen das ursprüngliche Datenformat beizubehalten, aber es gibt keine Garantie und keine Möglichkeit der Überprüfung
+2. **Semantik**: Ohne Schema ist die Semantik eines Wertes nicht eindeutig definiert. Eingehende Daten können von lesenden Systemen unterschiedlich interpretiert werden.
+3.  **Kompatibilität**: Durch Avro wird die Kompatibilität mit einer breitem Reihe an anderen Systemen sicher gestellt.
