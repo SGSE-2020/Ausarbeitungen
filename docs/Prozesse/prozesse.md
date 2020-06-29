@@ -1,6 +1,6 @@
 # Einleitung
 
-Das Designen und Festlegen von festen Arbeitsabläufen ist unerlässlich in der Zusammenarbeit mit anderen. Durch die geänderten Anforderungen durch die Digitalisierung funktionieren die alten Prozesse allerdings nur noch bedingt. Aus diesem Grund wird heutzutage immer mehr auf agile Prozesse und Methoden gesetzt. Der bekanntesten Vertreter dieser neuen Agilen Frameworks sind Scrum und Kanban. Aber welche Strategien gibt es außerhalb dieser beiden? Und welche Tools bieten sich an um diese zu nutzen? 
+Das Designen und Festlegen von festen Arbeitsabläufen ist unerlässlich in der Zusammenarbeit mit anderen. Durch die geänderten Anforderungen durch die Digitalisierung funktionieren die alten Prozesse allerdings nur noch bedingt. Aus diesem Grund wird heutzutage immer mehr auf agile Prozesse und Methoden gesetzt. Der bekanntesten Vertreter dieser neuen Agilen Frameworks sind Scrum und Kanban. Aber welche Strategien gibt es außerhalb dieser beiden? Und welche Tools bieten sich an, um diese zu nutzen? 
 
 # User-Centered Design
 
@@ -12,7 +12,7 @@ Die Idee hinter dem Entwurf User zentriert zu entwickeln steht die Anforderung, 
 
 In der ersten Phase geht es darum, dass der Benutzerkontext verstanden wird. Hieraus ergeben sich dann auch verschiedene Useranforderungen. Diese werden dann ausgearbeitet und umgesetzt. Zum Schluss eines Durchlaufes wird die Arbeit bewertet und es werden die vorher getroffenen Anforderungen verfeinert. Dies wird bis zum Endprodukt immer wiederholt.
 
-Im folgenden werden die Phasen noch genauer beschrieben:
+Im Folgenden werden die Phasen noch genauer beschrieben:
 
 1. Analyse: In dieser Phase wird der Benutzerkontext beschrieben. Die gestellten Fragen dazu lauten:
 
@@ -26,15 +26,15 @@ Im folgenden werden die Phasen noch genauer beschrieben:
 
    Aus den formulierten Wünschen in Phase 1 werden jetzt Anforderungen für das Programm  erstellt. Bei einer Präsentationssoftware könnte zum Beispiel der Wunsch vom User kommen "Ich muss wissen, wie viel Zeit ich noch habe". Hieraus könnte die Anforderung entstehen: "Die Restzeit muss sichtbar sein".
 
-3. Design: Die gestellten Anforderungen werden einem ersten Protoypen umgesetzt. Der Fokus liegt hierbei ganz klar auf der Nutzbarkeit der Funktionen. Das Design trägt zwar seinen Teil dazu bei, gutes Design ersetzt fehlende Funktionalitäten jedoch nicht.
+3. Design: Die gestellten Anforderungen werden einem ersten Prototypen umgesetzt. Der Fokus liegt hierbei ganz klar auf der Nutzbarkeit der Funktionen. Das Design trägt zwar seinen Teil dazu bei, gutes Design ersetzt fehlende Funktionalitäten jedoch nicht.
 
-4. Evaluation: Die erarbeiteten Lösungen werden ständig geprüft und getestet. Hierzu ist wieder das Feedback vom User nötig. Dies kann wieder über Methoden wie Interviews oder Useability-Tests eingeholt werden.
+4. Evaluation: Die erarbeiteten Lösungen werden ständig geprüft und getestet. Hierzu ist wieder das Feedback vom User nötig. Dies kann wieder über Methoden wie Interviews oder Usability-Tests eingeholt werden.
 
 Diese Phasen werden wie oben gezeigt immer wieder durchlaufen, bis es zu einem endgültigen Produkt gekommen ist.
 
 ## Einsatzgebiet
 
-Diese Vorgehensweise bietet sich für alle Bereiche an, in denen eine starke Userfokussierung vorliegt. Klassische Bereiche dafür wären zum Beispiel Webfrontends oder die App-Entwicklung.
+Diese Vorgehensweise bietet sich für alle Bereiche an, in denen eine starke Userfokussierung vorliegt. Klassische Bereiche dafür wären zum Beispiel Web-Frontends oder die App-Entwicklung.
 
 ## Vorteile
 
@@ -76,15 +76,15 @@ Das Framework beherrscht mehrere Lebenszyklen. Hier wird sich auf ein agiler Leb
 
 ![DaD Basic Lifecycle](./img/dadbasic.png)
 
-Dieser Zyklus basiert auf Scrum. Am Anfang ist die Inception Phase. Diese besteht aus wenigen kurzen Iterationen um die erste Planung und Organisation zu beschließen. Anschließend geht es schon in die Construction über. Aus den Anforderungen werden Work Items extrahiert und diese priorisiert. Anschließend werden die wichtigsten Funktionen zuerst entwickelt. Der normale Scrum Zyklus wird dabei angewendet. Am Ende dieser Phase werden erste Demos den Stakeholdern gezeigt. Daraus werden dann  neue Anforderungen oder abweichende Priorisierungen ermittelt. Diese fließen in die Planung für den nächsten Durchlauf ein. Abschließend wird in der Transition Phase das fertige Produkt zu den Stakeholdern gegeben. Das Feedback zu dem Produkt kann wiederum zu Anpassungen führen.
+Dieser Zyklus basiert auf Scrum. Am Anfang ist die Inception Phase. Diese besteht aus wenigen kurzen Iterationen, um die erste Planung und Organisation zu beschließen. Anschließend geht es schon in die Construction über. Aus den Anforderungen werden Work Items extrahiert und diese priorisiert. Anschließend werden die wichtigsten Funktionen zuerst entwickelt. Der normale Scrum Zyklus wird dabei angewendet. Am Ende dieser Phase werden erste Demos den Stakeholdern gezeigt. Daraus werden dann  neue Anforderungen oder abweichende Priorisierungen ermittelt. Diese fließen in die Planung für den nächsten Durchlauf ein. Abschließend wird in der Transition Phase das fertige Produkt zu den Stakeholdern gegeben. Das Feedback zu dem Produkt kann wiederum zu Anpassungen führen.
 
-Der Unterschied zu dem einfachen Scrum liegt jetzt darin, dass alle Personen im Unternehmen beteiligt werden. So sind auch alle für kontinuierliche Verbesserungen zum erreichen der Vision zuständig. Ebenfalls wird jetzt nicht nur die Software in Ihrer Entstehung begleitet, sondern auch im weiteren Lebensverlauf. So können Anforderungen, die nach Auslieferung der Software entstehen, wieder in den Entwicklungsprozess zurückgehführt werden. Das Produkt wird über die komplette Lebenszeit betreut.
+Der Unterschied zu dem einfachen Scrum liegt jetzt darin, dass alle Personen im Unternehmen beteiligt werden. So sind auch alle für kontinuierliche Verbesserungen zum Erreichen der Vision zuständig. Ebenfalls wird jetzt nicht nur die Software in Ihrer Entstehung begleitet, sondern auch im weiteren Lebensverlauf. So können Anforderungen, die nach Auslieferung der Software entstehen, wieder in den Entwicklungsprozess zurückgehführt werden. Das Produkt wird über die komplette Lebenszeit betreut.
 
 Die unteren drei Phasen stellen dabei eher den Lebenszyklus da, das Scrum ähnliche Schaubild eher den Entwicklungsprozess.
 
 ## Vorteile
 
-DaD ist sehr flexibel und greift andere Aspekte auf, wie die bereits vorgestellten Methodiken SAFe, LeSS oder Nexus. Aus diesem Grund kann es sich bei DaD um eine passende Ergänzung zu diesen Frameworks handeln. Dabei überlässt das Framework den Entwicklern einen gewissen Freiraum nach welchem Praktiken diese arbeiten. Der Fokus liegt vielmehr auf der angemessenen Repräsentation aller Stakeholder an einem Produkt. So sollen auch andere Business Einheiten in dem Unternehmen Einfluss nehmen können. Ein Punkt, den Nexus und LeSS zum Beispiel nicht behandeln. Auch bietet dieses Framework sehr viel Flexibilität und soll vor allem bei der Auswahl der richtigen Methodik unterstützen. 
+DaD ist sehr flexibel und greift andere Aspekte auf, wie die bereits vorgestellten Methodiken SAFe, LeSS oder Nexus. Aus diesem Grund kann es sich bei DaD um eine passende Ergänzung zu diesen Frameworks handeln. Dabei überlässt das Framework den Entwicklern einen gewissen Freiraum nach welchen Praktiken diese arbeiten. Der Fokus liegt vielmehr auf der angemessenen Repräsentation aller Stakeholder an einem Produkt. So sollen auch andere Business Einheiten in dem Unternehmen Einfluss nehmen können. Ein Punkt, den Nexus und LeSS zum Beispiel nicht behandeln. Auch bietet dieses Framework sehr viel Flexibilität und soll vor allem bei der Auswahl der richtigen Methodik unterstützen. 
 
 ## Nachteile
 
@@ -100,7 +100,7 @@ Am Anfang der Entstehungsgeschichte stand nur das Liefern von Software im Vorder
 
 Mittlerweile umfasst das DA Framework noch folgende Bereiche:
 
-__DA DevOps:__ Integration agiler Entwicklung mit dem IT Betrieb samt Security und Data Management
+__DA DevOps:__ Integration agiler Entwicklung mit dem IT-Betrieb samt Security und Data Management
 
 __DA Agile IT:__ Integration agiler Entwicklung in eine IT-Organisation
 
@@ -114,7 +114,7 @@ Durch diese Erweiterungen bietet das komplette DA Framework mittlerweile sehr vi
 
 ## Zweck
 
-Nexus ist ein Framework um die Arbeit mit mehreren Scrum-Teams zu erleichtern. Scrum selber beschreibt nur den Ablauf innerhalb eines Teams, zu der Zusammenarbeit mit anderen Teams macht es jedoch keine Vorgaben. Um diese Lücke möglichst leichtgewichtig zu füllen, hat einer der Erfinder von Scrum, Ken Schwaber, Nexus entwickelt.
+Nexus ist ein Framework, um die Arbeit mit mehreren Scrum-Teams zu erleichtern. Scrum selber beschreibt nur den Ablauf innerhalb eines Teams, zu der Zusammenarbeit mit anderen Teams macht es jedoch keine Vorgaben. Um diese Lücke möglichst leichtgewichtig zu füllen, hat einer der Erfinder von Scrum, Ken Schwaber, Nexus entwickelt.
 
 ## Ablauf
 
@@ -124,7 +124,7 @@ Nexus besteht aus drei Elementen. Den Rollen, Artefakten und Events. Eine Rolle 
 
 ### Verfeinerung des Product Backlogs
 
-Am Anfang des Models steht die Verfeinerung des Product Backlogs. Dieses muss so genau definiert werden, dass Abhängigkeiten erkannt und beseitigt oder minimiert werden. Die Einträge im Backlog werden zu kleinen Teile der Funktionalität verfeinert und die Teams, welche die Funktionalität erledigen sollen, erkannt und zugewiesen.
+Am Anfang des Models steht die Verfeinerung des Product Backlogs. Dieses muss so genau definiert werden, dass Abhängigkeiten erkannt und beseitigt oder minimiert werden. Die Einträge im Backlog werden zu kleinen Teilen der Funktionalität verfeinert und die Teams, welche die Funktionalität erledigen sollen, erkannt und zugewiesen.
 
 ### Nexus Sprint-Planning
 
@@ -144,15 +144,15 @@ Das Integration Team hat dafür Sorge zu tragen, dass am Ende des Sprints mindes
 
 ### Nexus Daily Scrum
 
-Die Repräsentanten von jedem Team treffen sich täglich um bestehende Integrationsprobleme zu erkennen und zu erörtern. Im Anschluss an dieses Meeting haben die Teams ihr Daily Scrum Meeting. Hier soll der Tagesplan erstellt werden. Sollten im Nexus Daily Scrum Integrationsprobleme erkannt werden, sollten diese im Tagesplan adressiert werden.
+Die Repräsentanten von jedem Team treffen sich täglich, um bestehende Integrationsprobleme zu erkennen und zu erörtern. Im Anschluss an dieses Meeting haben die Teams ihr Daily Scrum Meeting. Hier soll der Tagesplan erstellt werden. Sollten im Nexus Daily Scrum Integrationsprobleme erkannt werden, sollten diese im Tagesplan adressiert werden.
 
 ### Nexus Sprint Review
 
-Am Ende eines jeden Sprint findet der Sprint Review statt. Hier treffen sich alle Teams mit den Stakeholdern um Feedback zu der gebauten Funktionalität zu erhalten. Ergebnis aus diesem Feedback kann das Product Backlog weiter verfeinern.
+Am Ende eines jeden Sprint findet der Sprint Review statt. Hier treffen sich alle Teams mit den Stakeholdern, um Feedback zu der gebauten Funktionalität zu erhalten. Ergebnis aus diesem Feedback kann das Product Backlog weiter verfeinern.
 
 ### Nexus Sprint Retrospektive
 
-Abschließend treffen sich die Vertreter von jedem Team um gemeinsame Probleme zu identifizieren. Anschließend hält jedes Team eine eigene Retrospektive ab. Danach treffen sich dann noch einmal die Vertreter um die erkannten Probleme abschließend zu diskutieren und das weitere Vorgehen zu erarbeiten. So soll sichergestellt werden, dass die Probleme passend in der Lösung beachtet werden.
+Abschließend treffen sich die Vertreter von jedem Team, um gemeinsame Probleme zu identifizieren. Anschließend hält jedes Team eine eigene Retrospektive ab. Danach treffen sich dann noch einmal die Vertreter um die erkannten Probleme abschließend zu diskutieren und das weitere Vorgehen zu erarbeiten. So soll sichergestellt werden, dass die Probleme passend in der Lösung beachtet werden.
 
 ## Vorteile
 
@@ -160,7 +160,7 @@ Für Unternehmen oder Teams, die bereits nach Scrum arbeiten, bedeutet dieses Fr
 
 ## Nachteile
 
-Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. Dies bedeutet automatisch, dass dieses Framework für große Projekte nicht geeignet ist. Zusätzlich liegt der Fokus dieses Frameworks fast ausschließlich auf dem Integrationsteam. Anweisungen oder Empfehlungen zu Struktur- und Ablaufkonzepten, oder gar zu Portfoliomanagement, IT Betrieb oder Strategien enthält das Framework leider nicht
+Hier ist ganz klar die Limitierung von Nexus auf maximal neun Teams zu nennen. Dies bedeutet automatisch, dass dieses Framework für große Projekte nicht geeignet ist. Zusätzlich liegt der Fokus dieses Frameworks fast ausschließlich auf dem Integrationsteam. Anweisungen oder Empfehlungen zu Struktur- und Ablaufkonzepten, oder gar zu Portfoliomanagement, IT-Betrieb oder Strategien enthält das Framework leider nicht
 
 # LeSS
 
@@ -180,11 +180,11 @@ Die Warteschlangen Theorie beschäftigt sich mit der Frage, wie sich Objekte in 
 
 ### Large-Scale Scrum is Scrum
 
-Dieses Prinzip sagt aus, dass der bekannte Ablauf von Scrum immer noch gleich ist. Es soll auch keine neue Version von Scrum entwickelt werden mit den Framework. Vielmehr sollen Regeln und Anleitungen gegeben werden, wie Teams zusammenarbeiten können. Es löst organisatorische Probleme. Genau legt LeSS jedoch nicht fest, wie die Teams das lösen. Dies liegt vielmehr im Aufgabenbereich jedes einzelnen Teams.
+Dieses Prinzip sagt aus, dass der bekannte Ablauf von Scrum immer noch gleich ist. Es soll auch keine neue Version von Scrum entwickelt werden mit dem Framework. Vielmehr sollen Regeln und Anleitungen gegeben werden, wie Teams zusammenarbeiten können. Es löst organisatorische Probleme. Genau legt LeSS jedoch nicht fest, wie die Teams das Lösen. Dies liegt vielmehr im Aufgabenbereich jedes einzelnen Teams.
 
 ### Transparency
 
-Da sich auch mit der Anwendung von Scrum Probleme nicht automatisch lösen, bietet LeSS Methoden um den Teams ein regelmäßiges Feedback zu geben, wo Sie aktuell stehen. Es zeigt aber nicht nur Probleme in dem Team auf, sondern auch in der Organisation.
+Da sich auch mit der Anwendung von Scrum Probleme nicht automatisch lösen, bietet LeSS Methoden, um den Teams ein regelmäßiges Feedback zu geben, wo Sie aktuell stehen. Es zeigt aber nicht nur Probleme in dem Team auf, sondern auch in der Organisation.
 
 ### More with LeSS
 
@@ -205,7 +205,7 @@ Im Mittelpunkt steht immer der Kunde und seine Anforderungen. Jeder ist somit di
 
 ### Continuous Improvement towards perfection
 
-Die Hauptaussage besteht darin, dass Perfektion so gut wie nie erreicht wird. Aus diesem Grund ist ein Produkt auch nie wirklich fertig. Stattdessen wird es kontinuierlich weiterentwickelt um näher an die Perfektion ran zu kommen.
+Die Hauptaussage besteht darin, dass Perfektion so gut wie nie erreicht wird. Aus diesem Grund ist ein Produkt auch nie  fertig. Stattdessen wird es kontinuierlich weiterentwickelt, um näher an die Perfektion ran zu kommen.
 
 ### Lean Thinking
 
@@ -213,11 +213,11 @@ Hierunter wird verstanden, dass eine Denkweise etabliert wird, die den Respekt v
 
 ### Systems Thinking
 
-Auch dieser Punkt definiert wieder mehrere Prinzipien die ihn ausmachen. Zusammengefasst geht es so ungefähr darum, ein Gespür für das System zu bekommen. Und das neue Probleme nicht einfach auftauchen, sondern es Gründe im System gibt. Hierfür muss man aber die Eigenheiten, den Aufbau und die Gedanken für das System verstehen.
+Auch dieser Punkt definiert wieder mehrere Prinzipien, die ihn ausmachen. Zusammengefasst geht es so ungefähr darum, ein Gespür für das System zu bekommen. Und das neue Probleme nicht einfach auftauchen, sondern es Gründe im System gibt. Hierfür muss man aber die Eigenheiten, den Aufbau und die Gedanken für das System verstehen.
 
 ### Empirical Process Controll
 
-Es wird in kurzen Zyklen ein versandfertiges Teil des Produktes hergestellt und getestet. Hierbei wird vor allem die Art und weise wie es gebaut wird überprüft.
+Es wird in kurzen Zyklen ein versandfertiges Teil des Produktes hergestellt und getestet. Hierbei wird vor allem die Art und Weise wie es gebaut wird überprüft.
 
 ### Zusammenfassung
 
@@ -251,7 +251,7 @@ LeSS enthält keine Angaben, bzw. Vorgaben, zu Themen wie der Unternehmensstrate
 
 ## SAFe
 
-SAFe for Lean Enterprises, so lautet der offizielle Name des Frameworks. Dieser Name deutet schon auf das große Ziel des Frameworks hin. Denkt man einmal an die Assoziationen, die man bei dem Begriff "Lean Enterprise" hat, denkt man schnell an Skalierung und agiles Arbeiten. Und genau diese beiden Schlagwörter setzt sich das Framework als Maßstab um bei der Entwicklung und Bereitstellung von Technologiebasierten Lösungen zu unterstützen. Es beansprucht dabei, die besten Konzepte aus der agilen Entwicklung, des Lean Developments und bewährte Methodigen des DevOps-Bereiches zu vereinen um so eine Online-Wissensdatenbank zur Erreichung der wirtschaftlichen Ziele zur Verfügung zu stellen. SAFe ist dabei freierhältlich. Die Inhalte des Frameworks sind allerdings sehr gut dokumentiert, allerdings auch sehr genau festgelegt.
+SAFe for Lean Enterprises, so lautet der offizielle Name des Frameworks. Dieser Name deutet schon auf das große Ziel des Frameworks hin. Denkt man einmal an die Assoziationen, die man bei dem Begriff "Lean Enterprise" hat, denkt man schnell an Skalierung und agiles Arbeiten. Und genau diese beiden Schlagwörter setzt sich das Framework als Maßstab, um bei der Entwicklung und Bereitstellung von Technologiebasierten Lösungen zu unterstützen. Es beansprucht dabei, die besten Konzepte aus der agilen Entwicklung, des Lean Developments und bewährte Methodigen des DevOps-Bereiches zu vereinen, um so eine Online-Wissensdatenbank zur Erreichung der wirtschaftlichen Ziele zur Verfügung zu stellen. SAFe ist dabei freierhältlich. Die Inhalte des Frameworks sind allerdings sehr gut dokumentiert, allerdings auch sehr genau festgelegt.
 
 ### Zweck
 
@@ -266,7 +266,7 @@ Konkreter möchte SAFe bei der Beantwortung folgender Fragen helfen:
 - Wie verbessern wir die Qualität unserer Produkte und steigern die Kundenzufriedenheit?
 - Wie skalieren wir agile Methoden von dem Team, über Programm und Geschäftsbereiche bis hin zu dem Unternehmen, um bessere Resultate zu erzielen?
 - Wie organisieren wir Mitarbeiter so um unsere Werte, dass wir effektiver werden und die Schwächen traditioneller Strukturen vermeiden?
-- Wie schaffen wir eine Umgebung, die Zusammenarbeit, Innovation und die kontionuierliche Verbesserung unserer Mitarbeiter fördert?
+- Wie schaffen wir eine Umgebung, die Zusammenarbeit, Innovation und die kontinuierliche Verbesserung unserer Mitarbeiter fördert?
 - Wie können wir unsere Unternehmenskultur so verändern, dass es sicher ist zu versagen? Wie können wir unsere Mitarbeiter motivieren Risiken einzugehen, kreativ zu denken und sich stetig zu verbessern? Wie können wir unseren Teams helfen, ohne dabei zu stören?
 
 
@@ -295,7 +295,7 @@ Sicherstellung der Ausrichtung und Finanzierung des Portfolios, welches Lösunge
 
 __Agile Portfolio Operations:__
 
-Koordiniert und unterstützt die denzentrale Ausführung.
+Koordiniert und unterstützt die dezentrale Ausführung.
 
 __Lean Governance:__
 
@@ -307,11 +307,11 @@ Im Zuge der sich globalisierenden Märkte und immer neuer und schnellerer Techno
 
 #### Continuous Learning Culture
 
-Innerhalb einer Gesellschaft lernen alle zusammen. Aus diesem Grund sind Kreativität und der Drang nach Entdeckungen Teil der Organisationsphilosophie. Dies geht sogar soweit, dass Verbesserungen und Innovationen in den Aufgabenbereich von jedem Einzelnen gehören.
+Innerhalb einer Gesellschaft lernen alle zusammen. Aus diesem Grund sind Kreativität und der Drang nach Entdeckungen Teil der Organisationsphilosophie. Dies geht sogar so weit, dass Verbesserungen und Innovationen in den Aufgabenbereich von jedem Einzelnen gehören.
 
 #### Lean-Agile Leadership
 
-Die Führungskräfte in einem Unternehmen sind für die Umsetzung der Prinzipien und Methoden verantwortlich. Aus diesem Grund ist es unerlässlich, dass diese ebenfalls nach einem agilen Muster arbeiten. Nur so können andere Mitarbeiter sich an diesen orientieren und von diesen profitieren. Zusätzlich haben die Führungskräfte die Befugnis Arbeitsläufe zu verändern um so Verbesserungen zu schaffen.
+Die Führungskräfte in einem Unternehmen sind für die Umsetzung der Prinzipien und Methoden verantwortlich. Aus diesem Grund ist es unerlässlich, dass diese ebenfalls nach einem agilen Muster arbeiten. Nur so können andere Mitarbeiter sich an diesen orientieren und von diesen profitieren. Zusätzlich haben die Führungskräfte die Befugnis Arbeitsläufe zu verändern, um so Verbesserungen zu schaffen.
 
 #### Team and Technical Agility
 
@@ -343,7 +343,7 @@ Die Version Essential SAFe ist die Basiskonfiguration für parallel arbeitende a
 
 ![Essential SAFe](./img/essential.png)
 
-Ganz unten befindet sich sozusagen die Teamebene, die Ebene darüber die Programmebene. In der Produktebene werden die Aufgaben und das Vorgehen der einzelnen Teams schematisch dargestellt. Ganz links sehen wir die Zusammensetzung der agilen Teams. Auch hier haben wir ein Product-, bzw. Team-Backlog. In SAFe organisiert sich jedes Team selbstständig, es wird jedoch ein Scrum-Ansatz mit XP-Ansätzen empfohlen. Diese Teams integrieren dann ihre Arbeit in einem CI / CD Ansatz kontinuierlich in das endgültige Produkt. Hierbei kommt es immer wieder zu Verfeinerungen der Anforderungen. AUf Programmebene wird ein Team installiert, welches die Koordination der Feature Teams beaufsichtigt. Hierzu wird ein Agile Release Train eingeführt. Ziel ist es, dass nur Teams an dem Produkt (Train) mitarbeiten, wenn sie benötigt werden. Bei all diesen Maßnahmen steht das User zentrierte Denken im Vordergrund. 
+Ganz unten befindet sich die Teamebene, die Ebene darüber die Programmebene. In der Produktebene werden die Aufgaben und das Vorgehen der einzelnen Teams schematisch dargestellt. Ganz links sehen wir die Zusammensetzung der agilen Teams. Auch hier haben wir ein Product-, bzw. Team-Backlog. In SAFe organisiert sich jedes Team selbstständig, es wird jedoch ein Scrum-Ansatz mit XP-Ansätzen empfohlen. Diese Teams integrieren dann ihre Arbeit in einem CI / CD Ansatz kontinuierlich in das endgültige Produkt. Hierbei kommt es immer wieder zu Verfeinerungen der Anforderungen. AUf Programmebene wird ein Team installiert, welches die Koordination der Feature Teams beaufsichtigt. Hierzu wird ein Agile Release Train eingeführt. Ziel ist es, dass nur Teams an dem Produkt (Train) mitarbeiten, wenn sie benötigt werden. Bei all diesen Maßnahmen steht das User-zentrierte-Denken im Vordergrund. 
 
 #### Portfolio SAFe
 
@@ -351,7 +351,7 @@ Das Essential SAFe wird mit Strategie-, Investitions-, Leitungs- und Portfolio M
 
 ![Portfolio SAFe](./img/portfolio.png)
 
-Dazu gehört zum Beispiel die Festlegung einer Strategie oder die Erstellung einer Vision für das Portfolio. Ingsesamt wird hier auch Budgetplanung berücksichtigt, die Ausrichtung des Unternehmens und viele weitere Aspekte.
+Dazu gehört zum Beispiel die Festlegung einer Strategie oder die Erstellung einer Vision für das Portfolio. Insgesamt wird hier auch Budgetplanung berücksichtigt, die Ausrichtung des Unternehmens und viele weitere Aspekte.
 
 #### Large Solution SAFe
 
@@ -359,7 +359,7 @@ Diese Lösung bietet sich für Teams an, die große zusammenhängende Projekte r
 
 ![Large Solution SAFe](./img/large.png)
 
-Neu in dieser Ebene ist deshalb ein Team, welches die gesamtheitliche Lösung und die Integration der einzelnen Teams beaufsichtigt und begleitet. Dazu zählen dann auch externe Zulieferer und Dienstleister. Auch diese haben eigene Bedürfnisse die koordiniert werden müssen. Hierzu wird dann ein Solution Train eingeführt. Dieser funktioniert analog zu dem Release Train, benötigte EInheiten werden nur wenn benötigt verwendet.
+Neu in dieser Ebene ist deshalb ein Team, welches die gesamtheitliche Lösung und die Integration der einzelnen Teams beaufsichtigt und begleitet. Dazu zählen dann auch externe Zulieferer und Dienstleister. Auch diese haben eigene Bedürfnisse, die koordiniert werden müssen. Hierzu wird dann ein Solution Train eingeführt. Dieser funktioniert analog zu dem Release Train, benötigte Einheiten werden nur wenn benötigt verwendet.
 
 #### Full SAFe
 
@@ -371,7 +371,7 @@ Hierbei ist es wichtig, dass die neue Ebene das große Ganze beaufsichtigt, die 
 
 ### Einsatzgebiet
 
-Das die Einführung des Enterprise Frameworks sich erst lohnt, wenn Scrum seine Grenzen in der Koordination erreicht hat, sollte auch durch die definierten Ziele und Prinzipien klar geworden sein. Alle Prozesse und Prinzipien, Vorgaben und deren Umsetzung beschreibt SAFe allerdings sehr genau. Es eignet sich deshalb vor allem für Unternehmen, die noch nicht agil arbeiten. Bereits agil arbeitende Unternehmen könnten sich durch die strikten Vorgaben eingeengt fühlen. Letztendlich ist es jedoch auch das einzige Frramework, welches für große Unternehmen mit mehr als 100 Entwicklern an einem Projekt in Frage kommt.
+Dass die Einführung des Enterprise Frameworks sich erst lohnt, wenn Scrum seine Grenzen in der Koordination erreicht hat, sollte auch durch die definierten Ziele und Prinzipien klar geworden sein. Alle Prozesse und Prinzipien, Vorgaben und deren Umsetzung beschreibt SAFe allerdings sehr genau. Es eignet sich deshalb vor allem für Unternehmen, die noch nicht agil arbeiten. Bereits agil arbeitende Unternehmen könnten sich durch die strikten Vorgaben eingeengt fühlen. Letztendlich ist es jedoch auch das einzige Frramework, welches für große Unternehmen mit mehr als 100 Entwicklern an einem Projekt in Frage kommt.
 
 ### Vorteile
 
@@ -379,7 +379,7 @@ Ein klarer Vorteil von SAFe ist, dass es sehr gut dokumentiert ist. Zu jedem Ber
 
 ### Nachteile
 
-Der große Vorteil von SAFe, dass es einen umfassenden Rahmen für große Unternehmen schafft, ist gleichzeitig auch der größte Kritikpunkt. Es hat einen riesigen Umfang. Gerade für kleine Teams bedeutet das teilweise einen riesigen Overhead. Auch wenn es unterschiedliche Abstufungen gibt, ein kleines SAFe gibt es nicht wirklich. Auch können Unternehmen die bereits agil arbeiten, sich durch die Einführung von SAFe stark eingeschränkt fühlen. Dies liegt an der strikten und sehr detaillierten Ausarbeitung von Prozessen und Vorgaben.
+Der große Vorteil von SAFe, dass es einen umfassenden Rahmen für große Unternehmen schafft, ist gleichzeitig auch der größte Kritikpunkt. Es hat einen riesigen Umfang. Gerade für kleine Teams bedeutet das teilweise einen riesigen Overhead. Auch wenn es unterschiedliche Abstufungen gibt, ein kleines SAFe gibt es nicht wirklich. Auch können Unternehmen, die bereits agil arbeiten, sich durch die Einführung von SAFe stark eingeschränkt fühlen. Dies liegt an der strikten und sehr detaillierten Ausarbeitung von Prozessen und Vorgaben.
 
  Durch den großen Umfang ist es aber selbst für Kenner von agilen Methoden fast unerlässlich ein Training und entsprechende Zertifizierungen zu buchen. Ein Umstand der von dem Betreiber des Frameworks so gewollt ist. Schließlich ist das Framework an sich frei erhältlich, der Umsatz des Unternehmens wird über Schulungen und Zertifizierungen generiert.
 
