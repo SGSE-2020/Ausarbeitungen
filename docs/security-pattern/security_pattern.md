@@ -1,7 +1,5 @@
 # Security Pattern
 
-[TOC]
-
 ## 1 Einleitung
 
 *Lösungsmuster für immer wiederkehrende Probleme*. So könnte eine Mustersprache (Pattern Language) in der Kurzform beschrieben werden. Oft wird jedoch ein Muster mit einer konkreten Lösung in Verbindung gebracht und weckt die Erwartung, dass ein Muster wie ein Rezept fungiert. Ein Rezept oder ein anderer sequenzieller Satz von zu befolgenden Schritten, mit nur einem korrekten Pfad von Anfang bis Ende, ist dabei kein Muster im Sinne einer Mustersprache. Der Prozess des Entwurfs eines neuen Rezeptes könnte jedoch von der Verwendung einer Mustersprache profitieren. Ebenfalls ist ein Algorithmus nicht als Entwurfsmuster zu sehen, sondern löst oft ein konkretes Rechenproblem. [[1](https://en.wikipedia.org/wiki/Pattern_language)]
